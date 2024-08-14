@@ -3,10 +3,10 @@ import Nav from "@/Nav/Nav";
 import React, { useEffect } from "react";
 import "./section.css";
 import { gsap } from "gsap";
-import { Montserrat } from "@next/font/google";
+import { Montserrat, Raleway } from "@next/font/google";
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["200", "100"], // Add any specific font weights you need
+  weight: ["900", "100"], // Add any specific font weights you need
 });
 function Section() {
   useEffect(() => {
@@ -61,7 +61,7 @@ function Section() {
 
     tl.to("h1", {
       fontSize: "30vh",
-      fontStyle:"bold",
+      // fontStyle:"bold",
       duration: 1,
       ease: "power3.out",
     });
@@ -129,7 +129,7 @@ function Section() {
         {["P", "I", "F", "A", "C", "T", "O", "R"].map((letter, index) => (
           <div className="header-item" key={index}>
             <div className={`header-wrapper hh-${index + 1}`}>
-              <h1>{letter}</h1>
+              <h1 className="">{letter}</h1>
             </div>
           </div>
         ))}
@@ -145,10 +145,10 @@ function Section() {
 
       {/* Tagline Section */}
       <div className="tagline">
-        <p>
+        {/* <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus
           beatae cupiditate voluptatum
-        </p>
+        </p> */}
       </div>
     </div>
   );

@@ -42,7 +42,8 @@ h1 {
   font-size: 6vw;
   font-weight: 800;
   line-height: 100%;
-  color: white;
+  color: yellow;
+  mix-blend-mode: difference;
 }
 .header {
   display: flex;
