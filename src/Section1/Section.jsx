@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 function Section() {
   useEffect(() => {
     const tl = gsap.timeline({ delay: 1 });
-    const movement = [-200, 150, -200, -90, 100, -200, 180, -220];
+    const movement = [-200, 100, -200, -90, 100, -200, 180, -200];
 
     gsap.set("h1", { y: 100 });
     gsap.set(".counter p", { y: 35 });
@@ -97,12 +97,20 @@ function Section() {
         "<"
       );
     });
+
+    // Fade out h1 elements
+    tl.to("h1", {
+      display:"none",
+      delay:2,
+    
+      duration: 1,
+      ease: "power2.out",
+    });
   }, []);
 
   return (
     <div className="container">
       {/* Navigation */}
-      <Nav />
 
       {/* Hero Video Section */}
       <div className="hero-video">
