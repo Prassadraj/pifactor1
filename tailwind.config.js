@@ -7,7 +7,14 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}', // Include all files in the src directory (if applicable)
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'], // Add Poppins to Tailwind's font family
+      },
+      fontWeight: {
+        thin: '100', // Define thin font weight
+      },
+    },
   },
   plugins: [],
 }

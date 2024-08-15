@@ -1,11 +1,42 @@
-import React from 'react'
+"use client";
+
+import React, { useEffect } from "react";
+import "./work.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 function Work1() {
+  useEffect(() => {
+    // GSAP animation setup
+    gsap.set("header p", { y: 200, opacity: 0 }); // Initial state
+
+    gsap.to("header p", {
+      scrollTrigger: {
+        trigger: "header",
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out",
+      delay:0.5,
+      stagger: 0.1,
+    });
+  }, []);
+
   return (
-    <div className='w-full h-[100vh]'>
-       
+    <div className="pp w-full h-[100vh] px-10">
+      <header className="font-poppins flex">
+        {"Work".split("").map((work, i) => (
+          <p className="font-thin text-[200px]" key={i}>
+            {work}
+          </p>
+        ))}
+      </header>
     </div>
-  )
+  );
 }
 
-export default Work1
+export default Work1;
