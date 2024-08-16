@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect } from "react";
 import "./work.css";
 import { gsap } from "gsap";
@@ -21,16 +20,16 @@ function Work1() {
       opacity: 1,
       duration: 1,
       ease: "power3.out",
-      delay:0.5,
+      delay: 0.5,
       stagger: 0.1,
     });
   }, []);
 
   return (
-    <div className="pp w-full h-[100vh] px-10">
+    <div className="pp w-full h-[100vh] px-10 overflow-hidden">
       <header className="font-poppins flex">
         {"Work".split("").map((work, i) => (
-          <p className="font-thin text-[200px]" key={i}>
+          <p className="font-thin text-[20vw] md:text-[200px]" key={i}>
             {work}
           </p>
         ))}

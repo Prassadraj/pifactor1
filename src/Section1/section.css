@@ -17,7 +17,6 @@
   position: absolute;
   top: 0px;
   left: 0;
-  
 }
 .hero-video video {
   width: 100%;
@@ -42,9 +41,8 @@ h1 {
   font-size: 6vw;
   font-weight: 800;
   line-height: 100%;
-color: white;
+  color: white;
   mix-blend-mode: difference;
-
 }
 .header {
   display: flex;
@@ -58,9 +56,9 @@ color: white;
   height: auto;
 }
 
-.header-item{
+.header-item {
   position: relative;
-  clip-path: polygon(0% 0%,  100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   mix-blend-mode: difference;
 }
 .header-item h1 {
@@ -81,14 +79,14 @@ color: white;
   font-size: 30px;
   position: relative;
   line-height: 120%;
-color: yellow;
+  color: yellow;
 }
-@media (max-width:900px) {
-  .tagline{
+@media (max-width: 900px) {
+  .tagline {
     width: 80%;
     bottom: 10rem;
   }
-  h1{
+  h1 {
     font-size: 1px;
   }
 }
