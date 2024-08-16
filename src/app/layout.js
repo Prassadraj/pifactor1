@@ -12,9 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        {/* Any additional head content can go here */}
-      </head>
+      <head>{/* Any additional head content can go here */}</head>
       <body className={inter.className}>
         <Nav />
         {children}
