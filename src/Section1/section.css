@@ -86,7 +86,12 @@ h1 {
     width: 80%;
     bottom: 10rem;
   }
-  h1 {
-    font-size: 1px;
+
+  .header-item h1 {
+    font-size: 8vw; /* Adjust to a more visible size */
+  }
+
+  .header {
+    top: 45%; /* Adjust position for better visibility on mobile */
   }
 }
