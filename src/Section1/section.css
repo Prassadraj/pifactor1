@@ -81,6 +81,17 @@ h1 {
   line-height: 120%;
   color: yellow;
 }
+.cover-screen {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  z-index: 999;
+}
+
 @media (max-width: 900px) {
   .tagline {
     width: 80%;

@@ -13,9 +13,12 @@ const montserrat = Montserrat({
 function Section() {
   useEffect(() => {
     // GSAP animation setup
+
     const tl = gsap.timeline({ delay: 1 });
     const movement = [-130, 100, -130, -90, 100, -130, 180, -130];
-
+    tl.to(".cover-screen ", {
+      display: "none",
+    });
     gsap.set("h1", { y: 100 });
     gsap.set(".counter p", { y: 35 });
 
@@ -111,6 +114,7 @@ function Section() {
 
   return (
     <div className="container">
+      <div className="cover-screen"></div> {/* Cover Screen Element */}
       <div className="hero-video">
         <video
           className="w-full h-full object-cover"
@@ -120,7 +124,6 @@ function Section() {
           muted
         ></video>
       </div>
-
       <div>
         <div className="blocks">
           <div className="block"></div>
