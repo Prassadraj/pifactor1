@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Montserrat } from "@next/font/google";
 import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
-
+import "./nav.css";
 import logo from "../app/images/PixcellFactory_logo.png";
 import sparkle from "../app/images/sparkle.png";
 
@@ -40,27 +40,28 @@ function Nav() {
   }, []);
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      delay: 5, // Start the timeline after 5 seconds
+    const tl = gsap.timeline({ delay: 5 });
+    gsap.set(".logo .img", {
+      y: 100,
+    });
+    gsap.set(".nav-item p", {
+      y: 100,
     });
 
     // Animate the logo
-    tl.to(".logo", {
-      opacity: 1,
+    tl.to(".logo .img", {
       y: 0,
-      duration: 1, // Animation duration
-      ease: "power2.out", // Easing function
+      ease: "power3.out",
+      stagger: 0.1,
+      duration: 0.5,
     });
-
-    // Animate the navigation items
-    tl.to(".nav-item", {
-      opacity: 1,
+    tl.to(".nav-item p", {
       y: 0,
-      stagger: 0.2, // Delay between each item
-      duration: 1, // Animation duration
-      ease: "power2.out", // Easing function
+      ease: "power3.out",
+      stagger: 0.1,
+      duration: 0.5,
+      opacity: 1,
     });
-
     return () => {
       tl.kill(); // Clean up the timeline on component unmount
     };
@@ -74,23 +75,19 @@ function Nav() {
         isNavVisible ? "opacity-100" : "opacity-0"
       } transition-opacity duration-300`}
     >
-      <Link href="/">
-        <Image
-          className="logo opacity-0 transform translate-y-10 w-32 lg:w-52 transition-all duration-300"
-          src={logo}
-          alt="Logo"
-        />
+      <Link href="/" className="logo">
+        <Image className="img  w-32 lg:w-52 " src={logo} alt="Logo" />
       </Link>
       <div className="flex gap-4 lg:gap-10 cursor-pointer">
         {navItems.map((item) => (
           <Link key={item.name} href={item.href}>
             <div
-              className={`nav-item group flex flex-col items-center text-base opacity-0 transform translate-y-10 transition-all duration-300 ease-in-out ${
+              className={`nav-item group flex flex-col items-center text-base  ${
                 pathname === item.href ? "text-gray-800" : ""
               }`}
             >
               <p className="text-base text-white name">{item.name}</p>
-              <p className="h-[1px] bg-white w-0 group-hover:w-full transition-all duration-300"></p>
+              <p className="h-[1px] bg-white w-0 group-hover:w-full "></p>
               {pathname === item.href && (
                 <Image
                   className="transition-all duration-300"
