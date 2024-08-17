@@ -1,4 +1,5 @@
 "use client";
+
 import Section from "@/Section1/Section";
 import Work1 from "@/Works/Work1";
 import { useEffect, useState } from "react";

@@ -29,9 +29,9 @@ function Work1() {
     <div className="pp w-full h-[100vh] px-10 overflow-hidden">
       <header className="font-poppins flex letters">
         {"Work".split("").map((work, i) => (
-          <div className="font-thin text-[20vw] md:text-[200px]" key={i}>
+          <p className="font-thin text-[20vw] md:text-[200px]" key={i}>
             {work}
-          </div>
+          </p>
         ))}
       </header>
     </div>
