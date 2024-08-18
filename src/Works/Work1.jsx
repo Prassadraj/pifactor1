@@ -3,7 +3,12 @@ import React, { useEffect } from "react";
 import "./work.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Montserrat } from "@next/font/google";
 
+const montserrat = Montserrat({
+  subsets: ["latin"],
+
+});
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,7 +34,11 @@ function Work1() {
     <div className="pp w-full h-[100vh] px-10 overflow-hidden">
       <header className="font-poppins flex letters">
         {"Work".split("").map((work, i) => (
-          <p className="font-thin text-[20vw] md:text-[200px]" key={i}>
+          <p
+            className={`${montserrat.className} font-thin text-[20vw] md:text-[200px]`}
+            montserrat
+            key={i}
+          >
             {work}
           </p>
         ))}
