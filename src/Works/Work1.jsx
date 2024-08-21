@@ -66,8 +66,8 @@ function Work1() {
       [".image2"],
 
       {
-        y: 50,
-        opacity: 0.5,
+        y: 100,
+        opacity: 0.3,
         // Initial state with opacity 0
       },
       {
@@ -78,7 +78,50 @@ function Work1() {
         scrollTrigger: {
           trigger: ".image2", // Trigger the animation when `.image1` enters the viewport
           start: "top 80%", // Start animation when top of `.image1` is 80% from the top
-          end: "bottom 100%", // End animation when bottom of `.image1` is 20% from the top
+          end: "bottom 30%", // End animation when bottom of `.image1` is 20% from the top
+          scrub: 1, // Smooth animation tied to scroll position
+        },
+      }
+    );
+    gsap.fromTo(
+      [".image3"],
+
+      {
+        y: 100,
+        opacity: 0.3,
+        // Initial state with opacity 0
+      },
+      {
+        y: 0,
+        opacity: 1, // Final state with opacity 1
+        duration: 1, // Duration of the animation
+        ease: "back.out(1.7)", // Back easing with an overshoot of 1.7
+        scrollTrigger: {
+          markers: true,
+          trigger: ".image4", // Trigger the animation when `.image1` enters the viewport
+          start: "top 70%", // Start animation when top of `.image1` is 80% from the top
+          end: "bottom 30%", // End animation when bottom of `.image1` is 20% from the top
+          scrub: 1, // Smooth animation tied to scroll position
+        },
+      }
+    );
+    gsap.fromTo(
+      [".image4"],
+
+      {
+        y: 0,
+        opacity: 0.3,
+        // Initial state with opacity 0
+      },
+      {
+        y: 70,
+        opacity: 1, // Final state with opacity 1
+        duration: 1, // Duration of the animation
+        ease: "back.out(1.7)", // Back easing with an overshoot of 1.7
+        scrollTrigger: {
+          trigger: ".image4", // Trigger the animation when `.image1` enters the viewport
+          start: "top 70%", // Start animation when top of `.image1` is 80% from the top
+          end: "bottom 30%", // End animation when bottom of `.image1` is 20% from the top
           scrub: 1, // Smooth animation tied to scroll position
         },
       }
@@ -101,9 +144,9 @@ function Work1() {
           </p>
         ))}
       </header>
-      <section>
+      <section className="flex flex-col md:gap-20">
         {/* section1 */}
-        <div className="md:h-[170vh]  flex ">
+        <div className="md:h-[170vh]  md:flex md:gap-20">
           <div className="md:flex-1  h-full md:px-5">
             <p>VFX</p>
             <img
@@ -111,10 +154,10 @@ function Work1() {
               src="https://images.pexels.com/photos/2387866/pexels-photo-2387866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               alt=""
             />
-            <p className="text-white about">About Project</p>
+            <p className="text-white image1">About Project</p>
           </div>
-          <div className="md:flex-1  h-full flex flex-col justify-between px-20">
-            <div className="flex flex-col gap-10 featured">
+          <div className="md:flex-1  h-full flex flex-col justify-between ">
+            <div className="flex flex-col justify-end gap-10 featured">
               <div className="flex gap-1">
                 <Image src={sparkle} className="w-4" />
                 <p className="text-base">Featured Projects</p>
@@ -130,7 +173,27 @@ function Work1() {
                 src="https://images.pexels.com/photos/1078983/pexels-photo-1078983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 alt=""
               />
+              <p className="text-white image2">About Project</p>
             </div>
+          </div>
+        </div>
+        {/* section2 */}
+        <div className="md:h-[150vh]  flex  justify-evenly ">
+          <div className="flex  justify-end items-start flex-col">
+            <img
+              className="md:w-full md:h-[50%] object-contain image3"
+              src="https://images.pexels.com/photos/6494449/pexels-photo-6494449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt=""
+            />
+            <p className="text-white image3">About Project</p>
+          </div>
+          <div className=" flex flex-col items-start">
+            <img
+              className="w-full h-[70%] object-contain image4 "
+              src="https://images.pexels.com/photos/1755683/pexels-photo-1755683.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt=""
+            />
+            <p className="text-white image4">About Project</p>
           </div>
         </div>
       </section>
