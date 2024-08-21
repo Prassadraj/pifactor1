@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Montserrat } from "@next/font/google";
 import sparkle from "../app/images/sparkle.png";
 import Image from "next/image";
+import Lenis from "@studio-freight/lenis";
 const montserrat = Montserrat({
   subsets: ["latin"],
 });
@@ -14,6 +15,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Work1() {
   useEffect(() => {
+    const lenis = new Lenis({
+      duration: 0.5, // Duration of the scroll (in seconds)
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing function
+      smooth: true, // Enable smooth scrolling
+    });
+
+    function raf(time) {
+      lenis.raf(time); // Pass the timestamp to Lenis
+      requestAnimationFrame(raf); // Loop the requestAnimationFrame
+    }
+
+    requestAnimationFrame(raf); // Start the loop
     // GSAP animation setup
     gsap.set("header p", { y: 200, opacity: 0 }); // Initial state
 
@@ -70,6 +83,9 @@ function Work1() {
         },
       }
     );
+    return () => {
+      lenis.destroy(); // Clean up Lenis on unmount
+    };
   }, []);
 
   return (
