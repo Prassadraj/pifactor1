@@ -1,8 +1,9 @@
 "use client";
 
-import Section from "@/Section1/Section";
-import Work1 from "@/Works/Work1";
 
+
+import Section from "@/Homepage/Section1/Section";
+import Work1 from "@/Homepage/Works/Work1";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
   }, []);
   return (
     <>
-      <Section />
+      <Section/>
       {show && (
         <>
           <Work1 />
