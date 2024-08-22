@@ -97,7 +97,6 @@ function Work1() {
         duration: 1, // Duration of the animation
         ease: "back.out(1.7)", // Back easing with an overshoot of 1.7
         scrollTrigger: {
-          markers: true,
           trigger: ".image4", // Trigger the animation when `.image1` enters the viewport
           start: "top 70%", // Start animation when top of `.image1` is 80% from the top
           end: "bottom 30%", // End animation when bottom of `.image1` is 20% from the top
