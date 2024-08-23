@@ -89,7 +89,7 @@ function Work1() {
         ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: ".image3",
-          markers: true,
+
           start: "top 40%",
           end: "bottom 70%",
           scrub: 1,
