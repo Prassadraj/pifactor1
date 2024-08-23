@@ -175,7 +175,7 @@ function Work1() {
               ) : (
                 <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
-                  src="https://images.pexels.com/photos/2387866/pexels-photo-2387866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  src="https://images.unsplash.com/photo-1567818668411-2580206b256d?q=80&w=1960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt=""
                 />
               )}
@@ -210,7 +210,7 @@ function Work1() {
               ) : (
                 <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
-                  src="https://images.pexels.com/photos/1078983/pexels-photo-1078983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  src="https://images.unsplash.com/photo-1598814165187-ed79437d7490?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt=""
                 />
               )}
@@ -237,7 +237,7 @@ function Work1() {
               ) : (
                 <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
-                  src="https://images.pexels.com/photos/6494449/pexels-photo-6494449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  src="https://images.unsplash.com/photo-1567818736054-5a48c89711fc?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt=""
                 />
               )}
@@ -262,7 +262,7 @@ function Work1() {
               ) : (
                 <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
-                  src="https://images.pexels.com/photos/1755683/pexels-photo-1755683.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  src="https://images.unsplash.com/photo-1611651336487-802fe164d3e5?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt=""
                 />
               )}
