@@ -159,7 +159,7 @@ function Work1() {
           <div className="md:flex-1 h-full md:px-5">
             <p className="font-medium text-xl">VFX</p>
             <div
-              className="w-full h-[800px] bg-slate-200 relative image1"
+              className="w-full h-[800px]  relative image1"
               onMouseEnter={() => handleMouseEnter("image1")}
               onMouseLeave={() => handleMouseLeave("image1")}
             >
@@ -194,7 +194,7 @@ function Work1() {
               </p>
             </div>
             <div
-              className="w-[400px] h-[600px] md:w-[400px] flex  md:h-[500px] bg-slate-200 relative image2"
+              className="w-[400px] h-[600px] md:w-[400px] flex  md:h-[500px]  relative image2"
               onMouseEnter={() => handleMouseEnter("image2")}
               onMouseLeave={() => handleMouseLeave("image2")}
             >
@@ -221,7 +221,7 @@ function Work1() {
         <div className="md:h-[150vh] flex justify-evenly">
           <div className="flex w-[300px] justify-end items-start flex-col image3">
             <div
-              className="w-full h-[400px] bg-slate-200 relative"
+              className="w-full h-[400px]  relative"
               onMouseEnter={() => handleMouseEnter("image3")}
               onMouseLeave={() => handleMouseLeave("image3")}
             >
@@ -246,7 +246,7 @@ function Work1() {
           </div>
           <div className="flex w-2/4 items-center  flex-col justify-center image4">
             <div
-              className="w-[500px] h-[600px] bg-slate-200 relative"
+              className="w-[500px] h-[600px]  relative"
               onMouseEnter={() => handleMouseEnter("image4")}
               onMouseLeave={() => handleMouseLeave("image4")}
             >
