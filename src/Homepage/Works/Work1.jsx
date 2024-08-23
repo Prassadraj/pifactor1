@@ -72,8 +72,8 @@ function Work1() {
         ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: ".image2",
-          start: "top 70%",
-          end: "bottom 50%",
+          start: "top 60%",
+          end: "bottom 40%",
           scrub: 1,
         },
       }
@@ -193,7 +193,7 @@ function Work1() {
               </p>
             </div>
             <div
-              className="w-[500px] h-[800px] bg-slate-200 relative image2"
+              className="w-[400px] h-[600px] md:w-[400px] flex  md:h-[500px] bg-slate-200 relative image2"
               onMouseEnter={() => handleMouseEnter("image2")}
               onMouseLeave={() => handleMouseLeave("image2")}
             >
