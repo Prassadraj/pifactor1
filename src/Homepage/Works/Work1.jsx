@@ -81,16 +81,17 @@ function Work1() {
 
     gsap.fromTo(
       [".image3"],
-      { y: 130, opacity: 0.3 },
+      { y: 150, opacity: 0.2 },
       {
-        y: 0,
+        y: 80,
         opacity: 1,
         duration: 1,
         ease: "back.out(1.7)",
         scrollTrigger: {
-          trigger: ".image4",
-          start: "top 70%",
-          end: "bottom 30%",
+          trigger: ".image3",
+          markers: true,
+          start: "top 40%",
+          end: "bottom 70%",
           scrub: 1,
         },
       }
@@ -98,16 +99,16 @@ function Work1() {
 
     gsap.fromTo(
       [".image4"],
-      { y: 0, opacity: 0.3 },
+      { y: -20, opacity: 0.3 },
       {
-        y: 70,
+        y: 10,
         opacity: 1,
         duration: 1,
         ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: ".image4",
           start: "top 70%",
-          end: "bottom 30%",
+          end: "bottom 50%",
           scrub: 1,
         },
       }
@@ -220,7 +221,7 @@ function Work1() {
         <div className="md:h-[150vh] flex justify-evenly">
           <div className="flex w-[300px] justify-end items-start flex-col image3">
             <div
-              className="w-full h-[500px] bg-slate-200 relative"
+              className="w-full h-[400px] bg-slate-200 relative"
               onMouseEnter={() => handleMouseEnter("image3")}
               onMouseLeave={() => handleMouseLeave("image3")}
             >
