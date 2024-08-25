@@ -44,7 +44,7 @@ function Work2() {
     duration: 1,
     scrollTrigger: {
       trigger: ".animations3",
-      markers: true,
+      
       start: "top 40%",
       end: "bottom 40%",
       scrub: 2,
