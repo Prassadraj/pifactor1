@@ -1,9 +1,8 @@
 "use client";
 
-
-
 import Section from "@/Homepage/Section1/Section";
 import Work1 from "@/Homepage/Works/Work1";
+import PlayReel from "@/Homepage/Works/PlayReel";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -16,12 +15,14 @@ export default function Home() {
   }, []);
   return (
     <>
-      <Section/>
-      {show && (
-        <>
-          <Work1 />
-        </>
-      )}
+      <Section />
+      {/* {show && ( */}
+      <>
+        <Work1 />
+        <PlayReel />
+       
+      </>
+      {/* )} */}
     </>
   );
 }

@@ -1,20 +1,21 @@
-// tailwind.config.js
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx}',  // Include all files in the pages directory
-    './components/**/*.{js,ts,jsx,tsx}',  // Include all files in the components directory
-    './app/**/*.{js,ts,jsx,tsx}', // Include all files in the app directory
-    './src/**/*.{js,ts,jsx,tsx}', // Include all files in the src directory (if applicable)
+    "./pages/**/*.{js,ts,jsx,tsx}", 
+    "./components/**/*.{js,ts,jsx,tsx}", 
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'], // Add Poppins to Tailwind's font family
+        poppins: ['Poppins', 'sans-serif'],
+        lato: ['Lato', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
       },
       fontWeight: {
-        thin: '100', // Define thin font weight
+        thin: '100',
       },
     },
   },
   plugins: [],
-}
+};

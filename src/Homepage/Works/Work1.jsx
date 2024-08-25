@@ -3,13 +3,17 @@ import React, { useEffect, useState, useRef } from "react";
 import "./work.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Montserrat } from "@next/font/google";
+import { Lato, Montserrat } from "@next/font/google";
 import sparkle from "../../app/images/sparkle.png";
 import Image from "next/image";
 import Lenis from "@studio-freight/lenis";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
+});
+const lato = Lato({
+  subsets: ["latin"],
+  weight: "100",
 });
 
 gsap.registerPlugin(ScrollTrigger);
@@ -99,15 +103,16 @@ function Work1() {
 
     gsap.fromTo(
       [".image4"],
-      { y: -20, opacity: 0.3 },
+      { y: -40, opacity: 0.3 },
       {
         y: 10,
         opacity: 1,
-        duration: 1,
+        duration: 0.5,
         ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: ".image4",
-          start: "top 70%",
+
+          start: "top 60%",
           end: "bottom 50%",
           scrub: 1,
         },
@@ -157,7 +162,7 @@ function Work1() {
         {/* section1 */}
         <div className="md:h-[170vh] md:flex md:gap-20">
           <div className="md:flex-1 h-full md:px-5">
-            <p className="font-medium text-xl">VFX</p>
+            <p className="font-medium text-xl vfx">VFX</p>
             <div
               className="w-full h-[800px]  relative image1"
               onMouseEnter={() => handleMouseEnter("image1")}
@@ -166,7 +171,7 @@ function Work1() {
               {enter === "image1" ? (
                 <video
                   ref={(el) => (videoRefs.current["image1"] = el)}
-                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
                   autoPlay
                   muted
                   loop
@@ -186,9 +191,13 @@ function Work1() {
             <div className="flex flex-col justify-end gap-10 featured">
               <div className="flex gap-1">
                 <Image src={sparkle} className="w-4" />
-                <p className="text-base">Featured Projects</p>
+                <p className={`text-base ${lato.className} `}>
+                  Featured Projects
+                </p>
               </div>
-              <p className="text-xl max-w-[400px]">
+              <p
+                className={`text-xl max-w-[400px] font-medium ${lato.className}`}
+              >
                 Highlights of cases that we passionately built with
                 forward-thinking clients and friends over the years.
               </p>
@@ -201,7 +210,7 @@ function Work1() {
               {enter === "image2" ? (
                 <video
                   ref={(el) => (videoRefs.current["image2"] = el)}
-                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
                   autoPlay
                   muted
                   loop
@@ -228,7 +237,7 @@ function Work1() {
               {enter === "image3" ? (
                 <video
                   ref={(el) => (videoRefs.current["image3"] = el)}
-                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
                   autoPlay
                   muted
                   loop
@@ -253,7 +262,7 @@ function Work1() {
               {enter === "image4" ? (
                 <video
                   ref={(el) => (videoRefs.current["image4"] = el)}
-                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
                   autoPlay
                   muted
                   loop
@@ -267,7 +276,11 @@ function Work1() {
                 />
               )}
             </div>
-            <p className="text-white mt-2 text-left">About Project</p>
+            {enter === "image4" && (
+              <p className="text-white mt-2 text-left transition-all ">
+                About Project
+              </p>
+            )}
           </div>
         </div>
       </section>
