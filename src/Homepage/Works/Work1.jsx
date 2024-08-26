@@ -150,7 +150,7 @@ function Work1() {
       <header className="font-poppins flex letters">
         {"Work".split("").map((work, i) => (
           <p
-            className={`${montserrat.className} font-thin text-[20vw] md:text-[100px]`}
+            className={`${montserrat.className} font-normal text-[20vw] md:text-[100px]`}
             montserrat
             key={i}
           >
