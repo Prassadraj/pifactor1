@@ -32,7 +32,7 @@ function Work3() {
           </p>
         ))}
       </div>
-      <div className="h-[100vh] sticky top-0 w-full overflow-hidden py-5 gap-10 flex flex-col justify-evenly">
+      <div className="h-[100vh] sticky top-0 w-full overflow-hidden py-10 gap-10 flex flex-col justify-evenly">
         <div className="h-[50vh] w-full overflow-x-hidden flex gap-5 items-center justify-center">
           <div className="ImageWrapper">
             <div className="w-[20rem] h-full ">
