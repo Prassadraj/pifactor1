@@ -66,7 +66,7 @@ function PlayReel() {
       <div className="w-full h-[200vh] video" ref={container}>
         {/* The element to be animated on scroll */}
         <div className=" h-[100vh] sticky top-0 w-full overflow-hidden cursor-pointer">
-          <Link href='#'>
+          <Link href="#">
             <video
               style={{ cursor: "pointer" }}
               className="w-full h-full object-cover reel"
