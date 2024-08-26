@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import "./work.css";
+import "../Works/work.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Lato, Montserrat } from "@next/font/google";
@@ -151,7 +151,6 @@ function Work1() {
         {"Work".split("").map((work, i) => (
           <p
             className={`${montserrat.className} font-thin text-[20vw] md:text-[100px]`}
-            montserrat
             key={i}
           >
             {work}
@@ -164,7 +163,7 @@ function Work1() {
           <div className="md:flex-1 h-full md:px-5">
             <p className="font-medium text-xl vfx">VFX</p>
             <div
-              className="w-full h-[800px]  relative image1"
+              className="w-full h-[800px] relative image1"
               onMouseEnter={() => handleMouseEnter("image1")}
               onMouseLeave={() => handleMouseLeave("image1")}
             >
@@ -178,20 +177,22 @@ function Work1() {
                   src="./car.mp4"
                 ></video>
               ) : (
-                <img
+                <Image
                   className="absolute top-0 left-0 w-full h-full object-cover"
                   src="https://images.unsplash.com/photo-1567818668411-2580206b256d?q=80&w=1960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt=""
+                  alt="VFX project"
+                  layout="fill"
+                  objectFit="cover"
                 />
               )}
             </div>
             <p className="text-white image1">About Project</p>
           </div>
-          <div className="md:flex-1 h-full flex  flex-col justify-between">
+          <div className="md:flex-1 h-full flex flex-col justify-between">
             <div className="flex flex-col justify-end gap-10 featured">
               <div className="flex gap-1">
-                <Image src={sparkle} className="w-4" />
-                <p className={`text-base ${lato.className} `}>
+                <Image src={sparkle} className="w-4" alt="Sparkle" />
+                <p className={`text-base ${lato.className}`}>
                   Featured Projects
                 </p>
               </div>
@@ -203,7 +204,7 @@ function Work1() {
               </p>
             </div>
             <div
-              className="w-[400px] h-[600px] md:w-[400px] flex  md:h-[500px]  relative image2"
+              className="w-[400px] h-[600px] md:w-[400px] flex md:h-[500px] relative image2"
               onMouseEnter={() => handleMouseEnter("image2")}
               onMouseLeave={() => handleMouseLeave("image2")}
             >
@@ -217,10 +218,12 @@ function Work1() {
                   src="./car.mp4"
                 ></video>
               ) : (
-                <img
+                <Image
                   className="absolute top-0 left-0 w-full h-full object-cover"
                   src="https://images.unsplash.com/photo-1598814165187-ed79437d7490?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt=""
+                  alt="Featured project"
+                  layout="fill"
+                  objectFit="cover"
                 />
               )}
             </div>
@@ -230,7 +233,7 @@ function Work1() {
         <div className="md:h-[150vh] flex justify-evenly">
           <div className="flex w-[300px] justify-end items-start flex-col image3">
             <div
-              className="w-full h-[400px]  relative"
+              className="w-full h-[400px] relative"
               onMouseEnter={() => handleMouseEnter("image3")}
               onMouseLeave={() => handleMouseLeave("image3")}
             >
@@ -244,18 +247,20 @@ function Work1() {
                   src="./car.mp4"
                 ></video>
               ) : (
-                <img
+                <Image
                   className="absolute top-0 left-0 w-full h-full object-cover"
                   src="https://images.unsplash.com/photo-1567818736054-5a48c89711fc?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt=""
+                  alt="Creative project"
+                  layout="fill"
+                  objectFit="cover"
                 />
               )}
             </div>
-            <p className="text-white mt-2">About Project</p>
+            <p className="text-white">About Project</p>
           </div>
-          <div className="flex w-2/4 items-center  flex-col justify-center image4">
+          <div className="flex w-[300px] justify-end items-end flex-col gap-5 image4">
             <div
-              className="w-[500px] h-[600px]  relative"
+              className="w-full h-[400px] relative"
               onMouseEnter={() => handleMouseEnter("image4")}
               onMouseLeave={() => handleMouseLeave("image4")}
             >
@@ -269,18 +274,16 @@ function Work1() {
                   src="./car.mp4"
                 ></video>
               ) : (
-                <img
+                <Image
                   className="absolute top-0 left-0 w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1611651336487-802fe164d3e5?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt=""
+                  src="https://images.unsplash.com/photo-1567818668411-2580206b256d?q=80&w=1960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Creative project"
+                  layout="fill"
+                  objectFit="cover"
                 />
               )}
             </div>
-            {enter === "image4" && (
-              <p className="text-white mt-2 text-left transition-all ">
-                About Project
-              </p>
-            )}
+            <p className="text-white">About Project</p>
           </div>
         </div>
       </section>
