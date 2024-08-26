@@ -18,12 +18,12 @@ export default function Home() {
     <>
       <Section />
       {show && (
-      <>
-        <Work1 />
-        <PlayReel />
-        <Work2 />
-      </>
-      // {/* )} */}
+        <>
+          <Work1 />
+          <PlayReel />
+          <Work2 />
+        </>
+      )}
     </>
   );
 }
