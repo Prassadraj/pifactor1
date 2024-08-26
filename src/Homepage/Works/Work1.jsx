@@ -7,7 +7,7 @@ import { Lato, Montserrat } from "@next/font/google";
 import sparkle from "../../app/images/sparkle.png";
 import Image from "next/image";
 import Lenis from "@studio-freight/lenis";
-
+import { motion } from "framer-motion";
 const montserrat = Montserrat({
   subsets: ["latin"],
 });
@@ -22,8 +22,17 @@ function Work1() {
   const [enter, setEnter] = useState("");
   const [videoTimes, setVideoTimes] = useState({}); // Store playback times for multiple videos
   const videoRefs = useRef({}); // Object to store refs for multiple video elements
-
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [view, setView] = useState("");
   useEffect(() => {
+    const mouseMove = (e) => {
+      setMousePosition({
+        x: e.clientX, // Corrected here
+        y: e.clientY, // Corrected here
+      });
+    };
+    window.addEventListener("mousemove", mouseMove);
+
     const lenis = new Lenis({
       duration: 0.5,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -93,7 +102,6 @@ function Work1() {
         ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: ".image3",
-
           start: "top 40%",
           end: "bottom 70%",
           scrub: 1,
@@ -111,7 +119,6 @@ function Work1() {
         ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: ".image4",
-
           start: "top 60%",
           end: "bottom 50%",
           scrub: 1,
@@ -121,6 +128,7 @@ function Work1() {
 
     return () => {
       lenis.destroy();
+      window.removeEventListener("mousemove", mouseMove);
     };
   }, []);
 
@@ -144,9 +152,31 @@ function Work1() {
       videoRef.pause();
     }
   };
+  const variants = {
+    default: {
+      x: mousePosition.x,
+      y: mousePosition.y,
+    },
+  };
 
   return (
     <div className="pp w-full md:px-20 md:py-10 font-poppins font-thin">
+      {view == "default" && (
+        <motion.div
+          variants={variants}
+          animate={view}
+          transition={{ duration: 0.1, ease: "linear" }}
+          style={{ pointerEvents: "none" }}
+          className="fixed top-0  flex justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
+        >
+          <p
+            className={`${montserrat.className} text-white font-normal text-sm`}
+          >
+            {" "}
+            View
+          </p>
+        </motion.div>
+      )}
       <header className="font-poppins flex letters">
         {"Work".split("").map((work, i) => (
           <p
@@ -158,6 +188,7 @@ function Work1() {
           </p>
         ))}
       </header>
+
       <section className="flex flex-col md:gap-20">
         {/* section1 */}
         <div className="md:h-[170vh] md:flex md:gap-20">
@@ -165,8 +196,14 @@ function Work1() {
             <p className="font-medium text-xl vfx">VFX</p>
             <div
               className="w-full h-[800px]  relative image1"
-              onMouseEnter={() => handleMouseEnter("image1")}
-              onMouseLeave={() => handleMouseLeave("image1")}
+              onMouseEnter={() => {
+                handleMouseEnter("image1");
+                setView("default");
+              }}
+              onMouseLeave={() => {
+                handleMouseLeave("image1");
+                setView("");
+              }}
             >
               {enter === "image1" ? (
                 <video
@@ -204,8 +241,14 @@ function Work1() {
             </div>
             <div
               className="w-[400px] h-[600px] md:w-[400px] flex  md:h-[500px]  relative image2"
-              onMouseEnter={() => handleMouseEnter("image2")}
-              onMouseLeave={() => handleMouseLeave("image2")}
+              onMouseEnter={() => {
+                handleMouseEnter("image2");
+                setView("default");
+              }}
+              onMouseLeave={() => {
+                handleMouseLeave("image2");
+                setView("");
+              }}
             >
               {enter === "image2" ? (
                 <video
@@ -231,8 +274,14 @@ function Work1() {
           <div className="flex w-[300px] justify-end items-start flex-col image3">
             <div
               className="w-full h-[400px]  relative"
-              onMouseEnter={() => handleMouseEnter("image3")}
-              onMouseLeave={() => handleMouseLeave("image3")}
+              onMouseEnter={() => {
+                handleMouseEnter("image3");
+                setView("default");
+              }}
+              onMouseLeave={() => {
+                handleMouseLeave("image3");
+                setView("");
+              }}
             >
               {enter === "image3" ? (
                 <video
@@ -256,8 +305,14 @@ function Work1() {
           <div className="flex w-2/4 items-center  flex-col justify-center image4">
             <div
               className="w-[500px] h-[600px]  relative"
-              onMouseEnter={() => handleMouseEnter("image4")}
-              onMouseLeave={() => handleMouseLeave("image4")}
+              onMouseEnter={() => {
+                handleMouseEnter("image4");
+                setView("default");
+              }}
+              onMouseLeave={() => {
+                handleMouseLeave("image4");
+                setView("");
+              }}
             >
               {enter === "image4" ? (
                 <video

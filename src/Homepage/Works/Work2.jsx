@@ -112,7 +112,7 @@ function Work2() {
     <div ref={containerRef} className="md:px-20 md:py-10 w-full h-[240vh]">
       <div className="text flex overflow-hidden h-10 ">
         {" 2D Animations".split("").map((text, i) => (
-          <p key={i} className={`${montserrat.className} text-3xl font-thin`}>
+          <p key={i} className={`${montserrat.className} text-4xl font-thin`}>
             {text}
           </p>
         ))}
@@ -129,8 +129,10 @@ function Work2() {
             }`}
           >
             <div className="animate-2d">
-              <p className={`${montserrat.className} text-4xl`}>Title</p>
-              <p className={`${montserrat.className} text-xl`}>
+              <p className={`${montserrat.className} text-2xl font-medium`}>
+                Title
+              </p>
+              <p className={`${montserrat.className} text-lg`}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Dolores, aut eum a, vero, quia.
               </p>
