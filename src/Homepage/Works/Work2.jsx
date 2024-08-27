@@ -8,7 +8,7 @@ import Picture1 from "../../../public/images/1.jpeg";
 import Picture2 from "../../../public/images/2.jpeg";
 import Picture3 from "../../../public/images/3.jpg";
 import Picture4 from "../../../public/images/4.jpg";
-import Picture5 from "../../../public/images/5.jpg";
+import Picture5 from "../../app/images/window.png";
 import Picture6 from "../../../public/images/6.jpg";
 import Picture7 from "../../../public/images/7.jpeg";
 
@@ -23,19 +23,6 @@ function Work2() {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    const lenis = new Lenis({
-      smooth: true,
-      duration: 1.2,
-      ease: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
-
-    const scrollFn = (time) => {
-      lenis.raf(time);
-      requestAnimationFrame(scrollFn);
-    };
-
-    requestAnimationFrame(scrollFn);
-
     // Setup GSAP animations with ScrollTrigger
     // 2D animation text
     gsap.fromTo(
@@ -107,7 +94,7 @@ function Work2() {
 
     // Cleanup on component unmount
     return () => {
-      lenis.destroy();
+      
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);

@@ -15,19 +15,6 @@ function Work3() {
   const container = useRef(null);
 
   useEffect(() => {
-    const lenis = new Lenis({
-      smooth: true,
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
     gsap.to(".ImageWrapper", {
       x: 190,
       duration: 0.2,
@@ -70,7 +57,7 @@ function Work3() {
 
     // Cleanup on component unmount
     return () => {
-      lenis.destroy();
+      
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Correct way to kill all ScrollTriggers
     };
   }, []);

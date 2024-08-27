@@ -3,7 +3,7 @@ import Picture1 from "../../../public/images/1.jpeg";
 import Picture2 from "../../../public/images/2.jpeg";
 import Picture3 from "../../../public/images/3.jpg";
 import Picture4 from "../../../public/images/4.jpg";
-import Picture5 from "../../../public/images/5.jpg";
+import Picture5 from "../../app/images/window.png";
 import Picture6 from "../../../public/images/6.jpg";
 import Picture7 from "../../../public/images/7.jpeg";
 import Image from "next/image";
