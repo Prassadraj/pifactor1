@@ -1,29 +1,53 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Section from "@/Homepage/Section1/Section";
 import Work1 from "@/Homepage/Works/Work1";
 import PlayReel from "@/Homepage/Works/PlayReel";
-import { useEffect, useState } from "react";
 import Work2 from "@/Homepage/Works/Work2";
 import Work3 from "@/Homepage/Works/Work3";
+import Lenis from "@studio-freight/lenis";
+import Work4 from "@/Homepage/Works/Work4";
 
 export default function Home() {
   const [show, setShow] = useState(false);
+
   useEffect(() => {
+    // Initialize Lenis for smooth scrolling
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
     const timer = setTimeout(() => {
       setShow((e) => !e);
     }, 5000);
-    return () => clearTimeout(timer);
+
+    return () => {
+      clearTimeout(timer);
+      lenis.destroy(); // Clean up Lenis on component unmount
+    };
   }, []);
+
   return (
     <>
       <Section />
+      {/* Uncomment the show state condition to control the rendering */}
       {/* {show && ( */}
         <>
           <Work1 />
           <PlayReel />
           <Work2 />
           <Work3 />
+          <Work4 />
         </>
       {/* )} */}
     </>

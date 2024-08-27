@@ -19,7 +19,7 @@ function Work2() {
   useEffect(() => {
     const lenis = new Lenis({
       smooth: true,
-      duration: 0.5,
+      duration: 1.2,
       ease: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
 
@@ -35,7 +35,7 @@ function Work2() {
     gsap.fromTo(
       ".text p",
       {
-        y: 50,
+        y: 150,
       },
       {
         y: 0,
@@ -110,9 +110,15 @@ function Work2() {
 
   return (
     <div ref={containerRef} className="md:px-20 md:py-10 w-full h-[240vh]">
-      <div className="text flex overflow-hidden h-10 ">
+      <div
+        className="text flex overflow-hidden "
+        style={{ clipPath: " polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
+      >
         {" 2D Animations".split("").map((text, i) => (
-          <p key={i} className={`${montserrat.className} text-4xl font-thin`}>
+          <p
+            key={i}
+            className={`${montserrat.className} font-normal text-[20vw] md:text-[70px]`}
+          >
             {text}
           </p>
         ))}
