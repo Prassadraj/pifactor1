@@ -41,7 +41,7 @@ export default function Home() {
     <>
       <Section />
       {/* Uncomment the show state condition to control the rendering */}
-      {/* {show && ( */}
+      {show && (
         <>
           <Work1 />
           <PlayReel />
@@ -49,7 +49,7 @@ export default function Home() {
           <Work3 />
           <Work4 />
         </>
-      {/* )} */}
+      )}
     </>
   );
 }
