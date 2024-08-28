@@ -33,19 +33,6 @@ function Work1() {
     };
     window.addEventListener("mousemove", mouseMove);
 
-    const lenis = new Lenis({
-      duration: 0.5,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smooth: true,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
     gsap.set("header p", { y: 200, opacity: 0 });
 
     gsap.to("header p", {
@@ -127,7 +114,7 @@ function Work1() {
     );
 
     return () => {
-      lenis.destroy();
+   
       window.removeEventListener("mousemove", mouseMove);
     };
   }, []);
