@@ -85,7 +85,7 @@ function Work3() {
         ))}
       </div>
       <div className=" h-[100vh] sticky top-0 w-full overflow-hidden py-10 gap-10 flex flex-col justify-evenly">
-        <div className="h-[50vh] w-full overflow-x-hidden flex gap-5 items-end justify-center ">
+        <div className="h-[50vh] w-full overflow-hidden flex gap-5 items-end justify-center ">
           <div className="ImageWrapper ">
             <div className="w-80 h-full ">
               <img
