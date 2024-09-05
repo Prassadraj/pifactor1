@@ -33,11 +33,12 @@ function Work1() {
     };
     window.addEventListener("mousemove", mouseMove);
 
-    gsap.set("header p", { y: 200, opacity: 0 });
+    gsap.set("header p", { y: 200, opacity: 0, skewY: "60deg" });
 
     gsap.to("header p", {
       scrollTrigger: { trigger: "header" },
       y: 0,
+      skewY: "0deg",
       opacity: 1,
       duration: 1,
       ease: "power3.out",
@@ -114,7 +115,6 @@ function Work1() {
     );
 
     return () => {
-   
       window.removeEventListener("mousemove", mouseMove);
     };
   }, []);

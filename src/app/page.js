@@ -41,15 +41,15 @@ export default function Home() {
     <>
       <Section />
       {/* Uncomment the show state condition to control the rendering */}
-      {show && (
-        <>
-          <Work1 />
-          <PlayReel />
-          <Work2 />
-          <Work3 />
-          <Work4 />
-        </>
-      )}
+      {/* {show && ( */}
+      <>
+        <Work1 />
+        <PlayReel />
+        <Work2 />
+        <Work3 />
+        <Work4 />
+      </>
+      {/* )} */}
     </>
   );
 }
