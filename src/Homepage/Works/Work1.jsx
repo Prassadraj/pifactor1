@@ -6,14 +6,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Lato, Montserrat } from "@next/font/google";
 import sparkle from "../../app/images/sparkle.png";
 import Image from "next/image";
-import Lenis from "@studio-freight/lenis";
+
 import { motion } from "framer-motion";
 const montserrat = Montserrat({
   subsets: ["latin"],
 });
+const latoLight = Lato({
+  subsets: ["latin"],
+  weight: "300",
+});
 const lato = Lato({
   subsets: ["latin"],
-  weight: "100",
+  weight: "400",
 });
 
 gsap.registerPlugin(ScrollTrigger);
@@ -215,7 +219,7 @@ function Work1() {
             <div className="flex flex-col justify-end gap-10 featured">
               <div className="flex gap-1">
                 <Image src={sparkle} className="w-4" />
-                <p className={`text-base ${lato.className} `}>
+                <p className={`text-base ${latoLight.className} `}>
                   Featured Projects
                 </p>
               </div>
