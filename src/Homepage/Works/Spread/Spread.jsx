@@ -20,8 +20,8 @@ const images = [
 function Spread() {
   return (
     <>
-      <div className="h-[200vh] w-full bg-slate-600">
-        <div className="h-[130vh] bg-slate-300 relative flex items-center justify-center">
+      <div className="h-[200vh] w-full ">
+        <div className="h-[130vh] relative flex items-center justify-center">
           <div className="relative">
             <Image
               width={400}
