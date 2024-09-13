@@ -1,3 +1,4 @@
+"use client";
 import styles from "./styles.module.scss";
 import Picture1 from "../../../public/images/1.jpeg";
 import Picture2 from "../../../public/images/2.jpeg";
@@ -97,13 +98,13 @@ export default function Work4() {
       )}
 
       <div
-        className="wedding md:px-20 flex overflow-hidden"
+        className="wedding tablet:px-10 laptop:px-20 flex overflow-hidden"
         style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
       >
         {"Wedding".split("").map((text, i) => (
           <p
             key={i}
-            className={`${montserrat.className} font-normal text-[20vw] md:text-[100px]`}
+            className={`${montserrat.className} font-normal text-[20vw] tablet:text-[70px] laptop:text-[100px]`}
           >
             {text}
           </p>
@@ -127,8 +128,6 @@ export default function Work4() {
           ))}
         </div>
       </div>
-
-      <div className="h-[100vh]">Contact page</div>
     </>
   );
 }

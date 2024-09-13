@@ -151,7 +151,7 @@ function Work1() {
   };
 
   return (
-    <div className="pp w-full md:px-20 md:py-10 font-poppins font-thin">
+    <div className="pp w-full tablet:px-20 tablet:py-10 font-poppins font-thin">
       {view == "default" && (
         <motion.div
           variants={variants}
@@ -171,7 +171,7 @@ function Work1() {
       <header className="font-poppins flex letters">
         {"Work".split("").map((work, i) => (
           <p
-            className={`${montserrat.className} font-normal text-[20vw] md:text-[100px]`}
+            className={`${montserrat.className} font-normal text-[20vw] tablet:text-[100px]`}
             montserrat
             key={i}
           >
@@ -180,10 +180,10 @@ function Work1() {
         ))}
       </header>
 
-      <section className="flex flex-col md:gap-20">
+      <section className="flex flex-col ">
         {/* section1 */}
-        <div className="md:h-[170vh] md:flex md:gap-20">
-          <div className="md:flex-1 h-full md:px-5">
+        <div className="tablet:h-[170vh] tablet:flex tablet:gap-20">
+          <div className="w-full h-full tablet:px-5">
             <p className="font-medium text-xl vfx">VFX</p>
             <div
               className="w-full h-[800px]  relative image1"
@@ -215,7 +215,7 @@ function Work1() {
             </div>
             <p className="text-white image1">About Project</p>
           </div>
-          <div className="md:flex-1 h-full flex  flex-col justify-between">
+          <div className="tablet:flex-1 h-full flex  flex-col justify-between">
             <div className="flex flex-col justify-end gap-10 featured">
               <div className="flex gap-1">
                 <Image src={sparkle} className="w-4" />
@@ -231,7 +231,7 @@ function Work1() {
               </p>
             </div>
             <div
-              className="w-[400px] h-[600px] md:w-[400px] flex  md:h-[500px]  relative image2"
+              className="w-[400px] h-[600px] tablet:w-[400px] flex  tablet:h-[500px]  relative image2"
               onMouseEnter={() => {
                 handleMouseEnter("image2");
                 setView("default");
@@ -261,7 +261,7 @@ function Work1() {
           </div>
         </div>
         {/* section2 */}
-        <div className="md:h-[150vh] flex justify-evenly">
+        <div className="tablet:h-[150vh] w-full flex justify-evenly ">
           <div className="flex w-[300px] justify-end items-start flex-col image3">
             <div
               className="w-full h-[400px]  relative"
@@ -291,9 +291,9 @@ function Work1() {
                 />
               )}
             </div>
-            <p className="text-white mt-2">About Project</p>
+            <p className="text-white  image3 mt-2">About Project</p>
           </div>
-          <div className="flex w-2/4 items-center  flex-col justify-center image4">
+          <div className="flex  flex-col justify-center image4">
             <div
               className="w-[500px] h-[600px]  relative"
               onMouseEnter={() => {
@@ -322,11 +322,10 @@ function Work1() {
                 />
               )}
             </div>
-            {enter === "image4" && (
-              <p className="text-white mt-2 text-left transition-all ">
+              <p className="text-white image4 mt-2 text-left transition-all ">
                 About Project
               </p>
-            )}
+          
           </div>
         </div>
       </section>

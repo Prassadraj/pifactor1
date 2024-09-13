@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Montserrat } from "@next/font/google";
@@ -94,7 +95,6 @@ function Work2() {
 
     // Cleanup on component unmount
     return () => {
-      
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
@@ -102,7 +102,10 @@ function Work2() {
   const pictures = [Picture1, Picture5, Picture6, Picture7];
 
   return (
-    <div ref={containerRef} className="md:px-20 md:py-10 w-full h-[240vh]">
+    <div
+      ref={containerRef}
+      className="laptop:px-20 px-2 laptop:py-10 tablet:px-10 tablet:py-10 w-full h-[240vh]"
+    >
       <div
         className="text flex overflow-hidden"
         style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
@@ -110,28 +113,32 @@ function Work2() {
         {" 2D Animations".split("").map((text, i) => (
           <p
             key={i}
-            className={`${montserrat.className} font-normal text-[20vw] md:text-[70px]`}
+            className={`${montserrat.className} mb-4 font-normal text-[7vw] tablet:text-[10vw] laptop:text-[70px]`}
           >
             {text}
           </p>
         ))}
       </div>
-      <p className={`${montserrat.className} text-3xl font-thin`}></p>
-      <div className="h-full w-full gap-10 flex flex-col mt-4">
+      <p
+        className={`${montserrat.className} tablet:text-2xl laptop:text-3xl font-thin`}
+      ></p>
+      <div className="hidden h-full w-full tablet:gap-5 laptop:gap-10 tablet:flex flex-col mt-4">
         {Array.from({ length: 4 }, (_, i) => (
           <div
             key={i}
             className={`animations${
               i + 1
-            } flex items-center md:h-[25vh] md:w-[50%] gap-5 ${
+            } tablet:flex items-center  tablet:h-[25vh] tablet:w-[50%] gap-5 ${
               i === 2 || i === 3 ? "rounded-md" : ""
             }`}
           >
             <div className="animate-2d">
-              <p className={`${montserrat.className} text-2xl font-medium`}>
+              <p
+                className={`${montserrat.className} laptop:text-2xl font-medium`}
+              >
                 Title
               </p>
-              <p className={`${montserrat.className} text-lg`}>
+              <p className={`${montserrat.className} laptop:text-lg`}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Dolores, aut eum a, vero, quia.
               </p>
@@ -141,6 +148,30 @@ function Work2() {
                 src={pictures[i].src}
                 width={pictures[i].width}
                 height={pictures[i].height}
+                className="object-cover w-full h-full"
+                alt="Window animation preview"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="grid grid-cols-1 tablet:hidden  gap-3 w-full h-full">
+        {Array.from({ length: 4 }, (_, i) => (
+          <div key={i} className="space-y-2">
+            <div>
+              <p className={`${montserrat.className} text-lg font-medium`}>
+                Title
+              </p>
+              <p className={`${montserrat.className} text-sm laptop:text-lg`}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Dolores, aut eum a, vero, quia.
+              </p>
+            </div>
+            <div className="h-60  w-full rounded-md overflow-hidden">
+              <Image
+                src={pictures[i].src}
+                width={pictures[i].width}
+                height={500}
                 className="object-cover w-full h-full"
                 alt="Window animation preview"
               />
