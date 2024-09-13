@@ -59,8 +59,8 @@ export default function Home() {
         <Work1 />
         <PlayReel />
         <Work2 />
-        {/* <Work3 /> */}
-        <Work />
+        <Work3 />
+        {/* <Work /> */}
         <Work4 />
         <Spread />
         <Footer />

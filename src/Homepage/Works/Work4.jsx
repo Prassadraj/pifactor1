@@ -122,7 +122,7 @@ export default function Work4() {
               onMouseLeave={() => setIsHovering(false)}
             >
               <div className={styles.imageContainer}>
-                <Image priority src={src} fill alt="image" placeholder="blur" />
+                <Image src={src} fill alt="image" placeholder="blur" />
               </div>
             </motion.div>
           ))}

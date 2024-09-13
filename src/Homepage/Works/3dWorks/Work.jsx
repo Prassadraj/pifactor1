@@ -110,7 +110,7 @@ const Column = ({ images, y }) => {
       {images.map((src, i) => {
         return (
           <div key={i} className={styles.imageContainer}>
-            <Image priority src={`/3dImages/${src}`} alt="image" fill />
+            <Image  src={`/3dImages/${src}`} alt="image" fill />
           </div>
         );
       })}
