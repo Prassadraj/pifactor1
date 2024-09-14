@@ -8,7 +8,6 @@ import Work2 from "@/Homepage/Works/Work2";
 import Work3 from "@/Homepage/Works/Work3";
 import Lenis from "@studio-freight/lenis";
 import Work4 from "@/Homepage/Works/Work4";
-import Work from "@/Homepage/Works/3dWorks/Work";
 import Spread from "@/Homepage/Works/Spread/Spread";
 import Footer from "@/Homepage/Works/Footer/Footer";
 
@@ -44,13 +43,12 @@ export default function Home() {
           <Work1 />
           <PlayReel />
           <Work2 />
-          {/* <Work3 /> */}
-          <Work />
+          <Work3 />
           <Work4 />
           <Spread />
           <Footer />
         </>
-      )}
+       )}
     </>
   );
 }

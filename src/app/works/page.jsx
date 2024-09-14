@@ -1,4 +1,3 @@
-import Work from "@/Homepage/Works/3dWorks/Work";
 import Footer from "@/Homepage/Works/Footer/Footer";
 import PlayReel from "@/Homepage/Works/PlayReel";
 import Spread from "@/Homepage/Works/Spread/Spread";
@@ -14,7 +13,6 @@ function Works() {
       <Work1 />
       <PlayReel />
       <Work2 />
-      {/* <Work /> */}
       <Work3 />
       <Work4 />
       <Spread />
