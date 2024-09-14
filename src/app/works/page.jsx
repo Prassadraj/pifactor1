@@ -1,4 +1,5 @@
 import Work from "@/Homepage/Works/3dWorks/Work";
+import Footer from "@/Homepage/Works/Footer/Footer";
 import PlayReel from "@/Homepage/Works/PlayReel";
 import Spread from "@/Homepage/Works/Spread/Spread";
 import Work1 from "@/Homepage/Works/Work1";
@@ -10,11 +11,12 @@ function Works() {
   return (
     <div className="tablet:py-20">
       <Work1 />
-      <PlayReel/>
+      <PlayReel />
       <Work2 />
       <Work />
       <Work4 />
-      <Spread/>
+      <Spread />
+      <Footer />
     </div>
   );
 }
