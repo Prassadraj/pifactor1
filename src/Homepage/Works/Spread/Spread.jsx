@@ -30,12 +30,6 @@ const images = [
 gsap.registerPlugin(ScrollTrigger);
 function Spread() {
   useEffect(() => {
-    gsap.set(".spread", {
-      y: 100,
-    });
-    gsap.set(".sentence", {
-      y: 100,
-    });
     gsap.to(".spread", {
       y: -40,
       scale: 1.1,
@@ -78,6 +72,7 @@ function Spread() {
           trigger: ".spreadText",
         },
         duration: 0.5,
+        delay: 0.5,
         ease: "power3.out",
 
         stagger: {
@@ -95,11 +90,11 @@ function Spread() {
       },
       {
         y: 0,
-        scrollTrigger: ".spreadText",
+        scrollTrigger: ".spreadText2",
         skewY: "0deg",
         duration: 0.5,
         ease: "power3.out",
-        delay: 0.2,
+        delay: 0.5,
         stagger: 0.1,
       }
     );
