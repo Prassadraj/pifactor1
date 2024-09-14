@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: "700",
+  weight: "500",
 });
 const images = [
   "1.jpg",

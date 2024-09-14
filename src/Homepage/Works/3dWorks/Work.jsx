@@ -32,12 +32,21 @@ export default function Work2() {
 
   useEffect(() => {
     const lenis = new Lenis();
+    lenis.on("scroll", () => {
+      ScrollTrigger.update();
+    });
+
     gsap.fromTo(
       ".text1 p",
       { y: 150 },
       {
         y: 0,
-        scrollTrigger: ".text1",
+        scrollTrigger: {
+          trigger: ".text1",
+          start: "top 80%",
+          end: "bottom top",
+          scrub: true,
+        },
         duration: 0.5,
         ease: "power3.out",
         delay: 0.2,
@@ -55,6 +64,7 @@ export default function Work2() {
 
     return () => {
       window.removeEventListener("resize", onResize);
+      lenis.destroy(); // Clean up Lenis instance
     };
   }, []);
 
