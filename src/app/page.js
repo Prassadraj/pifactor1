@@ -10,6 +10,7 @@ import Lenis from "@studio-freight/lenis";
 import Work4 from "@/Homepage/Works/Work4";
 import Work from "@/Homepage/Works/3dWorks/Work";
 import Spread from "@/Homepage/Works/Spread/Spread";
+import Footer from "@/Homepage/Works/Footer/Footer";
 
 export default function Home() {
   const [show, setShow] = useState(false);
@@ -47,6 +48,7 @@ export default function Home() {
           <Work />
           <Work4 />
           <Spread />
+          <Footer />
         </>
       )}
     </>
