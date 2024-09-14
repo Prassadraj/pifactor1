@@ -44,7 +44,7 @@ export default function Work2() {
         scrollTrigger: {
           trigger: ".text1",
           start: "top 80%",
-          end: "bottom top",
+          end: "bottom 50%",
           scrub: true,
         },
         duration: 0.5,
