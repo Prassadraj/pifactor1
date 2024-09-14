@@ -1,3 +1,4 @@
+"use client";
 import { Montserrat } from "@next/font/google";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -111,7 +112,7 @@ function Spread() {
       {
         x: 150,
 
-        duration:1,
+        duration: 1,
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".imageContainer",
@@ -129,7 +130,7 @@ function Spread() {
       {
         x: -150,
 
-        duration:1,
+        duration: 1,
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".imageContainer",
@@ -147,7 +148,7 @@ function Spread() {
       {
         x: -220,
 
-        duration:1,
+        duration: 1,
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".imageContainer",
@@ -165,7 +166,7 @@ function Spread() {
       {
         x: 220,
 
-        duration:1,
+        duration: 1,
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".imageContainer",
