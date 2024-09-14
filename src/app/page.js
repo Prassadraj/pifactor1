@@ -1,4 +1,8 @@
-import { Suspense, lazy } from 'react';
+'use client'
+import Section from '@/Homepage/Section1/Section';
+import Footer from '@/Homepage/Works/Footer/Footer';
+import Lenis from '@studio-freight/lenis';
+import { Suspense, lazy, useEffect, useState } from 'react';
 
 const Work1 = lazy(() => import('@/Homepage/Works/Work1'));
 const PlayReel = lazy(() => import('@/Homepage/Works/PlayReel'));
@@ -40,6 +44,7 @@ export default function Home() {
           <Work />
           <Work4 />
           <Spread />
+          <Footer/>
         </Suspense>
       )}
     </>
