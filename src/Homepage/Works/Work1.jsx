@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState, useRef } from "react";
 import "../Works/work.css";
 import { gsap } from "gsap";
@@ -7,13 +6,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Lato, Montserrat } from "@next/font/google";
 import sparkle from "../../app/images/sparkle.png";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import debounce from "lodash.debounce"; // Use lodash debounce for performance
 
-// Font Imports
-const montserrat = Montserrat({ subsets: ["latin"] });
-const latoLight = Lato({ subsets: ["latin"], weight: "300" });
-const lato = Lato({ subsets: ["latin"], weight: "400" });
+import { motion } from "framer-motion";
+const montserrat = Montserrat({
+  subsets: ["latin"],
+});
+const latoLight = Lato({
+  subsets: ["latin"],
+  weight: "300",
+});
+const lato = Lato({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,16 +28,15 @@ function Work1() {
   const videoRefs = useRef({}); // Object to store refs for multiple video elements
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [view, setView] = useState("");
-
   useEffect(() => {
-    // Throttled mouse movement for performance
-    const mouseMove = debounce((e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    });
-
+    const mouseMove = (e) => {
+      setMousePosition({
+        x: e.clientX, // Corrected here
+        y: e.clientY, // Corrected here
+      });
+    };
     window.addEventListener("mousemove", mouseMove);
 
-    // GSAP Animations
     gsap.set("header p", { y: 200, opacity: 0, skewY: "60deg" });
 
     gsap.to("header p", {
@@ -139,7 +143,6 @@ function Work1() {
       videoRef.pause();
     }
   };
-
   const variants = {
     default: {
       x: mousePosition.x,
@@ -149,17 +152,18 @@ function Work1() {
 
   return (
     <div className="pp w-full tablet:px-20 tablet:py-10 font-poppins font-thin">
-      {view === "default" && (
+      {view == "default" && (
         <motion.div
           variants={variants}
           animate={view}
           transition={{ duration: 0.1, ease: "linear" }}
           style={{ pointerEvents: "none" }}
-          className="fixed top-0 flex justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
+          className="fixed top-0  flex justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
         >
           <p
             className={`${montserrat.className} text-white font-normal text-sm`}
           >
+            {" "}
             View
           </p>
         </motion.div>
@@ -182,7 +186,7 @@ function Work1() {
           <div className="w-full h-full tablet:px-5">
             <p className="font-medium text-xl vfx">VFX</p>
             <div
-              className="w-full h-[800px] relative image1"
+              className="w-full h-[800px]  relative image1"
               onMouseEnter={() => {
                 handleMouseEnter("image1");
                 setView("default");
@@ -200,32 +204,34 @@ function Work1() {
                   muted
                   loop
                   src="./car.mp4"
-                />
+                ></video>
               ) : (
-                <Image
+                <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1567818668411-2580206b256d?q=80&w=1960&auto=format&fit=crop"
-                  alt="Project Image"
-                  layout="fill"
+                  src="https://images.unsplash.com/photo-1567818668411-2580206b256d?q=80&w=1960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt=""
                 />
               )}
             </div>
             <p className="text-white image1">About Project</p>
           </div>
-
-          {/* Featured Projects Section */}
-          <div className="tablet:flex-1 h-full flex flex-col justify-between">
+          <div className="tablet:flex-1 h-full flex  flex-col justify-between">
             <div className="flex flex-col justify-end gap-10 featured">
               <div className="flex gap-1">
-                <Image src={sparkle} alt="Sparkle" className="w-4" />
-                <p className={`text-base ${latoLight.className}`}>Featured Projects</p>
+                <Image src={sparkle} className="w-4" />
+                <p className={`text-base ${latoLight.className} `}>
+                  Featured Projects
+                </p>
               </div>
-              <p className={`text-xl max-w-[400px] font-medium ${lato.className}`}>
-                Highlights of cases that we passionately built with forward-thinking clients and friends over the years.
+              <p
+                className={`text-xl max-w-[400px] font-medium ${lato.className}`}
+              >
+                Highlights of cases that we passionately built with
+                forward-thinking clients and friends over the years.
               </p>
             </div>
             <div
-              className="w-[400px] h-[600px] tablet:w-[400px] flex tablet:h-[500px] relative image2"
+              className="w-[400px] h-[600px] tablet:w-[400px] flex  tablet:h-[500px]  relative image2"
               onMouseEnter={() => {
                 handleMouseEnter("image2");
                 setView("default");
@@ -243,24 +249,22 @@ function Work1() {
                   muted
                   loop
                   src="./car.mp4"
-                />
+                ></video>
               ) : (
-                <Image
+                <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1598814165187-ed79437d7490?q=80&w=1887&auto=format&fit=crop"
-                  alt="Project Image"
-                  layout="fill"
+                  src="https://images.unsplash.com/photo-1598814165187-ed79437d7490?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt=""
                 />
               )}
             </div>
           </div>
         </div>
-
-        {/* Section 2 */}
-        <div className="tablet:h-[150vh] w-full flex justify-evenly">
+        {/* section2 */}
+        <div className="tablet:h-[150vh] w-full flex justify-evenly ">
           <div className="flex w-[300px] justify-end items-start flex-col image3">
             <div
-              className="w-full h-[400px] relative"
+              className="w-full h-[400px]  relative"
               onMouseEnter={() => {
                 handleMouseEnter("image3");
                 setView("default");
@@ -278,22 +282,20 @@ function Work1() {
                   muted
                   loop
                   src="./car.mp4"
-                />
+                ></video>
               ) : (
-                <Image
+                <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1567818736054-5a48c89711fc?q=80&w=1887&auto=format&fit=crop"
-                  alt="Project Image"
-                  layout="fill"
+                  src="https://images.unsplash.com/photo-1567818736054-5a48c89711fc?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt=""
                 />
               )}
             </div>
-            <p className="text-white image3 mt-2">About Project</p>
+            <p className="text-white  image3 mt-2">About Project</p>
           </div>
-
-          <div className="flex flex-col justify-center image4">
+          <div className="flex  flex-col justify-center image4">
             <div
-              className="w-[500px] h-[600px] relative"
+              className="w-[500px] h-[600px]  relative"
               onMouseEnter={() => {
                 handleMouseEnter("image4");
                 setView("default");
@@ -311,19 +313,19 @@ function Work1() {
                   muted
                   loop
                   src="./car.mp4"
-                />
+                ></video>
               ) : (
-                <Image
+                <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1611651336487-802fe164d3e5?q=80&w=1887&auto=format&fit=crop"
-                  alt="Project Image"
-                  layout="fill"
+                  src="https://images.unsplash.com/photo-1611651336487-802fe164d3e5?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt=""
                 />
               )}
             </div>
-            <p className="text-white image4 mt-2 text-left transition-all">
-              About Project
-            </p>
+              <p className="text-white image4 mt-2 text-left transition-all ">
+                About Project
+              </p>
+          
           </div>
         </div>
       </section>

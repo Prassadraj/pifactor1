@@ -1,6 +1,10 @@
+import { Montserrat } from "@next/font/google";
 import Image from "next/image";
 import React from "react";
-
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: "700",
+});
 const images = [
   "1.jpg",
   "2.jpg",
@@ -73,9 +77,9 @@ function Spread() {
             />
           </div>
         </div>
-        <div className="flex  flex-col mt-5 ">
+        <div className={`flex  flex-col mt-5 ${montserrat.className}`}>
           <div className="text-center text-[100px] flex flex-col leading-tight mb-4">
-            <p>Spread</p>
+            <p className="text-gradient-to-tr from-slate-300 via-blue-800 to-white">Spread</p>
             <p>the News</p>
           </div>
           <div className="max-w-md mx-auto">
