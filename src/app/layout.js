@@ -1,6 +1,7 @@
 import "./globals.css";
 import Nav from "@/Nav/Nav";
 import Menu from "./Menu/Menu";
+import Footer from "@/Homepage/Works/Footer/Footer";
 
 export const metadata = {
   title: "PiFactor",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         <Nav />
         {/* <Menu /> */}
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
 import Work from "@/Homepage/Works/3dWorks/Work";
 import PlayReel from "@/Homepage/Works/PlayReel";
+import Spread from "@/Homepage/Works/Spread/Spread";
 import Work1 from "@/Homepage/Works/Work1";
 import Work2 from "@/Homepage/Works/Work2";
 import Work4 from "@/Homepage/Works/Work4";
@@ -13,6 +14,7 @@ function Works() {
       <Work2 />
       <Work />
       <Work4 />
+      <Spread/>
     </div>
   );
 }
