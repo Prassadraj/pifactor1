@@ -1,21 +1,16 @@
-"use client";
+import { Suspense, lazy } from 'react';
 
-import { useEffect, useState } from "react";
-import Section from "@/Homepage/Section1/Section";
-import Work1 from "@/Homepage/Works/Work1";
-import PlayReel from "@/Homepage/Works/PlayReel";
-import Work2 from "@/Homepage/Works/Work2";
-import Work3 from "@/Homepage/Works/Work3";
-import Lenis from "@studio-freight/lenis";
-import Work4 from "@/Homepage/Works/Work4";
-import Work from "@/Homepage/Works/3dWorks/Work";
-import Spread from "@/Homepage/Works/Spread/Spread";
+const Work1 = lazy(() => import('@/Homepage/Works/Work1'));
+const PlayReel = lazy(() => import('@/Homepage/Works/PlayReel'));
+const Work2 = lazy(() => import('@/Homepage/Works/Work2'));
+const Work = lazy(() => import('@/Homepage/Works/3dWorks/Work'));
+const Work4 = lazy(() => import('@/Homepage/Works/Work4'));
+const Spread = lazy(() => import('@/Homepage/Works/Spread/Spread'));
 
 export default function Home() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    // Initialize Lenis for smooth scrolling
     const lenis = new Lenis();
 
     function raf(time) {
@@ -26,7 +21,7 @@ export default function Home() {
     requestAnimationFrame(raf);
 
     const timer = setTimeout(() => {
-      setShow(true); // Show the content after 5 seconds
+      setShow(true);
     }, 5000);
 
     return () => {
@@ -37,17 +32,15 @@ export default function Home() {
   return (
     <>
       <Section />
-      {/* Conditionally render components after 5 seconds */}
       {show && (
-        <>
+        <Suspense fallback={<div>Loading...</div>}>
           <Work1 />
           <PlayReel />
           <Work2 />
-          {/* <Work3 /> */}
           <Work />
           <Work4 />
           <Spread />
-        </>
+        </Suspense>
       )}
     </>
   );
