@@ -4,14 +4,17 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
 import React, { useEffect } from "react";
+
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: "500",
 });
+
 const montserratLight = Montserrat({
   subsets: ["latin"],
   weight: "300",
 });
+
 const images = [
   "1.jpg",
   "2.jpg",
@@ -27,7 +30,9 @@ const images = [
   "12.jpg",
   "line.webp",
 ];
+
 gsap.registerPlugin(ScrollTrigger);
+
 function Spread() {
   useEffect(() => {
     gsap.to(".spread", {
@@ -38,11 +43,11 @@ function Spread() {
       scrollTrigger: {
         trigger: ".spread",
         start: "top 100%",
-
         end: "bottom 70%",
-        scrub: 0.5, // Adjust this for smoother effect
+        scrub: 0.5,
       },
     });
+
     gsap.to(".sentence", {
       y: 0,
       scale: 1.1,
@@ -52,36 +57,35 @@ function Spread() {
         trigger: ".spread",
         start: "top 90%",
         end: "bottom 50%",
-        scrub: 0.5, // Adjust this for smoother effect
+        scrub: 0.5,
       },
     });
 
     gsap.fromTo(
       ".spreadText p",
       {
-        y: 150, // Start position off-screen
-        opacity: 0, // Optional: Start with opacity 0
+        y: 150,
+        opacity: 0,
         skewY: "-60deg",
       },
       {
-        y: 0, // End position
+        y: 0,
         opacity: 1,
         skewY: "0deg",
-        // Optional: End with opacity 1
         scrollTrigger: {
           trigger: ".spreadText",
         },
         duration: 0.5,
         delay: 0.5,
         ease: "power3.out",
-
         stagger: {
-          amount: 0.5, // Total duration for all stags
-          from: "end", // Stagger from the end to the start
-          ease: "power3.out", // Easing for each stagger
+          amount: 0.5,
+          from: "end",
+          ease: "power3.out",
         },
       }
     );
+
     gsap.fromTo(
       ".spreadText2 p",
       {
@@ -98,132 +102,124 @@ function Spread() {
         stagger: 0.1,
       }
     );
-    //images
+
+    // Image Animations
     gsap.fromTo(
       ".image1",
-      {
-        x: 0,
-      },
+      { x: 0 },
       {
         x: 150,
-
         duration: 1,
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".imageContainer",
           start: "top 90%",
           end: "bottom 50%",
-          scrub: 0.5, // Adjust this for smoother effect
+          scrub: 0.5,
         },
       }
     );
     gsap.fromTo(
       ".image2",
-      {
-        x: 0,
-      },
+      { x: 0 },
       {
         x: -150,
-
         duration: 1,
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".imageContainer",
           start: "top 90%",
           end: "bottom 50%",
-          scrub: 0.5, // Adjust this for smoother effect
+          scrub: 0.5,
         },
       }
     );
     gsap.fromTo(
       ".image3",
-      {
-        x: 0,
-      },
+      { x: 0 },
       {
         x: -220,
-
         duration: 1,
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".imageContainer",
           start: "top 60%",
           end: "bottom 20%",
-          scrub: 0.5, // Adjust this for smoother effect
+          scrub: 0.5,
         },
       }
     );
     gsap.fromTo(
       ".image4",
-      {
-        x: 0,
-      },
+      { x: 0 },
       {
         x: 220,
-
         duration: 1,
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".imageContainer",
           start: "top 60%",
           end: "bottom 20%",
-          scrub: 0.5, // Adjust this for smoother effect
+          scrub: 0.5,
         },
       }
     );
   }, []);
+
   return (
     <>
-      <div className="h-[200vh] w-full ">
+      <div className="h-[200vh] w-full overflow-hidden relative">
+        {" "}
+        {/* Add relative here */}
         <div className="h-[130vh] relative flex items-center justify-center">
           <div className="relative imageContainer">
             <Image
               width={400}
               height={600}
               className="object-cover"
-              src={`/3dImages/${images[12]}`} // Path corrected to remove "./"
+              src={`/3dImages/${images[12]}`}
               alt="3D image"
-              priority // Improves loading performance
+              priority
             />
-            <div className="absolute  top-10 -right-24 ">
+            <div className="absolute top-10 -right-24">
               <Image
                 width={100}
                 height={0}
                 className="object-cover w-[200px] h-[300px] image1"
-                src={`/3dImages/${images[0]}`} // Path corrected to remove "./"
+                src={`/3dImages/${images[0]}`}
                 alt="3D image"
-                priority // Improves loading performance
+                priority
               />
             </div>
-            <div className="absolute  bottom-48 -left-36 image2">
+            <div className="absolute bottom-48 -left-36 image2">
               <Image
                 width={100}
                 height={0}
                 className="object-cover w-[200px] h-[250px]"
-                src={`/3dImages/${images[5]}`} // Path corrected to remove "./"
+                src={`/3dImages/${images[5]}`}
                 alt="3D image"
-                priority // Improves loading performance
+                priority
               />
             </div>
           </div>
-          <div className="absolute  bottom-20 left-60 image3">
+          <div className="absolute bottom-20 left-60 image3">
             <Image
               width={300}
               height={200}
               className="object-cover h-[200px]"
-              src={`/3dImages/${images[11]}`} // Path corrected to remove "./"
+              src={`/3dImages/${images[11]}`}
               alt="3D image"
-              priority // Improves loading performance
+              priority
             />
           </div>
-          <div className="absolute  bottom-10 right-56 image4">
+          <div className="absolute bottom-10 right-56 image4">
             <Image
               width={400}
               height={200}
               className="object-cover h-[200px]"
-              src={`/3dImages/${images[7]}`} // Path corrected to remove "./"
+              src={`/3dImages/${images[7]}`}
               alt="3D image"
-              priority // Improves loading performance
+              priority
             />
           </div>
         </div>
@@ -236,7 +232,7 @@ function Spread() {
               }}
             >
               {" Spread".split("").map((text, i) => (
-                <p key={i} className={`${montserrat.className} `}>
+                <p key={i} className={`${montserrat.className}`}>
                   {text}
                 </p>
               ))}
@@ -248,7 +244,7 @@ function Spread() {
               }}
             >
               {"the News".split("").map((text, i) => (
-                <p key={i} className={`${montserrat.className} `}>
+                <p key={i} className={`${montserrat.className}`}>
                   {text}
                 </p>
               ))}

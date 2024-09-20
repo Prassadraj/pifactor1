@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import Section from "@/Homepage/Section1/Section";
 import Work1 from "@/Homepage/Works/Work1";
@@ -38,17 +37,17 @@ export default function Home() {
     <>
       <Section />
       {/* Conditionally render components after 5 seconds */}
-      {show && (
-        <>
-          <Work1 />
-          <PlayReel />
-          <Work2 />
-          <Work3 />
-          <Work4 />
-          <Spread />
-          <Footer />
-        </>
-       )}
+      {/* {show && ( */}
+      <>
+        <Work1 />
+        <PlayReel />
+        <Work2 />
+        <Work3 />
+        <Work4 />
+        <Spread />
+        <Footer />
+      </>
+      {/* )} */}
     </>
   );
 }

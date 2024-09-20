@@ -64,10 +64,7 @@ function Work3() {
   }, []);
 
   return (
-    <div
-      className="fullContainer h-[200vh] tablet:py-10   md:py-10"
-      useRef={container}
-    >
+    <div className="fullContainer h-[200vh] tablet:py-20 " useRef={container}>
       <div
         className="text1 laptop:px-20 tablet:px-10  flex overflow-hidden"
         style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }}

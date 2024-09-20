@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Montserrat } from "@next/font/google";
@@ -61,8 +61,8 @@ function Work2() {
       duration: 1,
       scrollTrigger: {
         trigger: ".animations2",
-        start: "top 60%",
-        end: "bottom 60%",
+        start: "top 80%",
+        end: "bottom 80%",
         scrub: 2,
       },
     });
@@ -74,8 +74,8 @@ function Work2() {
       duration: 1,
       scrollTrigger: {
         trigger: ".animations3",
-        start: "top 40%",
-        end: "bottom 40%",
+        start: "top 80%",
+        end: "bottom 80%",
         scrub: 2,
       },
     });
@@ -87,8 +87,8 @@ function Work2() {
       duration: 1,
       scrollTrigger: {
         trigger: ".animations4",
-        start: "top 10%",
-        end: "bottom 40%",
+        start: "top 80%",
+        end: "bottom 80%",
         scrub: 2,
       },
     });
@@ -104,7 +104,7 @@ function Work2() {
   return (
     <div
       ref={containerRef}
-      className="laptop:px-20 px-2 laptop:py-10 tablet:px-10 tablet:py-10 w-full h-[240vh]"
+      className="laptop:px-20 px-2 laptop:py-10 tablet:px-10 tablet:py-10 w-full h-[240vh] "
     >
       <div
         className="text flex overflow-hidden"

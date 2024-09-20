@@ -1,10 +1,19 @@
 import React from "react";
+import Earth from "./Earth";
 
 export default function Content() {
   return (
-    <div className="bg-gradient-to-tr py-20 from-black to-blue-900 px-12 h-full w-full flex flex-col justify-between">
-      <Section1 />
-      <Section2 />
+    <div className="relative h-full w-full">
+      {/* Earth as a background */}
+      <div className="absolute inset-0 -z-10">
+        <Earth />
+      </div>
+
+      {/* Content Sections */}
+      <div className="bg-gradient-to-tr py-20 from-black to-blue-900 px-12 h-full w-full flex flex-col justify-between">
+        <Section1 />
+        <Section2 />
+      </div>
     </div>
   );
 }
@@ -20,7 +29,7 @@ const Section1 = () => {
 const Section2 = () => {
   return (
     <div className="flex justify-between items-end">
-      <h1 className="text-[14vw]  mt-10"></h1>
+      <h1 className="text-[14vw] mt-10">Title</h1>
       <p>©copyright</p>
     </div>
   );
