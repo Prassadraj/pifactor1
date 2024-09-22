@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import "../Works/work.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Lato, Montserrat } from "@next/font/google";
+import { Lato, Montserrat } from "next/font/google";
 import sparkle from "../../app/images/sparkle.png";
 import Image from "next/image";
 

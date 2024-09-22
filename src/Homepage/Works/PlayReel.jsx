@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/all";
 import React, { useEffect, useRef, useState } from "react";
 import windowImg from "../../app/images/window.png";
 import Image from "next/image";
-import { Lato, Montserrat } from "@next/font/google";
+import { Lato, Montserrat } from "next/font/google";
 import Link from "next/link";
 import { motion } from "framer-motion";
 const montserrat = Montserrat({

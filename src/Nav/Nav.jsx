@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { Montserrat } from "@next/font/google";
+import { Montserrat } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import "./nav.css";

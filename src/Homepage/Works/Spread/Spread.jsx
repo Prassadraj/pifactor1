@@ -1,5 +1,5 @@
 "use client";
-import { Montserrat } from "@next/font/google";
+import { Montserrat } from "next/font/google";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
