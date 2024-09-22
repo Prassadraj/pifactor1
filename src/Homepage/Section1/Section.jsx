@@ -197,6 +197,7 @@ function Section() {
           src="./PF_LOGO.mp4"
           autoPlay
           muted
+          preload="auto" // Ensures the video loads with priority
         ></video>
       </div>
       <div>
