@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import "./section.css";
 import { gsap } from "gsap";
-import { Montserrat } from "@next/font/google";
+import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -197,6 +197,7 @@ function Section() {
           src="./PF_LOGO.mp4"
           autoPlay
           muted
+          preload="auto" // Ensures the video loads with priority
         ></video>
       </div>
       <div>

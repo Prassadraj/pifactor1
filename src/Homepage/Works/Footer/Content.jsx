@@ -1,12 +1,12 @@
 import React from "react";
-import Earth from "./Earth";
+
 
 export default function Content() {
   return (
     <div className="relative h-full w-full">
       {/* Earth as a background */}
       <div className="absolute inset-0 -z-10">
-        <Earth />
+
       </div>
 
       {/* Content Sections */}
@@ -29,7 +29,7 @@ const Section1 = () => {
 const Section2 = () => {
   return (
     <div className="flex justify-between items-end">
-      <h1 className="text-[14vw] mt-10">Title</h1>
+      {/* <h1 className="text-[14vw] mt-10">Title</h1> */}
       <p>©copyright</p>
     </div>
   );

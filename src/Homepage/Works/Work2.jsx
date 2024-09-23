@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
-import { Montserrat } from "@next/font/google";
+import { Montserrat } from "next/font/google";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import Picture1 from "../../../public/images/1.jpeg";

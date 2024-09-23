@@ -1,6 +1,6 @@
 "use client";
-
-import { Montserrat } from "@next/font/google";
+//
+import { Montserrat } from "next/font/google";
 import Lenis from "@studio-freight/lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";

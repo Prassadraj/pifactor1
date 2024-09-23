@@ -10,7 +10,7 @@ import Picture7 from "../../../public/images/7.jpeg";
 import Image from "next/image";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Montserrat } from "@next/font/google";
+import { Montserrat } from "next/font/google";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
