@@ -47,7 +47,7 @@ function Work2() {
           trigger: ".animations1",
           start: "top 80%",
           end: "bottom 80%",
-          markers: true,
+
           scrub: 2,
         },
       });
@@ -59,8 +59,9 @@ function Work2() {
         duration: 1,
         scrollTrigger: {
           trigger: ".animations2",
-          start: "top 80%",
-          end: "bottom 80%",
+          start: "top 60%",
+
+          end: "bottom 40%",
           scrub: 2,
         },
       });
@@ -72,8 +73,9 @@ function Work2() {
         duration: 1,
         scrollTrigger: {
           trigger: ".animations3",
-          start: "top 80%",
-          end: "bottom 80%",
+          start: "top 40%",
+
+          end: "bottom 30%",
           scrub: 2,
         },
       });
@@ -85,8 +87,9 @@ function Work2() {
         duration: 1,
         scrollTrigger: {
           trigger: ".animations4",
-          start: "top 80%",
-          end: "bottom 80%",
+          start: "top 10%",
+        
+          end: "bottom 30%",
           scrub: 2,
         },
       });

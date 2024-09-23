@@ -37,17 +37,17 @@ export default function Home() {
     <>
       <Section />
       {/* Conditionally render components after 5 seconds */}
-      {/* {show && ( */}
-      <>
-        <Work1 />
-        <PlayReel />
-        <Work2 />
-        <Work3 />
-        <Work4 />
-        <Spread />
-        <Footer />
-      </>
-      {/* )} */}
+      {show && (
+        <>
+          <Work1 />
+          <PlayReel />
+          <Work2 />
+          <Work3 />
+          <Work4 />
+          <Spread />
+          <Footer />
+        </>
+      )}
     </>
   );
 }
