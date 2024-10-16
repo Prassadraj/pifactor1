@@ -80,7 +80,7 @@ function PlayReel() {
     <>
       {" "}
       {isHovering && (
-        <motion.div
+        <motion.div 
           variants={cursorVariants}
           animate="hover"
           transition={{ duration: 0.1, ease: "linear" }}

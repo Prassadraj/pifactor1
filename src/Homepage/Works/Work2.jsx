@@ -4,10 +4,10 @@ import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import Picture1 from "../../../public/images/1.jpeg";
+import Picture1 from "../../../public/images/1.jpg";
 import Picture5 from "../../app/images/window.png";
 import Picture6 from "../../../public/images/6.jpg";
-import Picture7 from "../../../public/images/7.jpeg";
+import Picture7 from "../../../public/images/7.jpg";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -88,7 +88,7 @@ function Work2() {
         scrollTrigger: {
           trigger: ".animations4",
           start: "top 10%",
-        
+
           end: "bottom 30%",
           scrub: 2,
         },

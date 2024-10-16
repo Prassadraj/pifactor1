@@ -49,6 +49,7 @@ const nextConfig = {
   },
   experimental: {
     scrollRestoration: true,
+    esmExternals: true,
   },
 };
 
