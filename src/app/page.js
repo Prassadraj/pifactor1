@@ -14,6 +14,22 @@ export default function Home() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    // Check sessionStorage only on the client side
+    const hasShownContent = sessionStorage.getItem("hasShownContent");
+
+    if (hasShownContent === "true") {
+      setShow(true);
+    } else {
+      const timer = setTimeout(() => {
+        setShow(true); // Show the content after 5 seconds
+        sessionStorage.setItem("hasShownContent", "true"); // Set the flag in sessionStorage
+      }, 5000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+
     // Initialize Lenis for smooth scrolling
     const lenis = new Lenis();
 
@@ -23,14 +39,6 @@ export default function Home() {
     }
 
     requestAnimationFrame(raf);
-
-    const timer = setTimeout(() => {
-      setShow(true); // Show the content after 5 seconds
-    }, 5000);
-
-    return () => {
-      clearTimeout(timer);
-    };
   }, []);
 
   return (

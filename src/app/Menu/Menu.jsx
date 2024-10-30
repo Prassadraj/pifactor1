@@ -10,7 +10,7 @@ const lato = Lato({
   weight: "400",
 });
 function Menu() {
-  const container = useRef();
+  const container = useRef(null);
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const navItems = [
     { name: "Works", href: "/works" },

@@ -22,7 +22,9 @@ export default function App() {
   const [selected, setSelected] = useState(1); // Initialize selected at 1 to avoid starting from 0
   // Condition to choose between jpg and jpeg
   const useJpg = true; // Set to true for .jpg, false for .jpeg
+  const [nav, setNav] = useState("VFX");
 
+  const categories = ["VFX", "2D", "3D", "Wedding"];
   const handleSlideTo = (index) => {
     if (swiperRef.current) {
       swiperRef.current.slideToLoop(index); // Use slideToLoop to handle looping
@@ -32,11 +34,12 @@ export default function App() {
   const animateImage = () => {
     gsap.fromTo(
       ".image", // Target image
-      { y: 900 }, // Starting state (from a larger distance for a more noticeable effect)
+      { y: 900, scale: 0.5 }, // Starting state (from a larger distance for a more noticeable effect)
       {
+        scale: 1,
         y: 0, // Ending state
         ease: "power4.out", // Smoother ease function for gradual deceleration
-        duration: 1.8, // Slightly longer duration for a smoother transition
+        duration: 2, // Slightly longer duration for a smoother transition
         delay: 0.1, // Reduced delay for quicker initiation
       }
     );
@@ -85,7 +88,7 @@ export default function App() {
               {/* Content inside the slide */}
               <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
                 <div
-                  className="relative w-[25%] h-3/5 overflow-hidden bg-black/20"
+                  className="relative w-[25%] top-[10%] h-3/5 overflow-hidden "
                   style={{
                     // backgroundImage: `url('/images/${selected + 2}.jpg')`,
                     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", // Full rectangle clip path
@@ -113,11 +116,19 @@ export default function App() {
           </button>
         ))}
       </div>
-      <div className="fixed left-10 top-52 z-50">
-        <p>VFX</p>
-        <p>2D</p>
-        <p>3D</p>
-        <p>Wedding</p>
+      <div className="fixed text-xl flex gap-10 font-black top-28 left-[50%] translate-x-[-50%] z-50">
+        {categories.map((category) => (
+          <p
+            key={category}
+            className="cursor-pointer relative"
+            onClick={() => setNav(category)}
+          >
+            {category}
+            {nav === category && (
+              <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-white"></span>
+            )}
+          </p>
+        ))}
       </div>
 
       {/* Debugging: Display the current slide index */}

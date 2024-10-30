@@ -157,8 +157,7 @@ function Work1() {
           variants={variants}
           animate={view}
           transition={{ duration: 0.1, ease: "linear" }}
-          style={{ pointerEvents: "none" }}
-          className="fixed top-0  flex justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
+          className="fixed top-0 pointer-events-none flex justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
         >
           <p
             className={`${montserrat.className} text-white font-normal text-sm`}
@@ -218,7 +217,7 @@ function Work1() {
           <div className="tablet:flex-1 h-full flex  flex-col justify-between">
             <div className="flex flex-col justify-end gap-10 featured">
               <div className="flex gap-1">
-                <Image src={sparkle} className="w-4" />
+                <Image alt="img" src={sparkle} className="w-4" />
                 <p className={`text-base ${latoLight.className} `}>
                   Featured Projects
                 </p>
@@ -322,10 +321,9 @@ function Work1() {
                 />
               )}
             </div>
-              <p className="text-white image4 mt-2 text-left transition-all ">
-                About Project
-              </p>
-          
+            <p className="text-white image4 mt-2 text-left transition-all ">
+              About Project
+            </p>
           </div>
         </div>
       </section>
