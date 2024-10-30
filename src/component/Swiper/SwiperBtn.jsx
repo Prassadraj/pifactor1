@@ -15,6 +15,15 @@ export default function App() {
   const [selected, setSelected] = useState(1);
   const [nav, setNav] = useState("VFX");
   const categories = ["VFX", "2D", "3D", "Wedding"];
+  const images = [
+    "/images/1.webp",
+    "/images/2.webp",
+    "/images/3.webp",
+    "/images/4.webp",
+    "/images/5.webp",
+    "/images/6.webp",
+    "/images/7.webp",
+  ];
 
   const handleSlideTo = (index) => {
     if (swiperRef.current) {
@@ -26,7 +35,12 @@ export default function App() {
     gsap.fromTo(
       ".image",
       { y: 900, scale: 0.5 },
-      { scale: 1, y: 0, ease: "power4.out", duration: 2, delay: 0.1 }
+      { y: 0, x: 0, scale: 1, ease: "power2.out", duration: 1.5 } // Adjusted duration for smoother animation
+    );
+    gsap.fromTo(
+      ".images",
+      { y: 50, scale: 0 },
+      { y: 0, scale: 1, ease: "power2.out", duration: 2 } // Adjusted duration for smoother animation
     );
   };
 
@@ -35,13 +49,8 @@ export default function App() {
       animateImage();
       swiperRef.current.on("slideChange", () => {
         const activeSlideIndex = swiperRef.current.realIndex + 1;
-        const activeSlide =
-          swiperRef.current.slides[swiperRef.current.activeIndex];
-        if (activeSlide.querySelector(".image")) {
-          animateImage();
-        }
-        setCount(swiperRef.current.previousIndex);
         setSelected(activeSlideIndex);
+        animateImage();
       });
     }
   }, []);
@@ -59,12 +68,17 @@ export default function App() {
         modules={[Mousewheel]}
         className="mySwiper"
       >
-        {[...Array(7)].map((_, index) => (
+        {images.map((src, index) => (
           <SwiperSlide key={index}>
-            <div
-              className="h-full w-full bg-cover bg-center"
-              style={{ backgroundImage: `url('/images/${selected}.jpg')` }}
-            >
+            <div className="relative h-full w-full">
+              <Image
+                src={src}
+                alt={`Slide ${index + 1}`}
+                className="object-cover transition-opacity duration-1000 images"
+                fill
+                loading={index === 0 ? "eager" : "lazy"} // Load first image eagerly
+                priority={index === 0} // Priority load for the first image
+              />
               <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
                 <div
                   className="relative w-[25%] top-[10%] h-3/5 overflow-hidden"
@@ -73,12 +87,12 @@ export default function App() {
                   }}
                 >
                   <Image
-                    src={`/images/${index + 1}.jpg`}
-                    alt="slide"
-                    className="object-cover image"
+                    src={src}
+                    alt={`Slide ${index + 1}`}
+                    className="object-cover transition-opacity duration-1000 image"
                     fill
-                    loading={index === 0 ? "eager" : "lazy"} // Load first image eagerly, others lazily
-                    priority={index === 0} // Priority load for the first image
+                    loading={index === 0 ? "eager" : "lazy"}
+                    priority={index === 0}
                   />
                 </div>
               </div>
@@ -88,7 +102,7 @@ export default function App() {
       </Swiper>
 
       <div className="custom-navigation">
-        {[...Array(7)].map((_, index) => (
+        {images.map((_, index) => (
           <button key={index} onClick={() => handleSlideTo(index)}>
             {index + 1}
           </button>
@@ -110,7 +124,9 @@ export default function App() {
       </div>
 
       <div className="fixed bottom-10 left-10 z-50 text-white">
-        <p>0{selected} / 7</p>
+        <p>
+          0{selected} / {images.length}
+        </p>
       </div>
     </>
   );

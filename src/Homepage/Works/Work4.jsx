@@ -1,12 +1,12 @@
 "use client";
 import styles from "./styles.module.scss";
-import Picture1 from "../../../public/images/1.jpg";
-import Picture2 from "../../../public/images/2.jpg";
-import Picture3 from "../../../public/images/3.jpg";
-import Picture4 from "../../../public/images/4.jpg";
+import Picture1 from "../../../public/images/1.webp";
+import Picture2 from "../../../public/images/2.webp";
+import Picture3 from "../../../public/images/3.webp";
+import Picture4 from "../../../public/images/4.webp";
 import Picture5 from "../../app/images/window.png";
-import Picture6 from "../../../public/images/6.jpg";
-import Picture7 from "../../../public/images/7.jpg";
+import Picture6 from "../../../public/images/6.webp";
+import Picture7 from "../../../public/images/7.webp";
 import Image from "next/image";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";

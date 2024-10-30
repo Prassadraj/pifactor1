@@ -4,10 +4,10 @@ import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import Picture1 from "../../../public/images/1.jpg";
+import Picture1 from "../../../public/images/1.webp";
 import Picture5 from "../../app/images/window.png";
-import Picture6 from "../../../public/images/6.jpg";
-import Picture7 from "../../../public/images/7.jpg";
+import Picture6 from "../../../public/images/6.webp";
+import Picture7 from "../../../public/images/7.webp";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
