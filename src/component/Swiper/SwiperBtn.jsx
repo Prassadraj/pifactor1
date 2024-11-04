@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/mousewheel";
 import "./nav.css";
 import { Mousewheel } from "swiper/modules";
-import Image from "next/image";
+import NextImage from "next/image";
 import gsap from "gsap";
 
 export default function App() {
@@ -24,7 +24,12 @@ export default function App() {
     "/images/6.webp",
     "/images/7.webp",
   ];
-
+  useEffect(() => {
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
   const handleSlideTo = (index) => {
     if (swiperRef.current) {
       swiperRef.current.slideToLoop(index);
@@ -61,7 +66,7 @@ export default function App() {
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         loop={true}
         spaceBetween={0}
-        speed={900}
+        speed={1000}
         effect="coverflow"
         direction="vertical"
         mousewheel={true}
@@ -71,7 +76,7 @@ export default function App() {
         {images.map((src, index) => (
           <SwiperSlide key={index}>
             <div className="relative h-full w-full">
-              <Image
+              <NextImage
                 src={src}
                 alt={`Slide ${index + 1}`}
                 className="object-cover transition-opacity duration-1000 images"
@@ -87,7 +92,7 @@ export default function App() {
                     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                   }}
                 >
-                  <Image
+                  <NextImage
                     src={src}
                     alt={`Slide ${index + 1}`}
                     className="object-cover transition-opacity duration-1000 image"
