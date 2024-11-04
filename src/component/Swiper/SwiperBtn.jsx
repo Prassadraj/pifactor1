@@ -61,7 +61,7 @@ export default function App() {
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         loop={true}
         spaceBetween={0}
-        speed={1200}
+        speed={900}
         effect="coverflow"
         direction="vertical"
         mousewheel={true}
@@ -76,8 +76,9 @@ export default function App() {
                 alt={`Slide ${index + 1}`}
                 className="object-cover transition-opacity duration-1000 images"
                 fill
-                loading={index === 0 ? "eager" : "lazy"} // Load first image eagerly
-                priority={index === 0} // Priority load for the first image
+                loading={index === 0 ? "eager" : "lazy"}
+                priority={index === 0}
+                quality={75} // Adjust quality for faster load times
               />
               <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
                 <div
