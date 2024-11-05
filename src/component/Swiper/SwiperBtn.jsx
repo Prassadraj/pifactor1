@@ -43,7 +43,7 @@ export default function App() {
       { y: 0, scale: 1, ease: "power2.out", duration: 2 } // Adjusted duration for smoother animation
     );
   };
-
+  
   useEffect(() => {
     if (swiperRef.current) {
       animateImage();
