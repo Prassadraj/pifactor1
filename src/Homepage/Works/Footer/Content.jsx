@@ -1,16 +1,13 @@
 import React from "react";
 
-
 export default function Content() {
   return (
     <div className="relative h-full w-full">
       {/* Earth as a background */}
-      <div className="absolute inset-0 -z-10">
-
-      </div>
+      <div className="absolute inset-0 -z-10"></div>
 
       {/* Content Sections */}
-      <div className="bg-gradient-to-tr py-20 from-black to-blue-900 px-12 h-full w-full flex flex-col justify-between">
+      <div className="bg-gradient-to-tr py-20 bg-black px-12 h-full w-full flex flex-col justify-between">
         <Section1 />
         <Section2 />
       </div>
@@ -20,8 +17,18 @@ export default function Content() {
 
 const Section1 = () => {
   return (
-    <div>
+    <div className="flex h-full">
       <Nav />
+      <div className="w-1/2 h-full flex items-start ">
+        <video
+          className="h-full w-full "
+          autoPlay
+          muted
+          loop
+          playsInline
+          src="/footer.mp4"
+        ></video>
+      </div>
     </div>
   );
 };
@@ -37,20 +44,18 @@ const Section2 = () => {
 
 const Nav = () => {
   return (
-    <div className="flex shrink-0 gap-20">
-      <div className="flex flex-col gap-2">
-        <h3 className="mb-2 uppercase text-[#ffffff80]">About</h3>
-        <p>Home</p>
-        <p>Projects</p>
-        <p>Our Mission</p>
-        <p>Contact Us</p>
-      </div>
-      <div className="flex flex-col gap-2">
-        <h3 className="mb-2 uppercase text-[#ffffff80]">Education</h3>
-        <p>News</p>
-        <p>Learn</p>
-        <p>Certification</p>
-        <p>Publications</p>
+    <div className="flex shrink-0 gap-10">
+      <div className="flex flex-col gap-10">
+        <div>
+          <h1 className="font-thin text-[100px]">Our </h1>
+          <h1 className="font-thin text-[100px]">Story</h1>
+        </div>
+        <div>
+          <p className="text-2xl max-w-xl">
+            The story behind PiFactor is one of exploration, creativity and
+            curiosity.
+          </p>
+        </div>
       </div>
     </div>
   );
