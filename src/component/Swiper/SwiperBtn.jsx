@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/mousewheel";
 import "./nav.css";
 import { Mousewheel } from "swiper/modules";
-import NextImage from "next/image";
+import Image from "next/image";
 import gsap from "gsap";
 
 export default function App() {
@@ -24,12 +24,7 @@ export default function App() {
     "/images/6.webp",
     "/images/7.webp",
   ];
-  useEffect(() => {
-    images.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  }, []);
+
   const handleSlideTo = (index) => {
     if (swiperRef.current) {
       swiperRef.current.slideToLoop(index);
@@ -66,7 +61,7 @@ export default function App() {
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         loop={true}
         spaceBetween={0}
-        speed={1000}
+        speed={1200}
         effect="coverflow"
         direction="vertical"
         mousewheel={true}
@@ -76,14 +71,13 @@ export default function App() {
         {images.map((src, index) => (
           <SwiperSlide key={index}>
             <div className="relative h-full w-full">
-              <NextImage
+              <Image
                 src={src}
                 alt={`Slide ${index + 1}`}
-                className="object-cover transition-opacity duration-1000 images"
+                className="object-cover transition-opacity duration-1000 images opacity-50"
                 fill
-                loading={index === 0 ? "eager" : "lazy"}
-                priority={index === 0}
-                quality={75} // Adjust quality for faster load times
+                loading={index === 0 ? "eager" : "lazy"} // Load first image eagerly
+                priority={index === 0} // Priority load for the first image
               />
               <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
                 <div
@@ -92,7 +86,7 @@ export default function App() {
                     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                   }}
                 >
-                  <NextImage
+                  <Image
                     src={src}
                     alt={`Slide ${index + 1}`}
                     className="object-cover transition-opacity duration-1000 image"
