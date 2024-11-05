@@ -17,7 +17,7 @@ export default function Content() {
 
 const Section1 = () => {
   return (
-    <div className="flex h-full">
+    <div className="flex h-full justify-center">
       <Nav />
       <div className="w-1/2 h-full flex items-start ">
         <video
@@ -35,7 +35,7 @@ const Section1 = () => {
 
 const Section2 = () => {
   return (
-    <div className="flex justify-between items-end">
+    <div className="flex justify-between items-end absolute bottom-5">
       {/* <h1 className="text-[14vw] mt-10">Title</h1> */}
       <p>©copyright</p>
     </div>
@@ -47,11 +47,11 @@ const Nav = () => {
     <div className="flex shrink-0 gap-10">
       <div className="flex flex-col gap-10">
         <div>
-          <h1 className="font-thin text-[100px]">Our </h1>
-          <h1 className="font-thin text-[100px]">Story</h1>
+          <h1 className="font-medium text-[120px]">Our </h1>
+          <h1 className="font-medium text-[120px]">Story</h1>
         </div>
         <div>
-          <p className="text-2xl max-w-xl">
+          <p className="text-2xl max-w-lg">
             The story behind PiFactor is one of exploration, creativity and
             curiosity.
           </p>
