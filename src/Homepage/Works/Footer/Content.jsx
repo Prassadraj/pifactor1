@@ -1,60 +1,108 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 export default function Content() {
   return (
     <div className="relative h-full w-full">
-      {/* Earth as a background */}
-      <div className="absolute inset-0 -z-10"></div>
-
-      {/* Content Sections */}
-      <div className="bg-gradient-to-tr py-20 bg-black px-12 h-full w-full flex flex-col justify-between">
-        <Section1 />
-        <Section2 />
+      <div className="bg-gradient-to-tr py-10 bg-black px-12 h-full w-full flex flex-col justify-between">
+        <Nav />
       </div>
     </div>
   );
 }
 
-const Section1 = () => {
-  return (
-    <div className="flex h-full justify-center">
-      <Nav />
-      <div className="w-1/2 h-full flex items-start ">
-        <video
-          className="h-full w-full "
-          autoPlay
-          muted
-          loop
-          playsInline
-          src="/footer.mp4"
-        ></video>
-      </div>
-    </div>
-  );
-};
-
-const Section2 = () => {
-  return (
-    <div className="flex justify-between items-end absolute bottom-5">
-      {/* <h1 className="text-[14vw] mt-10">Title</h1> */}
-      <p>©copyright</p>
-    </div>
-  );
-};
-
 const Nav = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.9;
+    }
+  }, []);
   return (
-    <div className="flex shrink-0 gap-10">
-      <div className="flex flex-col gap-10">
-        <div>
-          <h1 className="font-medium text-[120px]">Our </h1>
-          <h1 className="font-medium text-[120px]">Story</h1>
+    <div className="flex shrink-0 gap-10 flex-col">
+      <div className="flex gap-2">
+        <div className="flex flex-col gap-10 z-50">
+          <div>
+            <h1 className="font-medium text-[120px]">Our </h1>
+            <h1 className="font-medium text-[120px]">Story</h1>
+          </div>
+          <div>
+            <p className="text-2xl max-w-lg font-light">
+              PiFactor merges creativity and curiosity, making each project a
+              journey in visual discovery
+            </p>
+          </div>
         </div>
-        <div>
-          <p className="text-2xl max-w-lg">
-            The story behind PiFactor is one of exploration, creativity and
-            curiosity.
-          </p>
+        <div className="w-1/2 h-full flex items-start">
+          <video
+            ref={videoRef}
+            className="h-full w-full scale-x-150 scale-y-125 opacity-85 z-0 "
+            autoPlay
+            muted
+            loop
+            playsInline
+            src="/footer.mp4"
+          ></video>
+        </div>
+      </div>
+      <div className="flex flex-col gap-4">
+        <div className="w-full h-[2px] bg-violet-900 "></div>
+        <div className="flex  gap-20">
+          <div>
+            <ul className="text-gray-200 font-thin">
+              <li>TTK Road,chennai</li>
+              <li>
+                <strong>Email:</strong>{" "}
+                <a href="mailto:pifactor@gmail.com">pifactor@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul className="text-gray-200 font-thin">
+              <li className="cursor-pointer ">
+                <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300">
+                  Work
+                </span>
+              </li>
+              <li className="cursor-pointer ">
+                <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300">
+                  Studio
+                </span>
+              </li>
+              <li className="cursor-pointer">
+                <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300">
+                  Contact Us
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div>
+              {" "}
+              <ul className="text-gray-200 font-thin">
+                <li className="cursor-pointer ">
+                  <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300">
+                    Behance
+                  </span>
+                </li>
+                <li className="cursor-pointer ">
+                  <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300">
+                    Twitter
+                  </span>
+                </li>
+                <li className="cursor-pointer">
+                  <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300">
+                    Youtube
+                  </span>
+                </li>
+                <li className="cursor-pointer">
+                  <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300">
+                    Instagram
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>

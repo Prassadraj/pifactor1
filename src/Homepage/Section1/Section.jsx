@@ -120,8 +120,8 @@ function Section() {
       // Fade out h1 elements
       tl.to("h1", {
         display: "none",
-        delay: 2,
-        duration: 1,
+        // delay: 2,
+        // duration: 1,
         ease: "power2.out",
         onComplete: () => {
           setHasPlayedOnce(true);
