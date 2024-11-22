@@ -69,7 +69,7 @@ function Nav() {
 
   return (
     <div
-      className={`fixed top-0 z-50 left-0 w-full gap-2 flex lg:justify-between items-center px-2 py-1 lg:px-16 lg:py-10 ${
+      className={`fixed top-0 z-50 left-0 w-full gap-2 flex tablet:justify-between items-center px-2 py-5 laptop:px-16 laptop:py-10 ${
         montserrat.className
       } ${
         isNavVisible ? "opacity-100" : "opacity-0"
@@ -78,16 +78,18 @@ function Nav() {
       <Link href="/" className="logo">
         <Image className="img  w-32 lg:w-52 " src={logo} alt="Logo" />
       </Link>
-      <div className="flex gap-4 lg:gap-10 cursor-pointer">
+      <div className="tablet:flex hidden gap-4 tablet:gap-5  laptop:gap-10 cursor-pointer">
         {navItems.map((item) => (
           <Link key={item.name} href={item.href}>
             <div
-              className={`nav-item group flex flex-col items-center text-base  ${
+              className={`nav-item group flex flex-col items-center  ${
                 pathname === item.href ? "text-gray-800" : ""
               }`}
             >
-              <p className="text-base text-white name">{item.name}</p>
-              <p className="h-[1px] bg-white w-0 group-hover:w-full "></p>
+              <p className="tablet:text-base text-xs text-white name">
+                {item.name}
+              </p>
+              <p className="h-[1px] laptop:block hidden bg-white w-0 group-hover:w-full "></p>
               {pathname === item.href && (
                 <Image
                   className="transition-all duration-300"

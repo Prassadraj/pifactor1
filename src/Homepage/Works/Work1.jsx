@@ -151,13 +151,13 @@ function Work1() {
   };
 
   return (
-    <div className="pp w-full tablet:px-20 tablet:py-10 font-poppins font-thin">
+    <div className="pp w-full tablet:px-20 tablet:py-10  font-poppins font-thin">
       {view == "default" && (
         <motion.div
           variants={variants}
           animate={view}
           transition={{ duration: 0.1, ease: "linear" }}
-          className="fixed top-0 pointer-events-none flex justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
+          className="fixed laptop:block hidden top-0 pointer-events-none flex justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
         >
           <p
             className={`${montserrat.className} text-white font-normal text-sm`}
@@ -181,11 +181,12 @@ function Work1() {
 
       <section className="flex flex-col ">
         {/* section1 */}
-        <div className="tablet:h-[170vh] tablet:flex tablet:gap-20">
+        <div className="tablet:h-[170vh] tablet:flex tablet:gap-0 overflow-x-hidden">
           <div className="w-full h-full tablet:px-5">
             <p className="font-medium text-xl vfx">VFX</p>
+            {/* for lap */}
             <div
-              className="w-full h-[800px]  relative image1"
+              className="tablet:w-[450px] hidden laptop:block h-[800px]  relative image1"
               onMouseEnter={() => {
                 handleMouseEnter("image1");
                 setView("default");
@@ -212,9 +213,19 @@ function Work1() {
                 />
               )}
             </div>
+            {/* for mobile */}
+            <div className="tablet:w-[350px] laptop:hidden h-[500px]  relative image1">
+              <video
+                className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
+                autoPlay
+                muted
+                loop
+                src="./car.mp4"
+              ></video>
+            </div>
             <p className="text-white image1">About Project</p>
           </div>
-          <div className="tablet:flex-1 h-full flex  flex-col justify-between">
+          <div className="tablet:w-[50%] h-full flex  flex-col justify-between">
             <div className="flex flex-col justify-end gap-10 featured">
               <div className="flex gap-1">
                 <Image alt="img" src={sparkle} className="w-4" />
@@ -230,7 +241,7 @@ function Work1() {
               </p>
             </div>
             <div
-              className="w-[400px] h-[600px] tablet:w-[400px] flex  tablet:h-[500px]  relative image2"
+              className="w-[400px] hidden h-[600px] tablet:w-[400px] laptop:flex  tablet:h-[500px]  relative image2"
               onMouseEnter={() => {
                 handleMouseEnter("image2");
                 setView("default");
@@ -257,13 +268,26 @@ function Work1() {
                 />
               )}
             </div>
+            <div>
+              {" "}
+              <div className="tablet:w-[250px] laptop:hidden block h-[200px]  relative image1">
+                <video
+                  className="w-full h-full object-cover cursor-pointer"
+                  autoPlay
+                  muted
+                  loop
+                  src="./car.mp4"
+                ></video>
+                <p>About Project</p>
+              </div>
+            </div>
           </div>
         </div>
         {/* section2 */}
-        <div className="tablet:h-[150vh] w-full flex justify-evenly ">
+        <div className="tablet:h-[150vh] w-full flex justify-evenly overflow-hidden tablet:gap-10">
           <div className="flex w-[300px] justify-end items-start flex-col image3">
             <div
-              className="w-full h-[400px]  relative"
+              className="laptop:w-full tablet:w-[200px] h-[400px]  relative"
               onMouseEnter={() => {
                 handleMouseEnter("image3");
                 setView("default");
@@ -294,7 +318,7 @@ function Work1() {
           </div>
           <div className="flex  flex-col justify-center image4">
             <div
-              className="w-[500px] h-[600px]  relative"
+              className="laptop:w-[500px] laptop:h-[600px] tablet:h-[400px] tablet:w-[300px]  relative"
               onMouseEnter={() => {
                 handleMouseEnter("image4");
                 setView("default");

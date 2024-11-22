@@ -43,7 +43,7 @@ export default function App() {
       { y: 0, scale: 1, ease: "power2.out", duration: 2 } // Adjusted duration for smoother animation
     );
   };
-  
+
   useEffect(() => {
     if (swiperRef.current) {
       animateImage();
@@ -81,7 +81,7 @@ export default function App() {
               />
               <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
                 <div
-                  className="relative w-[25%] top-[10%] h-3/5 overflow-hidden"
+                  className="relative laptop:w-[25%] w-[60%] tablet:w-[40%] top-[10%] h-3/5 overflow-hidden"
                   style={{
                     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                   }}
@@ -101,14 +101,19 @@ export default function App() {
         ))}
       </Swiper>
 
-      <div className="custom-navigation">
+      <div className="custom-navigation right-5 tablet:right-20 gap-2 tablet:gap-4 ">
         {images.map((_, index) => (
-          <button key={index} onClick={() => handleSlideTo(index)}>
+          <button
+            className="bg-black text-xs tablet:text-lg hover:bg-gray-400 p-1 
+            tablet:px-2 tablet:py-1 rounded-[50%]"
+            key={index}
+            onClick={() => handleSlideTo(index)}
+          >
             {index + 1}
           </button>
         ))}
       </div>
-      <div className="fixed text-xl flex gap-10 font-black top-28 left-[50%] translate-x-[-50%] z-50">
+      <div className="fixed tablet:text-xl text-xs flex gap-5 tablet:gap-10 font-black top-20 tablet:top-28 left-[50%] translate-x-[-50%] z-50">
         {categories.map((category) => (
           <p
             key={category}
@@ -123,7 +128,7 @@ export default function App() {
         ))}
       </div>
 
-      <div className="fixed bottom-10 left-10 z-50 text-white">
+      <div className="fixed tablet:bottom-10 bottom-5 tablet:text-lg text-xs left-10 z-50 text-white">
         <p>
           0{selected} / {images.length}
         </p>

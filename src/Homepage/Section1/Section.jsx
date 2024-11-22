@@ -190,7 +190,7 @@ function Section() {
     <div className="container">
       {!hasPlayedOnce && <div className="cover-screen"></div>}{" "}
       {/* Cover Screen Element */}
-      <div className="hero-video">
+      <div className="hero-video ">
         <video
           className="w-full h-full object-cover"
           loop

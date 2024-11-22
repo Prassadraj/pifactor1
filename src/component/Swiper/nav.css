@@ -17,23 +17,20 @@
 .custom-navigation {
   position: fixed;
   top: 50%;
-  right: 20px; /* Position buttons on the right */
+  /* Position buttons on the right */
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Space between buttons */
+  /* Space between buttons */
   z-index: 99999; /* Ensure buttons are above other content */
 }
 
 .custom-navigation button {
-  padding: 5px;
   background-color: black;
   color: white;
   border: none;
-  border-radius: 50%;
+
   cursor: pointer;
-  width: 25px;
-  height: 30px;
 }
 
 .custom-navigation button:hover {
