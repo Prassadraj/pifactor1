@@ -113,7 +113,7 @@ export default function App() {
           </button>
         ))}
       </div>
-      <div className="fixed tablet:text-xl text-xs flex gap-5 tablet:gap-10 font-black top-20 tablet:top-28 left-[50%] translate-x-[-50%] z-50">
+      <div className="fixed tablet:text-xl text-xs flex gap-5 tablet:gap-10 font-black top-20 tablet:top-28 left-[50%] translate-x-[-50%] z-20">
         {categories.map((category) => (
           <p
             key={category}
@@ -128,7 +128,7 @@ export default function App() {
         ))}
       </div>
 
-      <div className="fixed tablet:bottom-10 bottom-5 tablet:text-lg text-xs left-10 z-50 text-white">
+      <div className="fixed tablet:bottom-10 bottom-5 tablet:text-lg text-xs left-10 z-20 text-white">
         <p>
           0{selected} / {images.length}
         </p>

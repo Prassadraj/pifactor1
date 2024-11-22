@@ -1,41 +1,18 @@
-.mySwiper {
-    width: 100%;
-    height: 100vh;
-  }
-  
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .custom-navigation {
-    position: fixed;
-    top: 50%;
-    right: 20px; /* Position buttons on the right */
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Space between buttons */
-    z-index: 99999; /* Ensure buttons are above other content */
-  }
-  
-  .custom-navigation button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-  }
-  
-  .custom-navigation button:hover {
-    background-color: #0056b3;
-  }
-  
+/* /blck
+   */
+.blocks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+.block {
+  flex: 1;
+  height: 100%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  background-color: rgb(28, 28, 28);
+  border: transparent;
+  will-change: clip-path;
+}
