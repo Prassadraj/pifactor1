@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import styles from "./style.module.scss";
 import { motion } from "framer-motion";
-
 import { menuSlide } from "../anim";
 import Link from "./Link";
 import Curve from "./Curve";
@@ -28,7 +27,8 @@ const navItems = [
   },
 ];
 
-export default function index() {
+export default function NavBtn() {
+  // Renamed from "index" to "NavBtn"
   const pathname = usePathname();
   const [selectedIndicator, setSelectedIndicator] = useState(pathname);
 
@@ -55,9 +55,9 @@ export default function index() {
               <Link
                 key={index}
                 data={{ ...data, index }}
-                isActive={selectedIndicator == data.href}
+                isActive={selectedIndicator === data.href}
                 setSelectedIndicator={setSelectedIndicator}
-              ></Link>
+              />
             );
           })}
         </div>
@@ -67,3 +67,4 @@ export default function index() {
     </motion.div>
   );
 }
+``
