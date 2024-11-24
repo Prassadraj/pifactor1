@@ -104,66 +104,155 @@ function Spread() {
     );
 
     // Image Animations
-    gsap.fromTo(
-      ".image1",
-      { x: 0 },
-      {
-        x: 150,
-        duration: 1,
-        ease: "power3.inOut",
-        scrollTrigger: {
-          trigger: ".imageContainer",
-          start: "top 90%",
-          end: "bottom 50%",
-          scrub: 0.5,
-        },
-      }
-    );
-    gsap.fromTo(
-      ".image2",
-      { x: 0 },
-      {
-        x: -150,
-        duration: 1,
-        ease: "power3.inOut",
-        scrollTrigger: {
-          trigger: ".imageContainer",
-          start: "top 90%",
-          end: "bottom 50%",
-          scrub: 0.5,
-        },
-      }
-    );
-    gsap.fromTo(
-      ".image3",
-      { x: 0 },
-      {
-        x: -220,
-        duration: 1,
-        ease: "power3.inOut",
-        scrollTrigger: {
-          trigger: ".imageContainer",
-          start: "top 60%",
-          end: "bottom 20%",
-          scrub: 0.5,
-        },
-      }
-    );
-    gsap.fromTo(
-      ".image4",
-      { x: 0 },
-      {
-        x: 220,
-        duration: 1,
-        ease: "power3.inOut",
-        scrollTrigger: {
-          trigger: ".imageContainer",
-          start: "top 60%",
-          end: "bottom 20%",
-          scrub: 0.5,
-        },
-      }
-    );
+    const mm = gsap.matchMedia();
+
+    // Animation for larger screens
+    mm.add("(min-width: 1025px)", () => {
+      gsap.fromTo(
+        ".image1",
+        { x: 0 },
+        {
+          x: 150,
+          duration: 1,
+          ease: "power3.inOut",
+          scrollTrigger: {
+            trigger: ".imageContainer",
+            start: "top 90%",
+            end: "bottom 50%",
+            scrub: 0.5,
+          },
+        }
+      );
+    });
+
+    // Animation for tablet screens
+    mm.add("(min-width: 768px) and (max-width: 1024px)", () => {
+      gsap.fromTo(
+        ".image1",
+        { x: 0 },
+        {
+          x: 20,
+          duration: 1,
+          ease: "power3.inOut",
+          scrollTrigger: {
+            trigger: ".imageContainer",
+            start: "top 90%",
+            end: "bottom 50%",
+            scrub: 0.5,
+          },
+        }
+      );
+    });
+
+    gsap.matchMedia().add("(min-width: 768px) and (max-width: 1024px)", () => {
+      gsap.fromTo(
+        ".image2",
+        { x: 0 },
+        {
+          x: -20,
+          duration: 1,
+          ease: "power3.inOut",
+          scrollTrigger: {
+            trigger: ".imageContainer",
+            start: "top 90%",
+            end: "bottom 50%",
+            scrub: 0.5,
+          },
+        }
+      );
+    });
+    gsap.matchMedia().add("(min-width: 1025px)", () => {
+      gsap.fromTo(
+        ".image2",
+        { x: 0 },
+        {
+          x: -150,
+          duration: 1,
+          ease: "power3.inOut",
+          scrollTrigger: {
+            trigger: ".imageContainer",
+            start: "top 90%",
+            end: "bottom 50%",
+            scrub: 0.5,
+          },
+        }
+      );
+    });
+    gsap.matchMedia().add("(min-width: 768px) and (max-width: 1024px)", () => {
+      // For tablet screens
+      gsap.fromTo(
+        ".image3",
+        { x: 0 },
+        {
+          x: -80,
+          duration: 1,
+          ease: "power3.inOut",
+          scrollTrigger: {
+            trigger: ".imageContainer",
+            start: "top 60%",
+            end: "bottom 20%",
+            scrub: 0.5,
+          },
+        }
+      );
+    });
+
+    gsap.matchMedia().add("(min-width: 1025px)", () => {
+      // For larger screens
+      gsap.fromTo(
+        ".image3",
+        { x: 0 },
+        {
+          x: -220,
+          duration: 1,
+          ease: "power3.inOut",
+          scrollTrigger: {
+            trigger: ".imageContainer",
+            start: "top 60%",
+            end: "bottom 20%",
+            scrub: 0.5,
+          },
+        }
+      );
+    });
+
+    gsap.matchMedia().add("(min-width: 768px) and (max-width: 1024px)", () => {
+      // For tablet screens
+      gsap.fromTo(
+        ".image4",
+        { x: 0 },
+        {
+          x: 60, // Adjusted for tablet
+          duration: 1,
+          ease: "power3.inOut",
+          scrollTrigger: {
+            trigger: ".imageContainer",
+            start: "top 60%",
+            end: "bottom 20%",
+            scrub: 0.5,
+          },
+        }
+      );
+    });
+
+    gsap.matchMedia().add("(min-width: 1025px)", () => {
+      // For larger screens
+      gsap.fromTo(
+        ".image4",
+        { x: 0 },
+        {
+          x: 220, // Adjusted for larger screens
+          duration: 1,
+          ease: "power3.inOut",
+          scrollTrigger: {
+            trigger: ".imageContainer",
+            start: "top 60%",
+            end: "bottom 20%",
+            scrub: 0.5,
+          },
+        }
+      );
+    });
   }, []);
 
   return (
@@ -202,7 +291,7 @@ function Spread() {
               />
             </div>
           </div>
-          <div className="absolute bottom-20 left-60 image3">
+          <div className="absolute laptop:bottom-20 tablet:bottom-32 tablet:left-20 laptop:left-60 image3">
             <Image
               width={300}
               height={200}
@@ -212,7 +301,7 @@ function Spread() {
               priority
             />
           </div>
-          <div className="absolute bottom-10 right-56 image4">
+          <div className="absolute laptop:bottom-20 tablet:right-20 tablet:bottom-10 laptop:right-56 image4">
             <Image
               width={400}
               height={200}

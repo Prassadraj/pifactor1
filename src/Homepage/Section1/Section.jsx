@@ -187,15 +187,16 @@ function Section() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container ">
       {!hasPlayedOnce && <div className="cover-screen"></div>}{" "}
       {/* Cover Screen Element */}
-      <div className="hero-video ">
+      <div className="hero-video w-full">
         <video
           className="w-full h-full object-cover"
           loop
           src="./PF_LOGO.mp4"
           autoPlay
+          playsInline
           muted
           preload="auto" // Ensures the video loads with priority
         ></video>

@@ -7,9 +7,9 @@ import { Montserrat } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import "./nav.css";
-import logo from "../app/images/PixcellFactory_logo.png";
-import sparkle from "../app/images/sparkle.png";
-
+import logo from "../../app/images/PixcellFactory_logo.png";
+import sparkle from "../../app/images/sparkle.png";
+import Header from "../../component/header";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 function Nav() {
@@ -69,16 +69,26 @@ function Nav() {
 
   return (
     <div
-      className={`fixed top-0 z-50 left-0 w-full gap-2 flex tablet:justify-between items-center px-2 py-5 laptop:px-16 laptop:py-10 ${
-        montserrat.className
-      } ${
-        isNavVisible ? "opacity-100" : "opacity-0"
-      } transition-opacity duration-300`}
+      className={`fixed top-0 z-50 left-0 w-full gap-2 flex tablet:justify-between items-center px-2 py-5 laptop:px-16 laptop:py-10 ${montserrat.className}  transition-opacity duration-300`}
     >
-      <Link href="/" className="logo">
+      <Link
+        href="/"
+        className={`logo ${
+          isNavVisible ? "opacity-100" : "opacity-0"
+        }  transition-opacity duration-300
+      `}
+      >
         <Image className="img  w-32 lg:w-52 " src={logo} alt="Logo" />
       </Link>
-      <div className="tablet:flex hidden gap-4 tablet:gap-5  laptop:gap-10 cursor-pointer">
+
+      <Header />
+    </div>
+  );
+}
+
+export default Nav;
+{
+  /* <div className="tablet:flex hidden gap-4 tablet:gap-5  laptop:gap-10 cursor-pointer">
         {navItems.map((item) => (
           <Link key={item.name} href={item.href}>
             <div
@@ -102,9 +112,5 @@ function Nav() {
             </div>
           </Link>
         ))}
-      </div>
-    </div>
-  );
+      </div> */
 }
-
-export default Nav;

@@ -20,7 +20,7 @@ const Nav = () => {
     }
   }, []);
   return (
-    <div className="flex shrink-0 gap-10 flex-col">
+    <div className="flex  justify-around h-full flex-col ">
       <div className="flex gap-2">
         <div className="flex flex-col gap-10 z-50">
           <div>
@@ -28,7 +28,7 @@ const Nav = () => {
             <h1 className="font-medium text-[120px]">Story</h1>
           </div>
           <div>
-            <p className="text-2xl max-w-lg font-light">
+            <p className="text-2xl max-w-2xl font-light">
               PiFactor merges creativity and curiosity, making each project a
               journey in visual discovery
             </p>
@@ -37,7 +37,7 @@ const Nav = () => {
         <div className="w-1/2 h-full flex items-start">
           <video
             ref={videoRef}
-            className="h-full w-full scale-x-150 scale-y-125 opacity-85 z-0 "
+            className="h-full w-full laptop:scale-x-150 laptop:scale-y-150 tablet:scale-x-150 tablet:scale-y-150 opacity-85 z-0 "
             autoPlay
             muted
             loop
@@ -46,7 +46,7 @@ const Nav = () => {
           ></video>
         </div>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 ">
         <div className="w-full h-[2px] bg-violet-900 "></div>
         <div className="flex  gap-20">
           <div>

@@ -157,7 +157,7 @@ function Work1() {
           variants={variants}
           animate={view}
           transition={{ duration: 0.1, ease: "linear" }}
-          className="fixed laptop:block hidden top-0 pointer-events-none flex justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
+          className="fixed hidden top-0 pointer-events-none laptop:flex justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
         >
           <p
             className={`${montserrat.className} text-white font-normal text-sm`}

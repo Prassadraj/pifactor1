@@ -7,8 +7,8 @@ import Work2 from "@/Homepage/Works/Work2";
 import Work3 from "@/Homepage/Works/Work3";
 import Lenis from "@studio-freight/lenis";
 import Work4 from "@/Homepage/Works/Work4";
-import Spread from "@/Homepage/Works/Spread/Spread";
-import Footer from "@/Homepage/Works/Footer/Footer";
+import Spread from "@/component/Spread/Spread";
+import Footer from "@/component/Footer/Footer";
 
 export default function Home() {
   const [show, setShow] = useState(false);
