@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import MyContext from "@/context/MyContext";
+import React, { useContext, useEffect, useRef } from "react";
 
 export default function Content() {
   return (
@@ -13,7 +14,7 @@ export default function Content() {
 
 const Nav = () => {
   const videoRef = useRef(null);
-
+  const { state, setState } = useContext(MyContext);
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.playbackRate = 0.9;

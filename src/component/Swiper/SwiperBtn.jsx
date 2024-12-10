@@ -104,8 +104,13 @@ export default function App() {
       <div className="custom-navigation right-5 tablet:right-20 gap-2 tablet:gap-4 ">
         {images.map((_, index) => (
           <button
-            className="bg-black text-xs tablet:text-lg hover:bg-gray-400 p-1 
-            tablet:px-2 tablet:py-1 rounded-[50%]"
+            className={`bg-black text-xs tablet:text-lg hover:bg-black p-1 
+      tablet:px-2 tablet:py-1 rounded-[50%] transition-all duration-500
+      ${
+        selected === index + 1
+          ? "bg-white text-black hover:text-white"
+          : "bg-gray-800 border border-gray-500 text-white"
+      }`}
             key={index}
             onClick={() => handleSlideTo(index)}
           >
@@ -113,6 +118,7 @@ export default function App() {
           </button>
         ))}
       </div>
+
       <div className="fixed tablet:text-xl text-xs flex gap-5 tablet:gap-10 font-black top-20 tablet:top-28 left-[50%] translate-x-[-50%] z-20">
         {categories.map((category) => (
           <p

@@ -1,5 +1,6 @@
 import Nav from "@/component/Nav/Nav";
 import "./globals.css";
+import { MyProvider } from "@/context/MyContext";
 
 export const metadata = {
   title: "PiFactor",
@@ -23,8 +24,10 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <Nav />
-        {children}
+        <MyProvider>
+          <Nav />
+          {children}
+        </MyProvider>
       </body>
     </html>
   );
