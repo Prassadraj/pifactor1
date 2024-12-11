@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import "../Works/work.css";
+import "./work.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Lato, Montserrat } from "next/font/google";
-import sparkle from "../../app/images/sparkle.png";
+import sparkle from "../../../app/images/sparkle.png";
 import Image from "next/image";
 
 import { motion } from "framer-motion";
@@ -22,7 +22,7 @@ const lato = Lato({
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Work1() {
+function Laptop1() {
   const [enter, setEnter] = useState("");
   const [videoTimes, setVideoTimes] = useState({}); // Store playback times for multiple videos
   const videoRefs = useRef({}); // Object to store refs for multiple video elements
@@ -355,4 +355,4 @@ function Work1() {
   );
 }
 
-export default Work1;
+export default Laptop1;

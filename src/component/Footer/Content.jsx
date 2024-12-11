@@ -25,11 +25,15 @@ const Nav = () => {
       <div className="flex gap-2">
         <div className="flex flex-col gap-10 z-50">
           <div>
-            <h1 className="font-medium text-[120px]">Our </h1>
-            <h1 className="font-medium text-[120px]">Story</h1>
+            <h1 className="font-medium tablet:text-[100px] laptop:text-[120px]">
+              Our{" "}
+            </h1>
+            <h1 className="font-medium tablet:text-[100px] laptop:text-[120px]">
+              Story
+            </h1>
           </div>
           <div>
-            <p className="text-2xl max-w-2xl font-light">
+            <p className="text-2xl tablet:max-w-md laptop:max-w-2xl font-light">
               PiFactor merges creativity and curiosity, making each project a
               journey in visual discovery
             </p>
@@ -38,7 +42,8 @@ const Nav = () => {
         <div className="w-1/2 h-full flex items-start">
           <video
             ref={videoRef}
-            className="h-full w-full laptop:scale-x-150 laptop:scale-y-150 tablet:scale-x-150 tablet:scale-y-150 opacity-85 z-0 "
+            className="h-full w-full tablet:scale-x-[2] tablet:scale-y-[2] laptop:scale-x-150 
+            laptop:scale-y-150  opacity-85 z-0 "
             autoPlay
             muted
             loop

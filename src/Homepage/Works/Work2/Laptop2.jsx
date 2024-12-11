@@ -4,10 +4,10 @@ import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import Picture1 from "../../../public/images/1.webp";
-import Picture5 from "../../app/images/window.png";
-import Picture6 from "../../../public/images/6.webp";
-import Picture7 from "../../../public/images/7.webp";
+import Picture1 from "../../../../public/images/1.webp";
+import Picture5 from "../../../app/images/window.png";
+import Picture6 from "../../../../public/images/6.webp";
+import Picture7 from "../../../../public/images/7.webp";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -16,7 +16,7 @@ const montserrat = Montserrat({
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Work2() {
+function Laptop2() {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -187,4 +187,4 @@ function Work2() {
   );
 }
 
-export default Work2;
+export default Laptop2;

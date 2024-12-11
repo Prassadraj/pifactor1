@@ -13,7 +13,7 @@ const montserrat = Montserrat({
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Work3() {
+function Laptop3() {
   const container = useRef(null);
 
   useEffect(() => {
@@ -182,4 +182,4 @@ function Work3() {
   );
 }
 
-export default Work3;
+export default Laptop3;
