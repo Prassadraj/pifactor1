@@ -7,7 +7,7 @@ import Work2 from "@/Homepage/Works/Work2/Work2";
 import Work3 from "@/Homepage/Works/Work3/Work3";
 import Lenis from "@studio-freight/lenis";
 import Work4 from "@/Homepage/Works/Work4/Work4";
-import Spread from "@/Homepage/Spread/Spread";
+import Spread from "@/component/Spread/Spread";
 import Footer from "@/component/Footer/Footer";
 import Section2 from "@/Homepage/VideoSection1/Section2";
 

@@ -291,7 +291,7 @@ function Spread() {
               />
             </div>
           </div>
-          <div className="absolute laptop:bottom-20 tablet:bottom-32 tablet:left-10 laptop:left-60 image3">
+          <div className="absolute laptop:bottom-20 tablet:bottom-32 tablet:left-20 laptop:left-60 image3">
             <Image
               width={300}
               height={200}
@@ -301,35 +301,27 @@ function Spread() {
               priority
             />
           </div>
-          <div
-            className="absolute
-           laptop:bottom-20 tablet:right-10 tablet:bottom-10 laptop:right-56 image4"
-          >
+          <div className="absolute laptop:bottom-20 tablet:right-20 tablet:bottom-10 laptop:right-56 image4">
             <Image
               width={400}
               height={200}
               className="object-cover h-[200px]"
-              src={`/3dImages/${images[9]}`}
+              src={`/3dImages/${images[7]}`}
               alt="3D image"
               priority
             />
           </div>
         </div>
-        <div
-          className={`flex h-screen flex-col tablet:mt-20 laptop:mt-5 ${montserrat.className}`}
-        >
+        <div className={`flex h-screen flex-col mt-5 ${montserrat.className}`}>
           <div className="spread text-center text-[100px] flex flex-col leading-tight mb-4">
             <div
-              className="flex justify-center spreadText "
+              className="flex justify-center spreadText"
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
             >
               {" Spread".split("").map((text, i) => (
-                <p
-                  key={i}
-                  className={`${montserrat.className} tablet:text-[50px]`}
-                >
+                <p key={i} className={`${montserrat.className}`}>
                   {text}
                 </p>
               ))}
@@ -341,11 +333,8 @@ function Spread() {
               }}
             >
               {"the News".split("").map((text, i) => (
-                <p
-                  key={i}
-                  className={`${montserrat.className} tablet:text-[50px]`}
-                >
-                  {text == " " ? "\u00A0" : text}
+                <p key={i} className={`${montserrat.className}`}>
+                  {text}
                 </p>
               ))}
             </div>

@@ -33,7 +33,7 @@ const Nav = () => {
             </h1>
           </div>
           <div>
-            <p className="text-2xl tablet:max-w-md laptop:max-w-2xl font-light">
+            <p className="tablet:text-2xl tablet:max-w-md laptop:max-w-2xl font-light">
               PiFactor merges creativity and curiosity, making each project a
               journey in visual discovery
             </p>

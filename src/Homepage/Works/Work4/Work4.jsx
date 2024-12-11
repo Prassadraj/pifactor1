@@ -1,7 +1,7 @@
 import React from "react";
 import Mobile4 from "./Mobile4";
 
-import Laptop4 from "./Laptop4";
+import Laptop4 from "./Laptop";
 
 function Work4() {
   return (
