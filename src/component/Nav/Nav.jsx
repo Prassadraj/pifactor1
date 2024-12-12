@@ -16,6 +16,7 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 function Nav() {
   const pathname = usePathname(); // Get the current pathname
   const [isNavVisible, setIsNavVisible] = useState(true);
+  const location = usePathname();
 
   const navItems = [
     { name: "Works", href: "/works" },
@@ -75,9 +76,9 @@ function Nav() {
         href="/"
         className={`logo ${
           isNavVisible ? "opacity-100" : "opacity-0"
-        } transition-opacity duration-300`}
+        } transition-opacity duration-300 hidden tablet:block`}
       >
-        <Image className="img w-32 lg:w-52" src={logo} alt="Logo" />
+        <Image className="img w-32 tablet:w-52 z-50" src={logo} alt="Logo" />
       </Link>
 
       {/* Navigation Items */}
