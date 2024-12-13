@@ -76,6 +76,7 @@ export default function App() {
                 alt={`Slide ${index + 1}`}
                 className="object-cover transition-opacity duration-1000 images opacity-50"
                 fill
+                quality={50}
                 loading={index === 0 ? "eager" : "lazy"} // Load first image eagerly
                 priority={index === 0} // Priority load for the first image
               />
@@ -91,6 +92,7 @@ export default function App() {
                     alt={`Slide ${index + 1}`}
                     className="object-cover transition-opacity duration-1000 image"
                     fill
+                    quality={75}
                     loading={index === 0 ? "eager" : "lazy"}
                     priority={index === 0}
                   />

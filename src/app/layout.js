@@ -1,5 +1,6 @@
 import Nav from "@/component/Nav/Nav";
 import "./globals.css";
+import { ProductDataContext } from "@/context/ProductData";
 
 export const metadata = {
   title: "PiFactor",
@@ -24,7 +25,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <Nav />
-        {children}
+        <ProductDataContext>{children}</ProductDataContext>
       </body>
     </html>
   );
