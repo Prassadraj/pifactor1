@@ -2,7 +2,7 @@ import styles from './style.module.scss';
 
 export default function index() {
   return (
-    <div className={styles.footer}>
+    <div className={`  w-full justify-evenly items-center flex gap-5`}>
         <a>Awwwards</a>
         <a>Instagram</a>
         <a>Dribble</a>

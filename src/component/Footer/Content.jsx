@@ -82,11 +82,11 @@ const Nav = () => {
           <div>
             <ul className="text-gray-200 text-lg tablet:text-xl font-thin">
               <li>TTK Road,chennai</li>
-              <li className="flex">
+              <li className="flex gap-1">
                 <strong className="text-lg tablet:text-xl font-semibold tablet:font-normal hidden tablet:block">
-                  Email:
+                  Email :
                 </strong>{" "}
-                <a href="mailto:pifactor@gmail.com">pifactor@gmail.com</a>
+                <a href="mailto:pifactor@gmail.com">  pifactor@gmail.com</a>
               </li>
             </ul>
           </div>

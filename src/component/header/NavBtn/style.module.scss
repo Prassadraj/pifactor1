@@ -9,10 +9,10 @@
   .body {
     box-sizing: border-box;
     height: 100%;
-    padding: 10px 90px;
+    padding: 5px 90px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 
     .nav {
       display: flex;

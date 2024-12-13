@@ -47,9 +47,9 @@ export default function NavBtn() {
           }}
           className={styles.nav}
         >
-          {/* <div className={styles.header}>
+          <div className={styles.header}>
             <p>Navigation</p>
-          </div> */}
+          </div>
           {navItems.map((data, index) => {
             return (
               <Link
