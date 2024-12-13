@@ -8,12 +8,20 @@ import "./swipe.css";
 import { Mousewheel } from "swiper/modules";
 import Image from "next/image";
 import gsap from "gsap";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Montserrat } from "next/font/google";
 
+const montserrat = Montserrat({
+  subsets: ["latin"],
+});
 export default function App() {
   const swiperRef = useRef(null);
   const [count, setCount] = useState(0);
   const [selected, setSelected] = useState(1);
   const [nav, setNav] = useState("VFX");
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
   const categories = ["VFX", "2D", "3D", "Wedding"];
   const images = [
     "/images/1.webp",
@@ -54,9 +62,40 @@ export default function App() {
       });
     }
   }, []);
+  useEffect(() => {
+    const mouseMove = (e) => {
+      setMousePosition({
+        x: e.clientX, // Corrected here
+        y: e.clientY, // Corrected here
+      });
+    };
+    window.addEventListener("mousemove", mouseMove);
 
+    return () => {
+      window.removeEventListener("mousemove", mouseMove);
+    };
+  }, []);
+  const cursorVariants = {
+    hover: { x: mousePosition.x, y: mousePosition.y },
+    default: {},
+  };
   return (
     <>
+      {isHovering && (
+        <motion.div
+          variants={cursorVariants}
+          animate="hover"
+          transition={{ duration: 0.1, ease: "linear" }}
+          className="fixed top-0 flex justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
+          style={{ pointerEvents: "none" }}
+        >
+          <p
+            className={`${montserrat.className} text-white font-normal text-sm`}
+          >
+            View
+          </p>
+        </motion.div>
+      )}
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         loop={true}
@@ -69,35 +108,45 @@ export default function App() {
         className="mySwiper"
       >
         {images.map((src, index) => (
-          <SwiperSlide key={index}>
-            <div className="relative h-full w-full">
-              <Image
-                src={src}
-                alt={`Slide ${index + 1}`}
-                className="object-cover transition-opacity duration-1000 images opacity-50"
-                fill
-                quality={50}
-                loading={index === 0 ? "eager" : "lazy"} // Load first image eagerly
-                priority={index === 0} // Priority load for the first image
-              />
-              <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
-                <div
-                  className="relative laptop:w-[25%] w-[60%] tablet:w-[40%] top-[10%] h-3/5 overflow-hidden"
-                  style={{
-                    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                  }}
-                >
-                  <Image
-                    src={src}
-                    alt={`Slide ${index + 1}`}
-                    className="object-cover transition-opacity duration-1000 image"
-                    fill
-                    quality={75}
-                    loading={index === 0 ? "eager" : "lazy"}
-                    priority={index === 0}
-                  />
+          <SwiperSlide>
+            <div
+              className="relative h-full w-full"
+              onMouseEnter={() => setIsHovering(true)}
+            >
+              <Link
+                href={`/work/vfx/${index}`}
+                key={`slide-${index}`}
+                aria-label={`View details of slide ${index + 1}`}
+              >
+                <Image
+                  src={src}
+                  alt={`Slide ${index + 1}`}
+                  className="object-cover cursor-pointer transition-opacity duration-1000 images opacity-50"
+                  fill
+                  quality={50}
+                  loading={index === 0 ? "eager" : "lazy"} // Load first image eagerly
+                  priority={index === 0} // Priority load for the first image
+                />
+                <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
+                  <div
+                    className="relative laptop:w-[25%] w-[60%] 
+                    tablet:w-[40%] top-[5%] h-[400px] overflow-hidden"
+                    style={{
+                      clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)", // Example: Adds a visible effect
+                    }}
+                  >
+                    <Image
+                      src={src}
+                      alt={`Slide ${index + 1} inner`}
+                      className="object-cover transition-opacity duration-1000 image"
+                      fill
+                      quality={75}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      priority={index === 0}
+                    />
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </SwiperSlide>
         ))}
@@ -106,8 +155,13 @@ export default function App() {
       <div className="custom-navigation right-5 tablet:right-20 gap-2 tablet:gap-4 ">
         {images.map((_, index) => (
           <button
-            className="bg-black text-xs tablet:text-lg hover:bg-gray-400 p-1 
-            tablet:px-2 tablet:py-1 rounded-[50%]"
+            className={`bg-black text-xs tablet:text-lg hover:bg-black p-1 
+      tablet:px-2 tablet:py-1 rounded-[50%] transition-all duration-500
+      ${
+        selected === index + 1
+          ? "bg-white text-black hover:text-white"
+          : "bg-gray-800 border border-gray-500 text-white"
+      }`}
             key={index}
             onClick={() => handleSlideTo(index)}
           >
@@ -129,7 +183,6 @@ export default function App() {
           </p>
         ))}
       </div>
-
       <div className="fixed tablet:bottom-10 bottom-5 tablet:text-lg text-xs left-10 z-20 text-white">
         <p>
           0{selected} / {images.length}

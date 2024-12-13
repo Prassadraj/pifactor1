@@ -1,18 +1,18 @@
 import React from "react";
-import Laptop from "./Laptop";
-import SpreadMobile from "./SpreadMobile";
+import Laptop1 from "./Laptop1";
+import Mobile1 from "./Mobile1";
 
-function Spread() {
+function Work1() {
   return (
     <>
       <div className="hidden tablet:block">
-        <Laptop />
+        <Laptop1 />
       </div>
       <div className="tablet:hidden block">
-        <SpreadMobile />
+        <Mobile1 />
       </div>
     </>
   );
 }
 
-export default Spread;
+export default Work1;

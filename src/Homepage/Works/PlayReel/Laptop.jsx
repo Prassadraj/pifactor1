@@ -2,7 +2,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import React, { useEffect, useRef, useState } from "react";
-import windowImg from "../../app/images/window.png";
+import windowImg from "../../../app/images/window.png";
 import Image from "next/image";
 import { Lato, Montserrat } from "next/font/google";
 import Link from "next/link";
@@ -12,7 +12,7 @@ const montserrat = Montserrat({
 });
 gsap.registerPlugin(ScrollTrigger);
 
-function PlayReel() {
+function Laptop() {
   const container = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false); // Local hover state
@@ -80,7 +80,7 @@ function PlayReel() {
     <>
       {" "}
       {isHovering && (
-        <motion.div 
+        <motion.div
           variants={cursorVariants}
           animate="hover"
           transition={{ duration: 0.1, ease: "linear" }}
@@ -114,7 +114,7 @@ function PlayReel() {
             <div className="absolute inset-0 flex justify-center items-center">
               {/* Text that will be animated */}
               <div
-                className={`text-center gap-96 play flex text-[10rem] text-white ${montserrat.className}`}
+                className={`text-center gap-96 play flex text-[50px] tablet:text-[10rem] text-white ${montserrat.className}`}
               >
                 <p className={`font-medium`}>Play</p>
                 <p className={` font-medium`}>Reel</p>
@@ -135,4 +135,4 @@ function PlayReel() {
   );
 }
 
-export default PlayReel;
+export default Laptop;

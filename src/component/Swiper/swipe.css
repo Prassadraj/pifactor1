@@ -24,15 +24,3 @@
   /* Space between buttons */
   z-index: 1; /* Ensure buttons are above other content */
 }
-
-.custom-navigation button {
-  background-color: black;
-  color: white;
-  border: none;
-
-  cursor: pointer;
-}
-
-.custom-navigation button:hover {
-  background-color: rgb(72, 71, 71);
-}

@@ -1,5 +1,6 @@
 "use client";
 
+import MyContext from "@/context/MyContext";
 import { ProductDataContext } from "@/context/ProductData";
 import { gsap } from "gsap";
 
@@ -8,7 +9,7 @@ import React, { useContext, useEffect } from "react";
 
 function page({ params }) {
   const { category, id } = params;
-  const{data}=useContext(ProductDataContext)
+  const { allItems } = useContext(MyContext);
   const images = [
     "/images/1.webp",
     "/images/2.webp",
@@ -30,7 +31,7 @@ function page({ params }) {
     <>
       <div className="relative h-screen w-full">
         <Image
-          src={`${category == "vfx" && vfx[id]}`}
+          src={`${category == "vfx" && images[id]}`}
           alt={category[id]}
           className="object-cover transition-opacity duration-1000 images opacity-50"
           fill
@@ -39,13 +40,13 @@ function page({ params }) {
         />
         <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
           <div
-            className="relative laptop:w-[25%] w-[60%] tablet:w-[40%] top-[10%] h-3/5 overflow-hidden"
+            className="relative   laptop:w-[23%] w-[60%] tablet:w-[40%] top-[5%] h-[400px] overflow-hidden"
             style={{
               clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
             }}
           >
             <Image
-              src={`${category == "vfx" && vfx[id]}`}
+              src={`${category == "vfx" && images[id]}`}
               alt={category[id]}
               className="object-cover transition-opacity duration-1000 image"
               fill

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { Montserrat } from "next/font/google";
 import { usePathname } from "next/navigation";
@@ -10,6 +10,7 @@ import "./nav.css";
 import logo from "../../app/images/PixcellFactory_logo.png";
 import sparkle from "../../app/images/sparkle.png";
 import Header from "../../component/header";
+import MyContext from "@/context/MyContext";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -75,9 +76,10 @@ function Nav() {
         href="/"
         className={`logo ${
           isNavVisible ? "opacity-100" : "opacity-0"
-        } transition-opacity duration-300`}
+        }  transition-opacity duration-300
+      `}
       >
-        <Image className="img w-32 lg:w-52" src={logo} alt="Logo" />
+        <Image className="img  w-32 lg:w-52 " src={logo} alt="Logo" />
       </Link>
 
       {/* Navigation Items */}
