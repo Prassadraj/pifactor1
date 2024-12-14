@@ -1,16 +1,14 @@
 // context/MyContext.js
 "use client";
 import allData from "@/allData";
-import { createContext, useState } from "react";
+import { createContext } from "react";
 
 const MyContext = createContext();
 
 export const MyProvider = ({ children }) => {
-  const allItems = { data: allData };
+  const data = { allData: allData };
 
-  return (
-    <MyContext.Provider value={{ allItems }}>{children}</MyContext.Provider>
-  );
+  return <MyContext.Provider value={{ data }}>{children}</MyContext.Provider>;
 };
 
 export default MyContext;

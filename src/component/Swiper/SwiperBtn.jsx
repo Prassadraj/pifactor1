@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -11,6 +11,8 @@ import gsap from "gsap";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Montserrat } from "next/font/google";
+import { useRouter } from "next/navigation";
+import MyContext from "@/context/MyContext";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -19,10 +21,15 @@ export default function App() {
   const swiperRef = useRef(null);
   const [count, setCount] = useState(0);
   const [selected, setSelected] = useState(1);
+  const { data } = useContext(MyContext);
   const [nav, setNav] = useState("VFX");
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
-  const categories = ["VFX", "2D", "3D", "Wedding"];
+  const categories = data?.allData.map((item) => item.category);
+  console.log(data?.allData); // Check the array inside data
+
+  const router = useRouter();
+  console.log(data);
   const images = [
     "/images/1.webp",
     "/images/2.webp",
@@ -50,6 +57,44 @@ export default function App() {
       { y: 50, scale: 0 },
       { y: 0, scale: 1, ease: "power2.out", duration: 2 } // Adjusted duration for smoother animation
     );
+    gsap.fromTo(
+      ".title",
+      { opacity: 0.5 },
+      { ease: "power3.out", duration: 1.5, opacity: 1 }
+    );
+  };
+  const handleNavigation = (href) => {
+    gsap.fromTo(
+      ".image",
+      { y: 0 },
+      { y: -900, delay: 0, x: 0, ease: "power3.out", duration: 3.5 }
+    );
+    gsap.fromTo(
+      ".count",
+      { y: 0 },
+      { ease: "power3.out", duration: 1.5, opacity: 0 }
+    );
+    gsap.fromTo(
+      ".title",
+      { y: 0 },
+      { ease: "power3.out", duration: 1.5, opacity: 0 }
+    );
+
+    gsap.to(".category", {
+      y: -900,
+      delay: 0,
+      stagger: 0.2,
+      scrollTrigger: {
+        scrub: 1,
+      },
+
+      ease: "power3.out",
+      duration: 2.5,
+    });
+    // Delay navigation to allow animation to finish
+    setTimeout(() => {
+      router.push(href); // Navigate to the desired page
+    }, 800); // Match the animation duration
   };
 
   useEffect(() => {
@@ -86,7 +131,8 @@ export default function App() {
           variants={cursorVariants}
           animate="hover"
           transition={{ duration: 0.1, ease: "linear" }}
-          className="fixed top-0 flex justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
+          className="fixed top-0  hidden tablet:flex
+          justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
           style={{ pointerEvents: "none" }}
         >
           <p
@@ -115,7 +161,11 @@ export default function App() {
               onMouseEnter={() => setIsHovering(true)}
             >
               <Link
-                href={`/work/vfx/${index}`}
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault(); // Prevent default link behavior
+                  handleNavigation(`/work/vfx/${index}`); // Trigger animation and navigation
+                }}
                 key={`slide-${index}`}
                 aria-label={`View details of slide ${index + 1}`}
               >
@@ -131,7 +181,7 @@ export default function App() {
                 <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
                   <div
                     className="relative laptop:w-[25%] w-[60%] 
-                    tablet:w-[40%] top-[2%] tablet:top-[10%] h-[400px] overflow-hidden"
+                    tablet:w-[40%] top-[2%] tablet:top-[8%] laptop:top-[10%] tablet:h-[500px] laptop:h-[400px] overflow-hidden"
                     style={{
                       clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)", // Example: Adds a visible effect
                     }}
@@ -153,7 +203,7 @@ export default function App() {
         ))}
       </Swiper>
 
-      <div className="custom-navigation right-5 tablet:right-20 gap-2 tablet:gap-4 ">
+      <div className="count custom-navigation right-5 tablet:right-20 gap-2 tablet:gap-4 ">
         {images.map((_, index) => (
           <button
             className={`bg-black text-xs tablet:text-lg hover:bg-black p-1 
@@ -171,13 +221,13 @@ export default function App() {
         ))}
       </div>
       <div
-        className="fixed tablet:text-xl text-xs flex gap-5 tablet:gap-10 font-black top-28 tablet:top-24
-       left-[50%] translate-x-[-50%] z-20"
+        className="fixed tablet:text-xl text-xs flex gap-5 tablet:gap-10 font-black top-28 tablet:top-1/4 laptop:top-24
+       left-[50%] translate-x-[-50%] z-20 "
       >
         {categories.map((category) => (
           <p
             key={category}
-            className="cursor-pointer relative"
+            className="cursor-pointer relative category capitalize"
             onClick={() => setNav(category)}
           >
             {category}
@@ -187,10 +237,18 @@ export default function App() {
           </p>
         ))}
       </div>
-      <div className="fixed tablet:bottom-10 bottom-5 tablet:text-lg text-xs left-5 tablet:left-10 z-20 text-white">
+      <div className="count fixed tablet:bottom-10 bottom-5 tablet:text-lg text-xs left-5 tablet:left-14 z-20 text-white ">
         <p>
           0{selected} / {images.length}
         </p>
+      </div>
+      <div
+        className="title fixed top-1/2 left-1/2 tablet:bottom-1/4 tablet:left-32 
+  transform -translate-x-1/2 -translate-y-1/2 tablet:-translate-x-0 
+  tablet:translate-y-0 tablet:text-lg text-xs z-20 text-white"
+      >
+        <p>Title1</p>
+        <p>SubTitle</p>
       </div>
     </>
   );
