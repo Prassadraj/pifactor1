@@ -1,13 +1,13 @@
 "use client";
 
 import MyContext from "@/context/MyContext";
-import { ProductDataContext } from "@/context/ProductData";
+
 import { gsap } from "gsap";
 
 import Image from "next/image";
 import React, { useContext, useEffect } from "react";
 
-function page({ params }) {
+function Page({ params }) {
   const { category, id } = params;
   const { allItems } = useContext(MyContext);
   const images = [
@@ -60,4 +60,4 @@ function page({ params }) {
   );
 }
 
-export default page;
+export default Page;

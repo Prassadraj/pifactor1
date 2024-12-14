@@ -110,6 +110,7 @@ export default function App() {
         {images.map((src, index) => (
           <SwiperSlide>
             <div
+              key={index}
               className="relative h-full w-full"
               onMouseEnter={() => setIsHovering(true)}
             >
