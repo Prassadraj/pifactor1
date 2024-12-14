@@ -1,6 +1,6 @@
 import Nav from "@/component/Nav/Nav";
 import "./globals.css";
-import { ProductDataContext } from "@/context/ProductData";
+
 import { MyProvider } from "@/context/MyContext";
 
 export const metadata = {

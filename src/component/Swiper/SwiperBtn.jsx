@@ -131,7 +131,7 @@ export default function App() {
                 <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
                   <div
                     className="relative laptop:w-[25%] w-[60%] 
-                    tablet:w-[40%] top-[5%] h-[400px] overflow-hidden"
+                    tablet:w-[40%] top-[2%] tablet:top-[10%] h-[400px] overflow-hidden"
                     style={{
                       clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)", // Example: Adds a visible effect
                     }}
@@ -170,7 +170,10 @@ export default function App() {
           </button>
         ))}
       </div>
-      <div className="fixed tablet:text-xl text-xs flex gap-5 tablet:gap-10 font-black top-20 tablet:top-28 left-[50%] translate-x-[-50%] z-20">
+      <div
+        className="fixed tablet:text-xl text-xs flex gap-5 tablet:gap-10 font-black top-28 tablet:top-24
+       left-[50%] translate-x-[-50%] z-20"
+      >
         {categories.map((category) => (
           <p
             key={category}
@@ -184,7 +187,7 @@ export default function App() {
           </p>
         ))}
       </div>
-      <div className="fixed tablet:bottom-10 bottom-5 tablet:text-lg text-xs left-10 z-20 text-white">
+      <div className="fixed tablet:bottom-10 bottom-5 tablet:text-lg text-xs left-5 tablet:left-10 z-20 text-white">
         <p>
           0{selected} / {images.length}
         </p>
