@@ -108,7 +108,7 @@ export default function App() {
         className="mySwiper"
       >
         {images.map((src, index) => (
-          <SwiperSlide>
+          <SwiperSlide key={index}>
             <div
               key={index}
               className="relative h-full w-full"
