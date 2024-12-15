@@ -21,15 +21,14 @@ export default function App() {
   const swiperRef = useRef(null);
   const [count, setCount] = useState(0);
   const [selected, setSelected] = useState(1);
-  const { data } = useContext(MyContext);
-  const [nav, setNav] = useState("VFX");
+  const { data, nav, setNav } = useContext(MyContext);
+  // const [nav, setNav] = useState("vfx");
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const categories = data?.allData.map((item) => item.category);
-  console.log(data?.allData); // Check the array inside data
 
   const router = useRouter();
-  console.log(data);
+
   const images = [
     "/images/1.webp",
     "/images/2.webp",
@@ -39,6 +38,12 @@ export default function App() {
     "/images/6.webp",
     "/images/7.webp",
   ];
+
+  const filteredData = data.allData.filter((data) => nav == data.category);
+
+  useEffect(() => {
+    animateImage();
+  }, [nav]);
 
   const handleSlideTo = (index) => {
     if (swiperRef.current) {
@@ -59,8 +64,18 @@ export default function App() {
     );
     gsap.fromTo(
       ".title",
-      { opacity: 0.5 },
-      { ease: "power3.out", duration: 1.5, opacity: 1 }
+      {
+        y: 150,
+        skewX: "-160deg",
+      },
+      {
+        y: 0,
+        skewX: "0deg",
+        duration: 1.2,
+        ease: "power3.out",
+        delay: 0.2,
+        stagger: 0.1,
+      }
     );
   };
   const handleNavigation = (href) => {
@@ -153,102 +168,141 @@ export default function App() {
         modules={[Mousewheel]}
         className="mySwiper"
       >
-        {images.map((src, index) => (
-          <SwiperSlide key={index}>
-            <div
-              key={index}
-              className="relative h-full w-full"
-              onMouseEnter={() => setIsHovering(true)}
-            >
-              <Link
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault(); // Prevent default link behavior
-                  handleNavigation(`/work/vfx/${index}`); // Trigger animation and navigation
-                }}
-                key={`slide-${index}`}
-                aria-label={`View details of slide ${index + 1}`}
+        {filteredData.map((data, index) =>
+          data.items.map((item, itemIndex) => (
+            <SwiperSlide key={itemIndex}>
+              <div
+                key={itemIndex}
+                className="relative h-full w-full"
+                onMouseEnter={() => setIsHovering(true)}
               >
-                <Image
-                  src={src}
-                  alt={`Slide ${index + 1}`}
-                  className="object-cover cursor-pointer transition-opacity duration-1000 images opacity-50"
-                  fill
-                  quality={50}
-                  loading={index === 0 ? "eager" : "lazy"} // Load first image eagerly
-                  priority={index === 0} // Priority load for the first image
-                />
-                <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
-                  <div
-                    className="relative laptop:w-[25%] w-[60%] 
-                    tablet:w-[40%] top-[2%] tablet:top-[8%] laptop:top-[10%] tablet:h-[500px] laptop:h-[400px] overflow-hidden"
-                    style={{
-                      clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)", // Example: Adds a visible effect
-                    }}
-                  >
-                    <Image
-                      src={src}
-                      alt={`Slide ${index + 1} inner`}
-                      className="object-cover transition-opacity duration-1000 image"
-                      fill
-                      quality={75}
-                      loading={index === 0 ? "eager" : "lazy"}
-                      priority={index === 0}
-                    />
+                <Link
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent default link behavior
+                    handleNavigation(`/work/${nav}/${item.id}`); // Trigger animation and navigation
+                  }}
+                  aria-label={`View details of slide ${itemIndex + 1}`}
+                >
+                  <Image
+                    src={item.mainImg} // Use item.mainImg dynamically
+                    alt={`Slide ${itemIndex + 1}`}
+                    className="object-cover cursor-pointer transition-opacity duration-1000 images opacity-50"
+                    fill
+                    quality={50}
+                    loading={itemIndex === 0 ? "eager" : "lazy"} // Load first image eagerly
+                    priority={itemIndex === 0} // Priority load for the first image
+                  />
+                  <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
+                    <div
+                      className="relative laptop:w-[25%] w-[60%] h-[400px]
+              tablet:w-[40%] top-[2%] tablet:top-[8%] laptop:top-[10%] tablet:h-[500px] laptop:h-[400px] overflow-hidden"
+                      style={{
+                        clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)", // Adds a visible effect
+                      }}
+                    >
+                      <Image
+                        src={item.mainImg} // Use item.mainImg dynamically here as well
+                        alt={`Slide ${itemIndex + 1} inner`}
+                        className="object-cover transition-opacity duration-1000 image"
+                        fill
+                        quality={75}
+                        loading={itemIndex === 0 ? "eager" : "lazy"}
+                        priority={itemIndex === 0}
+                      />
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </div>
-          </SwiperSlide>
-        ))}
+                </Link>
+              </div>
+            </SwiperSlide>
+          ))
+        )}
       </Swiper>
 
-      <div className="count custom-navigation right-5 tablet:right-20 gap-2 tablet:gap-4 ">
-        {images.map((_, index) => (
-          <button
-            className={`bg-black text-xs tablet:text-lg hover:bg-black p-1 
-      tablet:px-2 tablet:py-1 rounded-[50%] transition-all duration-500
-      ${
-        selected === index + 1
-          ? "bg-white text-black hover:text-white"
-          : "bg-gray-800 border border-gray-500 text-white"
-      }`}
-            key={index}
-            onClick={() => handleSlideTo(index)}
-          >
-            {index + 1}
-          </button>
-        ))}
+      <div className="count custom-navigation right-5 tablet:right-20 gap-2 tablet:gap-4">
+        {filteredData.map((data, dataIndex) =>
+          data.items.map((_, index) => (
+            <button
+              key={`${dataIndex}-${index}`} // Unique key combining dataIndex and index
+              className={`bg-black text-xs tablet:text-lg hover:bg-black p-1 
+          tablet:px-2 tablet:py-1 rounded-[50%] transition-all duration-500
+          ${
+            selected === index + 1
+              ? "bg-white text-black hover:text-white"
+              : "bg-gray-800 border border-gray-500 text-white"
+          }`}
+              onClick={() => handleSlideTo(index)}
+            >
+              {index + 1}
+            </button>
+          ))
+        )}
       </div>
+
       <div
-        className="fixed tablet:text-xl text-xs flex gap-5 tablet:gap-10 font-black top-28 tablet:top-1/4 laptop:top-24
-       left-[50%] translate-x-[-50%] z-20 "
+        className="fixed tablet:text-xl text-xs flex gap-5 tablet:gap-10 font-black top-28
+         tablet:top-1/4 laptop:top-28
+       left-[50%] translate-x-[-50%] z-50 "
       >
-        {categories.map((category) => (
+        {categories.map((category, index) => (
           <p
-            key={category}
-            className="cursor-pointer relative category capitalize"
+            key={`${category}-${index}`}
+            className={`cursor-pointer relative category   ${
+              index == 3 ? "capitalize " : "uppercase"
+            }`}
             onClick={() => setNav(category)}
           >
             {category}
+
             {nav === category && (
               <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-white"></span>
             )}
           </p>
         ))}
       </div>
-      <div className="count fixed tablet:bottom-10 bottom-5 tablet:text-lg text-xs left-5 tablet:left-14 z-20 text-white ">
-        <p>
-          0{selected} / {images.length}
-        </p>
-      </div>
       <div
-        className="title fixed top-1/2 left-1/2 tablet:bottom-1/4 tablet:left-32 
-  transform -translate-x-1/2 -translate-y-1/2 tablet:-translate-x-0 
-  tablet:translate-y-0 tablet:text-lg text-xs z-20 text-white"
+        className="count fixed tablet:bottom-10 bottom-5 tablet:text-lg text-xs
+       left-5 tablet:left-14 z-20 text-white "
       >
-        <p>Title1</p>
-        <p>SubTitle</p>
+        {filteredData.map((data, index) => (
+          <div key={index}>
+            <p>{`${selected} / ${data.items.length}`}</p>
+          </div>
+        ))}
+      </div>
+
+      <div
+        className="fixed top-1/4 left-1/2 laptop:top-2/4 laptop:left-56 tablet:top-2/4 tablet:left-32 tablet:gap-3 flex flex-col 
+            transform -translate-x-1/2 -translate-y-1/2 tablet:-translate-x-0 tablet:translate-y-0 tablet:text-lg text-xs z-20 text-white"
+      >
+        {filteredData.map((data, dataIndex) => (
+          <div key={`${dataIndex}`} className="overflow-hidden">
+            <div
+              className="font-bold text-4xl"
+              style={{
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              }}
+            >
+              <p className="title">{data?.items[selected - 1]?.title}</p>
+            </div>
+
+            <div
+              className="font-medium text-xl"
+              style={{
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              }}
+            >
+              <p className="title">{data?.items[selected - 1]?.subTitle}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div
+        className="count fixed tablet:bottom-10 bottom-5 tablet:text-lg text-xs
+       right-5 tablet:right-14 z-20 text-white "
+      >
+        <p>click to explore</p>
       </div>
     </>
   );
