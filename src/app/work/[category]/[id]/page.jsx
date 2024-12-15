@@ -49,14 +49,15 @@ function Page({ params }) {
           quality={50}
           priority
         />
-        <div className=" absolute bottom-1/4 left-32 flex flex-col items-start overflow-hidden">
+        <div className=" absolute tablet:bottom-1/4 tablet:left-32
+        bottom-1/4 left-10 flex flex-col items-start overflow-hidden">
           <div
             style={{
               clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
             }}
             className="overflow-hidden"
           >
-            <p className="title text-[80px] capitalize font-bold">
+            <p className="title text-[60px] tablet:text-[80px] capitalize font-bold">
               {selectedItem.title}
             </p>
           </div>
@@ -67,7 +68,7 @@ function Page({ params }) {
             }}
             className="overflow-hidden"
           >
-            <p className="title text-[80px] capitalize font-bold">
+            <p className="title text-xl tablet:text-[80px] capitalize font-normal">
               {selectedItem.subTitle}
             </p>
           </div>
