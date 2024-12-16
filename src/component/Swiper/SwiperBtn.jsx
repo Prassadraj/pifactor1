@@ -22,14 +22,13 @@ export default function App() {
   const [count, setCount] = useState(0);
   const [selected, setSelected] = useState(1);
   const { data } = useContext(MyContext);
-  const [nav, setNav] = useState("VFX");
+  const [nav, setNav] = useState("vfx");
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const categories = data?.allData.map((item) => item.category);
-  console.log(data?.allData); // Check the array inside data
 
   const router = useRouter();
-  console.log(data);
+  console.log(categories);
   const images = [
     "/images/1.webp",
     "/images/2.webp",
@@ -224,14 +223,14 @@ export default function App() {
         className="fixed tablet:text-xl text-xs flex gap-5 tablet:gap-10 font-black top-28 tablet:top-1/4 laptop:top-24
        left-[50%] translate-x-[-50%] z-20 "
       >
-        {categories.map((category) => (
+        {categories.map((category, i) => (
           <p
-            key={category}
+            key={i}
             className="cursor-pointer relative category capitalize"
             onClick={() => setNav(category)}
           >
             {category}
-            {nav === category && (
+            {nav == category && (
               <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-white"></span>
             )}
           </p>
