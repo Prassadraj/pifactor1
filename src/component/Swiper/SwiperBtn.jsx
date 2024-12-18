@@ -28,7 +28,7 @@ export default function App() {
   const categories = data?.allData.map((item) => item.category);
 
   const router = useRouter();
-  console.log(data);
+
   const images = [
     "/images/1.webp",
     "/images/2.webp",
