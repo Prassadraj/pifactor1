@@ -35,11 +35,24 @@ function Page({ params }) {
         stagger: 0.1,
       }
     );
+    gsap.fromTo(
+      ".banner",
+      {
+        scale: 1.1,
+      },
+      {
+        scale: 1,
+        duration: 1.5,
+        ease: "power3.out",
+        delay: 0.2,
+        stagger: 0.1,
+      }
+    );
   }, []);
   return (
     <>
       <div
-        className={`relative h-screen w-full tablet:px-20 tablet:py-20 ${montserrat.className}`}
+        className={`banner relative h-screen w-full tablet:px-20 tablet:py-20 ${montserrat.className}`}
       >
         <Image
           src={selectedItem.mainImg}
