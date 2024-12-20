@@ -13,7 +13,7 @@ const montserrat = Montserrat({
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Laptop3() {
+function Slider() {
   const container = useRef(null);
 
   useEffect(() => {
@@ -65,19 +65,6 @@ function Laptop3() {
 
   return (
     <div className="fullContainer h-[200vh] tablet:py-20 " useRef={container}>
-      <div
-        className="text1 laptop:px-20 tablet:px-10  flex overflow-hidden"
-        style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
-      >
-        {" 3D Animations".split("").map((text, i) => (
-          <p
-            key={i}
-            className={`${montserrat.className} font-normal text-[20vw] tablet:text-[10vw] laptop:text-[70px]`}
-          >
-            {text}
-          </p>
-        ))}
-      </div>
       <div className=" h-[100vh] sticky top-0 w-full overflow-hidden py-10 gap-10 flex flex-col justify-evenly">
         <div className="h-[50vh] w-full overflow-hidden flex gap-5 items-center justify-center ">
           <div className="ImageWrapper ">
@@ -182,4 +169,4 @@ function Laptop3() {
   );
 }
 
-export default Laptop3;
+export default Slider;

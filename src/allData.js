@@ -17,12 +17,18 @@ const allData = [
         subTitle: "subTitle1",
         mainImg: images[0],
         images: [images[0], images[1], images[2]],
-        description: "description 1",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
         client: "clientName",
         services: ["services1", "services2", "services3", "services4"],
         industries: "cine",
         date: "1/6/2001",
-        objective: "",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
         solution: "solution content",
       },
       {
@@ -31,12 +37,18 @@ const allData = [
         subTitle: "subTitle2",
         mainImg: images[0],
         images: [images[0], images[1], images[2]],
-        description: "description 1",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
         client: "clientName",
         services: ["services1", "services2", "services3", "services4"],
         industries: "cine",
         date: "1/6/2001",
-        objective: "",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
         solution: "solution content",
       },
       {
@@ -45,12 +57,18 @@ const allData = [
         subTitle: "subTitle3",
         mainImg: images[0],
         images: [images[0], images[1], images[2]],
-        description: "description 1",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
         client: "clientName",
         services: ["services1", "services2", "services3", "services4"],
         industries: "cine",
         date: "1/6/2001",
-        objective: "",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
         solution: "solution content",
       },
     ],
@@ -64,12 +82,18 @@ const allData = [
         subTitle: "subTitle1",
         mainImg: images[1],
         images: [images[0], images[1], images[2]],
-        description: "description 1",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
         client: "clientName",
         services: ["services1", "services2", "services3", "services4"],
         industries: "cine",
         date: "1/6/2001",
-        objective: "",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
         solution: "solution content",
       },
     ],
@@ -83,12 +107,18 @@ const allData = [
         subTitle: "subTitle1",
         mainImg: images[2],
         images: [images[0], images[1], images[2]],
-        description: "description 1",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
         client: "clientName",
         services: ["services1", "services2", "services3", "services4"],
         industries: "cine",
         date: "1/6/2001",
-        objective: "",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
         solution: "solution content",
       },
     ],
@@ -102,12 +132,18 @@ const allData = [
         subTitle: "subTitle1",
         mainImg: images[3],
         images: [images[0], images[1], images[2]],
-        description: "description 1",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
         client: "clientName",
         services: ["services1", "services2", "services3", "services4"],
         industries: "cine",
         date: "1/6/2001",
-        objective: "",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
         solution: "solution content",
       },
     ],

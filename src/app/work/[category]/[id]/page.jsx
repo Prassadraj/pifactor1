@@ -4,9 +4,12 @@ import MyContext from "@/context/MyContext";
 
 import { gsap } from "gsap";
 import { Montserrat } from "next/font/google";
-
+import { motion } from "framer-motion";
 import Image from "next/image";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import Zoom from "@/component/Zoom/Zoom";
+import Work3 from "@/Homepage/Works/Work3/Work3";
+import Slider from "@/component/Slider/Slider";
 const montserrat = Montserrat({
   subsets: ["latin"],
 });
@@ -16,7 +19,8 @@ function Page({ params }) {
 
   const filteredData = data.allData.filter((data) => category == data.category);
   const selectedItem = filteredData[0].items.find((data) => data.id == id);
-
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
   console.log(selectedItem);
   useEffect(() => {
     const tl = gsap.timeline();
@@ -36,6 +40,26 @@ function Page({ params }) {
       }
     );
     gsap.fromTo(
+      ".subTitle",
+      {
+        y: 450,
+        skewX: "-160deg",
+      },
+      {
+        y: 0,
+        skewX: "0deg",
+        duration: 1.5,
+        delay: 0.2,
+        scrollTrigger: {
+          trigger: ".trigger", // Element to trigger the animation
+          // Smooth scrubbing effect
+        },
+        ease: "power3.out",
+
+        stagger: 0.1,
+      }
+    );
+    gsap.fromTo(
       ".banner",
       {
         scale: 1.1,
@@ -44,15 +68,50 @@ function Page({ params }) {
         scale: 1,
         duration: 1.5,
         ease: "power3.out",
-        delay: 0.2,
+
         stagger: 0.1,
       }
     );
   }, []);
+  useEffect(() => {
+    const mouseMove = (e) => {
+      setMousePosition({
+        x: e.clientX, // Corrected here
+        y: e.clientY, // Corrected here
+      });
+    };
+    window.addEventListener("mousemove", mouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", mouseMove);
+    };
+  }, []);
+
+  const cursorVariants = {
+    hover: { x: mousePosition.x, y: mousePosition.y },
+    default: {},
+  };
   return (
-    <>
+    <div className={`${montserrat.className} `}>
+      {isHovering && (
+        <motion.div
+          variants={cursorVariants}
+          animate="hover"
+          transition={{ duration: 0.1, ease: "linear" }}
+          className="fixed top-0  hidden tablet:flex
+          justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
+          style={{ pointerEvents: "none" }}
+        >
+          <p
+            className={`${montserrat.className} transition-all duration-300 text-white font-normal text-sm`}
+          >
+            Scroll
+          </p>
+        </motion.div>
+      )}
       <div
-        className={`banner relative h-screen w-full tablet:px-20 tablet:py-20 ${montserrat.className}`}
+        onMouseEnter={() => setIsHovering(true)}
+        className={` banner px-2  relative h-screen w-full tablet:px-20 tablet:py-20 ${montserrat.className}`}
       >
         <Image
           src={selectedItem.mainImg}
@@ -64,7 +123,7 @@ function Page({ params }) {
         />
         <div
           className=" absolute tablet:bottom-1/4 tablet:left-32
-        bottom-1/4 left-10 flex flex-col items-start overflow-hidden"
+        bottom-10  flex flex-col items-start overflow-hidden"
         >
           <div
             style={{
@@ -87,10 +146,105 @@ function Page({ params }) {
               {selectedItem.subTitle}
             </p>
           </div>
+          <div className="tablet:hidden mt-6">
+            <p className="">{selectedItem.description}</p>
+            <div className="flex gap-3 mt-6">
+              <div className="flex flex-col tablet:gap-2">
+                <p className="text-sm font-semibold">Client</p>
+                <p className="text-base">{selectedItem.client}</p>
+              </div>
+              <div className="flex flex-col tablet:gap-2">
+                <p className="text-sm font-semibold">Services</p>
+                {selectedItem.services.map((data, i) => (
+                  <p key={i} className="text-base">
+                    {data}
+                  </p>
+                ))}
+              </div>{" "}
+              <div className="flex flex-col tablet:gap-2">
+                <p className="text-sm font-semibold">Industries</p>
+                <p className="text-base">{selectedItem.industries}</p>
+              </div>
+              <div className="flex flex-col tablet:gap-2">
+                <p className="text-sm font-semibold">Date</p>
+                <p className="text-base">{selectedItem.date}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="h-screen"></div>
-    </>
+      <div
+        onMouseEnter={() => setIsHovering(false)}
+        className=" px-5 tablet:px-20 "
+      >
+        <div className="hidden  laptop:h-screen tablet:h-[50vh] tablet:flex flex-col laptop:gap-28 tablet:gap-20">
+          <p className="laptop:max-w-3xl largeLaptop:max-w-4xl tablet:max-w-xl tablet:text-2xl laptop:text-3xl largeLaptop:text-4xl">
+            {selectedItem.description}
+          </p>
+          <div className="flex tablet:gap-16 laptop:gap-20">
+            <div className="flex flex-col tablet:gap-2">
+              <p className="text-xl font-semibold">Client</p>
+              <p className="text-base">{selectedItem.client}</p>
+            </div>
+            <div className="flex flex-col tablet:gap-2">
+              <p className="text-xl font-semibold">Services</p>
+              {selectedItem.services.map((data, i) => (
+                <p key={i} className="text-base">
+                  {data}
+                </p>
+              ))}
+            </div>{" "}
+            <div className="flex flex-col tablet:gap-2">
+              <p className="text-xl font-semibold">Industries</p>
+              <p className="text-base">{selectedItem.industries}</p>
+            </div>
+            <div className="flex flex-col tablet:gap-2">
+              <p className="text-xl font-semibold">Date</p>
+              <p className="text-base">{selectedItem.date}</p>
+            </div>
+          </div>
+        </div>
+        {/* objective */}
+        <div className="h-screen hidden tablet:block trigger">
+          <div className="flex justify-center tablet:text-[30px] laptop:text-[50px] largeLaptop:text-[60px] tablet:font-medium h-1/2 ">
+            <div
+              className="overflow-hidden h-fit"
+              style={{
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              }}
+            >
+              <p className="subTitle text-[80px]"> {selectedItem.subTitle}</p>
+            </div>
+          </div>
+          <div className="px-28 flex gap-20 items-center">
+            <p>Objective</p>
+            <p className="text-sm tablet:max-w-md laptop:max-w-md text-gray-300">
+              {selectedItem.objective}
+            </p>
+          </div>
+        </div>
+        {/* for mobile */}
+        <div className="h-fit py-20 tablet:hidden ">
+          {" "}
+          <div className=" flex flex-col gap-5">
+            <div className="">
+              {" "}
+              <p>Objective</p>
+              <p className="text-3xl font-semibold mt-1">
+                {selectedItem.subTitle}
+              </p>
+            </div>
+            <div>
+              <p> {selectedItem.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <Zoom />
+        <Slider />
+      </div>
+    </div>
   );
 }
 
