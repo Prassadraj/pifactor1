@@ -17,6 +17,7 @@ const allData = [
         subTitle: "subTitle1",
         mainImg: images[0],
         images: [images[0], images[1], images[2]],
+        video: "/intro.mp4",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
@@ -37,6 +38,7 @@ const allData = [
         subTitle: "subTitle2",
         mainImg: images[0],
         images: [images[0], images[1], images[2]],
+        video: "/intro.mp4",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
@@ -57,6 +59,7 @@ const allData = [
         subTitle: "subTitle3",
         mainImg: images[0],
         images: [images[0], images[1], images[2]],
+        video: "/intro.mp4",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
@@ -82,6 +85,7 @@ const allData = [
         subTitle: "subTitle1",
         mainImg: images[1],
         images: [images[0], images[1], images[2]],
+        video: "/intro.mp4",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
@@ -107,6 +111,7 @@ const allData = [
         subTitle: "subTitle1",
         mainImg: images[2],
         images: [images[0], images[1], images[2]],
+        video: "/intro.mp4",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
@@ -132,6 +137,7 @@ const allData = [
         subTitle: "subTitle1",
         mainImg: images[3],
         images: [images[0], images[1], images[2]],
+        video: "/intro.mp4",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis

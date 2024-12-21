@@ -24,18 +24,34 @@ function Page({ params }) {
   console.log(selectedItem);
   useEffect(() => {
     const tl = gsap.timeline();
-    gsap.fromTo(
+    tl.fromTo(
+      ".banner",
+      {
+        scale: 1.1,
+      },
+      {
+        scale: 1,
+
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.2,
+      }
+    );
+
+    tl.fromTo(
       ".title",
       {
         y: 450,
+        opacity: 0,
         skewX: "-160deg",
       },
       {
         y: 0,
+        opacity: 1,
         skewX: "0deg",
-        duration: 1.5,
+        duration: 1,
         ease: "power3.out",
-        delay: 0.2,
+
         stagger: 0.1,
       }
     );
@@ -43,10 +59,12 @@ function Page({ params }) {
       ".subTitle",
       {
         y: 450,
+        opacity: 0,
         skewX: "-160deg",
       },
       {
         y: 0,
+        opacity: 1,
         skewX: "0deg",
         duration: 1.5,
         delay: 0.2,
@@ -59,17 +77,18 @@ function Page({ params }) {
         stagger: 0.1,
       }
     );
-    gsap.fromTo(
-      ".banner",
+    tl.fromTo(
+      ".phone",
       {
-        scale: 1.1,
+        opacity: 0,
       },
       {
-        scale: 1,
-        duration: 1.5,
-        ease: "power3.out",
+        opacity: 1,
 
-        stagger: 0.1,
+        // height: "200vh",
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.2,
       }
     );
   }, []);
@@ -110,12 +129,14 @@ function Page({ params }) {
         </motion.div>
       )}
       <div
-        onMouseEnter={() => setIsHovering(true)}
         className={` banner px-2  relative h-screen w-full tablet:px-20 tablet:py-20 ${montserrat.className}`}
       >
+        {" "}
+        <div className="flex fixed h-full bg-black bg-opacity-30 inset-0"></div>
         <Image
           src={selectedItem.mainImg}
           alt={category[id]}
+          onMouseEnter={() => setIsHovering(true)}
           className="object-cover transition-opacity duration-1000 images opacity-50  "
           fill
           quality={50}
@@ -131,7 +152,7 @@ function Page({ params }) {
             }}
             className="overflow-hidden"
           >
-            <p className="title text-[60px] tablet:text-[80px] capitalize font-bold">
+            <p className="title opacity-0 text-[60px] tablet:text-[80px] capitalize font-bold">
               {selectedItem.title}
             </p>
           </div>
@@ -142,11 +163,11 @@ function Page({ params }) {
             }}
             className="overflow-hidden"
           >
-            <p className="title text-xl tablet:text-2xl  capitalize font-normal">
+            <p className="title opacity-0 text-xl tablet:text-2xl  capitalize font-normal">
               {selectedItem.subTitle}
             </p>
           </div>
-          <div className="tablet:hidden mt-6">
+          <div className="tablet:hidden phone mt-6">
             <p className="">{selectedItem.description}</p>
             <div className="flex gap-3 mt-6">
               <div className="flex flex-col tablet:gap-2">
@@ -177,7 +198,7 @@ function Page({ params }) {
         onMouseEnter={() => setIsHovering(false)}
         className=" px-5 tablet:px-20 "
       >
-        <div className="hidden  laptop:h-screen tablet:h-[50vh] tablet:flex flex-col laptop:gap-28 tablet:gap-20">
+        <div className="hidden tablet:mt-4  laptop:h-screen tablet:h-[50vh] tablet:flex flex-col laptop:gap-28 tablet:gap-20">
           <p className="laptop:max-w-3xl largeLaptop:max-w-4xl tablet:max-w-xl tablet:text-2xl laptop:text-3xl largeLaptop:text-4xl">
             {selectedItem.description}
           </p>
@@ -242,7 +263,35 @@ function Page({ params }) {
       </div>
       <div>
         <Zoom />
+        <div className="tablet:h-screen w-full h-fit flex items-center justify-center">
+          <video
+            preload="auto"
+            autoPlay
+            muted
+            controls
+            loop
+            src={`${selectedItem.video}`}
+          ></video>
+        </div>
         <Slider />
+        <div className="tablet:h-screen w-full h-full">
+          <div className="h-full w-full relative">
+            <Image
+              fill
+              src={selectedItem?.mainImg || "/placeholder.jpg"} // Ensure a fallback image
+              alt="Selected Item Image" // Add an alt attribute for accessibility
+              className="object-cover" // Maintain aspect ratio and cover the container
+            />
+            <div className="absolute left-1/2 top-1/2">
+              <Image
+                fill
+                src={selectedItem?.mainImg || "/placeholder.jpg"} // Ensure a fallback image
+                alt="Selected Item Image" // Add an alt attribute for accessibility
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

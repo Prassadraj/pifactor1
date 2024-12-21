@@ -95,17 +95,11 @@ export default function App() {
       { ease: "power3.out", duration: 1.5, opacity: 0 }
     );
 
-    gsap.to(".category", {
-      y: -900,
-      delay: 0,
-      stagger: 0.2,
-      scrollTrigger: {
-        scrub: 1,
-      },
-
-      ease: "power3.out",
-      duration: 2.5,
-    });
+    gsap.fromTo(
+      ".category",
+      { y: 0 },
+      { ease: "power3.out", duration: 1.5, opacity: 0, zIndex: 0 }
+    );
     // Delay navigation to allow animation to finish
     setTimeout(() => {
       router.push(href); // Navigate to the desired page
@@ -240,7 +234,7 @@ export default function App() {
       </div>
 
       <div
-        className="fixed tablet:text-xl text-xs flex gap-5 tablet:gap-10 font-black top-28
+        className="fixed tablet:text-xl text-xs flex gap-5 tablet:gap-10 font-black top-24
          tablet:top-1/4 laptop:top-28
        left-[50%] translate-x-[-50%] z-50 "
       >
@@ -275,7 +269,7 @@ export default function App() {
         {filteredData.map((data, dataIndex) => (
           <div key={`${dataIndex}`} className="overflow-hidden">
             <div
-              className="font-bold text-4xl"
+              className="font-bold tablet:text-4xl capitalize text-base "
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
@@ -284,7 +278,7 @@ export default function App() {
             </div>
 
             <div
-              className="font-medium text-xl"
+              className="font-medium tablet:text-xl text-sm capitalize"
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}

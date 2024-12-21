@@ -83,6 +83,7 @@ function Slider() {
                 src="./car.mp4"
                 autoPlay
                 loop
+                preload="auto"
                 muted
               ></video>
             </div>
@@ -132,6 +133,7 @@ function Slider() {
                 src="./car.mp4"
                 autoPlay
                 loop
+                preload="auto"
                 muted
               ></video>
             </div>
