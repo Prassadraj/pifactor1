@@ -143,27 +143,28 @@ function Nav() {
       </div>
       {/* mobile  */}
       <div className="tablet:hidden">
-      <div className=" fixed top-5 left-0 z-50 p-2 justify-around">
-        <Link
-          href="/"
-          className={`mobilelogo transition-opacity duration-300 ${
-            isScrolledUp ? 'opacity-100' : 'opacity-0'
+        <div
+          className={`fixed top-5 left-0 z-50 p-2 justify-around      
+            ${isScrolledUp ? "opacity-100" : "opacity-0"}`}
+        >
+          {" "}
+          <Link
+            href="/"
+            className={`mobilelogo transition-opacity duration-300`}
+          >
+            <Image className="w-32 lg:w-52" src={logo} alt="Logo" />
+          </Link>
+        </div>
+
+        {/* Button */}
+        <div
+          className={`mobilelogo transition-all fixed top-0 right-0 z-50 duration-1000 ease-in-out transform ${
+            isScrolledUp ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
-          <Image className="w-32 lg:w-52" src={logo} alt="Logo" />
-        </Link>
+          <Header />
+        </div>
       </div>
-
-      {/* Button */}
-      <div
-        className={`mobilelogo transition-all fixed top-0 right-0 z-50 duration-1000 ease-in-out transform ${
-          isScrolledUp ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`}
-      >
-        <Header />
-      </div>
-    </div>
-
     </>
   );
 }
