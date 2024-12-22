@@ -144,7 +144,7 @@ function Nav() {
       {/* mobile  */}
       <div className="tablet:hidden">
         <div
-          className={`fixed top-5 left-0 z-50 p-2 justify-around      
+          className={`fixed transition-all ease-in-out transform duration-500 top-5 left-0 z-50 p-2 justify-around      
             ${isScrolledUp ? "opacity-100" : "opacity-0"}`}
         >
           {" "}
@@ -158,7 +158,7 @@ function Nav() {
 
         {/* Button */}
         <div
-          className={`mobilelogo transition-all fixed top-0 right-0 z-50 duration-1000 ease-in-out transform ${
+          className={`mobilelogo transition-all fixed top-0 right-0 z-50 duration-500 ease-in-out transform ${
             isScrolledUp ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
