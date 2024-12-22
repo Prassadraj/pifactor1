@@ -5,6 +5,7 @@ import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import React, { useEffect } from "react";
 import spark from "../images/sparkle.png";
+import Footer from "@/component/Footer/Footer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -13,6 +14,10 @@ const montserrat = Montserrat({
 const montserratLight = Montserrat({
   subsets: ["latin"],
   weight: "300", // Specify weight as a string instead of an array
+});
+const montserraMedium = Montserrat({
+  subsets: ["latin"],
+  weight: "500", // Specify weight as a string instead of an array
 });
 
 function About() {
@@ -76,7 +81,7 @@ function About() {
       >
         <div className="parallax-container h-[100vh] sticky top-0 overflow-hidden">
           <Image
-            src={images[2]}
+            src={images[5]}
             alt="Dynamic Parallax Background"
             className="parallax-image object-cover w-full h-full"
             fill
@@ -85,21 +90,21 @@ function About() {
           />
         </div>
 
-        <div className="absolute px-5 top-1/3 flex flex-col gap-5 items-start overflow-hidden">
+        <div className="absolute px-5 top-1/3 flex flex-col gap-10 items-start overflow-hidden">
           <div className="overflow-hidden">
             <p className="title text-[30px] tablet:text-[80px] capitalize font-bold">
               Shaping Stories, Elevating Digital Presence
             </p>
           </div>
           <div className="overflow-hidden max-w-lg">
-            <p className="title text-xl tablet:text-2xl capitalize font-normal">
+            <p
+              className={`title text-xl tablet:text-2xl capitalize font-normal ${montserratLight.className}`}
+            >
               Crafting immersive visuals and seamless edits to build a
               compelling digital presence.
             </p>
           </div>
-          <div className="border mt-2 rounded-full p-3 text-center font-medium">
-            Scroll ⇩
-          </div>
+          <div className=" mt-2 rounded-full  text-center font-medium">⇩</div>
 
           <div className="mt-20">
             <p>
@@ -186,12 +191,43 @@ function About() {
         </div>
       </div>
       {/* what we believe */}
-      <div className="px-2 py-5">
-        <div>
+      <div className="px-6 mt-14 h-fit mb-5 flex flex-col gap-10">
+        <div className="flex items-center gap-2 ">
           {" "}
           <Image src={spark} width={20} height={20} alt="Sparkle Effect" />
+          <p>What we believe</p>
+        </div>
+        <div className="flex flex-col">
+          <h1 className="text-[30px] font-semibold">Data guides the way</h1>
+          <h1 className="text-[30px] font-semibold">
+            {" "}
+            — emotion sparks the transformation.
+          </h1>
+        </div>
+        <div>
+          <p className={`${montserratLight.className}`}>
+            We believe the best results come when data-driven insights ignite
+            emotional connections, fostering deeper brand loyalty, lasting
+            customer engagement, and higher conversion rates.
+          </p>
         </div>
       </div>
+
+      {/* design  */}
+      <div className="h-fit px-3 py-10 mt-10 flex flex-col gap-5 bg-[#011C27]">
+        <p className={`text-[40px] font-bold ${montserraMedium.className}`}>
+          Innovation and transformation through design.
+        </p>
+        <p className={`${montserratLight.className} `}>
+          We are a collective of visionary VFX artists and tech innovators,
+          pushing the boundaries of the digital world with relentless passion
+          and dedication. Inspired by the magic of visual storytelling,
+          captivated by cutting-edge technology, and driven by an unwavering
+          commitment to creating breathtaking digital experiences that resonate
+          with purpose and artistry.
+        </p>
+      </div>
+      <Footer />
     </div>
   );
 }

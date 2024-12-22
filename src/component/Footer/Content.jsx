@@ -1,7 +1,19 @@
 "use client";
 import MyContext from "@/context/MyContext";
+import { Montserrat } from "next/font/google";
 import React, { useContext, useEffect, useRef } from "react";
-
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["600"],
+});
+const montserratLight = Montserrat({
+  subsets: ["latin"],
+  weight: "300", // Specify weight as a string instead of an array
+});
+const montserraMedium = Montserrat({
+  subsets: ["latin"],
+  weight: "500", // Specify weight as a string instead of an array
+});
 export default function Content() {
   return (
     <div className="relative h-full w-full">
@@ -28,12 +40,12 @@ const Nav = () => {
           {/* left */}
           <div className="flex tablet:flex-col tablet:gap-10 gap-5 items-center tablet:items-start">
             <div className="z-50">
-              <h1 className="font-medium text-[100px] tablet:text-[100px] laptop:text-[120px]">
+              <p className="font-medium text-[90px] tablet:text-[100px] laptop:text-[120px]">
                 Our{" "}
-              </h1>
-              <h1 className="font-medium  text-[100px] tablet:text-[100px] laptop:text-[120px]">
+              </p>
+              <p className="font-medium  text-[90px] tablet:text-[100px] laptop:text-[120px]">
                 Story
-              </h1>
+              </p>
             </div>
             {/* mobile */}
             <div className="tablet:hidden">
@@ -68,7 +80,9 @@ const Nav = () => {
           </div>
         </div>
         {/* mobile */}
-        <p className=" text-3xl z-20 tablet:hidden tablet:max-w-md laptop:max-w-lg font-light">
+        <p
+          className={`text-3xl z-20 tablet:hidden tablet:max-w-md laptop:max-w-lg font-light ${montserratLight.className}`}
+        >
           PiFactor merges creativity and curiosity, making each project a
           journey in visual discovery.
         </p>
@@ -78,20 +92,24 @@ const Nav = () => {
       <div className="w-full h-[1px] bg-white z-10 hidden tablet:block"></div>
       <div className="flex flex-col gap-2">
         <div className="w-full h-[1px] bg-white z-10  tablet:hidden"></div>
-        <div className="flex justify-between tablet:justify-normal tablet:gap-20">
+        <div className="flex justify-between gap-2 tablet:justify-normal tablet:gap-20">
           <div>
-            <ul className="text-gray-200 text-lg tablet:text-xl font-thin">
+            <ul
+              className={`text-gray-200 text-lg tablet:text-xl font-thin ${montserratLight.className}`}
+            >
               <li>TTK Road,chennai</li>
               <li className="flex gap-1">
                 <strong className="text-lg tablet:text-xl font-semibold tablet:font-normal hidden tablet:block">
                   Email :
                 </strong>{" "}
-                <a href="mailto:pifactor@gmail.com">  pifactor@gmail.com</a>
+                <a href="mailto:pifactor@gmail.com"> pifactor@gmail.com</a>
               </li>
             </ul>
           </div>
           <div>
-            <ul className="text-gray-200 font-thin">
+            <ul
+              className={`${montserratLight.className}  text-gray-200 font-thin`}
+            >
               <li className="cursor-pointer ">
                 <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-lg tablet:text-xl">
                   Work
@@ -112,7 +130,9 @@ const Nav = () => {
           <div>
             <div>
               {" "}
-              <ul className="text-gray-200 font-thin">
+              <ul
+                className={`${montserratLight.className}  text-gray-200 font-thin`}
+              >
                 <li className="cursor-pointer ">
                   <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-lg tablet:text-xl">
                     Behance
