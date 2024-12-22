@@ -5,9 +5,15 @@ import { motion } from "framer-motion";
 import { menuSlide } from "../anim";
 import Link from "./Link";
 import Curve from "./Curve";
+import logo from "../../../app/images/PixcellFactory_logo.png";
 import Footer from "./Footer";
 import { usePathname } from "next/navigation";
-
+import { Montserrat } from "next/font/google";
+import Image from "next/image";
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["300"],
+});
 const navItems = [
   {
     title: "Home",
@@ -40,15 +46,24 @@ export default function NavBtn() {
       exit="exit"
       className={styles.menu}
     >
-      <div className={styles.body}>
+      <div className="absolute top-10 left-10">
+        <Image
+          width={200}
+          height={100}
+          className="w-32 lg:w-52"
+          src={logo}
+          alt="Logo"
+        />
+      </div>
+      <div className={`${styles.body} ${montserrat.style}}`}>
         <div
           onMouseLeave={() => {
             setSelectedIndicator(pathname);
           }}
           className={styles.nav}
         >
-          <div className={styles.header}>
-            <p>Navigation</p>
+          <div className={`${styles.header} text-red-400`}>
+            <p className="text-lg text-gray-400">Navigation</p>
           </div>
           {navItems.map((data, index) => {
             return (

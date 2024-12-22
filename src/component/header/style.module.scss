@@ -1,13 +1,13 @@
-.header{
-    padding: 30px;
+.header {
+    padding: 20px; /* Reduced padding for smaller devices */
     position: fixed;
-    right: -5px;
-    top: 5px;
+    right: 5px; /* Adjusted for better alignment */
+    top: 10px; /* Lowered slightly for better visibility */
     z-index: 1;
 
-    .button{
-        width: 60px;
-        height: 60px;
+    .button {
+        width: 50px; /* Smaller size for mobile */
+        height: 50px;
         border-radius: 50%;
         background-color: #3a3a3a;
         mix-blend-mode: difference;
@@ -17,40 +17,59 @@
         justify-content: center;
     }
 
-    .burger{
+    .burger {
         width: 100%;
-        &::after, &::before{
+        position: relative;
+
+        &::after, &::before {
             content: "";
             display: block;
             height: 1px;
-            width: 40%;
+            width: 30%; /* Adjusted width for mobile */
             margin: auto;
             background-color: white;
             position: relative;
             transition: transform 0.3s;
         }
 
-        &::after{
-            top: -5px;
+        &::after {
+            top: -4px; /* Adjusted spacing for mobile */
         }
 
-        &::before{
-            top: 5px;
+        &::before {
+            top: 4px; /* Adjusted spacing for mobile */
         }
     }
 
-    .burgerActive{
-
-        &::after{
+    .burgerActive {
+        &::after {
             transform: rotate(45deg);
-            top: -1px;
+            top: 0px; /* Fine-tuned spacing */
         }
 
-        &::before{
+        &::before {
             transform: rotate(-45deg);
-            top: 0px;
+            top: 0px; /* Fine-tuned spacing */
         }
-        
     }
 }
 
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px; /* Further reduced padding for very small devices */
+        right: 5px;
+        top: 10px;
+
+        .button {
+            width: 50px; /* Smaller button for compact screens */
+            height: 50px;
+        }
+
+        .burger {
+            &::after, &::before {
+                width: 25%; /* Further reduced width */
+            }
+        }
+    }
+}

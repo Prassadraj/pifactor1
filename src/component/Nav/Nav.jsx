@@ -17,7 +17,8 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 function Nav() {
   const pathname = usePathname(); // Get the current pathname
   const [isNavVisible, setIsNavVisible] = useState(true);
-
+  const [isScrolledUp, setIsScrolledUp] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const navItems = [
     { name: "Works", href: "/works" },
     { name: "About", href: "/about" },
@@ -67,57 +68,103 @@ function Nav() {
     };
   }, []);
 
-  return (
-    <div
-      className={`fixed top-0 z-50 left-0 w-full flex tablet:justify-between items-center px-2 py-5 laptop:px-16 laptop:py-10 gap-2 ${montserrat.className} transition-opacity duration-300`}
-    >
-      {/* Logo Section */}
-      <Link
-        href="/"
-        className={`logo ${
-          isNavVisible ? "opacity-100" : "opacity-0"
-        }  transition-opacity duration-300
-      `}
-      >
-        <Image className="img  w-32 lg:w-52 " src={logo} alt="Logo" />
-      </Link>
+  // for mobile
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      // If the user scrolls up, set to true, otherwise false
+      if (currentScrollY < lastScrollY) {
+        setIsScrolledUp(true);
+      } else if (currentScrollY > lastScrollY) {
+        setIsScrolledUp(false);
+      }
+      setLastScrollY(currentScrollY);
+    };
 
-      {/* Navigation Items */}
-      {isNavVisible ? (
-        <div
-          className={`tablet:flex hidden gap-4 tablet:gap-5 laptop:gap-10 cursor-pointer 
-      transition-all duration-1000 ease-in-out transform opacity-100 visible`}
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
+  return (
+    <>
+      <div
+        className={`hidden fixed top-0 z-50 left-0 w-full tablet:flex tablet:justify-between items-center px-2 py-5 laptop:px-16 laptop:py-10 gap-2 ${montserrat.className} transition-opacity duration-300`}
+      >
+        {/* Logo Section */}
+        <Link
+          href="/"
+          className={`logo ${
+            isNavVisible ? "opacity-100" : "opacity-0"
+          }  transition-opacity duration-300
+      `}
         >
-          {navItems.map((item) => (
-            <Link key={item.name} href={item.href}>
-              <div
-                className={`nav-item group flex flex-col items-center ${
-                  pathname === item.href ? "text-gray-800" : ""
-                }`}
-              >
-                <p className="tablet:text-base text-xs text-white name">
-                  {item.name}
-                </p>
-                <p className="h-[1px] laptop:block hidden bg-white w-0 group-hover:w-full transition-all duration-300"></p>
-                {pathname === item.href && (
-                  <Image
-                    className="transition-all duration-300"
-                    src={sparkle}
-                    alt="Sparkle"
-                    width={15}
-                    height={15}
-                  />
-                )}
-              </div>
-            </Link>
-          ))}
-        </div>
-      ) : (
-        <Header
-          className={`transition-all duration-1000 ease-in-out transform opacity-0 invisible`}
-        />
-      )}
+          <Image className="img  w-32 lg:w-52 " src={logo} alt="Logo" />
+        </Link>
+
+        {/* Navigation Items */}
+        {isNavVisible ? (
+          <div
+            className={`tablet:flex hidden gap-4 tablet:gap-5 laptop:gap-10 cursor-pointer 
+      transition-all duration-1000 ease-in-out transform opacity-100 visible`}
+          >
+            {navItems.map((item) => (
+              <Link key={item.name} href={item.href}>
+                <div
+                  className={`nav-item group flex flex-col items-center ${
+                    pathname === item.href ? "text-gray-800" : ""
+                  }`}
+                >
+                  <p className="tablet:text-base text-xs text-white name">
+                    {item.name}
+                  </p>
+                  <p className="h-[1px] laptop:block hidden bg-white w-0 group-hover:w-full transition-all duration-300"></p>
+                  {pathname === item.href && (
+                    <Image
+                      className="transition-all duration-300"
+                      src={sparkle}
+                      alt="Sparkle"
+                      width={15}
+                      height={15}
+                    />
+                  )}
+                </div>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <Header
+            className={`transition-all duration-1000 ease-in-out transform opacity-0 invisible`}
+          />
+        )}
+      </div>
+      {/* mobile  */}
+      <div className="tablet:hidden">
+      <div className=" fixed top-5 left-0 z-50 p-2 justify-around">
+        <Link
+          href="/"
+          className={`mobilelogo transition-opacity duration-300 ${
+            isScrolledUp ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <Image className="w-32 lg:w-52" src={logo} alt="Logo" />
+        </Link>
+      </div>
+
+      {/* Button */}
+      <div
+        className={`mobilelogo transition-all fixed top-0 right-0 z-50 duration-1000 ease-in-out transform ${
+          isScrolledUp ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
+      >
+        <Header />
+      </div>
     </div>
+
+    </>
   );
 }
 

@@ -19,7 +19,7 @@ function Page({ params }) {
 
   const filteredData = data.allData.filter((data) => category == data.category);
   const selectedItem = filteredData[0].items.find((data) => data.id == id);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({ x: -50, y: -50 });
   const [isHovering, setIsHovering] = useState(false);
   console.log(selectedItem);
   useEffect(() => {
@@ -167,6 +167,7 @@ function Page({ params }) {
               {selectedItem.subTitle}
             </p>
           </div>
+          {/* fo mobile  */}
           <div className="tablet:hidden phone mt-6">
             <p className="">{selectedItem.description}</p>
             <div className="flex gap-3 mt-6">
@@ -199,7 +200,7 @@ function Page({ params }) {
         className=" px-5 tablet:px-20 "
       >
         <div className="hidden tablet:mt-4  laptop:h-screen tablet:h-[50vh] tablet:flex flex-col laptop:gap-28 tablet:gap-20">
-          <p className="laptop:max-w-3xl largeLaptop:max-w-4xl tablet:max-w-xl tablet:text-2xl laptop:text-3xl largeLaptop:text-4xl">
+          <p className="laptop:max-w-3xl largeLaptop:max-w-3xl tablet:max-w-xl tablet:text-2xl laptop:text-3xl largeLaptop:text-4xl">
             {selectedItem.description}
           </p>
           <div className="flex tablet:gap-16 laptop:gap-20">

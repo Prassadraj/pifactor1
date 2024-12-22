@@ -84,7 +84,7 @@ function Laptop() {
           variants={cursorVariants}
           animate="hover"
           transition={{ duration: 0.1, ease: "linear" }}
-          className="fixed top-0 flex justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
+          className="hidden fixed top-0 tablet:flex justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
           style={{ pointerEvents: "none" }}
         >
           <p
