@@ -12,6 +12,15 @@ import Work3 from "@/Homepage/Works/Work3/Work3";
 import Slider from "@/component/Slider/Slider";
 const montserrat = Montserrat({
   subsets: ["latin"],
+  weight: ["600"],
+});
+const montserratLight = Montserrat({
+  subsets: ["latin"],
+  weight: "300", // Specify weight as a string instead of an array
+});
+const montserraMedium = Montserrat({
+  subsets: ["latin"],
+  weight: "500", // Specify weight as a string instead of an array
 });
 function Page({ params }) {
   const { category, id } = params;
@@ -116,8 +125,74 @@ function Page({ params }) {
           </p>
         </motion.div>
       )}
+      {/* mobile  */}
       <div
-        className={` banner px-2  relative h-screen w-full tablet:px-20 tablet:py-20 ${montserrat.className}`}
+        className={`banner h-[150vh] relative w-full ${montserrat.className}`}
+      >
+        <div className="parallax-container h-[100vh] sticky top-0 overflow-hidden">
+          <Image
+            src={selectedItem.mainImg}
+            alt="Dynamic Parallax Background"
+            className="parallax-image object-cover w-full h-full"
+            fill
+            quality={50}
+            priority
+          />
+        </div>
+
+        <div className="absolute  bottom-20 flex flex-col gap-10 items-start overflow-hidden">
+          <div className="overflow-hidden px-5">
+            <p className="title text-[30px] tablet:text-4xl capitalize font-bold">
+              {selectedItem.title}
+            </p>
+          </div>
+          <div className="overflow-hidden max-w-lg px-5">
+            <p
+              className={`title text-xl tablet:text-2xl capitalize font-normal ${montserratLight.className}`}
+            >
+              {selectedItem.subTitle}
+            </p>
+          </div>
+          <div className=" mt-2 rounded-full  text-center font-medium px-5 phone">
+            ⇩
+          </div>
+
+          <div className="mt-10 px-3 phone">
+            <p className={`${montserratLight.className} text-xl`}>
+              {selectedItem.description}
+            </p>
+          </div>
+          <div className="tablet:hidden phone mt-6 phone px-2">
+            <div className="flex gap-3 mt-6">
+              <div className="flex flex-col tablet:gap-2">
+                <p className="text-sm font-semibold">Client</p>
+                <p className="text-base">{selectedItem.client}</p>
+              </div>
+              <div className="flex flex-col tablet:gap-2">
+                <p className="text-sm font-semibold">Services</p>
+                {selectedItem.services.map((data, i) => (
+                  <p key={i} className="text-base">
+                    {data}
+                  </p>
+                ))}
+              </div>{" "}
+              <div className="flex flex-col tablet:gap-2">
+                <p className="text-sm font-semibold">Industries</p>
+                <p className="text-base">{selectedItem.industries}</p>
+              </div>
+              <div className="flex flex-col tablet:gap-2">
+                <p className="text-sm font-semibold">Date</p>
+                <p className="text-base">{selectedItem.date}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* laptop  */}
+
+      <div
+        className={`hidden tablet:block banner px-2  relative h-screen w-full tablet:px-20 tablet:py-20 ${montserrat.className}`}
       >
         {" "}
         <div className="flex fixed h-full bg-black bg-opacity-30 inset-0"></div>
@@ -183,6 +258,8 @@ function Page({ params }) {
           </div>
         </div>
       </div>
+
+      {/* laptop  */}
       <div
         onMouseEnter={() => setIsHovering(false)}
         className=" px-5 tablet:px-20 "
