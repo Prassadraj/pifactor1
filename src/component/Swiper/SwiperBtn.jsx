@@ -21,10 +21,10 @@ export default function App() {
   const swiperRef = useRef(null);
   const [count, setCount] = useState(0);
   const [selected, setSelected] = useState(1);
-  const { data, nav, setNav } = useContext(MyContext);
+  const { data, nav, setNav, mousePosition } = useContext(MyContext);
   // const [nav, setNav] = useState("vfx");
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+
+  const [isHovering, setIsHovering] = useState(true);
   const categories = data?.allData.map((item) => item.category);
 
   const router = useRouter();
@@ -116,41 +116,26 @@ export default function App() {
       });
     }
   }, []);
-  useEffect(() => {
-    const mouseMove = (e) => {
-      setMousePosition({
-        x: e.clientX, // Corrected here
-        y: e.clientY, // Corrected here
-      });
-    };
-    window.addEventListener("mousemove", mouseMove);
 
-    return () => {
-      window.removeEventListener("mousemove", mouseMove);
-    };
-  }, []);
   const cursorVariants = {
     hover: { x: mousePosition.x, y: mousePosition.y },
     default: {},
   };
   return (
     <>
-      {isHovering && (
-        <motion.div
-          variants={cursorVariants}
-          animate="hover"
-          transition={{ duration: 0.1, ease: "linear" }}
-          className="fixed top-0  hidden tablet:flex
+      <motion.div
+        variants={cursorVariants}
+        animate="hover"
+        transition={{ duration: 0.1, ease: "linear" }}
+        className="fixed top-0  hidden tablet:flex
           justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
-          style={{ pointerEvents: "none" }}
-        >
-          <p
-            className={`${montserrat.className} text-white font-normal text-sm`}
-          >
-            View
-          </p>
-        </motion.div>
-      )}
+        style={{ pointerEvents: "none" }}
+      >
+        <p className={`${montserrat.className} text-white font-normal text-sm`}>
+          View
+        </p>
+      </motion.div>
+
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         loop={true}

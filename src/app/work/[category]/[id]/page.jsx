@@ -15,13 +15,18 @@ const montserrat = Montserrat({
 });
 function Page({ params }) {
   const { category, id } = params;
-  const { data } = useContext(MyContext);
+  const { data, mousePosition } = useContext(MyContext);
 
   const filteredData = data.allData.filter((data) => category == data.category);
   const selectedItem = filteredData[0].items.find((data) => data.id == id);
-  const [mousePosition, setMousePosition] = useState({ x: -50, y: -50 });
-  const [isHovering, setIsHovering] = useState(false);
+
+  const [isHovering, setIsHovering] = useState(true);
   console.log(selectedItem);
+
+  const cursorVariants = {
+    hover: { x: mousePosition.x, y: mousePosition.y },
+    default: {},
+  };
   useEffect(() => {
     const tl = gsap.timeline();
     tl.fromTo(
@@ -92,24 +97,7 @@ function Page({ params }) {
       }
     );
   }, []);
-  useEffect(() => {
-    const mouseMove = (e) => {
-      setMousePosition({
-        x: e.clientX, // Corrected here
-        y: e.clientY, // Corrected here
-      });
-    };
-    window.addEventListener("mousemove", mouseMove);
 
-    return () => {
-      window.removeEventListener("mousemove", mouseMove);
-    };
-  }, []);
-
-  const cursorVariants = {
-    hover: { x: mousePosition.x, y: mousePosition.y },
-    default: {},
-  };
   return (
     <div className={`${montserrat.className} `}>
       {isHovering && (
