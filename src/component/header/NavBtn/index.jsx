@@ -46,7 +46,7 @@ export default function NavBtn() {
       exit="exit"
       className={styles.menu}
     >
-      <div className="absolute top-10 left-10">
+      <div className="absolute tablet:top-10 tablet:left-5 top-9 left-5 largeLaptop:left-7">
         <Image
           width={200}
           height={100}
