@@ -72,12 +72,16 @@ function Nav() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      // If the user scrolls up, set to true, otherwise false
-      if (currentScrollY < lastScrollY) {
+
+      // If at the top of the page, set isScrolledUp to true
+      if (currentScrollY === 0) {
         setIsScrolledUp(true);
+      } else if (currentScrollY < lastScrollY) {
+        setIsScrolledUp(true); // User scrolled up
       } else if (currentScrollY > lastScrollY) {
-        setIsScrolledUp(false);
+        setIsScrolledUp(false); // User scrolled down
       }
+
       setLastScrollY(currentScrollY);
     };
 

@@ -59,17 +59,17 @@ function Page() {
       <div
         className={`pt-[14vh] px-7 flex flex-col gap-10 h-fit py-20 ${montserrat.className}`}
       >
-        <p className={`text-3xl font-semibold ${montserratLight.className}`}>
+        <p className={`text-2xl font-semibold ${montserratLight.className}`}>
           All set for lift-off? Drop us a ping, send a tweet, message, or poke,
           and we’ll be back in no time!
         </p>
         <div className="flex items-center gap-2">
           <Image src={spark} width={20} height={20} alt="Sparkle Effect" />
-          <p className="text-2xl underline">pifactor@gmail.com</p>
+          <p className="text-xl underline">pifactor@gmail.com</p>
         </div>
         <div className="flex items-center gap-2">
           <Image src={spark} width={20} height={20} alt="Sparkle Effect" />
-          <p className="text-2xl underline">+91 123456789</p>
+          <p className="text-xl underline">+91 123456789</p>
         </div>
         <div className="pl-2">
           <p className="text-xl capitalize">{`TTK Road, chennai,
@@ -78,7 +78,7 @@ function Page() {
         </div>
         <div className="flex items-center gap-2">
           <Image src={spark} width={20} height={20} alt="Sparkle Effect" />
-          <p className="text-2xl underline">View on Maps</p>
+          <p className="text-xl underline">View on Maps</p>
         </div>
       </div>
       <Footer />
