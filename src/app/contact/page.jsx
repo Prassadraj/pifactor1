@@ -14,7 +14,7 @@ const montserratLight = Montserrat({
 function Page() {
   return (
     <>
-      <div className="pt-[20vh] flex flex-col">
+      <div className="pt-[20vh] flex flex-col ">
         <div className="px-12 z-10 justify-center">
           <Image
             src="/contactUs.jpg" // Path relative to the 'public' folder
@@ -51,7 +51,7 @@ function Page() {
           <p className="text-2xl underline">+91 123456789</p>
         </div>
         <div className="pl-2">
-          <p className="text-xl">{`Alwarpet, chennai,
+          <p className="text-xl capitalize">{`TTK Road, chennai,
        `}</p>
           <p className="text-xl"> TamilNadu</p>
         </div>
