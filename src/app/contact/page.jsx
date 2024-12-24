@@ -56,7 +56,7 @@ function Page() {
         </div>
       </div>
       <div
-        className={`pt-[14vh] px-7 flex flex-col gap-10 h-fit py-20 ${montserrat.className}`}
+        className={`pt-[10vh] px-7 flex flex-col gap-10 h-fit py-20 ${montserrat.className}`}
       >
         <p className={`text-2xl font-semibold ${montserratLight.className}`}>
           All set for lift-off? Drop us a ping, send a tweet, message, or poke,
