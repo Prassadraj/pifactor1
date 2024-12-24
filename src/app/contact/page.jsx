@@ -1,8 +1,10 @@
+"use client";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import spark from "../images/sparkle.png";
 import Footer from "@/component/Footer/Footer";
+import gsap from "gsap";
 const montserrat = Montserrat({
   subsets: ["latin"],
 });
@@ -12,6 +14,24 @@ const montserratLight = Montserrat({
 });
 
 function Page() {
+  useEffect(() => {
+    gsap.fromTo(
+      ".marquee",
+      {
+        scale: 3,
+        skewX: "-160deg",
+      },
+      { scale: 1, duration: 1, ease: "power3.out", skewX: "0deg" }
+    );
+    gsap.fromTo(
+      ".img",
+      {
+        opacity: 0.1,
+        skewX: "-10deg",
+      },
+      { duration: 1.5, ease: "power3.out", skewX: "0deg", opacity: 1 }
+    );
+  }, []);
   return (
     <>
       <div className="pt-[15vh] flex flex-col ">
@@ -22,7 +42,7 @@ function Page() {
             width={280}
             height={400}
             quality={90}
-            className="object-cover h-[400px]" // Ensures the image covers the container without distortion
+            className="img object-cover h-[400px]" // Ensures the image covers the container without distortion
           />
         </div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
@@ -30,7 +50,7 @@ function Page() {
             behavior="scroll"
             direction="left"
             scrollamount="6" // Adjust this value for speed (lower value = slower)
-            className={`text-[90px] font-bold ${montserratLight.className}`}
+            className={`marquee text-[90px] font-bold ${montserratLight.className}`}
           >
             Get in touch · 保持联系 · Ponerse en contacto · Neem contact op ·
           </marquee>
