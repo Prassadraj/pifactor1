@@ -18,8 +18,7 @@ function Page() {
     gsap.fromTo(
       ".marquee",
       {
-        scale: 3,
-        skewX: "-160deg",
+        scale: 2,
       },
       { scale: 1, duration: 1, ease: "power3.out", skewX: "0deg" }
     );
