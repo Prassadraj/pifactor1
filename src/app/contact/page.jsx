@@ -50,8 +50,11 @@ function Page() {
           <Image src={spark} width={20} height={20} alt="Sparkle Effect" />
           <p className="text-2xl underline">+91 123456789</p>
         </div>
-        <p className="text-2xl">{`Alwarpet, chennai,
-        TamilNadu`}</p>
+        <div className="pl-2">
+          <p className="text-xl">{`Alwarpet, chennai,
+       `}</p>
+          <p className="text-xl"> TamilNadu</p>
+        </div>
         <div className="flex items-center gap-2">
           <Image src={spark} width={20} height={20} alt="Sparkle Effect" />
           <p className="text-2xl underline">View on Maps</p>
