@@ -3,7 +3,7 @@
   position: fixed;
   right: 5px; /* Adjusted for better alignment */
   top: 10px; /* Lowered slightly for better visibility */
-  z-index: 1;
+  z-index: 99999;
 
   .button {
     width: 50px; /* Smaller size for mobile */
