@@ -48,7 +48,7 @@ function Page() {
           <marquee
             behavior="scroll"
             direction="left"
-            scrollamount="6" // Adjust this value for speed (lower value = slower)
+            scrollamount="8" // Adjust this value for speed (lower value = slower)
             className={`marquee text-[90px] font-bold ${montserratLight.className}`}
           >
             Get in touch · 保持联系 · Ponerse en contacto · Neem contact op ·
