@@ -14,14 +14,15 @@ const montserratLight = Montserrat({
 function Page() {
   return (
     <>
-      <div className="pt-[20vh] flex flex-col ">
-        <div className="px-12 z-10 justify-center">
+      <div className="pt-[15vh] flex flex-col ">
+        <div className="flex justify-center items-center px-10 z-10 h-[420px]">
           <Image
             src="/contactUs.jpg" // Path relative to the 'public' folder
             alt="Contact Us Image"
-            width={400}
-            height={500}
-            className="object-cover w-[300px] h-[500px]" // Ensures the image covers the container without distortion
+            width={280}
+            height={400}
+            quality={90}
+            className="object-cover h-[400px]" // Ensures the image covers the container without distortion
           />
         </div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
