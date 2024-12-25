@@ -47,7 +47,7 @@ export default function Home() {
       <div className="hidden tablet:block">
         <Section />
       </div>
-      <div className="block tablet:hidden">
+      <div className=" tablet:hidden">
         <Section2 />
       </div>
       {/* Conditionally render components after 5 seconds */}

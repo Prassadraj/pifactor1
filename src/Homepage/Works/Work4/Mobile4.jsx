@@ -18,6 +18,10 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   weight: "600",
 });
+const montserratLight = Montserrat({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,6 +49,34 @@ export default function Mobile4() {
     { src: Picture6, scale: scale8 },
     { src: Picture7, scale: scale9 },
   ];
+  useEffect(() => {
+    // Check if element is found
+
+    gsap.fromTo(
+      ".mon p",
+      {
+        y: 150,
+      },
+      {
+        y: 0,
+        scrollTrigger: {
+          trigger: ".mon",
+          start: "top 80%",
+          end: "top 20%",
+          scrub: false,
+        },
+        duration: 0.5,
+        ease: "power3.out",
+        delay: 0.2,
+        stagger: 0.1,
+      }
+    );
+
+    // Cleanup on component unmount
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   useEffect(() => {
     const mouseMove = (e) => {
@@ -57,11 +89,11 @@ export default function Mobile4() {
     window.addEventListener("mousemove", mouseMove);
 
     gsap.fromTo(
-      ".wedding p",
+      ".text4 p",
       { y: 150 },
       {
         y: 0,
-        scrollTrigger: ".wedding",
+        scrollTrigger: ".text4",
         duration: 0.5,
         ease: "power3.out",
         delay: 0.2,
@@ -74,20 +106,15 @@ export default function Mobile4() {
     };
   }, []);
 
-  const cursorVariants = {
-    hover: { x: mousePosition.x, y: mousePosition.y },
-    default: {},
-  };
-
   return (
-    <div className="px-2">
+    <div className="">
       <div
-        className="wedding  flex overflow-hidden "
+        className="text4 flex overflow-hidden px-5"
         style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
       >
         {"Wedding".split("").map((text, i) => (
-          <p key={i} className={`${montserrat.className}  text-[25px] `}>
-            {text}
+          <p key={i} className={`${montserratLight.className} text-[35px]`}>
+            {text === " " ? "\u00A0" : text}
           </p>
         ))}
       </div>

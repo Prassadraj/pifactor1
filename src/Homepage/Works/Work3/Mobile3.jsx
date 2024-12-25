@@ -1,15 +1,15 @@
 "use client";
-//
-import { Montserrat } from "next/font/google";
-import Lenis from "@studio-freight/lenis";
+import { Lato, Montserrat } from "next/font/google";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import React, { useEffect, useRef } from "react";
-import Image from "next/image";
-
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: "600",
+});
+const montserratLight = Montserrat({
+  subsets: ["latin"],
+  weight: "400",
 });
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,15 +18,21 @@ function Mobile3() {
   const container = useRef(null);
 
   useEffect(() => {
+    // Check if element is found
+
     gsap.fromTo(
-      ".text1 p",
+      ".section3 p",
       {
         y: 150,
       },
       {
         y: 0,
-        scrollTrigger: ".text1",
-
+        scrollTrigger: {
+          trigger: ".section3",
+          start: "top 80%",
+          end: "top 20%",
+          scrub: false,
+        },
         duration: 0.5,
         ease: "power3.out",
         delay: 0.2,
@@ -36,26 +42,27 @@ function Mobile3() {
 
     // Cleanup on component unmount
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Correct way to kill all ScrollTriggers
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
   return (
-    <div className="my-10 h-full w-full px-2">
-      <div
-        className="text1   flex overflow-hidden my-2"
-        style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
-      >
-        {" 3D Animations".split("").map((text, i) => (
-          <p
-            key={i}
-            className={`${montserrat.className} font-bold text-[25px] `}
-          >
-            {text}
-          </p>
-        ))}
+    <div className={`my-20 h-full w-full px-5 ${montserrat.className}`}>
+      <div className="flex flex-col gap-2 my-5">
+        <div
+          className="section3 flex overflow-hidden"
+          style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
+        >
+          {"3D Animation".split("").map((text, i) => (
+            <p key={i} className={`${montserratLight.className} text-[35px]`}>
+              {text === " " ? "\u00A0" : text}
+            </p>
+          ))}
+        </div>
       </div>
-      <div className="flex flex-col gap-4 w-full">
+      <div
+        className={`flex flex-col gap-4 w-full ${montserratLight.className}`}
+      >
         <div className="h-full">
           <video
             className="h-[400px] w-full object-cover"
@@ -64,7 +71,10 @@ function Mobile3() {
             loop
             muted
           ></video>
-          <p className="text-white">About the Project1...</p>
+          <div className="flex flex-col gap-2 my-3">
+            <p className="text-white text-xl">About the Project1 Title...</p>
+            <p className=" text-gray-200">About the Project1 subTitle...</p>
+          </div>
         </div>
         <div className="h-full">
           <img
@@ -72,7 +82,10 @@ function Mobile3() {
             src="https://images.unsplash.com/photo-1622994690845-56efd20992c6?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt=""
           />
-          <p className="text-white">About the Project1...</p>
+          <div className="flex flex-col gap-2 my-3">
+            <p className="text-white text-xl">About the Project1 Title...</p>
+            <p className=" text-gray-200">About the Project1 subTitle...</p>
+          </div>
         </div>
       </div>
     </div>
