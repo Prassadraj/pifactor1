@@ -107,6 +107,7 @@ function Laptop() {
               style={{ cursor: "pointer" }}
               className="w-full h-full object-cover reel"
               loop
+              playsInline
               src="./intro.mp4"
               autoPlay
               muted

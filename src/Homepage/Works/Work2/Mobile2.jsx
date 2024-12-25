@@ -70,6 +70,7 @@ function Mobile2() {
             autoPlay
             loop
             muted
+            playsInline
           ></video>
           <div className="flex flex-col gap-2 my-3">
             <p className="text-white text-xl">About the Project1 Title...</p>

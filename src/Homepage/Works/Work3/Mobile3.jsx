@@ -69,6 +69,7 @@ function Mobile3() {
             src="./car.mp4"
             autoPlay
             loop
+            playsInline
             muted
           ></video>
           <div className="flex flex-col gap-2 my-3">

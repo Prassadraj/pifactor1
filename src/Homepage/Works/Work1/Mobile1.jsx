@@ -84,6 +84,7 @@ function Mobile1() {
             src="./car.mp4"
             autoPlay
             loop
+            playsInline
             muted
           ></video>
           <div className="flex flex-col gap-2 my-3">
@@ -108,6 +109,7 @@ function Mobile1() {
             src="./car.mp4"
             autoPlay
             loop
+            playsInline
             muted
           ></video>
           <div className="flex flex-col gap-2 my-3">
