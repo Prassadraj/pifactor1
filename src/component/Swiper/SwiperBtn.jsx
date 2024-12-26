@@ -79,31 +79,40 @@ export default function App() {
     );
   };
   const handleNavigation = (href) => {
+    const animationDuration = window.innerWidth <= 768 ? 1 : 1.5; // Adjust duration for mobile (<=768px)
+
     gsap.fromTo(
       ".image",
       { y: 0 },
-      { y: -900, delay: 0, x: 0, ease: "power3.out", duration: 3.5 }
+      {
+        y: -900,
+        delay: 0,
+        x: 0,
+        ease: "power3.out",
+        duration: animationDuration,
+      }
     );
     gsap.fromTo(
       ".count",
       { y: 0 },
-      { ease: "power3.out", duration: 1.5, opacity: 0 }
+      { ease: "power3.out", duration: animationDuration, opacity: 0 }
     );
     gsap.fromTo(
       ".title",
       { y: 0 },
-      { ease: "power3.out", duration: 1.5, opacity: 0 }
+      { ease: "power3.out", duration: animationDuration, opacity: 0 }
     );
 
     gsap.fromTo(
       ".category",
       { y: 0 },
-      { ease: "power3.out", duration: 1.5, opacity: 0, zIndex: 0 }
+      { ease: "power3.out", duration: animationDuration, opacity: 0, zIndex: 0 }
     );
-    // Delay navigation to allow animation to finish
+
+    // Delay navigation to match animation duration
     setTimeout(() => {
       router.push(href); // Navigate to the desired page
-    }, 1500); // Match the animation duration
+    }, animationDuration * 1000); // Convert seconds to milliseconds
   };
 
   useEffect(() => {
