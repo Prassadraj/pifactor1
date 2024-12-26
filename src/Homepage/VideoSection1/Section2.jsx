@@ -16,7 +16,7 @@ function Section2() {
   useEffect(() => {
     // Check if the animation has already played
     const played = sessionStorage.getItem("hasPlayedOnce");
-
+    const isMobile = window.innerWidth <= 768;
     if (!played) {
       const tl = gsap.timeline({ delay: 0 });
       const movement = [-130, 100, -130, -90, 100, -130, 180, -130];
@@ -34,39 +34,71 @@ function Section2() {
         ease: "power3.out",
         stagger: 0.1,
       });
+      if (isMobile) {
+        tl.to(
+          ".counter p",
+          {
+            y: 0,
+            duration: 0.5,
+            ease: "power3.out",
+            stagger: 0.1,
+          },
+          "-=0.5"
+        );
 
-      tl.to(
-        ".counter p",
-        {
-          y: 0,
+        tl.to(".counter p", {
+          y: -20,
           duration: 0.5,
           ease: "power3.out",
-          stagger: 0.1,
-        },
-        "-=0.5"
-      );
+          delay: 0.5,
+        });
 
-      tl.to(".counter p", {
-        y: -20,
-        duration: 0.5,
-        ease: "power3.out",
-        delay: 0.5,
-      });
+        tl.to(".counter p", {
+          y: -46,
+          duration: 0.5,
+          ease: "power3.out",
+          delay: 0.5,
+        });
 
-      tl.to(".counter p", {
-        y: -46,
-        duration: 0.5,
-        ease: "power3.out",
-        delay: 0.5,
-      });
+        tl.to(".counter p", {
+          y: -72,
+          duration: 0.5,
+          ease: "power3.out",
+          delay: 0.5,
+        });
+      } else {
+        tl.to(
+          ".counter p",
+          {
+            y: 0,
+            duration: 0.5,
+            ease: "power3.out",
+            stagger: 0.1,
+          },
+          "-=0.5"
+        );
 
-      tl.to(".counter p", {
-        y: -72,
-        duration: 0.5,
-        ease: "power3.out",
-        delay: 0.5,
-      });
+        tl.to(".counter p", {
+          y: -35,
+          duration: 0.5,
+          ease: "power3.out",
+          delay: 0.5,
+        });
 
+        tl.to(".counter p", {
+          y: -75,
+          duration: 0.5,
+          ease: "power3.out",
+          delay: 0.5,
+        });
+
+        tl.to(".counter p", {
+          y: -105,
+          duration: 0.5,
+          ease: "power3.out",
+          delay: 0.5,
+        });
+      }
       tl.from(
         ".tagline",
         {
@@ -187,7 +219,7 @@ function Section2() {
   }, []);
 
   return (
-    <div className="container ">
+    <div className="container tablet:hidden">
       {!hasPlayedOnce && <div className="cover-screen"></div>}{" "}
       {/* Cover Screen Element */}
       <div className="hero-video w-full ">
