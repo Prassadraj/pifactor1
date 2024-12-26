@@ -63,10 +63,6 @@ export default function Mobile4() {
         stagger: 0.1,
       }
     );
-
-    return () => {
-      window.removeEventListener("mousemove", mouseMove);
-    };
   }, []);
 
   return (
@@ -77,7 +73,7 @@ export default function Mobile4() {
       >
         {"Wedding".split("").map((text, i) => (
           <p key={i} className={`${montserratLight.className} text-[35px]`}>
-            {text}
+            {text === " " ? "\u00A0" : text}
           </p>
         ))}
       </div>
