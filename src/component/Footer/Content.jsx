@@ -117,7 +117,7 @@ const Nav = () => {
               </li>
               <li className="cursor-pointer ">
                 <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-sm tablet:text-xl">
-                  Studio
+                  About Us
                 </span>
               </li>
               <li className="cursor-pointer">
