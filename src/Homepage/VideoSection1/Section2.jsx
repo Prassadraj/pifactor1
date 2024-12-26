@@ -47,21 +47,21 @@ function Section2() {
       );
 
       tl.to(".counter p", {
-        y: -35,
+        y: -20,
         duration: 0.5,
         ease: "power3.out",
         delay: 0.5,
       });
 
       tl.to(".counter p", {
-        y: -75,
+        y: -48,
         duration: 0.5,
         ease: "power3.out",
         delay: 0.5,
       });
 
       tl.to(".counter p", {
-        y: -105,
+        y: -72,
         duration: 0.5,
         ease: "power3.out",
         delay: 0.5,

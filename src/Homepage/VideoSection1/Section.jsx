@@ -35,58 +35,37 @@ function Section() {
         stagger: 0.1,
       });
 
-      if (isMobile) {
-        tl.to(".counter p", {
-          y: 0,
-          duration: 0.3,
-          ease: "power3.out",
-          stagger: 0.1,
-        });
-        tl.to(".counter p", {
-          y: -15, // Adjust movement for mobile screens
-          duration: 0.3,
-          ease: "power3.out",
-          delay: 0.3, // Shorter delay for mobile
-        });
-        tl.to(".counter p", {
-          y: -30, // Adjust movement for mobile
-          duration: 0.3,
-          ease: "power3.out",
-          delay: 0.3,
-        });
-        tl.to(".counter p", {
-          y: -45, // Adjust movement for mobile
-          duration: 0.3,
-          ease: "power3.out",
-          delay: 0.3,
-        });
-      } else {
-        // Desktop-specific GSAP animation (unchanged)
-        tl.to(".counter p", {
+      tl.to(
+        ".counter p",
+        {
           y: 0,
           duration: 0.5,
           ease: "power3.out",
           stagger: 0.1,
-        });
-        tl.to(".counter p", {
-          y: -35,
-          duration: 0.5,
-          ease: "power3.out",
-          delay: 0.5,
-        });
-        tl.to(".counter p", {
-          y: -75,
-          duration: 0.5,
-          ease: "power3.out",
-          delay: 0.5,
-        });
-        tl.to(".counter p", {
-          y: -105,
-          duration: 0.5,
-          ease: "power3.out",
-          delay: 0.5,
-        });
-      }
+        },
+        "-=0.5"
+      );
+
+      tl.to(".counter p", {
+        y: -35,
+        duration: 0.5,
+        ease: "power3.out",
+        delay: 0.5,
+      });
+
+      tl.to(".counter p", {
+        y: -75,
+        duration: 0.5,
+        ease: "power3.out",
+        delay: 0.5,
+      });
+
+      tl.to(".counter p", {
+        y: -105,
+        duration: 0.5,
+        ease: "power3.out",
+        delay: 0.5,
+      });
 
       tl.from(
         ".tagline",

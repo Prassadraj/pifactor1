@@ -167,7 +167,7 @@ function Nav() {
             href="/"
             className={`mobilelogo transition-opacity duration-300`}
           >
-            <Image className="w-32 lg:w-52" src={logo} alt="Logo" />
+            <Image className="mobilelogo w-32 lg:w-52" src={logo} alt="Logo" />
           </Link>
         </div>
 
