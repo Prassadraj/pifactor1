@@ -54,7 +54,7 @@ function Section2() {
       });
 
       tl.to(".counter p", {
-        y: -48,
+        y: -46,
         duration: 0.5,
         ease: "power3.out",
         delay: 0.5,

@@ -79,7 +79,7 @@ export default function App() {
     );
   };
   const handleNavigation = (href) => {
-    const animationDuration = window.innerWidth <= 768 ? 1 : 1.5; // Adjust duration for mobile (<=768px)
+    const animationDuration = 1.5; // Adjust duration for mobile (<=768px)
 
     gsap.fromTo(
       ".image",
