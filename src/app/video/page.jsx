@@ -10,7 +10,7 @@ function page() {
         playsInline
         autoPlay
         muted
-      />
+      ></video>
     </div>
   );
 }

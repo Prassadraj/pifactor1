@@ -231,7 +231,7 @@ function Section2() {
           playsInline
           muted
           preload="auto"
-        />
+          ></video>
       </div>
       <div>
         <div className="blocks">

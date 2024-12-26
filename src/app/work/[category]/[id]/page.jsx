@@ -338,7 +338,7 @@ function Page({ params }) {
             playsInline
             loop
             src={`${selectedItem.video}`}
-          />
+          ></video>
         </div>
         <Slider />
         <div className="tablet:h-screen w-full h-full">
