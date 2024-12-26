@@ -49,45 +49,8 @@ export default function Mobile4() {
     { src: Picture6, scale: scale8 },
     { src: Picture7, scale: scale9 },
   ];
-  useEffect(() => {
-    // Check if element is found
-
-    gsap.fromTo(
-      ".mon p",
-      {
-        y: 150,
-      },
-      {
-        y: 0,
-        scrollTrigger: {
-          trigger: ".mon",
-          start: "top 80%",
-          end: "top 20%",
-          scrub: false,
-        },
-        duration: 0.5,
-        ease: "power3.out",
-        delay: 0.2,
-        stagger: 0.1,
-      }
-    );
-
-    // Cleanup on component unmount
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
 
   useEffect(() => {
-    const mouseMove = (e) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY,
-      });
-    };
-
-    window.addEventListener("mousemove", mouseMove);
-
     gsap.fromTo(
       ".text4 p",
       { y: 150 },
@@ -114,7 +77,7 @@ export default function Mobile4() {
       >
         {"Wedding".split("").map((text, i) => (
           <p key={i} className={`${montserratLight.className} text-[35px]`}>
-            {text === " " ? "\u00A0" : text}
+            {text}
           </p>
         ))}
       </div>
