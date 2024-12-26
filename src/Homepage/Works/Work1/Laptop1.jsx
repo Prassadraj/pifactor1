@@ -204,7 +204,7 @@ function Laptop1() {
                   playsInline
                   muted
                   loop
-                  src="./car.mp4"
+                  src="/car.mp4"
                 />
               ) : (
                 <img
@@ -222,7 +222,7 @@ function Laptop1() {
                 muted
                 loop
                 playsInline
-                src="./car.mp4"
+                src="/car.mp4"
               />
             </div>
             <p className="text-white image1">About Project</p>
@@ -261,7 +261,7 @@ function Laptop1() {
                   muted
                   playsInline
                   loop
-                  src="./car.mp4"
+                  src="/car.mp4"
                 />
               ) : (
                 <img
@@ -280,7 +280,7 @@ function Laptop1() {
                   muted
                   loop
                   playsInline
-                  src="./car.mp4"
+                  src="/car.mp4"
                 />
                 <p>About Project</p>
               </div>
@@ -309,7 +309,7 @@ function Laptop1() {
                   muted
                   playsInline
                   loop
-                  src="./car.mp4"
+                  src="/car.mp4"
                 />
               ) : (
                 <img
@@ -341,7 +341,7 @@ function Laptop1() {
                   muted
                   playsInline
                   loop
-                  src="./car.mp4"
+                  src="/car.mp4"
                 />
               ) : (
                 <img

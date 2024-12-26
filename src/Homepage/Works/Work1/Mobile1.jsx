@@ -81,7 +81,7 @@ function Mobile1() {
         <div className="h-full">
           <video
             className="h-[400px] w-full object-cover"
-            src="./car.mp4"
+            src="/car.mp4"
             autoPlay
             loop
             playsInline
@@ -106,7 +106,7 @@ function Mobile1() {
         <div className="h-full">
           <video
             className="h-[400px] w-full object-cover"
-            src="./car.mp4"
+            src="/car.mp4"
             autoPlay
             loop
             playsInline

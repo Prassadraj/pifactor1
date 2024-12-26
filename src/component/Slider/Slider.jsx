@@ -80,7 +80,7 @@ function Slider() {
             <div className="laptop:w-[35rem] tablet:w-[20rem] h-full ">
               <video
                 className="h-full w-full object-cover"
-                src="./car.mp4"
+                src="/car.mp4"
                 autoPlay
                 loop
                 playsInline
@@ -131,7 +131,7 @@ function Slider() {
             <div className="laptop:w-[35rem] tablet:w-[25rem] h-full ">
               <video
                 className="h-full w-full object-cover"
-                src="./car.mp4"
+                src="/car.mp4"
                 autoPlay
                 playsInline
                 loop
