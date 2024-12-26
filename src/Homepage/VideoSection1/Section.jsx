@@ -226,7 +226,7 @@ function Section() {
         <video
           className="w-full h-full object-cover"
           loop
-          src="/PF_LOGO.mp4"
+          src="/intro.mp4"
           autoPlay
           playsInline
           muted
