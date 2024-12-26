@@ -1,6 +1,7 @@
 "use client";
 import MyContext from "@/context/MyContext";
 import { Montserrat } from "next/font/google";
+import Link from "next/link";
 import React, { useContext, useEffect, useRef } from "react";
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -110,21 +111,27 @@ const Nav = () => {
             <ul
               className={`${montserratLight.className}  text-gray-200 font-thin`}
             >
-              <li className="cursor-pointer ">
-                <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-sm tablet:text-xl">
-                  Work
-                </span>
-              </li>
-              <li className="cursor-pointer ">
-                <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-sm tablet:text-xl">
-                  About Us
-                </span>
-              </li>
-              <li className="cursor-pointer">
-                <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-sm text-nowrap tablet:text-xl ">
-                  Contact Us
-                </span>
-              </li>
+              <Link href="/work">
+                <li className="cursor-pointer ">
+                  <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-sm tablet:text-xl">
+                    Work
+                  </span>
+                </li>
+              </Link>
+              <Link href="/about">
+                <li className="cursor-pointer ">
+                  <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-sm tablet:text-xl">
+                    About Us
+                  </span>
+                </li>
+              </Link>
+              <Link href="/contact">
+                <li className="cursor-pointer">
+                  <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-sm text-nowrap tablet:text-xl ">
+                    Contact Us
+                  </span>
+                </li>
+              </Link>
             </ul>
           </div>
           <div>
