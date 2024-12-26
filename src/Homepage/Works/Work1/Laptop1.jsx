@@ -205,7 +205,7 @@ function Laptop1() {
                   muted
                   loop
                   src="./car.mp4"
-                ></video>
+                />
               ) : (
                 <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
@@ -223,7 +223,7 @@ function Laptop1() {
                 loop
                 playsInline
                 src="./car.mp4"
-              ></video>
+              />
             </div>
             <p className="text-white image1">About Project</p>
           </div>
@@ -262,7 +262,7 @@ function Laptop1() {
                   playsInline
                   loop
                   src="./car.mp4"
-                ></video>
+                />
               ) : (
                 <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
@@ -281,7 +281,7 @@ function Laptop1() {
                   loop
                   playsInline
                   src="./car.mp4"
-                ></video>
+                />
                 <p>About Project</p>
               </div>
             </div>
@@ -310,7 +310,7 @@ function Laptop1() {
                   playsInline
                   loop
                   src="./car.mp4"
-                ></video>
+                />
               ) : (
                 <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
@@ -342,7 +342,7 @@ function Laptop1() {
                   playsInline
                   loop
                   src="./car.mp4"
-                ></video>
+                />
               ) : (
                 <img
                   className="absolute top-0 left-0 w-full h-full object-cover"

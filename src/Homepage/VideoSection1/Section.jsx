@@ -47,14 +47,14 @@ function Section() {
         );
 
         tl.to(".counter p", {
-          y: -19.5,
+          y: -20,
           duration: 0.5,
           ease: "power3.out",
           delay: 0.5,
         });
 
         tl.to(".counter p", {
-          y: -46.5,
+          y: -46,
           duration: 0.5,
           ease: "power3.out",
           delay: 0.5,
@@ -219,7 +219,7 @@ function Section() {
   }, []);
 
   return (
-    <div className="container ">
+    <div className="container tablet:block hidden">
       {!hasPlayedOnce && <div className="cover-screen"></div>}{" "}
       {/* Cover Screen Element */}
       <div className="hero-video w-full ">
@@ -231,7 +231,7 @@ function Section() {
           playsInline
           muted
           preload="auto" // Ensures the video loads with priority
-        ></video>
+        />
       </div>
       <div>
         <div className="blocks">

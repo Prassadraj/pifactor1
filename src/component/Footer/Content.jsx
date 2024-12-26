@@ -59,7 +59,7 @@ const Nav = () => {
                 loop
                 playsInline
                 src="/footer.mp4"
-              ></video>
+              />
             </div>
             <p className="tablet:text-2xl hidden  tablet:block tablet:max-w-md laptop:max-w-lg font-light">
               PiFactor merges creativity and curiosity, making each project a
@@ -77,7 +77,7 @@ const Nav = () => {
               loop
               playsInline
               src="/footer.mp4"
-            ></video>
+            />
           </div>
         </div>
         {/* mobile */}

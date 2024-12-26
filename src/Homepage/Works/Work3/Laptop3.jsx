@@ -98,7 +98,7 @@ function Laptop3() {
                 playsInline
                 loop
                 muted
-              ></video>
+              />
             </div>
           </div>
           <div className="ImageWrapper">
@@ -148,7 +148,7 @@ function Laptop3() {
                 loop
                 playsInline
                 muted
-              ></video>
+              />
             </div>
           </div>
           <div className="ImageWrapper2">

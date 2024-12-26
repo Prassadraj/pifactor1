@@ -86,7 +86,7 @@ function Slider() {
                 playsInline
                 preload="auto"
                 muted
-              ></video>
+              />
             </div>
           </div>
           <div className="ImageWrapper">
@@ -137,7 +137,7 @@ function Slider() {
                 loop
                 preload="auto"
                 muted
-              ></video>
+              />
             </div>
           </div>
           <div className="ImageWrapper2">

@@ -159,7 +159,7 @@ function Laptop() {
               src="./intro.mp4"
               autoPlay
               muted
-            ></video>{" "}
+            />{" "}
             <div className="absolute inset-0 flex justify-center items-center">
               {/* Text that will be animated */}
               <div

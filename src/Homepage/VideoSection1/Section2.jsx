@@ -231,7 +231,7 @@ function Section2() {
           playsInline
           muted
           preload="auto" // Ensures the video loads with priority
-        ></video>
+        />
       </div>
       <div>
         <div className="blocks">
