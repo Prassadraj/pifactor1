@@ -155,6 +155,7 @@ function Laptop() {
               style={{ cursor: "pointer" }}
               className="w-full h-full object-cover reel"
               loop
+              preload="auto"
               playsInline
               src="./intro.mp4"
               autoPlay

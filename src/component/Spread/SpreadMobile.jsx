@@ -1,6 +1,8 @@
 "use client";
 import { Montserrat } from "next/font/google";
-import { gsap, ScrollTrigger } from "gsap";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 
 import Image from "next/image";
 import React, { useEffect } from "react";
