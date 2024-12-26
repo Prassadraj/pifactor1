@@ -1,7 +1,7 @@
 "use client";
 //
 import { Lato, Montserrat } from "next/font/google";
-import Lenis from "@studio-freight/lenis";
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import React, { useEffect, useRef } from "react";
@@ -86,7 +86,7 @@ function Mobile1() {
             loop
             playsInline
             muted
-            preload="metadata"
+            preload="auto"
           ></video>
           <div className="flex flex-col gap-2 my-3">
             <p className="text-white text-xl">About the Project1 Title...</p>
@@ -112,6 +112,7 @@ function Mobile1() {
             loop
             playsInline
             muted
+            preload="auto"
           ></video>
           <div className="flex flex-col gap-2 my-3">
             <p className="text-white text-xl">About the Project1 Title...</p>

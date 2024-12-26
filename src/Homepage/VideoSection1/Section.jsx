@@ -34,71 +34,39 @@ function Section() {
         ease: "power3.out",
         stagger: 0.1,
       });
-      if (isMobile) {
-        tl.to(
-          ".counter p",
-          {
-            y: 0,
-            duration: 0.5,
-            ease: "power3.out",
-            stagger: 0.1,
-          },
-          "-=0.5"
-        );
 
-        tl.to(".counter p", {
-          y: -20,
+      tl.to(
+        ".counter p",
+        {
+          y: 0,
           duration: 0.5,
           ease: "power3.out",
-          delay: 0.5,
-        });
+          stagger: 0.1,
+        },
+        "-=0.5"
+      );
 
-        tl.to(".counter p", {
-          y: -46,
-          duration: 0.5,
-          ease: "power3.out",
-          delay: 0.5,
-        });
+      tl.to(".counter p", {
+        y: -35,
+        duration: 0.5,
+        ease: "power3.out",
+        delay: 0.5,
+      });
 
-        tl.to(".counter p", {
-          y: -72,
-          duration: 0.5,
-          ease: "power3.out",
-          delay: 0.5,
-        });
-      } else {
-        tl.to(
-          ".counter p",
-          {
-            y: 0,
-            duration: 0.5,
-            ease: "power3.out",
-            stagger: 0.1,
-          },
-          "-=0.5"
-        );
+      tl.to(".counter p", {
+        y: -75,
+        duration: 0.5,
+        ease: "power3.out",
+        delay: 0.5,
+      });
 
-        tl.to(".counter p", {
-          y: -35,
-          duration: 0.5,
-          ease: "power3.out",
-          delay: 0.5,
-        });
+      tl.to(".counter p", {
+        y: -105,
+        duration: 0.5,
+        ease: "power3.out",
+        delay: 0.5,
+      });
 
-        tl.to(".counter p", {
-          y: -75,
-          duration: 0.5,
-          ease: "power3.out",
-          delay: 0.5,
-        });
-
-        tl.to(".counter p", {
-          y: -105,
-          duration: 0.5,
-          ease: "power3.out",
-          delay: 0.5,
-        });
-      }
       tl.from(
         ".tagline",
         {

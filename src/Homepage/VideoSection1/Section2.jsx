@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import "./section.css";
 import { gsap } from "gsap";
 import { Montserrat } from "next/font/google";
+import "./section.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -14,16 +14,15 @@ function Section2() {
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
 
   useEffect(() => {
-    // Check if the animation has already played
     const played = sessionStorage.getItem("hasPlayedOnce");
-    const isMobile = window.innerWidth <= 768;
-    if (!played) {
-      const tl = gsap.timeline({ delay: 0 });
-      const movement = [-130, 100, -130, -90, 100, -130, 180, -130];
 
-      tl.to(".cover-screen", {
-        display: "none",
-      });
+    const isMobile = window.innerWidth <= 768;
+    const movement = [-130, 100, -130, -90, 100, -130, 180, -130];
+
+    const tl = gsap.timeline({ delay: 0 });
+
+    if (!played) {
+      tl.to(".cover-screen", { display: "none" });
 
       gsap.set("h1", { y: 100 });
       gsap.set(".counter p", { y: 35 });
@@ -34,79 +33,43 @@ function Section2() {
         ease: "power3.out",
         stagger: 0.1,
       });
-      if (isMobile) {
-        tl.to(
-          ".counter p",
-          {
-            y: 0,
-            duration: 0.5,
-            ease: "power3.out",
-            stagger: 0.1,
-          },
-          "-=0.5"
-        );
 
-        tl.to(".counter p", {
-          y: -20,
-          duration: 0.5,
-          ease: "power3.out",
-          delay: 0.5,
-        });
-
-        tl.to(".counter p", {
-          y: -46,
-          duration: 0.5,
-          ease: "power3.out",
-          delay: 0.5,
-        });
-
-        tl.to(".counter p", {
-          y: -72,
-          duration: 0.5,
-          ease: "power3.out",
-          delay: 0.5,
-        });
-      } else {
-        tl.to(
-          ".counter p",
-          {
-            y: 0,
-            duration: 0.5,
-            ease: "power3.out",
-            stagger: 0.1,
-          },
-          "-=0.5"
-        );
-
-        tl.to(".counter p", {
-          y: -35,
-          duration: 0.5,
-          ease: "power3.out",
-          delay: 0.5,
-        });
-
-        tl.to(".counter p", {
-          y: -75,
-          duration: 0.5,
-          ease: "power3.out",
-          delay: 0.5,
-        });
-
-        tl.to(".counter p", {
-          y: -105,
-          duration: 0.5,
-          ease: "power3.out",
-          delay: 0.5,
-        });
-      }
-      tl.from(
-        ".tagline",
+      tl.to(
+        ".counter p",
         {
-          y: 40,
-          opacity: 0,
+          y: 0,
+          duration: 0.5,
+          ease: "power3.out",
+          stagger: 0.1,
         },
-        "-=4"
+        "-=0.5"
       );
+
+      tl.to(".counter p", {
+        y: -20,
+        duration: 0.5,
+        ease: "power3.out",
+        delay: 0.5,
+      });
+
+      tl.to(".counter p", {
+        y: -46,
+        duration: 0.5,
+        ease: "power3.out",
+        delay: 0.5,
+      });
+
+      tl.to(".counter p", {
+        y: -72,
+        duration: 0.5,
+        ease: "power3.out",
+        delay: 0.5,
+      });
+
+      tl.from(".tagline", {
+        y: 40,
+        opacity: 0,
+      });
 
       tl.to("h1", {
         fontSize: "30vh",
@@ -114,14 +77,10 @@ function Section2() {
         ease: "power3.out",
       });
 
-      tl.to(
-        ".header-item",
-        {
-          clipPath: "none",
-          duration: 0.1,
-        },
-        "<"
-      );
+      tl.to(".header-item", {
+        clipPath: "none",
+        duration: 0.1,
+      });
 
       tl.to(
         ".block",
@@ -149,37 +108,27 @@ function Section2() {
         );
       });
 
-      // Fade out h1 elements
       tl.to("h1", {
         display: "none",
-        // delay: 2,
-        // duration: 1,
+        duration: 1,
         ease: "power2.out",
         onComplete: () => {
           setHasPlayedOnce(true);
-          sessionStorage.setItem("hasPlayedOnce", "true"); // Persist the state
+          sessionStorage.setItem("hasPlayedOnce", "true");
         },
       });
     } else {
-      // Else part for when animation has already played
-      const tl = gsap.timeline({ delay: 0.5 });
-
-      const movement = [-130, 100, -130, -90, 100, -130, 180, -130];
-
+      // Animation for after it's already played
       tl.to("h1", {
         fontSize: "30vh",
         duration: 1,
         ease: "power3.out",
       });
 
-      tl.to(
-        ".header-item",
-        {
-          clipPath: "none",
-          duration: 0.1,
-        },
-        "<"
-      );
+      tl.to(".header-item", {
+        clipPath: "none",
+        duration: 0.1,
+      });
 
       tl.to(
         ".block",
@@ -219,10 +168,10 @@ function Section2() {
   }, []);
 
   return (
-    <div className="container ">
+    <div className="container">
       {!hasPlayedOnce && <div className="cover-screen"></div>}{" "}
       {/* Cover Screen Element */}
-      <div className="hero-video w-full ">
+      <div className="hero-video w-full">
         <video
           className="w-full h-full object-cover"
           loop
@@ -235,18 +184,17 @@ function Section2() {
       </div>
       <div>
         <div className="blocks">
-          <div className="block"></div>
-          <div className="block"></div>
-          <div className="block"></div>
-          <div className="block"></div>
-          <div className="block"></div>
+          {[...Array(5)].map((_, index) => (
+            <div className="block" key={index}></div>
+          ))}
         </div>
+
         {!hasPlayedOnce && (
           <div className={`header ${montserrat.className}`}>
             {["P", "I", "F", "A", "C", "T", "O", "R"].map((letter, index) => (
               <div className="header-item" key={index}>
                 <div className={`header-wrapper hh-${index + 1}`}>
-                  <h1 className="">{letter}</h1>
+                  <h1>{letter}</h1>
                 </div>
               </div>
             ))}

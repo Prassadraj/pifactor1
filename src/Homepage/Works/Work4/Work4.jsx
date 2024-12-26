@@ -9,7 +9,7 @@ function Work4() {
       <div className="hidden tablet:block">
         <Laptop4 />
       </div>
-      <div className="tablet:hidden block">
+      <div className="tablet:hidden ">
         <Mobile4 />
       </div>
     </>

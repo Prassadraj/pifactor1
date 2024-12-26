@@ -220,7 +220,7 @@ function Laptop1() {
                 className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
                 autoPlay
                 muted
-                preload="metadata"
+                preload="auto"
                 loop
                 playsInline
                 src="/car.mp4"
@@ -260,7 +260,7 @@ function Laptop1() {
                   className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
                   autoPlay
                   muted
-                  preload="metadata"
+                  preload="auto"
                   playsInline
                   loop
                   src="/car.mp4"
@@ -280,7 +280,7 @@ function Laptop1() {
                   className="w-full h-full object-cover cursor-pointer"
                   autoPlay
                   muted
-                  preload="metadata"
+                  preload="auto"
                   loop
                   playsInline
                   src="/car.mp4"
@@ -312,6 +312,7 @@ function Laptop1() {
                   muted
                   playsInline
                   loop
+                  preload="auto"
                   src="/car.mp4"
                 ></video>
               ) : (
@@ -342,7 +343,7 @@ function Laptop1() {
                   className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
                   autoPlay
                   muted
-                  preload="metadata"
+                  preload="auto"
                   playsInline
                   loop
                   src="/car.mp4"

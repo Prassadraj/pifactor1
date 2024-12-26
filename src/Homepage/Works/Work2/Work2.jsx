@@ -8,7 +8,7 @@ function Work2() {
       <div className="hidden tablet:block">
         <Laptop2 />
       </div>
-      <div className="tablet:hidden block">
+      <div className="tablet:hidden ">
         <Mobile2 />
       </div>
     </>

@@ -8,7 +8,7 @@ const Work3 = () => {
       <div className="hidden tablet:block">
         <Laptop3 />
       </div>
-      <div className="tablet:hidden block">
+      <div className="tablet:hidden ">
         <Mobile3 />
       </div>
     </>
