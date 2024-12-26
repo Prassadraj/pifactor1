@@ -98,7 +98,8 @@ function Laptop3() {
                 playsInline
                 loop
                 muted
-                ></video>
+                preload="auto"
+              ></video>
             </div>
           </div>
           <div className="ImageWrapper">
@@ -146,9 +147,10 @@ function Laptop3() {
                 src="/car.mp4"
                 autoPlay
                 loop
+                preload="auto"
                 playsInline
                 muted
-                ></video>
+              ></video>
             </div>
           </div>
           <div className="ImageWrapper2">
