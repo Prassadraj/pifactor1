@@ -4,9 +4,10 @@ import { Lato, Montserrat } from "next/font/google";
 import Lenis from "@studio-freight/lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import sparkle from "../../../app/images/sparkle.png";
+import Loader from "@/component/loader/Loader";
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: "600",
@@ -25,6 +26,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Mobile1() {
   const container = useRef(null);
+  const [loading, setLoading] = useState(true); // Track the loading state
+
+  const handleVideoLoad = () => {
+    setLoading(false); // Set loading to false when video is ready
+  };
 
   useEffect(() => {
     gsap.fromTo(
@@ -35,7 +41,6 @@ function Mobile1() {
       {
         y: 0,
         scrollTrigger: ".text1",
-
         duration: 0.5,
         ease: "power3.out",
         delay: 0.2,
@@ -78,7 +83,16 @@ function Mobile1() {
       <div
         className={`flex flex-col gap-4 w-full ${montserratLight.className}`}
       >
-        <div className="h-full">
+        {/* Video Section */}
+        <div className="h-full relative">
+          {loading && (
+            <div className="h-[400px] w-full  flex items-center justify-center bg-black bg-opacity-50">
+              <div className="text-white text-2xl flex items-center flex-col">
+                <Loader />
+                <p>loading...</p>
+              </div>
+            </div>
+          )}
           <video
             className="h-[400px] w-full object-cover"
             src="/car.mp4"
@@ -86,24 +100,37 @@ function Mobile1() {
             loop
             playsInline
             muted
+            onCanPlayThrough={handleVideoLoad} // Set loading to false when video is ready
           />
           <div className="flex flex-col gap-2 my-3">
             <p className="text-white text-xl">About the Project1 Title...</p>
             <p className=" text-gray-200">About the Project1 subTitle...</p>
           </div>
         </div>
+
+        {/* Other Sections */}
         <div className="h-full">
           <img
             className="h-[400px w-full object-cover"
             src="https://images.unsplash.com/photo-1622994690845-56efd20992c6?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
+            alt="Project"
           />
           <div className="flex flex-col gap-2 my-3">
             <p className="text-white text-xl">About the Project1 Title...</p>
             <p className=" text-gray-200">About the Project1 subTitle...</p>
           </div>
         </div>
-        <div className="h-full">
+
+        {/* Another Video Section */}
+        <div className="h-full relative">
+          {loading && (
+            <div className="h-[400px] w-full  flex items-center justify-center bg-black bg-opacity-50">
+              <div className="text-white text-2xl flex items-center flex-col">
+                <Loader />
+                <p>loading...</p>
+              </div>
+            </div>
+          )}
           <video
             className="h-[400px] w-full object-cover"
             src="/car.mp4"
@@ -111,17 +138,7 @@ function Mobile1() {
             loop
             playsInline
             muted
-          />
-          <div className="flex flex-col gap-2 my-3">
-            <p className="text-white text-xl">About the Project1 Title...</p>
-            <p className=" text-gray-200">About the Project1 subTitle...</p>
-          </div>
-        </div>
-        <div className="h-full">
-          <img
-            className="h-[400px w-full object-cover"
-            src="https://images.unsplash.com/photo-1622994690845-56efd20992c6?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
+            onCanPlayThrough={handleVideoLoad} // Set loading to false when video is ready
           />
           <div className="flex flex-col gap-2 my-3">
             <p className="text-white text-xl">About the Project1 Title...</p>
