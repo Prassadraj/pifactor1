@@ -95,6 +95,7 @@ function Laptop3() {
                 className="h-full w-full object-cover"
                 src="./car.mp4"
                 autoPlay
+                playsInline
                 loop
                 muted
               ></video>
@@ -145,6 +146,7 @@ function Laptop3() {
                 src="./car.mp4"
                 autoPlay
                 loop
+                playsInline
                 muted
               ></video>
             </div>

@@ -83,6 +83,7 @@ function Slider() {
                 src="./car.mp4"
                 autoPlay
                 loop
+                playsInline
                 preload="auto"
                 muted
               ></video>
@@ -132,6 +133,7 @@ function Slider() {
                 className="h-full w-full object-cover"
                 src="./car.mp4"
                 autoPlay
+                playsInline
                 loop
                 preload="auto"
                 muted

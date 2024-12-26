@@ -7,6 +7,7 @@ function page() {
         className="w-full h-auto tablet:h-full sm:w-auto max-h-screen"
         src="./intro.mp4"
         controls
+        playsInline
         autoPlay
         muted
       ></video>

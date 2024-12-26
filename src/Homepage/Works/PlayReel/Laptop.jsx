@@ -72,6 +72,54 @@ function Laptop() {
       window.removeEventListener("mousemove", mouseMove);
     };
   }, []);
+
+  // for mobile/
+  useEffect(() => {
+    // GSAP animation for text gap
+    gsap.to(".play", {
+      gap: "10px",
+      ease: "power2.inOut",
+      duration: 0.2,
+      scrollTrigger: {
+        trigger: ".video",
+        scrub: 1,
+
+        start: "top 60%",
+        end: "bottom center",
+      },
+    });
+    gsap.fromTo(
+      ".reel",
+      {
+        scale: 0.1,
+      },
+      {
+        scale: 1,
+        ease: "power2.inOut",
+        duration: 0.2,
+        scrollTrigger: {
+          trigger: ".video",
+          scrub: 1,
+
+          start: "top 60%",
+          end: "bottom center",
+        },
+      }
+    );
+
+    // GSAP animation for image scaling
+    gsap.to(".img", {
+      scale: 100, // Adjust scale as needed
+      ease: "power1.inOut",
+      duration: 2,
+      scrollTrigger: {
+        trigger: ".video",
+        scrub: 3,
+        start: "top top",
+        end: "bottom center",
+      },
+    });
+  }, []);
   const cursorVariants = {
     hover: { x: mousePosition.x, y: mousePosition.y },
     default: {},

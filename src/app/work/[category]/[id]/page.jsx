@@ -335,6 +335,7 @@ function Page({ params }) {
             autoPlay
             muted
             controls
+            playsInline
             loop
             src={`${selectedItem.video}`}
           ></video>

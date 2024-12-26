@@ -201,6 +201,7 @@ function Laptop1() {
                   ref={(el) => (videoRefs.current["image1"] = el)}
                   className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
                   autoPlay
+                  playsInline
                   muted
                   loop
                   src="./car.mp4"
@@ -220,6 +221,7 @@ function Laptop1() {
                 autoPlay
                 muted
                 loop
+                playsInline
                 src="./car.mp4"
               ></video>
             </div>
@@ -257,6 +259,7 @@ function Laptop1() {
                   className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
                   autoPlay
                   muted
+                  playsInline
                   loop
                   src="./car.mp4"
                 ></video>
@@ -276,6 +279,7 @@ function Laptop1() {
                   autoPlay
                   muted
                   loop
+                  playsInline
                   src="./car.mp4"
                 ></video>
                 <p>About Project</p>
@@ -303,6 +307,7 @@ function Laptop1() {
                   className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
                   autoPlay
                   muted
+                  playsInline
                   loop
                   src="./car.mp4"
                 ></video>
@@ -334,6 +339,7 @@ function Laptop1() {
                   className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
                   autoPlay
                   muted
+                  playsInline
                   loop
                   src="./car.mp4"
                 ></video>
