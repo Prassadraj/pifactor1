@@ -230,7 +230,7 @@ function Section2() {
           autoPlay
           playsInline
           muted
-          preload="auto"
+          preload="metadata"
         ></video>
       </div>
       <div>
