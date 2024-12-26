@@ -205,7 +205,7 @@ function Laptop1() {
                   muted
                   loop
                   src="/car.mp4"
-                  ></video>
+                ></video>
               ) : (
                 <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
@@ -220,10 +220,11 @@ function Laptop1() {
                 className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
                 autoPlay
                 muted
+                preload="metadata"
                 loop
                 playsInline
                 src="/car.mp4"
-                ></video>
+              ></video>
             </div>
             <p className="text-white image1">About Project</p>
           </div>
@@ -259,10 +260,11 @@ function Laptop1() {
                   className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
                   autoPlay
                   muted
+                  preload="metadata"
                   playsInline
                   loop
                   src="/car.mp4"
-                  ></video>
+                ></video>
               ) : (
                 <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
@@ -278,6 +280,7 @@ function Laptop1() {
                   className="w-full h-full object-cover cursor-pointer"
                   autoPlay
                   muted
+                  preload="metadata"
                   loop
                   playsInline
                   src="/car.mp4"
@@ -310,7 +313,7 @@ function Laptop1() {
                   playsInline
                   loop
                   src="/car.mp4"
-                  ></video>
+                ></video>
               ) : (
                 <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
@@ -339,10 +342,11 @@ function Laptop1() {
                   className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
                   autoPlay
                   muted
+                  preload="metadata"
                   playsInline
                   loop
                   src="/car.mp4"
-                  ></video>
+                ></video>
               ) : (
                 <img
                   className="absolute top-0 left-0 w-full h-full object-cover"

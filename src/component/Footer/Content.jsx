@@ -55,7 +55,7 @@ const Nav = () => {
                 className="tablet:h-full tablet:w-full scale-[2.2] rotate-90 tablet:scale-y-150 tablet:scale-x-125  
              opacity-85  z-0"
                 autoPlay
-                preload="viewport"
+                preload="metadata"
                 muted
                 loop
                 playsInline

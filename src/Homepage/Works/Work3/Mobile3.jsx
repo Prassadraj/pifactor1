@@ -69,6 +69,7 @@ function Mobile3() {
             src="/car.mp4"
             autoPlay
             loop
+            preload="metadata"
             playsInline
             muted
           ></video>

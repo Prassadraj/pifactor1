@@ -71,7 +71,8 @@ function Mobile2() {
             loop
             muted
             playsInline
-            ></video>
+            preload="metadata"
+          ></video>
           <div className="flex flex-col gap-2 my-3">
             <p className="text-white text-xl">About the Project1 Title...</p>
             <p className=" text-gray-200">About the Project1 subTitle...</p>
