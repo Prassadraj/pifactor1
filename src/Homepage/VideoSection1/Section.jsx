@@ -226,12 +226,12 @@ function Section() {
         <video
           className="w-full h-full object-cover"
           loop
-          src="/intro.mp4"
+          src="/PF_LOGO.mp4"
           autoPlay
           playsInline
           muted
           preload="auto" // Ensures the video loads with priority
-          ></video>
+        ></video>
       </div>
       <div>
         <div className="blocks">
