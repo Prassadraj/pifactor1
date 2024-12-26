@@ -95,14 +95,14 @@ const Nav = () => {
         <div className="flex justify-between gap-2 tablet:justify-normal tablet:gap-20">
           <div>
             <ul
-              className={`text-gray-200 text-lg tablet:text-xl font-thin ${montserratLight.className}`}
+              className={`text-gray-200 text-sm tablet:text-xl font-thin ${montserratLight.className}`}
             >
               <li>TTK Road,chennai</li>
               <li className="flex gap-1">
-                <strong className="text-lg tablet:text-xl font-semibold tablet:font-normal hidden tablet:block">
+                <strong className="text-sm tablet:text-xl font-semibold tablet:font-normal hidden tablet:block">
                   Email :
                 </strong>{" "}
-                <a href="mailto:pifactor@gmail.com"> pifactor@gmail.com</a>
+                <a href="mailto:pifactor@gmail.com">pifactor@gmail.com</a>
               </li>
             </ul>
           </div>
@@ -111,17 +111,17 @@ const Nav = () => {
               className={`${montserratLight.className}  text-gray-200 font-thin`}
             >
               <li className="cursor-pointer ">
-                <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-lg tablet:text-xl">
+                <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-sm tablet:text-xl">
                   Work
                 </span>
               </li>
               <li className="cursor-pointer ">
-                <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-lg tablet:text-xl">
+                <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-sm tablet:text-xl">
                   Studio
                 </span>
               </li>
               <li className="cursor-pointer">
-                <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-lg tablet:text-xl ">
+                <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-sm text-nowrap tablet:text-xl ">
                   Contact Us
                 </span>
               </li>
@@ -134,22 +134,22 @@ const Nav = () => {
                 className={`${montserratLight.className}  text-gray-200 font-thin`}
               >
                 <li className="cursor-pointer ">
-                  <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-lg tablet:text-xl">
+                  <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-sm tablet:text-xl">
                     Behance
                   </span>
                 </li>
                 <li className="cursor-pointer ">
-                  <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-lg tablet:text-xl">
+                  <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-sm tablet:text-xl">
                     Twitter
                   </span>
                 </li>
                 <li className="cursor-pointer">
-                  <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-lg tablet:text-xl">
+                  <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-sm tablet:text-xl">
                     Youtube
                   </span>
                 </li>
                 <li className="cursor-pointer">
-                  <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-lg tablet:text-xl">
+                  <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300 text-sm tablet:text-xl">
                     Instagram
                   </span>
                 </li>
@@ -161,98 +161,3 @@ const Nav = () => {
     </div>
   );
 };
-
-{
-  /* <div className="flex   h-full flex-col ">
-<div className="flex gap-2 w-full h-fit">
-  <div className="flex  flex-col gap-10 z-50">
-    <div>
-      <h1 className="font-medium tablet:text-[100px] laptop:text-[120px]">
-        Our{" "}
-      </h1>
-      <h1 className="font-medium tablet:text-[100px] laptop:text-[120px]">
-        Story
-      </h1>
-    </div>
-    <div>
-      <p className="tablet:text-2xl tablet:max-w-md laptop:max-w-lg font-light">
-        PiFactor merges creativity and curiosity, making each project a
-        journey in visual discovery
-      </p>
-    </div>
-  </div>
-  <div className="w-1/2 h-full flex items-start">
-    <video
-      ref={videoRef}
-      className="h-full w-full tablet:scale-x-[2] tablet:scale-y-[2] laptop:scale-x-150 
-      laptop:scale-y-150  opacity-85 z-0 "
-      autoPlay
-      muted
-      loop
-      playsInline
-      src="/footer.mp4"
-    ></video>
-  </div>
-</div>
-<div className="flex flex-col h-full   gap-4 ">
-  <div className="w-full h-[2px] bg-violet-900 "></div>
-  <div className="flex  gap-20">
-    <div>
-      <ul className="text-gray-200 font-thin">
-        <li>TTK Road,chennai</li>
-        <li>
-          <strong>Email:</strong>{" "}
-          <a href="mailto:pifactor@gmail.com">pifactor@gmail.com</a>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <ul className="text-gray-200 font-thin">
-        <li className="cursor-pointer ">
-          <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300">
-            Work
-          </span>
-        </li>
-        <li className="cursor-pointer ">
-          <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300">
-            Studio
-          </span>
-        </li>
-        <li className="cursor-pointer">
-          <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300">
-            Contact Us
-          </span>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <div>
-        {" "}
-        <ul className="text-gray-200 font-thin">
-          <li className="cursor-pointer ">
-            <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300">
-              Behance
-            </span>
-          </li>
-          <li className="cursor-pointer ">
-            <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300">
-              Twitter
-            </span>
-          </li>
-          <li className="cursor-pointer">
-            <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300">
-              Youtube
-            </span>
-          </li>
-          <li className="cursor-pointer">
-            <span className="relative hover:after:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gray-200 after:scale-x-0 after:transition-transform after:duration-300">
-              Instagram
-            </span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-</div> */
-}
