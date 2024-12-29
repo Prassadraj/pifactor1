@@ -83,7 +83,6 @@ h1 {
 }
 .cover-screen {
   position: absolute;
-
   top: 0;
   left: 0;
   width: 100%;
@@ -113,7 +112,5 @@ h1 {
     height: 30px;
   }
 
-  .counter p {
-    font-size: 20px;
-  }
+
 }

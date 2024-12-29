@@ -187,7 +187,7 @@ function Section() {
   }, []);
 
   return (
-    <div className="container tablet:block hidden">
+    <div className="container tablet:block ">
       {!hasPlayedOnce && <div className="cover-screen"></div>}{" "}
       {/* Cover Screen Element */}
       <div className="hero-video w-full ">
