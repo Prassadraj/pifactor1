@@ -73,7 +73,7 @@ function Page() {
   return (
     <>
       <div className="tablet:pt-[5vh] pt-[15vh] tablet:h-screen h-fit flex flex-col ">
-        <div className="flex justify-center items-center ml-32 px-10 z-10 h-[420px] tablet:h-screen tablet:py-5">
+        <div className="flex justify-center items-center tablet:ml-32 px-10 z-10 h-[420px] tablet:h-screen tablet:py-5">
           <Image
             src="/contact.jpg" // Path relative to the 'public' folder
             alt="Contact Us Image"
