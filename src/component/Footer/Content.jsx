@@ -39,12 +39,12 @@ const Nav = () => {
       <div className="flex flex-col justify-evenly gap-6">
         <div className="flex items-start tablet:gap-2 w-full h-fit ">
           {/* left */}
-          <div className="flex tablet:flex-col tablet:gap-10 gap-5 items-center tablet:items-start">
+          <div className="flex tablet:flex-col tablet:gap-10 gap-2 items-center tablet:items-start">
             <div className="z-50">
-              <p className="font-medium text-[90px] tablet:text-[100px] laptop:text-[120px]">
+              <p className="font-medium text-[50px] tablet:text-[100px] laptop:text-[120px]">
                 Our{" "}
               </p>
-              <p className="font-medium  text-[90px] tablet:text-[100px] laptop:text-[120px]">
+              <p className="font-medium  text-[50px] tablet:text-[100px] laptop:text-[120px]">
                 Story
               </p>
             </div>
@@ -52,14 +52,15 @@ const Nav = () => {
             <div className="tablet:hidden">
               <video
                 ref={videoRef}
-                className="tablet:h-full tablet:w-full scale-[2.2] rotate-90 tablet:scale-y-150 tablet:scale-x-125  
+                style={{ mixBlendMode: "difference" }}
+                className="tablet:h-full tablet:w-full scale-[2.4] tablet:scale-y-150 tablet:scale-x-125  
              opacity-85  z-0"
                 autoPlay
                 preload="auto"
                 muted
                 loop
                 playsInline
-                src="/footer.mp4"
+                src="https://videos-cloudfront.jwpsrv.com/6773f02f_9121c6634f6f7ecae87daba660059243937b2047/content/conversions/8oQb4Ajd/videos/Zg9wd2us-34062028.mp4"
               ></video>
             </div>
             <p className="tablet:text-2xl hidden  tablet:block tablet:max-w-md laptop:max-w-lg font-light">
@@ -71,13 +72,13 @@ const Nav = () => {
           <div className="w-1/2 mt-10 tablet:mt-0 hidden tablet:block">
             <video
               ref={videoRef}
-              className="tablet:h-full tablet:w-full scale-[2.2] rotate-90 tablet:scale-y-150 tablet:scale-x-125  
+              className="tablet:h-full tablet:w-full scale-[2.2]  tablet:scale-y-150 tablet:scale-x-125  
              opacity-85  z-0"
               autoPlay
               muted
               loop
               playsInline
-              src="/footer.mp4"
+              src="https://videos-cloudfront.jwpsrv.com/6773f02f_9121c6634f6f7ecae87daba660059243937b2047/content/conversions/8oQb4Ajd/videos/Zg9wd2us-34062028.mp4"
             ></video>
           </div>
         </div>
