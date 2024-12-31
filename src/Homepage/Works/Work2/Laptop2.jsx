@@ -1,13 +1,8 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import Picture1 from "../../../../public/images/1.webp";
-import Picture5 from "../../../app/images/window.png";
-import Picture6 from "../../../../public/images/6.webp";
-import Picture7 from "../../../../public/images/7.webp";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -18,11 +13,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Laptop2() {
   const containerRef = useRef(null);
+  const videoRefs = useRef([]); // Correctly defined videoRefs once.
 
   useEffect(() => {
-    // Guard to ensure the document is only accessed on the client side
     if (typeof window !== "undefined") {
-      // Setup GSAP animations with ScrollTrigger
       gsap.fromTo(
         ".text p",
         {
@@ -37,62 +31,102 @@ function Laptop2() {
           stagger: 0.1,
         }
       );
-
-      gsap.to(".animations1", {
-        height: "50vh",
-        width: "100%",
-        ease: "power3.inOut",
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".animations1",
+      const triggers = [
+        {
+          class: "animations1",
           start: "top 80%",
           end: "bottom 80%",
-
-          scrub: 2,
+          play: "bottom 80%",
+          stopPlay: "bottom top",
         },
-      });
-
-      gsap.to(".animations2", {
-        height: "50vh",
-        width: "100%",
-        ease: "power3.inOut",
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".animations2",
+        {
+          class: "animations2",
           start: "top 60%",
-
           end: "bottom 40%",
-          scrub: 2,
+          play: "bottom 40%",
+          stopPlay: "bottom top",
         },
-      });
-
-      gsap.to(".animations3", {
-        height: "50vh",
-        width: "100%",
-        ease: "power3.inOut",
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".animations3",
+        {
+          class: "animations3",
           start: "top 40%",
-
-          end: "bottom 30%",
-          scrub: 2,
+          end: "bottom 35%",
+          play: "bottom 40%",
+          stopPlay: "bottom -10%",
         },
-      });
-
-      gsap.to(".animations4", {
-        height: "50vh",
-        width: "100%",
-        ease: "power3.inOut",
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".animations4",
+        {
+          class: "animations4",
           start: "top 10%",
-
           end: "bottom 30%",
-          scrub: 2,
+          play: "bottom 50%",
+          stopPlay: "bottom 50%",
         },
-      });
+      ];
+
+      triggers.forEach(
+        ({ class: className, start, end, play, stopPlay }, i) => {
+          const videoElement = videoRefs.current[i];
+          if (!videoElement) return;
+
+          // Ensure `playing` state is tracked.
+          videoElement.playing = false;
+
+          // Animation for size adjustments
+          gsap.to(`.${className}`, {
+            height: "50vh",
+            width: "100%",
+            ease: "power3.inOut",
+            duration: 1,
+            scrollTrigger: {
+              trigger: `.${className}`,
+              start,
+              end,
+
+              scrub: 2,
+              onUpdate: (self) => {
+                const progress = self.progress;
+
+                if (progress > 0.5 && !videoElement.playing) {
+                  videoElement.play();
+                  videoElement.playing = true;
+                }
+
+                if (progress <= 0.5 && videoElement.playing) {
+                  videoElement.pause();
+                  videoElement.playing = false;
+                }
+              },
+            },
+          });
+
+          // Animation for play/pause controls based on play and stopPlay
+          gsap.to(
+            {},
+            {
+              scrollTrigger: {
+                trigger: `.${className}`,
+                start: play,
+                end: stopPlay,
+                onEnter: () => {
+                  videoElement.play();
+                  videoElement.playing = true;
+                },
+                onEnterBack: () => {
+                  videoElement.play();
+                  videoElement.playing = true;
+                },
+                onLeave: () => {
+                  videoElement.pause();
+                  videoElement.playing = false;
+                },
+                onLeaveBack: () => {
+                  videoElement.pause();
+                  videoElement.playing = false;
+                },
+              },
+            }
+          );
+        }
+      );
 
       // Cleanup on component unmount
       return () => {
@@ -102,10 +136,10 @@ function Laptop2() {
   }, []);
 
   const pictures = [
-    { src: Picture1, width: 800, height: 600 },
-    { src: Picture5, width: 800, height: 600 },
-    { src: Picture6, width: 800, height: 600 },
-    { src: Picture7, width: 800, height: 600 },
+    { src: "/2dAnimations/Flash_Demo.mp4", width: 800, height: 600 },
+    { src: "/2dAnimations/video2.mp4", width: 800, height: 600 },
+    { src: "/2dAnimations/Flash_Demo.mp4", width: 800, height: 600 },
+    { src: "/2dAnimations/video2.mp4", width: 800, height: 600 },
   ];
 
   return (
@@ -132,9 +166,7 @@ function Laptop2() {
             key={i}
             className={`animations${
               i + 1
-            } tablet:flex items-center tablet:h-[25vh] tablet:w-[50%] gap-5 ${
-              i === 2 || i === 3 ? "rounded-md" : ""
-            }`}
+            } tablet:flex items-center tablet:h-[25vh] tablet:w-[50%] gap-5 `}
           >
             <div className="animate-2d">
               <p
@@ -148,37 +180,18 @@ function Laptop2() {
               </p>
             </div>
             <div className="img-2d h-full w-full rounded-md">
-              <Image
+              <video
+                ref={(el) => (videoRefs.current[i] = el)}
                 src={picture.src}
+                autoPlay
+                loop
+                muted
+                preload="auto"
                 width={picture.width}
                 height={picture.height}
                 className="object-cover w-full h-full"
                 alt="Window animation preview"
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="grid grid-cols-1 tablet:hidden gap-3 w-full h-full">
-        {pictures.map((picture, i) => (
-          <div key={i} className="space-y-2">
-            <div>
-              <p className={`${montserrat.className} text-lg font-medium`}>
-                Title
-              </p>
-              <p className={`${montserrat.className} text-sm laptop:text-lg`}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolores, aut eum a, vero, quia.
-              </p>
-            </div>
-            <div className="h-60 w-full rounded-md overflow-hidden">
-              <Image
-                src={picture.src}
-                width={picture.width}
-                height={500}
-                className="object-cover w-full h-full"
-                alt="Window animation preview"
-              />
+              ></video>
             </div>
           </div>
         ))}

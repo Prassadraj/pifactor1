@@ -214,18 +214,7 @@ function Laptop1() {
                 />
               )}
             </div>
-            {/* for mobile */}
-            <div className="tablet:w-[350px] laptop:hidden h-[500px]  relative image1">
-              <video
-                className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
-                autoPlay
-                muted
-                preload="auto"
-                loop
-                playsInline
-                src="/car.mp4"
-              ></video>
-            </div>
+
             <p className="text-white image1">About Project</p>
           </div>
           <div className="tablet:w-[50%] h-full flex  flex-col justify-between">
