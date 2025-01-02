@@ -1,5 +1,6 @@
 import React from "react";
 import Content from "./Content";
+import ContentLaptop from "./ContentLaptop";
 
 export default function Footer() {
   return (
