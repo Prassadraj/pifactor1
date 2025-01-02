@@ -52,16 +52,19 @@ const Nav = () => {
             <div className="tablet:hidden">
               <video
                 ref={videoRef}
-                style={{ mixBlendMode: "difference" }}
-                className="tablet:h-full tablet:w-full scale-[2.4] tablet:scale-y-150 tablet:scale-x-125  
-             opacity-85  z-0"
+                className="tablet:h-full tablet:w-full scale-[2.4] tablet:scale-y-150 tablet:scale-x-125 opacity-85 z-0 mix-blend-difference"
                 autoPlay
-                preload="auto"
+                preload="metadata"
                 muted
                 loop
                 playsInline
-                src="https://videos-cloudfront.jwpsrv.com/6773f02f_9121c6634f6f7ecae87daba660059243937b2047/content/conversions/8oQb4Ajd/videos/Zg9wd2us-34062028.mp4"
-              ></video>
+                title="Descriptive title of the video"
+              >
+                <source
+                  src="https://videos-cloudfront.jwpsrv.com/6773f02f_9121c6634f6f7ecae87daba660059243937b2047/content/conversions/8oQb4Ajd/videos/Zg9wd2us-34062028.mp4"
+                  type="video/mp4"
+                />
+              </video>
             </div>
             <p className="tablet:text-2xl hidden  tablet:block tablet:max-w-md laptop:max-w-lg font-light">
               PiFactor merges creativity and curiosity, making each project a
@@ -78,8 +81,12 @@ const Nav = () => {
               muted
               loop
               playsInline
-              src="https://videos-cloudfront.jwpsrv.com/6773f02f_9121c6634f6f7ecae87daba660059243937b2047/content/conversions/8oQb4Ajd/videos/Zg9wd2us-34062028.mp4"
-            ></video>
+            >
+              <source
+                src="https://videos-cloudfront.jwpsrv.com/6773f02f_9121c6634f6f7ecae87daba660059243937b2047/content/conversions/8oQb4Ajd/videos/Zg9wd2us-34062028.mp4"
+                type="video/mp4"
+              />
+            </video>
           </div>
         </div>
         {/* mobile */}
