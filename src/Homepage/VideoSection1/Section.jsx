@@ -193,7 +193,7 @@ function Section() {
     <div className="container tablet:block ">
       {!hasPlayedOnce && <div className="cover-screen"></div>}{" "}
       {/* Cover Screen Element */}
-      <div className="hero-video w-full ">
+      <div className="hero-video w-full h-screen">
         <video
           className="hidden tablet:block w-full h-full object-cover"
           loop
@@ -213,7 +213,7 @@ function Section() {
           preload="metadata"
         ></video>
         <p
-          className={`absolute  bottom-10 right-4 text-sm text-black ${montserratLight.className}`}
+          className={`absolute  bottom-4 tablet:bottom-2 right-4 text-sm text-black ${montserratLight.className}`}
         >
           ↓ Dive in
         </p>
