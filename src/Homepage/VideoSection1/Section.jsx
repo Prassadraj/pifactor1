@@ -4,7 +4,10 @@ import React, { useEffect, useState } from "react";
 import "./section.css";
 import { gsap } from "gsap";
 import { Montserrat } from "next/font/google";
-
+const montserratLight = Montserrat({
+  subsets: ["latin"],
+  weight: "300", // Specify weight as a string instead of an array
+});
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["900", "100"],
@@ -209,6 +212,11 @@ function Section() {
           muted
           preload="metadata"
         ></video>
+        <p
+          className={`absolute  bottom-4 right-4 text-sm text-black ${montserratLight.className}`}
+        >
+          ↓ Dive in
+        </p>
       </div>
       <div>
         <div className="blocks">

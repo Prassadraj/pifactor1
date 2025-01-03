@@ -185,6 +185,7 @@ function Laptop2() {
                 src={picture.src}
                 autoPlay
                 loop
+                playsInline
                 muted
                 preload="auto"
                 width={picture.width}
