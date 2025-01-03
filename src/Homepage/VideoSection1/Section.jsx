@@ -213,7 +213,7 @@ function Section() {
           preload="metadata"
         ></video>
         <p
-          className={`absolute  bottom-4 right-4 text-sm text-black ${montserratLight.className}`}
+          className={`absolute  bottom-10 right-4 text-sm text-black ${montserratLight.className}`}
         >
           ↓ Dive in
         </p>
