@@ -192,9 +192,18 @@ function Section() {
       {/* Cover Screen Element */}
       <div className="hero-video w-full ">
         <video
-          className="w-full h-full object-cover"
+          className="hidden tablet:block w-full h-full object-cover"
           loop
           src="/PF_LOGO.mp4"
+          autoPlay
+          playsInline
+          muted
+          preload="metadata"
+        ></video>
+        <video
+          className="tablet:hidden w-full h-full object-cover"
+          loop
+          src="/logoMobile.mp4"
           autoPlay
           playsInline
           muted
