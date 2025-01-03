@@ -127,7 +127,7 @@ function Page({ params }) {
       )}
       {/* mobile  */}
       <div
-        className={`hidden banner h-[150vh] tablet:relative w-full ${montserrat.className}`}
+        className={`tablet:hidden banner h-[150vh] relative w-full ${montserrat.className}`}
       >
         <div className="parallax-container h-[100vh] sticky top-0 overflow-hidden">
           <Image
