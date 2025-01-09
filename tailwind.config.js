@@ -15,6 +15,10 @@ module.exports = {
       fontWeight: {
         thin: "100",
       },
+      colors: {
+        gold: "#e0ccbb",
+      },
+
       screens: {
         tablet: "640px",
         // => @media (min-width: 640px) { ... }

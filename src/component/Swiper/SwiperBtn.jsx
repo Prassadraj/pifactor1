@@ -38,6 +38,33 @@ export default function App() {
     "/images/6.webp",
     "/images/7.webp",
   ];
+  const menus = [
+    {
+      title: "Movies / Short Films / Album",
+      items: ["vfx", "Title Animation", "Lyric Videos"],
+      category: ["vfx", "Title", "Lyric"],
+    },
+    {
+      title: "Ads / Corporate",
+      items: ["Ads", "Corporate"],
+      category: ["Ads", "Corporate"],
+    },
+    {
+      title: "Wedding Invites",
+      items: ["Short Invites", "Story Invites"],
+      category: ["Short", "Story"],
+    },
+    {
+      title: "2D Animations",
+      items: ["Stories", "Explainers"],
+      category: ["Stories", "Explainers"],
+    },
+    {
+      title: "3D Animations / Previsualization",
+      items: ["Animations", "Product Previz"],
+      category: ["Animations", "Product"],
+    },
+  ];
 
   const filteredData = data.allData.filter((data) => nav == data.category);
 
@@ -78,41 +105,69 @@ export default function App() {
       }
     );
   };
-  const handleNavigation = (href) => {
-    const animationDuration = 1.5; // Adjust duration for mobile (<=768px)
+  const handleNavigation = (nav, itemId) => {
+    const animationDuration = 1.8; // Adjust duration for mobile (<=768px)
 
+    // Animate `.image`
     gsap.fromTo(
       ".image",
       { y: 0 },
       {
         y: -900,
-        delay: 0,
+        delay: 0.2,
         x: 0,
-        ease: "power3.out",
+        ease: "power3.inOut", // Smooth ease-in-out transition
         duration: animationDuration,
       }
     );
+
+    // Animate `.count`
     gsap.fromTo(
       ".count",
-      { y: 0 },
-      { ease: "power3.out", duration: animationDuration, opacity: 0 }
+      { y: 0, opacity: 1 },
+      {
+        ease: "power3.inOut", // Smooth ease-in-out transition
+        duration: animationDuration,
+        opacity: 0,
+        y: -50, // Add a slight upward motion for a better effect
+        delay: 0.2,
+      }
     );
+
+    // Animate `.title`
     gsap.fromTo(
       ".title",
-      { y: 0 },
-      { ease: "power3.out", duration: animationDuration, opacity: 0 }
+      { y: 0, opacity: 1 },
+      {
+        ease: "power3.inOut", // Smooth ease-in-out transition
+        duration: animationDuration,
+        opacity: 0,
+        y: -50, // Add a slight upward motion for a better effect
+        delay: 0.2,
+      }
     );
 
+    // Animate `.category`
     gsap.fromTo(
       ".category",
-      { y: 0 },
-      { ease: "power3.out", duration: animationDuration, opacity: 0, zIndex: 0 }
+      { y: 0, opacity: 1, zIndex: 1 },
+      {
+        ease: "power3.inOut", // Smooth ease-in-out transition
+        duration: animationDuration,
+        opacity: 0,
+        y: -50, // Add a slight upward motion for a better effect
+        zIndex: 0,
+        delay: 0.2,
+      }
     );
 
-    // Delay navigation to match animation duration
+    // Smooth transition to the next page
     setTimeout(() => {
-      router.push(href); // Navigate to the desired page
-    }, animationDuration * 1000); // Convert seconds to milliseconds
+      // Use encodeURIComponent to ensure special characters are encoded properly in the URL
+
+      // Update the URL dynamically with encoded nav and itemId
+      router.push(`/work/${nav}/${itemId}`);
+    }, animationDuration * 1000); // Match navigation delay to animation duration
   };
 
   useEffect(() => {
@@ -130,6 +185,7 @@ export default function App() {
     hover: { x: mousePosition.x, y: mousePosition.y },
     default: {},
   };
+
   return (
     <>
       <motion.div
@@ -168,7 +224,7 @@ export default function App() {
                   href="#"
                   onClick={(e) => {
                     e.preventDefault(); // Prevent default link behavior
-                    handleNavigation(`/work/${nav}/${item.id}`); // Trigger animation and navigation
+                    handleNavigation(nav, item.id); // Trigger animation and navigation
                   }}
                   aria-label={`View details of slide ${itemIndex + 1}`}
                 >
@@ -184,7 +240,7 @@ export default function App() {
                   <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
                     <div
                       className="relative laptop:w-[25%] w-[60%] h-[400px]
-              tablet:w-[40%] top-[2%] tablet:top-[8%] laptop:top-[10%] tablet:h-[500px] laptop:h-[400px] overflow-hidden"
+              tablet:w-[50%] top-[2%] tablet:top-[8%] laptop:top-[10%] tablet:h-1/2 laptop:h-[400px] overflow-hidden"
                       style={{
                         clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)", // Adds a visible effect
                       }}
@@ -228,11 +284,11 @@ export default function App() {
       </div>
 
       <div
-        className="fixed tablet:text-xl text-xs flex gap-5 tablet:gap-10 font-black top-24
-         tablet:top-1/4 laptop:top-28
-       left-[50%] translate-x-[-50%] z-50 "
+        className="fixed tablet:text-xl w-full px-20  text-xs flex gap-5 tablet:gap-1 font-black top-24
+         tablet:top-1/4 laptop:top-32
+       left-[50%] translate-x-[-50%] z-50 count"
       >
-        {categories.map((category) => (
+        {/* {categories.map((category) => (
           <p
             key={category}
             className="cursor-pointer relative category capitalize"
@@ -243,7 +299,45 @@ export default function App() {
               <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-white"></span>
             )}
           </p>
-        ))}
+        ))} */}
+        <div className="flex flex-wrap justify-center gap-4">
+          {menus.map((menu, index) => (
+            <div key={index} className="group p-6 max-w-md">
+              <ul className="text-lg font-bold text-white">
+                <li className="relative">
+                  <span className="cursor-pointer p-2 rounded-md">
+                    {menu.title}
+                  </span>
+                  {menu.items.map((item, idx) => (
+                    <>
+                      {nav === item.split(" ").join("") && (
+                        <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-white"></span>
+                      )}
+                    </>
+                  ))}
+
+                  <ul className="absolute left-0 top-8 hidden group-hover:block bg-gray-100 p-4 rounded shadow-lg space-y-2 text-gray-700">
+                    {menu.items.map((item, idx) => (
+                      <li
+                        key={idx}
+                        onClick={() =>
+                          setNav(
+                            item.includes(" ") ? item.split(" ").join("") : item
+                          )
+                        }
+                        className={`hover:text-blue-500 cursor-pointer text-black ${
+                          nav == item && "text-blue-500"
+                        }`}
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
       <div
         className="count fixed tablet:bottom-10 bottom-5 tablet:text-lg text-xs
@@ -257,7 +351,7 @@ export default function App() {
       </div>
 
       <div
-        className="fixed top-1/4 left-1/2 laptop:top-2/4 laptop:left-56 tablet:top-2/4 tablet:left-32 tablet:gap-3 flex flex-col 
+        className="fixed top-1/4 left-1/2 laptop:top-2/4 laptop:left-56 tablet:top-2/4 tablet:left-14 tablet:gap-3 flex flex-col 
             transform -translate-x-1/2 -translate-y-1/2 tablet:-translate-x-0 tablet:translate-y-0 tablet:text-lg text-xs z-20 text-white"
       >
         {filteredData.map((data, dataIndex) => (

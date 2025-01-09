@@ -30,7 +30,6 @@ function Page({ params }) {
   const selectedItem = filteredData[0].items.find((data) => data.id == id);
 
   const [isHovering, setIsHovering] = useState(true);
-  console.log(selectedItem);
 
   const cursorVariants = {
     hover: { x: mousePosition.x, y: mousePosition.y },

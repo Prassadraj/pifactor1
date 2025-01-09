@@ -67,7 +67,7 @@ const Nav = () => {
               </video>
             </div>
             <p
-              className={`${montserratLight.className} text-[#e0ccbb] tablet:text-2xl hidden z-10 tablet:block tablet:max-w-md laptop:max-w-lg font-light`}
+              className={`${montserratLight.className} text-gold tablet:text-2xl hidden z-10 tablet:block tablet:max-w-md laptop:max-w-lg font-light`}
             >
               PiFactor merges creativity and curiosity, making each project a
               journey in visual discovery.

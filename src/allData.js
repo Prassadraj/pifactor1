@@ -8,7 +8,9 @@ const images = [
   "/images/7.webp",
 ];
 const allData = [
+  // title: "Movies / Short Films / Album",
   {
+    // "Movies / Short Films / Album",
     category: "vfx",
     items: [
       {
@@ -77,7 +79,7 @@ const allData = [
     ],
   },
   {
-    category: "2d",
+    category: "TitleAnimation",
     items: [
       {
         id: 1,
@@ -103,7 +105,87 @@ const allData = [
     ],
   },
   {
-    category: "3d",
+    category: "LyricVideos",
+    items: [
+      {
+        id: 1,
+        title: "title1",
+        subTitle: "subTitle1",
+        mainImg: images[1],
+        images: [images[0], images[1], images[2]],
+        video: "/intro.mp4",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+    ],
+  },
+  // title: "2D Animations",
+  {
+    category: "Stories",
+    items: [
+      {
+        id: 1,
+        title: "title1",
+        subTitle: "subTitle1",
+        mainImg: images[1],
+        images: [images[0], images[1], images[2]],
+        video: "/intro.mp4",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+    ],
+  },
+  {
+    category: "Explainers",
+    items: [
+      {
+        id: 1,
+        title: "title1",
+        subTitle: "subTitle1",
+        mainImg: images[1],
+        images: [images[0], images[1], images[2]],
+        video: "/intro.mp4",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+    ],
+  },
+  // title: "3D Animations / Previsualization",
+  {
+    category: "Animations",
     items: [
       {
         id: 1,
@@ -129,7 +211,113 @@ const allData = [
     ],
   },
   {
-    category: "wedding",
+    category: "ProductPreviz",
+    items: [
+      {
+        id: 1,
+        title: "title1",
+        subTitle: "subTitle1",
+        mainImg: images[2],
+        images: [images[0], images[1], images[2]],
+        video: "/intro.mp4",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+    ],
+  },
+  // title: "Wedding Invites",
+  {
+    category: "ShortInvites",
+    items: [
+      {
+        id: 1,
+        title: "title1",
+        subTitle: "subTitle1",
+        mainImg: images[3],
+        images: [images[0], images[1], images[2]],
+        video: "/intro.mp4",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+    ],
+  },
+  {
+    category: "StoryInvites",
+    items: [
+      {
+        id: 1,
+        title: "title1",
+        subTitle: "subTitle1",
+        mainImg: images[3],
+        images: [images[0], images[1], images[2]],
+        video: "/intro.mp4",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+    ],
+  },
+  // title: "Ads / Corporate",
+  {
+    category: "Ads",
+    items: [
+      {
+        id: 1,
+        title: "title1",
+        subTitle: "subTitle1",
+        mainImg: images[3],
+        images: [images[0], images[1], images[2]],
+        video: "/intro.mp4",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+    ],
+  },
+  {
+    category: "Corporate",
     items: [
       {
         id: 1,
