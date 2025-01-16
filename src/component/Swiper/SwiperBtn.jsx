@@ -285,7 +285,7 @@ export default function App() {
 
       <div
         className="fixed tablet:text-xl w-full px-20  text-xs flex gap-5 tablet:gap-1 font-black top-24
-         tablet:top-1/4 laptop:top-32
+         tablet:top-1/4 laptop:top-24 largeLaptop:top-32
        left-[50%] translate-x-[-50%] z-50 count"
       >
         {/* {categories.map((category) => (
@@ -300,12 +300,12 @@ export default function App() {
             )}
           </p>
         ))} */}
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-4 ">
           {menus.map((menu, index) => (
             <div key={index} className="group p-6 max-w-md">
               <ul className="text-lg font-bold text-white">
                 <li className="relative">
-                  <span className="cursor-pointer p-2 rounded-md">
+                  <span className="cursor-pointer p-2 rounded-md laptop:text-base largeLaptop:text-lg">
                     {menu.title}
                   </span>
                   {menu.items.map((item, idx) => (
@@ -325,7 +325,7 @@ export default function App() {
                             item.includes(" ") ? item.split(" ").join("") : item
                           )
                         }
-                        className={`hover:text-blue-500 cursor-pointer text-black ${
+                        className={`hover:text-blue-500 laptop:text-base largeLaptop:text-lg cursor-pointer text-black ${
                           nav == item && "text-blue-500"
                         }`}
                       >
@@ -378,7 +378,7 @@ export default function App() {
       </div>
 
       <div
-        className="count fixed tablet:bottom-10 bottom-5 tablet:text-lg text-xs
+        className="count fixed tablet:bottom-10 bottom-5 tablet:text-base text-xs
        right-5 tablet:right-14 z-20 text-white "
       >
         <p>click to explore</p>

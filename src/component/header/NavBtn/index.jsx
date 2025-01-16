@@ -46,11 +46,11 @@ export default function NavBtn() {
       exit="exit"
       className={styles.menu}
     >
-      <div className="absolute tablet:top-10 tablet:left-5 top-9 left-5 largeLaptop:left-7">
+      <div className="absolute tablet:top-12 tablet:left-5 top-9 left-5 largeLaptop:left-7">
         <Image
           width={200}
           height={100}
-          className="w-32 lg:w-52"
+          className="w-32 laptop:w-40"
           src={logo}
           alt="Logo"
         />
@@ -63,7 +63,7 @@ export default function NavBtn() {
           className={styles.nav}
         >
           <div className={`${styles.header} text-red-400`}>
-            <p className="text-lg text-gray-400">Navigation</p>
+            <p className="laptop:text-xs text-gray-400">Navigation</p>
           </div>
           {navItems.map((data, index) => {
             return (
