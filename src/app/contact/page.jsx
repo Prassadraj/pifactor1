@@ -75,12 +75,12 @@ function Page() {
       <div className="tablet:pt-[5vh] pt-[15vh] tablet:h-screen h-fit flex flex-col ">
         <div className="flex justify-center items-center tablet:ml-32 px-10 z-10 h-[420px] tablet:h-screen tablet:py-5">
           <Image
-            src="/contact.jpg" // Path relative to the 'public' folder
+            src="/contact4.png" // Path relative to the 'public' folder
             alt="Contact Us Image"
             width={380} // This will act as the default width (tablet and above)
             height={400}
             quality={90}
-            className="img object-cover h-[400px] tablet:h-full w-[280px] tablet:w-[380px]" // Responsive widths
+            className="img object-cover h-[400px] scale-125 tablet:h-full w-[280px] tablet:w-[380px]" // Responsive widths
           />
         </div>
 

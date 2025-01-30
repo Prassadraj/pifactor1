@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import "./work.css";
+import Head from "next/head"; // Import Head for metadata
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Lato, Montserrat } from "next/font/google";
@@ -151,207 +152,209 @@ function Laptop1() {
   };
 
   return (
-    <div className="pp w-full tablet:px-20 tablet:py-10  font-poppins font-thin">
-      {view == "default" && (
-        <motion.div
-          variants={variants}
-          animate={view}
-          transition={{ duration: 0.1, ease: "linear" }}
-          className="fixed hidden top-0 pointer-events-none laptop:flex justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
-        >
-          <p
-            className={`${montserrat.className} text-white font-normal text-sm`}
+    <>
+      <div className="pp w-full tablet:px-20 tablet:py-10  font-poppins font-thin">
+        {view == "default" && (
+          <motion.div
+            variants={variants}
+            animate={view}
+            transition={{ duration: 0.1, ease: "linear" }}
+            className="fixed hidden top-0 pointer-events-none laptop:flex justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
           >
-            {" "}
-            View
-          </p>
-        </motion.div>
-      )}
-      <header className="font-poppins flex letters">
-        {"Work".split("").map((work, i) => (
-          <p
-            className={`${montserrat.className} font-normal text-[20vw] tablet:text-[100px]`}
-            montserrat
-            key={i}
-          >
-            {work}
-          </p>
-        ))}
-      </header>
-
-      <section className="flex flex-col ">
-        {/* section1 */}
-        <div className="tablet:h-[170vh] tablet:flex tablet:gap-0 overflow-x-hidden">
-          <div className="w-full h-full tablet:px-5">
-            <p className="font-medium text-xl vfx">VFX</p>
-            {/* for lap */}
-            <div
-              className="tablet:w-[450px] hidden laptop:block h-[800px]  relative image1"
-              onMouseEnter={() => {
-                handleMouseEnter("image1");
-                setView("default");
-              }}
-              onMouseLeave={() => {
-                handleMouseLeave("image1");
-                setView("");
-              }}
+            <p
+              className={`${montserrat.className} text-white font-normal text-sm`}
             >
-              {enter === "image1" ? (
-                <video
-                  ref={(el) => (videoRefs.current["image1"] = el)}
-                  className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
-                  autoPlay
-                  playsInline
-                  muted
-                  loop
-                  src="/car.mp4"
-                ></video>
-              ) : (
-                <img
-                  className="absolute top-0 left-0 w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1567818668411-2580206b256d?q=80&w=1960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt=""
-                />
-              )}
-            </div>
+              {" "}
+              View
+            </p>
+          </motion.div>
+        )}
+        <header className="font-poppins flex letters">
+          {"Work".split("").map((work, i) => (
+            <p
+              className={`${montserrat.className} font-normal text-[20vw] tablet:text-[100px]`}
+              montserrat
+              key={i}
+            >
+              {work}
+            </p>
+          ))}
+        </header>
 
-            <p className="text-white image1">About Project</p>
-          </div>
-          <div className="tablet:w-[50%] h-full flex  flex-col justify-between">
-            <div className="flex flex-col justify-end gap-10 featured">
-              <div className="flex gap-1">
-                <Image alt="img" src={sparkle} className="w-4" />
-                <p className={`text-base ${latoLight.className} `}>
-                  Featured Projects
+        <section className="flex flex-col ">
+          {/* section1 */}
+          <div className="tablet:h-[170vh] tablet:flex tablet:gap-0 overflow-x-hidden">
+            <div className="w-full h-full tablet:px-5">
+              <p className="font-medium text-xl vfx">VFX</p>
+              {/* for lap */}
+              <div
+                className="tablet:w-[450px] hidden laptop:block h-[800px]  relative image1"
+                onMouseEnter={() => {
+                  handleMouseEnter("image1");
+                  setView("default");
+                }}
+                onMouseLeave={() => {
+                  handleMouseLeave("image1");
+                  setView("");
+                }}
+              >
+                {enter === "image1" ? (
+                  <video
+                    ref={(el) => (videoRefs.current["image1"] = el)}
+                    className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
+                    autoPlay
+                    playsInline
+                    muted
+                    loop
+                    src="/car.mp4"
+                  ></video>
+                ) : (
+                  <img
+                    className="absolute top-0 left-0 w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1567818668411-2580206b256d?q=80&w=1960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                )}
+              </div>
+
+              <p className="text-white image1">About Project</p>
+            </div>
+            <div className="tablet:w-[50%] h-full flex  flex-col justify-between">
+              <div className="flex flex-col justify-end gap-10 featured">
+                <div className="flex gap-1">
+                  <Image alt="img" src={sparkle} className="w-4" />
+                  <p className={`text-base ${latoLight.className} `}>
+                    Featured Projects
+                  </p>
+                </div>
+                <p
+                  className={`text-xl max-w-[400px] font-medium ${lato.className}`}
+                >
+                  Highlights of cases that we passionately built with
+                  forward-thinking clients and friends over the years.
                 </p>
               </div>
-              <p
-                className={`text-xl max-w-[400px] font-medium ${lato.className}`}
+              <div
+                className="w-[400px] hidden h-[600px] tablet:w-[400px] laptop:flex  tablet:h-[500px]  relative image2"
+                onMouseEnter={() => {
+                  handleMouseEnter("image2");
+                  setView("default");
+                }}
+                onMouseLeave={() => {
+                  handleMouseLeave("image2");
+                  setView("");
+                }}
               >
-                Highlights of cases that we passionately built with
-                forward-thinking clients and friends over the years.
-              </p>
-            </div>
-            <div
-              className="w-[400px] hidden h-[600px] tablet:w-[400px] laptop:flex  tablet:h-[500px]  relative image2"
-              onMouseEnter={() => {
-                handleMouseEnter("image2");
-                setView("default");
-              }}
-              onMouseLeave={() => {
-                handleMouseLeave("image2");
-                setView("");
-              }}
-            >
-              {enter === "image2" ? (
-                <video
-                  ref={(el) => (videoRefs.current["image2"] = el)}
-                  className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
-                  autoPlay
-                  muted
-                  preload="auto"
-                  playsInline
-                  loop
-                  src="/car.mp4"
-                ></video>
-              ) : (
-                <img
-                  className="absolute top-0 left-0 w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1598814165187-ed79437d7490?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt=""
-                />
-              )}
-            </div>
-            <div>
-              {" "}
-              <div className="tablet:w-[250px] laptop:hidden block h-[200px]  relative image1">
-                <video
-                  className="w-full h-full object-cover cursor-pointer"
-                  autoPlay
-                  muted
-                  preload="auto"
-                  loop
-                  playsInline
-                  src="/car.mp4"
-                ></video>
-                <p>About Project</p>
+                {enter === "image2" ? (
+                  <video
+                    ref={(el) => (videoRefs.current["image2"] = el)}
+                    className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
+                    autoPlay
+                    muted
+                    preload="auto"
+                    playsInline
+                    loop
+                    src="/car.mp4"
+                  ></video>
+                ) : (
+                  <img
+                    className="absolute top-0 left-0 w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1598814165187-ed79437d7490?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                )}
+              </div>
+              <div>
+                {" "}
+                <div className="tablet:w-[250px] laptop:hidden block h-[200px]  relative image1">
+                  <video
+                    className="w-full h-full object-cover cursor-pointer"
+                    autoPlay
+                    muted
+                    preload="auto"
+                    loop
+                    playsInline
+                    src="/car.mp4"
+                  ></video>
+                  <p>About Project</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        {/* section2 */}
-        <div className="tablet:h-[150vh] w-full flex justify-evenly overflow-hidden tablet:gap-10">
-          <div className="flex w-[300px] justify-end items-start flex-col image3">
-            <div
-              className="laptop:w-full tablet:w-[200px] h-[400px]  relative"
-              onMouseEnter={() => {
-                handleMouseEnter("image3");
-                setView("default");
-              }}
-              onMouseLeave={() => {
-                handleMouseLeave("image3");
-                setView("");
-              }}
-            >
-              {enter === "image3" ? (
-                <video
-                  ref={(el) => (videoRefs.current["image3"] = el)}
-                  className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  preload="auto"
-                  src="/car.mp4"
-                ></video>
-              ) : (
-                <img
-                  className="absolute top-0 left-0 w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1567818736054-5a48c89711fc?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt=""
-                />
-              )}
+          {/* section2 */}
+          <div className="tablet:h-[150vh] w-full flex justify-evenly overflow-hidden tablet:gap-10">
+            <div className="flex w-[300px] justify-end items-start flex-col image3">
+              <div
+                className="laptop:w-full tablet:w-[200px] h-[400px]  relative"
+                onMouseEnter={() => {
+                  handleMouseEnter("image3");
+                  setView("default");
+                }}
+                onMouseLeave={() => {
+                  handleMouseLeave("image3");
+                  setView("");
+                }}
+              >
+                {enter === "image3" ? (
+                  <video
+                    ref={(el) => (videoRefs.current["image3"] = el)}
+                    className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    preload="auto"
+                    src="/car.mp4"
+                  ></video>
+                ) : (
+                  <img
+                    className="absolute top-0 left-0 w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1567818736054-5a48c89711fc?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                )}
+              </div>
+              <p className="text-white  image3 mt-2">About Project</p>
             </div>
-            <p className="text-white  image3 mt-2">About Project</p>
-          </div>
-          <div className="flex  flex-col justify-center image4">
-            <div
-              className="laptop:w-[500px] laptop:h-[600px] tablet:h-[400px] tablet:w-[300px]  relative"
-              onMouseEnter={() => {
-                handleMouseEnter("image4");
-                setView("default");
-              }}
-              onMouseLeave={() => {
-                handleMouseLeave("image4");
-                setView("");
-              }}
-            >
-              {enter === "image4" ? (
-                <video
-                  ref={(el) => (videoRefs.current["image4"] = el)}
-                  className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
-                  autoPlay
-                  muted
-                  preload="auto"
-                  playsInline
-                  loop
-                  src="/car.mp4"
-                ></video>
-              ) : (
-                <img
-                  className="absolute top-0 left-0 w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1611651336487-802fe164d3e5?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt=""
-                />
-              )}
+            <div className="flex  flex-col justify-center image4">
+              <div
+                className="laptop:w-[500px] laptop:h-[600px] tablet:h-[400px] tablet:w-[300px]  relative"
+                onMouseEnter={() => {
+                  handleMouseEnter("image4");
+                  setView("default");
+                }}
+                onMouseLeave={() => {
+                  handleMouseLeave("image4");
+                  setView("");
+                }}
+              >
+                {enter === "image4" ? (
+                  <video
+                    ref={(el) => (videoRefs.current["image4"] = el)}
+                    className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
+                    autoPlay
+                    muted
+                    preload="auto"
+                    playsInline
+                    loop
+                    src="/car.mp4"
+                  ></video>
+                ) : (
+                  <img
+                    className="absolute top-0 left-0 w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1611651336487-802fe164d3e5?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                )}
+              </div>
+              <p className="text-white image4 mt-2 text-left transition-all ">
+                About Project
+              </p>
             </div>
-            <p className="text-white image4 mt-2 text-left transition-all ">
-              About Project
-            </p>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 }
 
