@@ -22,7 +22,9 @@ function Section() {
     const isMobile = window.innerWidth <= 768;
     if (!played) {
       const tl = gsap.timeline({ delay: 0 });
-      const movement = [-130, 100, -130, -90, 100, -130, 180, -130];
+      const movement = [
+        -130, 100, -130, -90, 100, 110, -110, 115, -115, 120, -130, 180, -130,
+      ];
 
       tl.to(".cover-screen", {
         display: "none",
@@ -135,7 +137,9 @@ function Section() {
       // Else part for when animation has already played
       const tl = gsap.timeline({ delay: 0.5 });
 
-      const movement = [-130, 100, -130, -90, 100, -130, 180, -130];
+      const movement = [
+        -130, 100, -130, -90, 100, 110, -110, 115, -115, 120, -130, 180, -130,
+      ];
 
       tl.to("h1", {
         fontSize: "30vh",
@@ -228,10 +232,32 @@ function Section() {
         </div>
         {!hasPlayedOnce && (
           <div className={`header ${montserrat.className}`}>
-            {["P", "I", "F", "A", "C", "T", "O", "R"].map((letter, index) => (
+            {[
+              "P",
+              "i",
+              "x",
+              "c",
+              "e",
+              "l",
+              "l",
+              " ",
+              "F",
+              "a",
+              "c",
+              "t",
+              "o",
+              "r",
+              "y",
+            ].map((letter, index) => (
               <div className="header-item" key={index}>
                 <div className={`header-wrapper hh-${index + 1}`}>
-                  <h1 className="">{letter}</h1>
+                  <h1 className="">
+                    {letter.includes(" ") ? (
+                      <span key={index}>&nbsp;</span>
+                    ) : (
+                      letter
+                    )}
+                  </h1>
                 </div>
               </div>
             ))}
