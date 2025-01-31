@@ -133,6 +133,10 @@ export default function App() {
         delay: 0.2,
       }
     );
+    gsap.to(".countBtn", {
+      opacity: 0,
+      ease: "power3.inOut",
+    });
 
     // Animate `.title`
     gsap.fromTo(
@@ -167,7 +171,7 @@ export default function App() {
 
       // Update the URL dynamically with encoded nav and itemId
       router.push(`/work/${nav}/${itemId}`);
-    }, animationDuration * 1000); // Match navigation delay to animation duration
+    }, animationDuration * 800); // Match navigation delay to animation duration
   };
 
   useEffect(() => {
@@ -263,7 +267,7 @@ export default function App() {
         )}
       </Swiper>
 
-      <div className="count custom-navigation right-5 tablet:right-20 gap-2 tablet:gap-4">
+      <div className="countBtn custom-navigation right-5 tablet:right-20 gap-2 tablet:gap-4">
         {filteredData.map((data, dataIndex) =>
           data.items.map((_, index) => (
             <button
@@ -284,7 +288,7 @@ export default function App() {
       </div>
 
       <div
-        className="fixed tablet:text-xl w-full px-20  text-xs flex gap-5 tablet:gap-1 font-black top-24
+        className="fixed tablet:text-xl w-full px-5 justify-center largeLaptop:px-20  text-xs flex gap-5 tablet:gap-1 font-black top-24
          tablet:top-1/4 laptop:top-24 largeLaptop:top-32
        left-[50%] translate-x-[-50%] z-50 count"
       >

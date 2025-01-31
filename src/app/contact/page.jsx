@@ -73,18 +73,21 @@ function Page() {
   return (
     <>
       <div className="tablet:pt-[5vh] pt-[15vh] tablet:h-screen h-fit flex flex-col ">
-        <div className="flex justify-center items-center tablet:ml-32 px-10 z-10 h-[420px] tablet:h-screen tablet:py-5">
+        <div
+          className="flex justify-center items-center tablet:ml-32 px-10 z-10 h-[420px] tablet:h-[700px] 
+        laptop:h-3/4 tablet:py-5"
+        >
           <Image
             src="/contact4.png" // Path relative to the 'public' folder
             alt="Contact Us Image"
             width={380} // This will act as the default width (tablet and above)
             height={400}
             quality={90}
-            className="img object-cover h-[400px] scale-125 tablet:h-full w-[280px] tablet:w-[380px]" // Responsive widths
+            className="img object-cover  scale-125 h-full laptop:h-full w-[200px] tablet:w-[380px]" // Responsive widths
           />
         </div>
 
-        <div className={`${styles.sliderContainer} hidden tablet:block`}>
+        <div className={`${styles.sliderContainer} `}>
           <div ref={slider} className={styles.slider}>
             <p ref={firstText}>
               Get in touch · 保持联系 · Ponerse en contacto · Neem contact op ·
@@ -96,24 +99,12 @@ function Page() {
             </p>
           </div>
         </div>
-        <div className="tablet:hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full overflow-hidden whitespace-nowrap">
-          <marquee
-            behavior="scroll"
-            direction="left"
-            scrollamount="8" // Adjust this value for speed (lower value = slower)
-            className={`marquee text-[90px] font-bold ${montserratLight.className}`}
-          >
-            Get in touch · 保持联系 · Ponerse en contacto · Neem contact op ·
-            -&nbsp; Get in touch · 保持联系 · Ponerse en contacto · Neem contact
-            op · -
-          </marquee>
-        </div>
       </div>
       <div
         className={`pt-[10vh] px-7 flex flex-col gap-10 h-fit tablet:px-20 py-20 ${montserrat.className}`}
       >
         <p
-          className={`tablet:absolute tablet:bottom-1/4 tablet:max-w-sm
+          className={`tablet:absolute laptop:bottom-32 tablet:bottom-36 tablet:max-w-sm
             tablet:text-base tablet:font-thin text-2xl font-semibold ${montserratMoreLight.className}
              ${montserratLight.className}`}
         >

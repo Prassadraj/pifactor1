@@ -1,11 +1,16 @@
 .sliderContainer {
   position: absolute;
-  top: calc(100vh - 450px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  overflow: hidden;
 }
 
 .slider {
   position: relative;
   white-space: nowrap;
+  width: max-content;
 }
 
 .slider p {
@@ -15,6 +20,7 @@
   font-size: 180px;
   font-weight: 500;
   padding-right: 50px;
+  white-space: nowrap;
 }
 
 .slider p:nth-of-type(2) {
@@ -25,24 +31,11 @@
 
 @media (max-width: 768px) {
   .sliderContainer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 100%;
-  }
-  .slider {
-    position: absolute;
-    white-space: nowrap;
   }
 
   .slider p {
-    font-size: 50px; /* Reduced font size for phones */
-    padding-right: 20px; /* Smaller padding for better fit */
-  }
-
-  .slider p:nth-of-type(2) {
-    left: 100%;
-    top: 0;
+    font-size: 50px; /* Smaller font size for mobile */
+    padding-right: 20px;
   }
 }
