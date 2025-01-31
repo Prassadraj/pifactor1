@@ -10,6 +10,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Zoom from "@/component/Zoom/Zoom";
 import Work3 from "@/Homepage/Works/Work3/Work3";
 import Slider from "@/component/Slider/Slider";
+import Link from "next/link";
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["600"],
@@ -27,7 +28,12 @@ function Page({ params }) {
   const { data, mousePosition } = useContext(MyContext);
 
   const filteredData = data.allData.filter((data) => category == data.category);
-  const selectedItem = filteredData[0].items.find((data) => data.id == id);
+  const items = filteredData[0].items;
+  const selectedItem = items.find((data) => data.id == id);
+  const currentIndex = items.findIndex((data) => data.id == id);
+  const nextProject = items[currentIndex + 1] || items[0];
+  const [motionName, setMotionName] = useState("scroll");
+  console.log(nextProject);
 
   const [isHovering, setIsHovering] = useState(true);
 
@@ -37,19 +43,6 @@ function Page({ params }) {
   };
   useEffect(() => {
     const tl = gsap.timeline();
-    tl.fromTo(
-      ".banner",
-      {
-        scale: 1.1,
-      },
-      {
-        scale: 1,
-
-        duration: 1,
-        ease: "power3.out",
-        delay: 0.2,
-      }
-    );
 
     tl.fromTo(
       ".title",
@@ -114,13 +107,13 @@ function Page({ params }) {
           animate="hover"
           transition={{ duration: 0.1, ease: "linear" }}
           className="fixed top-0  hidden tablet:flex
-          justify-center items-center left-0 w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
+          justify-center items-center  w-16 h-16 z-50 rounded-full bg-gray-700 mix-blend-difference"
           style={{ pointerEvents: "none" }}
         >
           <p
             className={`${montserrat.className} transition-all duration-300 text-white font-normal text-sm`}
           >
-            Scroll
+            {motionName}
           </p>
         </motion.div>
       )}
@@ -191,14 +184,18 @@ function Page({ params }) {
       {/* laptop  */}
 
       <div
-        className={`hidden tablet:block banner px-2  relative h-screen w-full tablet:px-20 tablet:py-20 ${montserrat.className}`}
+        className={`hidden tablet:block banner px-2 h-screen w-full tablet:px-20 tablet:py-20 ${montserrat.className}`}
       >
         {" "}
         <div className="flex fixed h-full bg-black bg-opacity-30 inset-0"></div>
         <Image
           src={selectedItem.mainImg}
           alt={category[id]}
-          onMouseEnter={() => setIsHovering(true)}
+          onMouseEnter={() => {
+            setIsHovering(true);
+            setMotionName("Scroll");
+          }}
+          onMouseLeave={() => setIsHovering(false)}
           className="object-cover transition-opacity duration-1000 images opacity-50  "
           fill
           quality={50}
@@ -230,7 +227,7 @@ function Page({ params }) {
             </p>
           </div>
           {/* fo mobile  */}
-          <div className="tablet:hidden phone mt-6">
+          <div className="tablet:hidden phone mt-6 ">
             <p className="">{selectedItem.description}</p>
             <div className="flex gap-3 mt-6">
               <div className="flex flex-col tablet:gap-2">
@@ -259,12 +256,9 @@ function Page({ params }) {
       </div>
 
       {/* laptop  */}
-      <div
-        onMouseEnter={() => setIsHovering(false)}
-        className=" px-5 tablet:px-20 "
-      >
-        <div className="hidden tablet:mt-4  laptop:h-screen tablet:h-[50vh] tablet:flex flex-col laptop:gap-28 tablet:gap-20">
-          <p className="laptop:max-w-3xl largeLaptop:max-w-3xl tablet:max-w-xl tablet:text-2xl laptop:text-3xl largeLaptop:text-4xl">
+      <div className=" px-5 tablet:px-20 ">
+        <div className="hidden tablet:mt-10 laptop:mt-20  laptop:h-screen tablet:h-fit tablet:flex flex-col laptop:gap-28 tablet:gap-20">
+          <p className="laptop:max-w-3xl  largeLaptop:max-w-3xl tablet:max-w-xl tablet:text-2xl laptop:text-3xl largeLaptop:text-4xl">
             {selectedItem.description}
           </p>
           <div className="flex tablet:gap-16 laptop:gap-20">
@@ -291,7 +285,7 @@ function Page({ params }) {
           </div>
         </div>
         {/* objective */}
-        <div className="h-screen hidden tablet:block trigger">
+        <div className="h-screen  hidden tablet:block laptop:h-screen trigger tablet:my-10 tablet:h-fit">
           <div className="flex justify-center tablet:text-[30px] laptop:text-[50px] largeLaptop:text-[60px] tablet:font-medium h-1/2 ">
             <div
               className="overflow-hidden h-fit"
@@ -299,12 +293,15 @@ function Page({ params }) {
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
             >
-              <p className="subTitle text-[80px]"> {selectedItem.subTitle}</p>
+              <p className="subTitle text-[80px] text-gold">
+                {" "}
+                {selectedItem.subTitle}
+              </p>
             </div>
           </div>
-          <div className="px-28 flex gap-20 items-center">
+          <div className="laptop:px-28  flex gap-20 items-center">
             <p>Objective</p>
-            <p className="text-sm tablet:max-w-md laptop:max-w-md text-gray-300">
+            <p className="text-sm tablet:max-w-2xl laptop:max-w-md text-gray-300">
               {selectedItem.objective}
             </p>
           </div>
@@ -340,23 +337,40 @@ function Page({ params }) {
           ></video>
         </div>
         <Slider />
-        <div className="tablet:h-screen w-full h-full">
-          <div className="h-full w-full relative">
-            <Image
-              fill
-              src={selectedItem?.mainImg || "/placeholder.jpg"} // Ensure a fallback image
-              alt="Selected Item Image" // Add an alt attribute for accessibility
-              className="object-cover" // Maintain aspect ratio and cover the container
-            />
-            <div className="absolute left-1/2 top-1/2">
-              <Image
-                fill
-                src={selectedItem?.mainImg || "/placeholder.jpg"} // Ensure a fallback image
-                alt="Selected Item Image" // Add an alt attribute for accessibility
-                className="object-cover"
-              />
+        <div
+          className="tablet:h-screen w-full h-full"
+          onMouseEnter={() => {
+            setMotionName("Next");
+            setIsHovering(true);
+          }}
+          onMouseLeave={() => setIsHovering(false)}
+          style={{
+            backgroundImage: `url(${
+              nextProject?.mainImg || "/placeholder.jpg"
+            })`,
+            backgroundAttachment: "fixed",
+            top: "0px",
+            left: "0px",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        >
+          <Link href={`/work/${category}/${nextProject.id}`}>
+            <div className="h-full w-full relative">
+              <div
+                className="absolute left-1/2 top-1/2 transform translate-x-[-50%] translate-y-[-50%] 
+            h-[400px] w-[400px]"
+              >
+                <Image
+                  fill
+                  src={nextProject?.mainImg || "/placeholder.jpg"} // Ensure a fallback image
+                  alt="Selected Item Image" // Add an alt attribute for accessibility
+                  className="object-cover h-full w-full"
+                />
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </div>
