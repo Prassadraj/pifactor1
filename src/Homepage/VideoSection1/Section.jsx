@@ -251,7 +251,7 @@ function Section() {
             ].map((letter, index) => (
               <div className="header-item" key={index}>
                 <div className={`header-wrapper hh-${index + 1}`}>
-                  <h1 className="">
+                  <h1 className="text-gold">
                     {letter.includes(" ") ? (
                       <span key={index}>&nbsp;</span>
                     ) : (
