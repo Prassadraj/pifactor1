@@ -30,7 +30,7 @@ function Works() {
       </div>
 
       {/* Main Content */}
-      <div className="bg-black w-full h-full">
+      <div className="bg-black w-full h-full container">
         <SwiperBtn />
       </div>
     </div>

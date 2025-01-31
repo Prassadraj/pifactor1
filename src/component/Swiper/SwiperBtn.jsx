@@ -284,28 +284,17 @@ export default function App() {
       </div>
 
       <div
-        className="fixed tablet:text-xl w-full px-20  text-xs flex gap-5 tablet:gap-1 font-black top-24
+        className="fixed tablet:text-lg w-full px-0  text-xs flex gap-5 tablet:gap-1 font-black top-24
          tablet:top-1/4 laptop:top-24 largeLaptop:top-32
        left-[50%] translate-x-[-50%] z-50 count"
       >
-        {/* {categories.map((category) => (
-          <p
-            key={category}
-            className="cursor-pointer relative category capitalize"
-            onClick={() => setNav(category)}
-          >
-            {category}
-            {nav === category && (
-              <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-white"></span>
-            )}
-          </p>
-        ))} */}
-        <div className="flex flex-wrap justify-center gap-4 ">
+
+        <div className="flex flex-nowrap justify-center gap-2 w-full ">
           {menus.map((menu, index) => (
             <div key={index} className="group p-6 max-w-md">
               <ul className="text-lg font-bold text-white">
                 <li className="relative">
-                  <span className="cursor-pointer p-2 rounded-md laptop:text-base largeLaptop:text-lg">
+                  <span className="cursor-pointer p-2 rounded-md laptop:text-sm largeLaptop:text-base">
                     {menu.title}
                   </span>
                   {menu.items.map((item, idx) => (
@@ -325,7 +314,7 @@ export default function App() {
                             item.includes(" ") ? item.split(" ").join("") : item
                           )
                         }
-                        className={`hover:text-blue-500 laptop:text-base largeLaptop:text-lg cursor-pointer text-black ${
+                        className={`hover:text-blue-500 laptop:text-sm largeLaptop:text-base cursor-pointer text-black ${
                           nav == item && "text-blue-500"
                         }`}
                       >

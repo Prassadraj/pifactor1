@@ -1,20 +1,24 @@
 .sliderContainer {
   position: absolute;
   top: calc(100vh - 450px);
+  width: 100%; /* Ensure it takes the full width */
+  overflow: hidden; /* Hide overflow */
 }
 
 .slider {
   position: relative;
   white-space: nowrap;
+  width: max-content; /* Prevent unintended wrapping */
 }
 
 .slider p {
   position: relative;
-  margin: 0px;
+  margin: 0;
   color: white;
   font-size: 180px;
   font-weight: 500;
   padding-right: 50px;
+  display: inline-block; /* Ensures smooth scrolling */
 }
 
 .slider p:nth-of-type(2) {
@@ -30,15 +34,18 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
+    overflow: hidden; /* Hide overflow on smaller screens */
   }
+
   .slider {
     position: absolute;
     white-space: nowrap;
+    width: max-content;
   }
 
   .slider p {
-    font-size: 50px; /* Reduced font size for phones */
-    padding-right: 20px; /* Smaller padding for better fit */
+    font-size: 50px;
+    padding-right: 20px;
   }
 
   .slider p:nth-of-type(2) {
