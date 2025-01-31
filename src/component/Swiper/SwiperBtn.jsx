@@ -106,7 +106,7 @@ export default function App() {
     );
   };
   const handleNavigation = (nav, itemId) => {
-    const animationDuration = 1.8; // Adjust duration for mobile (<=768px)
+    const animationDuration = 0.8; // Adjust duration for mobile (<=768px)
 
     // Animate `.image`
     gsap.fromTo(
@@ -171,7 +171,7 @@ export default function App() {
 
       // Update the URL dynamically with encoded nav and itemId
       router.push(`/work/${nav}/${itemId}`);
-    }, animationDuration * 800); // Match navigation delay to animation duration
+    }, 1000); // Match navigation delay to animation duration
   };
 
   useEffect(() => {
