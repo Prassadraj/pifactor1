@@ -5,6 +5,7 @@ import { Montserrat } from "next/font/google";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import React, { useEffect, useRef } from "react";
+import Link from "next/link";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -91,6 +92,7 @@ function Laptop3() {
           </div>
           <div className="ImageWrapper">
             <div className="laptop:w-[35rem] tablet:w-[20rem] h-full ">
+            <Link href='/work/Animations/2'>
               <video
                 className="h-full w-full object-cover"
                 src="/3dAnimations/videos/cell_07.mp4"
@@ -100,6 +102,7 @@ function Laptop3() {
                 muted
                 preload="auto"
               ></video>
+              </Link>
             </div>
           </div>
           <div className="ImageWrapper">
@@ -142,15 +145,17 @@ function Laptop3() {
           </div>
           <div className="ImageWrapper2">
             <div className="laptop:w-[35rem] tablet:w-[25rem] h-full ">
-              <video
-                className="h-full w-full object-cover"
-                src="/3dAnimations/videos/architectural.mp4"
-                autoPlay
-                loop
-                preload="auto"
-                playsInline
-                muted
-              ></video>
+              <Link href='/work/Animations/1'>
+                <video
+                  className="h-full w-full object-cover"
+                  src="/3dAnimations/videos/architectural.mp4"
+                  autoPlay
+                  loop
+                  preload="auto"
+                  playsInline
+                  muted
+                ></video>
+              </Link>
             </div>
           </div>
           <div className="ImageWrapper2">

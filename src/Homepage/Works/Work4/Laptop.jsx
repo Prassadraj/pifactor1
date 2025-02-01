@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import { Montserrat } from "next/font/google";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import Link from "next/link";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -37,13 +38,13 @@ export default function Laptop4() {
   const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
 
   const pictures = [
-    { src: Picture1, scale: scale4 },
-    { src: Picture2, scale: scale5 },
-    { src: Picture3, scale: scale6 },
-    { src: Picture4, scale: scale5 },
-    { src: Picture5, scale: scale6 },
-    { src: Picture6, scale: scale8 },
-    { src: Picture7, scale: scale9 },
+    { src: Picture1, scale: scale4, link: "/work/ShortInvites/1" },
+    { src: Picture2, scale: scale5, link: "/work/ShortInvites/2" },
+    { src: Picture3, scale: scale6, link: "/work/ShortInvites/3" },
+    { src: Picture4, scale: scale5, link: "/work/ShortInvites/1" },
+    { src: Picture5, scale: scale6, link: "/work/ShortInvites/2" },
+    { src: Picture6, scale: scale8, link: "/work/ShortInvites/3" },
+    { src: Picture7, scale: scale9, link: "/work/ShortInvites/1" },
   ];
 
   useEffect(() => {
@@ -113,7 +114,7 @@ export default function Laptop4() {
 
       <div ref={container} className={styles.container}>
         <div className={styles.sticky}>
-          {pictures.map(({ src, scale }, index) => (
+          {pictures.map(({ src, scale, link }, index) => (
             <motion.div
               key={index}
               style={{ scale }}
@@ -121,9 +122,11 @@ export default function Laptop4() {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              <div className={styles.imageContainer}>
-                <Image src={src} fill alt="image" placeholder="blur" />
-              </div>
+              <Link href={link} passHref>
+                <div className={styles.imageContainer}>
+                  <Image src={src} fill alt="image" placeholder="blur" />
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>

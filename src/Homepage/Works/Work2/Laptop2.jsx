@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { Montserrat } from "next/font/google";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import Link from "next/link";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -89,16 +90,19 @@ function Laptop2() {
       src: "/2dAnimations/videos/PI&PI.mp4",
       title: "PI&PI",
       desc: "Description...",
+      link: "work/Stories/1",
     },
     {
       src: "/2dAnimations/videos/Flash_Demo1.mp4",
       title: "Flash 1",
       desc: "Description...",
+      link: "work/Stories/2",
     },
     {
       src: "/2dAnimations/videos/Flash_Demo2.mp4",
       title: "Flash 2",
       desc: "Description...",
+      link: "work/Stories/3",
     },
   ];
 
@@ -138,19 +142,21 @@ function Laptop2() {
                 {picture.desc}
               </p>
             </div>
-            <div className="img-2d h-full w-full rounded-md">
-              <video
-                ref={(el) => (videoRefs.current[i] = el)}
-                src={picture.src}
-                autoPlay={false}
-                loop
-                playsInline
-                muted
-                preload="auto"
-                width={1000}
-                height={800}
-                className="object-contain w-full h-full"
-              ></video>
+            <div className="img-2d h-full w-full rounded-md cursor-pointer">
+              <Link href={`${picture.link}`}>
+                <video
+                  ref={(el) => (videoRefs.current[i] = el)}
+                  src={picture.src}
+                  autoPlay={false}
+                  loop
+                  playsInline
+                  muted
+                  preload="auto"
+                  width={1000}
+                  height={800}
+                  className="object-contain w-full h-full"
+                ></video>
+              </Link>
             </div>
           </div>
         ))}
