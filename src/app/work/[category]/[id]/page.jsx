@@ -310,7 +310,7 @@ function Page({ params }) {
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
             >
-              <p className="subTitle text-[80px] text-gold">
+              <p className="subTitle text-[80px] max-w-4xl text-wrap text-gold">
                 {" "}
                 {selectedItem.subTitle}
               </p>

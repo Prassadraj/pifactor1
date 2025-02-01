@@ -188,7 +188,7 @@ function Laptop1() {
               <p className="font-medium text-xl vfx">VFX</p>
               {/* for lap */}
               <div
-                className="tablet:w-[450px] hidden tablet:block h-[800px]   relative image1"
+                className="tablet:w-full hidden tablet:block h-[800px]   relative image1"
                 onMouseEnter={() => {
                   handleMouseEnter("image1");
                   setView("default");
@@ -197,6 +197,7 @@ function Laptop1() {
                   handleMouseLeave("image1");
                   setView("");
                 }}
+                style={{ clipPath: "polygon(0 0, 61% 0, 62% 100%, 0% 100%)" }}
               >
                 {enter === "image1" ? (
                   <video
@@ -206,7 +207,7 @@ function Laptop1() {
                     playsInline
                     muted
                     loop
-                    src="/car.mp4"
+                    src="/vfx/videos/jesseyCut.mp4"
                   ></video>
                 ) : (
                   <img
@@ -217,8 +218,9 @@ function Laptop1() {
                 )}
               </div>
 
-              <p className="text-white image1">About Project</p>
+              <p className="text-white image1 -mt-20">JESSEY</p>
             </div>
+            {/* right side  */}
             <div className="tablet:w-[50%] h-full flex  flex-col justify-between">
               <div className="flex flex-col justify-end gap-10 featured">
                 <div className="flex gap-1">
@@ -235,7 +237,7 @@ function Laptop1() {
                 </p>
               </div>
               <div
-                className="w-[400px] hidden h-[600px] tablet:w-[400px] laptop:flex  tablet:h-[500px]  relative image2"
+                className="w-[400px] hidden h-[600px] tablet:max-w-[450px] laptop:flex  tablet:h-[500px]  relative image2"
                 onMouseEnter={() => {
                   handleMouseEnter("image2");
                   setView("default");
@@ -248,22 +250,23 @@ function Laptop1() {
                 {enter === "image2" ? (
                   <video
                     ref={(el) => (videoRefs.current["image2"] = el)}
-                    className="absolute top-0 !right-10 w-full h-full object-cover cursor-pointer"
+                    className="absolute top-0 !right-0 w-full h-full object-cover cursor-pointer"
                     autoPlay
                     muted
                     preload="auto"
                     playsInline
                     loop
-                    src="/car.mp4"
+                    src="/vfx/videos/bloddybeggarCut.mp4"
                   ></video>
                 ) : (
                   <img
-                    className="absolute top-0 !right-10 w-full h-full object-cover"
-                    src="https://images.unsplash.com/photo-1598814165187-ed79437d7490?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    className="absolute top-0 !right-0 w-full h-full object-cover"
+                    src="/vfx/pics/Bloody Begger.webp"
                     alt=""
                   />
                 )}
               </div>
+              <p className="text-left -mt-20">Bloddy Beggar</p>
               <div>
                 {" "}
                 <div className="tablet:w-[250px] laptop:hidden block h-[200px]  relative image1">
@@ -276,16 +279,16 @@ function Laptop1() {
                     playsInline
                     src="/car.mp4"
                   ></video>
-                  <p>About Project</p>
+                  <p className="mt-2">About Project3</p>
                 </div>
               </div>
             </div>
           </div>
           {/* section2 */}
           <div className="tablet:!h-[900px] w-full flex justify-evenly overflow-hidden tablet:gap-10">
-            <div className="flex w-[300px] justify-end items-start flex-col image3">
+            <div className="flex w-[400px] justify-center items-start flex-col image3">
               <div
-                className="laptop:w-full tablet:w-[200px] h-[400px]  relative"
+                className="laptop:w-full tablet:w-[400px] h-[500px]  relative"
                 onMouseEnter={() => {
                   handleMouseEnter("image3");
                   setView("default");
@@ -304,17 +307,17 @@ function Laptop1() {
                     playsInline
                     loop
                     preload="auto"
-                    src="/car.mp4"
+                    src="/vfx/videos/demonte colony.mp4"
                   ></video>
                 ) : (
                   <img
                     className="absolute top-0 left-0 w-full h-full object-cover"
-                    src="https://images.unsplash.com/photo-1567818736054-5a48c89711fc?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src="https://m.media-amazon.com/images/M/MV5BNGE3Yjg4MzYtM2E0Zi00ODFkLTk1YWYtMDVlZTVmMTg3ODE1XkEyXkFqcGc@._V1_.jpg"
                     alt=""
                   />
                 )}
               </div>
-              <p className="text-white  image3 mt-2">About Project</p>
+              <p className="text-white  image3 -mt-16">Demonte Colony</p>
             </div>
             <div className="flex  flex-col justify-center image4">
               <div
@@ -337,19 +340,17 @@ function Laptop1() {
                     preload="auto"
                     playsInline
                     loop
-                    src="/car.mp4"
+                    src="/vfx/videos/ThangalanCut.mp4"
                   ></video>
                 ) : (
                   <img
                     className="absolute top-0 left-0 w-full h-full object-cover"
-                    src="https://images.unsplash.com/photo-1611651336487-802fe164d3e5?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src="https://m.media-amazon.com/images/M/MV5BYWUwZmEwMmMtZGU1ZS00Njg0LWE3MWMtYmIzMjVhM2FlYjkzXkEyXkFqcGc@._V1_.jpg"
                     alt=""
                   />
                 )}
               </div>
-              <p className="text-white image4 mt-2 text-left transition-all ">
-                About Project
-              </p>
+              <p className="text-white  image3 -mt-16">Thangalan</p>
             </div>
           </div>
         </section>

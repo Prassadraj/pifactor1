@@ -19,7 +19,8 @@ const allData = [
         subTitle: "Tracking and Patch work",
         mainImg: "/vfx/pics/Jessey.webp",
         images: [images[0], images[1], images[2]],
-        video: "/intro.mp4",
+        video: "/vfx/videos/jessey.mp4",
+
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
@@ -36,11 +37,12 @@ const allData = [
       },
       {
         id: 2,
-        title: "Bloody Begger",
+        title: "Bloody Beggar",
         subTitle: "Tracking ,Roto and Patch Work",
         mainImg: "/vfx/pics/Bloody Begger.webp",
         images: [images[0], images[1], images[2]],
-        video: "/intro.mp4",
+
+        video: "/vfx/videos/bloddybeggar.mp4",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
@@ -61,7 +63,8 @@ const allData = [
         subTitle: "subTitle3",
         mainImg: "/vfx/pics/demonte colony.webp",
         images: [images[0], images[1], images[2]],
-        video: "/intro.mp4",
+
+        video: "/vfx/videos/demonte colony.mp4",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
@@ -82,7 +85,8 @@ const allData = [
         subTitle: "subTitle3",
         mainImg: "/vfx/pics/Mouse.webp",
         images: [images[0], images[1], images[2]],
-        video: "/intro.mp4",
+        video: "/vfx/videos/Mouse.mp4",
+
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
@@ -103,7 +107,8 @@ const allData = [
         subTitle: "subTitle3",
         mainImg: "/vfx/pics/Ox.webp",
         images: [images[0], images[1], images[2]],
-        video: "/intro.mp4",
+
+        video: "/vfx/videos/Ox.mp4",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
@@ -124,7 +129,8 @@ const allData = [
         subTitle: "subTitle3",
         mainImg: "/vfx/pics/Password.webp",
         images: [images[0], images[1], images[2]],
-        video: "/intro.mp4",
+
+        video: "/vfx/videos/Password.mp4",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
@@ -145,7 +151,9 @@ const allData = [
         subTitle: "subTitle3",
         mainImg: "/vfx/pics/Thangalan.webp",
         images: [images[0], images[1], images[2]],
-        video: "/intro.mp4",
+
+        video: "/vfx/videos/Thangalan.mp4",
+
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
@@ -166,7 +174,9 @@ const allData = [
         subTitle: "subTitle3",
         mainImg: "/vfx/pics/Vettaiyan.webp",
         images: [images[0], images[1], images[2]],
-        video: "/intro.mp4",
+
+        video: "/vfx/videos/Vettaiyan.mp4",
+
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
@@ -452,11 +462,53 @@ const allData = [
     items: [
       {
         id: 1,
-        title: "title1",
+        title: "Diviya & jaga wedding Invite",
         subTitle: "subTitle1",
-        mainImg: images[3],
+        mainImg: "/wedding/pics/jaga.webp",
         images: [images[0], images[1], images[2]],
-        video: "/intro.mp4",
+        video: "/wedding/videos/jaga.mp4",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+      {
+        id: 2,
+        title: "Anil & Gayu",
+        subTitle: "subTitle1",
+        mainImg: "/wedding/pics/anil.webp",
+        images: [images[0], images[1], images[2]],
+        video: "/wedding/videos/anil.mp4",
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+      {
+        id: 3,
+        title: "Ishu & Prasanna",
+        subTitle: "subTitle1",
+        mainImg: "/wedding/pics/aishwarya.webp",
+        images: [images[0], images[1], images[2]],
+        video: "/wedding/videos/aishwarya.mp4",
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis

@@ -84,7 +84,7 @@ function Laptop3() {
             <div className="laptop:w-[25rem] tablet:w-[20rem] h-full ">
               <img
                 className="h-full w-full object-cover"
-                src="https://images.unsplash.com/photo-1622994690845-56efd20992c6?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/3dAnimations/pics/architectural.webp"
                 alt=""
               />
             </div>
@@ -93,7 +93,7 @@ function Laptop3() {
             <div className="laptop:w-[35rem] tablet:w-[20rem] h-full ">
               <video
                 className="h-full w-full object-cover"
-                src="/car.mp4"
+                src="/3dAnimations/videos/cell_07.mp4"
                 autoPlay
                 playsInline
                 loop
@@ -106,7 +106,7 @@ function Laptop3() {
             <div className="laptop:w-[25rem] tablet:w-[20rem] h-full ">
               <img
                 className="h-full w-full object-cover"
-                src="https://images.unsplash.com/photo-1474224017046-182ece80b263?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/3dAnimations/pics/architecture1.png"
                 alt=""
               />
             </div>
@@ -135,7 +135,7 @@ function Laptop3() {
             <div className="laptop:w-[20rem] tablet:w-[15rem] h-full ">
               <img
                 className="h-full w-full object-cover"
-                src="https://images.unsplash.com/photo-1626668893632-6f3a4466d22f?q=80&w=2944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/3dAnimations/pics/cell_07.webp"
                 alt=""
               />
             </div>
@@ -144,7 +144,7 @@ function Laptop3() {
             <div className="laptop:w-[35rem] tablet:w-[25rem] h-full ">
               <video
                 className="h-full w-full object-cover"
-                src="/car.mp4"
+                src="/3dAnimations/videos/architectural.mp4"
                 autoPlay
                 loop
                 preload="auto"
@@ -157,7 +157,7 @@ function Laptop3() {
             <div className="laptop:w-[25rem] tablet:w-[15rem] h-full ">
               <img
                 className="h-full w-full object-cover"
-                src="https://images.unsplash.com/photo-1619572945516-7598cb601a11?q=80&w=2831&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/3dAnimations/pics/architecture2.png"
                 alt=""
               />
             </div>

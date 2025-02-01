@@ -309,22 +309,27 @@ export default function App() {
                   ))}
 
                   <ul className="absolute left-0 top-8 hidden group-hover:block bg-gray-100 p-4 rounded shadow-lg space-y-2 text-gray-700">
-                    {menu.items.map((item, idx) => (
-                      <li
-                        key={idx}
-                        onClick={() => {
-                          setNav(
-                            item.includes(" ") ? item.split(" ").join("") : item
-                          );
-                          handleSlideTo(0);
-                        }}
-                        className={`hover:text-blue-500 laptop:text-sm largeLaptop:text-base cursor-pointer text-black ${
-                          nav == item && "text-blue-500"
-                        }`}
-                      >
-                        {item}
-                      </li>
-                    ))}
+                    {menu.items.map((item, idx) => {
+                      const formatted = item.split(" ").join("");
+                      return (
+                        <li
+                          key={idx}
+                          onClick={() => {
+                            setNav(
+                              item.includes(" ")
+                                ? item.split(" ").join("")
+                                : item
+                            );
+                            handleSlideTo(0);
+                          }}
+                          className={`hover:text-blue-500 laptop:text-sm largeLaptop:text-base cursor-pointer text-black ${
+                            nav == formatted ? "text-blue-500" : ""
+                          }`}
+                        >
+                          {item}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </li>
               </ul>

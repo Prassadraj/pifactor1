@@ -38,7 +38,7 @@ function Laptop2() {
       const triggers = [
         { class: "animations1", start: "top 50%", end: "bottom 70%" },
         { class: "animations2", start: "top 50%", end: "bottom 50%" },
-        { class: "animations3", start: "top 20%", end: "bottom 25%" },
+        { class: "animations3", start: "top 30%", end: "bottom 50%" },
       ];
 
       triggers.forEach(({ class: className, start, end }) => {
@@ -50,6 +50,7 @@ function Laptop2() {
           scrollTrigger: {
             trigger: `.${className}`,
             start,
+
             end,
             scrub: 2,
           },
@@ -60,8 +61,8 @@ function Laptop2() {
       videoRefs.current.forEach((video, index) => {
         ScrollTrigger.create({
           trigger: video,
-          start: "top 75%",
-          end: "bottom 25%",
+          start: "top 50%",
+          end: "bottom 20%",
           onEnter: () => {
             if (video.paused) video.play();
           },
@@ -104,7 +105,7 @@ function Laptop2() {
   return (
     <div
       ref={containerRef}
-      className="laptop:px-20 px-2 laptop:py-10 tablet:px-10 tablet:py-10 w-full h-[240vh]"
+      className="laptop:px-20 px-2 laptop:py-10 tablet:px-10 tablet:py-10 w-full h-fit"
     >
       <div
         className="text flex overflow-hidden"
