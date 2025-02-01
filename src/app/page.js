@@ -43,7 +43,7 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <div className="">
       <div className="">
         <Section />
       </div>
@@ -53,7 +53,7 @@ export default function Home() {
 
       {/* Conditionally render components after 5 seconds */}
       {show && (
-        <>
+        <div className="">
           <Work1 />
           <PlayReel />
           <Work2 />
@@ -61,8 +61,8 @@ export default function Home() {
           <Work4 />
           <Spread />
           <Footer />
-        </>
+        </div>
       )}
-    </>
+    </div>
   );
 }
