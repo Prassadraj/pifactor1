@@ -50,7 +50,9 @@ function Mobile1() {
   }, []);
 
   return (
-    <div className={`my-20 h-full w-full px-5 ${montserrat.className} `}>
+    <div
+      className={`my-20 container mx-auto h-full w-full px-5 ${montserrat.className} `}
+    >
       <div className="flex flex-col gap-2 my-10">
         <div className="flex gap-1">
           <Image alt="img" src={sparkle} className="w-4" />

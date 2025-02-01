@@ -153,7 +153,7 @@ function Laptop1() {
 
   return (
     <>
-      <div className="pp w-full tablet:px-20 tablet:py-10  font-poppins font-thin">
+      <div className="pp w-full   tablet:px-20 tablet:py-10  font-poppins font-thin">
         {view == "default" && (
           <motion.div
             variants={variants}
@@ -169,7 +169,7 @@ function Laptop1() {
             </p>
           </motion.div>
         )}
-        <header className="font-poppins flex letters">
+        <header className="font-poppins flex letters container  !mx-auto h-">
           {"Work".split("").map((work, i) => (
             <p
               className={`${montserrat.className} font-normal text-[20vw] tablet:text-[100px]`}
@@ -183,12 +183,12 @@ function Laptop1() {
 
         <section className="flex flex-col ">
           {/* section1 */}
-          <div className="tablet:h-[170vh] tablet:flex tablet:gap-0 overflow-x-hidden">
+          <div className=" tablet:!h-[900px]  tablet:flex tablet:gap-0  container !mx-auto  ">
             <div className="w-full h-full tablet:px-5">
               <p className="font-medium text-xl vfx">VFX</p>
               {/* for lap */}
               <div
-                className="tablet:w-[450px] hidden laptop:block h-[800px]  relative image1"
+                className="tablet:w-[450px] hidden tablet:block h-[800px]   relative image1"
                 onMouseEnter={() => {
                   handleMouseEnter("image1");
                   setView("default");
@@ -248,7 +248,7 @@ function Laptop1() {
                 {enter === "image2" ? (
                   <video
                     ref={(el) => (videoRefs.current["image2"] = el)}
-                    className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
+                    className="absolute top-0 !right-10 w-full h-full object-cover cursor-pointer"
                     autoPlay
                     muted
                     preload="auto"
@@ -258,7 +258,7 @@ function Laptop1() {
                   ></video>
                 ) : (
                   <img
-                    className="absolute top-0 left-0 w-full h-full object-cover"
+                    className="absolute top-0 !right-10 w-full h-full object-cover"
                     src="https://images.unsplash.com/photo-1598814165187-ed79437d7490?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt=""
                   />
@@ -282,7 +282,7 @@ function Laptop1() {
             </div>
           </div>
           {/* section2 */}
-          <div className="tablet:h-[150vh] w-full flex justify-evenly overflow-hidden tablet:gap-10">
+          <div className="tablet:!h-[900px] w-full flex justify-evenly overflow-hidden tablet:gap-10">
             <div className="flex w-[300px] justify-end items-start flex-col image3">
               <div
                 className="laptop:w-full tablet:w-[200px] h-[400px]  relative"
