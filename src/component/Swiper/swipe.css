@@ -22,5 +22,4 @@
   display: flex;
   flex-direction: column;
   /* Space between buttons */
-  z-index: 1; /* Ensure buttons are above other content */
 }

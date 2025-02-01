@@ -244,7 +244,7 @@ export default function App() {
                   <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
                     <div
                       className="relative laptop:w-[25%] w-[60%] h-[400px]
-              tablet:w-[50%] top-[2%] tablet:top-[8%] laptop:top-[10%] tablet:h-1/2 laptop:h-[400px] overflow-hidden"
+              tablet:w-[50%] top-[2%] tablet:top-[8%] laptop:top-[12%] largeLaptop:top-[10%] tablet:h-1/2 laptop:h-[400px] overflow-hidden"
                       style={{
                         clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)", // Adds a visible effect
                       }}
@@ -254,7 +254,7 @@ export default function App() {
                         alt={`Slide ${itemIndex + 1} inner`}
                         className="object-cover transition-opacity duration-1000 image"
                         fill
-                        quality={75}
+                        quality={60}
                         loading={itemIndex === 0 ? "eager" : "lazy"}
                         priority={itemIndex === 0}
                       />
@@ -267,12 +267,12 @@ export default function App() {
         )}
       </Swiper>
 
-      <div className="countBtn custom-navigation right-5 tablet:right-20 gap-2 tablet:gap-4">
+      <div className="countBtn custom-navigation right-5 z-30 tablet:right-10 gap-2 tablet:gap-3">
         {filteredData.map((data, dataIndex) =>
           data.items.map((_, index) => (
             <button
               key={`${dataIndex}-${index}`} // Unique key combining dataIndex and index
-              className={`bg-black text-xs tablet:text-lg hover:bg-black p-1 
+              className={`bg-black text-xs  tablet:text-base hover:bg-black p-1 
           tablet:px-2 tablet:py-1 rounded-[50%] transition-all duration-500
           ${
             selected === index + 1
@@ -290,7 +290,7 @@ export default function App() {
       <div
         className="fixed tablet:text-xl w-full px-20  text-xs flex gap-5 tablet:gap-1 font-black top-24
          tablet:top-1/4 laptop:top-24 largeLaptop:top-32
-       left-[50%] translate-x-[-50%] z-50 count"
+       left-[50%] translate-x-[-50%] z-10 count"
       >
         <div className="flex flex-nowrap justify-center gap-2 w-full ">
           {menus.map((menu, index) => (

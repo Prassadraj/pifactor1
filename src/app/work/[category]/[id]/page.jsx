@@ -34,7 +34,6 @@ function Page({ params }) {
   const nextProject = items[currentIndex + 1] || items[0];
   const nextProjectImg = nextProject?.mainImg;
   const [motionName, setMotionName] = useState("scroll");
-  console.log(nextProjectImg);
 
   const [isHovering, setIsHovering] = useState(true);
 
@@ -99,7 +98,24 @@ function Page({ params }) {
       }
     );
   }, []);
-
+  useEffect(() => {
+    gsap.fromTo(
+      ".nextTitle",
+      {
+        y: 150,
+        skewX: "-160deg",
+      },
+      {
+        y: 0,
+        skewX: "0deg",
+        scrollTrigger: ".nextTitle",
+        duration: 1.5,
+        ease: "power3.out",
+        delay: 0.2,
+        stagger: 0.1,
+      }
+    );
+  }, []);
   return (
     <div className={`${montserrat.className} `}>
       {isHovering && (
@@ -326,7 +342,7 @@ function Page({ params }) {
       </div>
       <div>
         <Zoom />
-        <div className="tablet:h-screen w-full h-fit flex items-center justify-center">
+        <div className="tablet:h-screen w-full h-fit  flex items-center justify-center">
           <video
             preload="auto"
             autoPlay
@@ -367,6 +383,30 @@ function Page({ params }) {
                   alt="Selected Item Image" // Add an alt attribute for accessibility
                   className="object-cover h-full w-full"
                 />
+              </div>
+              <div
+                className="absolute top-1/4 left-1/2 laptop:top-2/4 laptop:left-32 tablet:top-2/4 tablet:left-14 tablet:gap-3 flex flex-col 
+            transform -translate-x-1/2 -translate-y-1/2 tablet:-translate-x-0 tablet:translate-y-0 tablet:text-lg text-xs z-20 text-white"
+              >
+                <div className="overflow-hidden -z-10">
+                  <div
+                    className="font-bold tablet:text-4xl capitalize text-base max-w-xs text-wrap"
+                    style={{
+                      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                    }}
+                  >
+                    <p className="nextTitle ">{nextProject?.title}</p>
+                  </div>
+
+                  <div
+                    className="font-medium tablet:text-xl text-sm capitalize mt-2 max-w-xs text-wrap"
+                    style={{
+                      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                    }}
+                  >
+                    <p className="nextTitle ">{nextProject?.subTitle}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </Link>

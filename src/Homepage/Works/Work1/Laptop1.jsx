@@ -211,7 +211,7 @@ function Laptop1() {
                 ) : (
                   <img
                     className="absolute top-0 left-0 w-full h-full object-cover"
-                    src="https://images.unsplash.com/photo-1567818668411-2580206b256d?q=80&w=1960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src="/vfx/pics/Jessey.webp"
                     alt=""
                   />
                 )}
