@@ -9,6 +9,7 @@ import sparkle from "../../../app/images/sparkle.png";
 import Image from "next/image";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 const montserrat = Montserrat({
   subsets: ["latin"],
 });
@@ -199,23 +200,25 @@ function Laptop1() {
                 }}
                 style={{ clipPath: "polygon(0 0, 61% 0, 62% 100%, 0% 100%)" }}
               >
-                {enter === "image1" ? (
-                  <video
-                    ref={(el) => (videoRefs.current["image1"] = el)}
-                    className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
-                    autoPlay
-                    playsInline
-                    muted
-                    loop
-                    src="/vfx/videos/jesseyCut.mp4"
-                  ></video>
-                ) : (
-                  <img
-                    className="absolute top-0 left-0 w-full h-full object-cover"
-                    src="/vfx/pics/Jessey.webp"
-                    alt=""
-                  />
-                )}
+                <Link href="/work/vfx/1">
+                  {enter === "image1" ? (
+                    <video
+                      ref={(el) => (videoRefs.current["image1"] = el)}
+                      className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
+                      autoPlay
+                      playsInline
+                      muted
+                      loop
+                      src="/vfx/videos/jesseyCut.mp4"
+                    ></video>
+                  ) : (
+                    <img
+                      className="absolute top-0 left-0 w-full h-full object-cover"
+                      src="/vfx/pics/Jessey.webp"
+                      alt=""
+                    />
+                  )}
+                </Link>
               </div>
 
               <p className="text-white image1 -mt-20">JESSEY</p>
@@ -247,24 +250,26 @@ function Laptop1() {
                   setView("");
                 }}
               >
-                {enter === "image2" ? (
-                  <video
-                    ref={(el) => (videoRefs.current["image2"] = el)}
-                    className="absolute top-0 !right-0 w-full h-full object-cover cursor-pointer"
-                    autoPlay
-                    muted
-                    preload="auto"
-                    playsInline
-                    loop
-                    src="/vfx/videos/bloddybeggarCut.mp4"
-                  ></video>
-                ) : (
-                  <img
-                    className="absolute top-0 !right-0 w-full h-full object-cover"
-                    src="/vfx/pics/Bloody Begger.webp"
-                    alt=""
-                  />
-                )}
+                <Link href="/work/vfx/2">
+                  {enter === "image2" ? (
+                    <video
+                      ref={(el) => (videoRefs.current["image2"] = el)}
+                      className="absolute top-0 !right-0 w-full h-full object-cover cursor-pointer"
+                      autoPlay
+                      muted
+                      preload="auto"
+                      playsInline
+                      loop
+                      src="/vfx/videos/bloddybeggarCut.mp4"
+                    ></video>
+                  ) : (
+                    <img
+                      className="absolute top-0 !right-0 w-full h-full object-cover"
+                      src="/vfx/pics/Bloody Begger.webp"
+                      alt=""
+                    />
+                  )}
+                </Link>
               </div>
               <p className="text-left -mt-20">Bloddy Beggar</p>
               <div>
@@ -298,24 +303,26 @@ function Laptop1() {
                   setView("");
                 }}
               >
-                {enter === "image3" ? (
-                  <video
-                    ref={(el) => (videoRefs.current["image3"] = el)}
-                    className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
-                    autoPlay
-                    muted
-                    playsInline
-                    loop
-                    preload="auto"
-                    src="/vfx/videos/demonte colony.mp4"
-                  ></video>
-                ) : (
-                  <img
-                    className="absolute top-0 left-0 w-full h-full object-cover"
-                    src="https://m.media-amazon.com/images/M/MV5BNGE3Yjg4MzYtM2E0Zi00ODFkLTk1YWYtMDVlZTVmMTg3ODE1XkEyXkFqcGc@._V1_.jpg"
-                    alt="Demonte"
-                  />
-                )}
+                <Link href="/work/vfx/3">
+                  {enter === "image3" ? (
+                    <video
+                      ref={(el) => (videoRefs.current["image3"] = el)}
+                      className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
+                      autoPlay
+                      muted
+                      playsInline
+                      loop
+                      preload="auto"
+                      src="/vfx/videos/demonte colony.mp4"
+                    ></video>
+                  ) : (
+                    <img
+                      className="absolute top-0 left-0 w-full h-full object-cover"
+                      src="https://m.media-amazon.com/images/M/MV5BNGE3Yjg4MzYtM2E0Zi00ODFkLTk1YWYtMDVlZTVmMTg3ODE1XkEyXkFqcGc@._V1_.jpg"
+                      alt="Demonte"
+                    />
+                  )}
+                </Link>
               </div>
               <p className="text-white  image3 -mt-16">Demonte Colony</p>
             </div>
@@ -331,24 +338,26 @@ function Laptop1() {
                   setView("");
                 }}
               >
-                {enter === "image4" ? (
-                  <video
-                    ref={(el) => (videoRefs.current["image4"] = el)}
-                    className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
-                    autoPlay
-                    muted
-                    preload="auto"
-                    playsInline
-                    loop
-                    src="/vfx/videos/ThangalanCut.mp4"
-                  ></video>
-                ) : (
-                  <img
-                    className="absolute top-0 left-0 w-full h-full object-cover"
-                    src="https://m.media-amazon.com/images/M/MV5BYWUwZmEwMmMtZGU1ZS00Njg0LWE3MWMtYmIzMjVhM2FlYjkzXkEyXkFqcGc@._V1_.jpg"
-                    alt=""
-                  />
-                )}
+                <Link href="/work/vfx/7">
+                  {enter === "image4" ? (
+                    <video
+                      ref={(el) => (videoRefs.current["image4"] = el)}
+                      className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
+                      autoPlay
+                      muted
+                      preload="auto"
+                      playsInline
+                      loop
+                      src="/vfx/videos/ThangalanCut.mp4"
+                    ></video>
+                  ) : (
+                    <img
+                      className="absolute top-0 left-0 w-full h-full object-cover"
+                      src="https://m.media-amazon.com/images/M/MV5BYWUwZmEwMmMtZGU1ZS00Njg0LWE3MWMtYmIzMjVhM2FlYjkzXkEyXkFqcGc@._V1_.jpg"
+                      alt=""
+                    />
+                  )}
+                </Link>
               </div>
               <p className="text-white  image3 -mt-16">Thangalan</p>
             </div>
