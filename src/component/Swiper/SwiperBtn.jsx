@@ -297,13 +297,16 @@ export default function App() {
             <div key={index} className="group p-6 max-w-md">
               <ul className="text-lg font-bold text-white">
                 <li className="relative">
-                  <span className="cursor-pointer p-2 rounded-md laptop:text-sm largeLaptop:text-base">
+                  <span className="cursor-pointer capitalize p-2 rounded-md laptop:text-sm largeLaptop:text-base">
                     {menu.title}
                   </span>
                   {menu.items.map((item, idx) => (
                     <>
                       {nav === item.split(" ").join("") && (
-                        <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-white"></span>
+                        <span
+                          className="absolute -bottom-1 left-0 w-full h-[2px] bg-white
+                        capitalize"
+                        ></span>
                       )}
                     </>
                   ))}
@@ -322,7 +325,7 @@ export default function App() {
                             );
                             handleSlideTo(0);
                           }}
-                          className={`hover:text-blue-500 laptop:text-sm largeLaptop:text-base cursor-pointer text-black ${
+                          className={`hover:text-blue-500 capitalize laptop:text-sm largeLaptop:text-base cursor-pointer text-black ${
                             nav == formatted ? "text-blue-500" : ""
                           }`}
                         >
