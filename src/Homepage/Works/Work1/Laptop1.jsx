@@ -313,7 +313,7 @@ function Laptop1() {
                   <img
                     className="absolute top-0 left-0 w-full h-full object-cover"
                     src="https://m.media-amazon.com/images/M/MV5BNGE3Yjg4MzYtM2E0Zi00ODFkLTk1YWYtMDVlZTVmMTg3ODE1XkEyXkFqcGc@._V1_.jpg"
-                    alt=""
+                    alt="Demonte"
                   />
                 )}
               </div>
