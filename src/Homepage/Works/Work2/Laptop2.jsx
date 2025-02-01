@@ -136,10 +136,10 @@ function Laptop2() {
   }, []);
 
   const pictures = [
-    { src: "/2dAnimations/Flash_Demo.mp4", width: 800, height: 600 },
-    { src: "/2dAnimations/video2.mp4", width: 800, height: 600 },
-    { src: "/2dAnimations/Flash_Demo.mp4", width: 800, height: 600 },
-    { src: "/2dAnimations/video2.mp4", width: 800, height: 600 },
+    { src: "/2dAnimations/videos/Flash_Demo.mp4", width: 800, height: 600 },
+    { src: "/2dAnimations/videos/video2.mp4", width: 800, height: 600 },
+    { src: "/2dAnimations/videos/Flash_Demo.mp4", width: 800, height: 600 },
+    { src: "/2dAnimations/videos/video2.mp4", width: 800, height: 600 },
   ];
 
   return (

@@ -32,8 +32,9 @@ function Page({ params }) {
   const selectedItem = items.find((data) => data.id == id);
   const currentIndex = items.findIndex((data) => data.id == id);
   const nextProject = items[currentIndex + 1] || items[0];
+  const nextProjectImg = nextProject?.mainImg;
   const [motionName, setMotionName] = useState("scroll");
-  console.log(nextProject);
+  console.log(nextProjectImg);
 
   const [isHovering, setIsHovering] = useState(true);
 
@@ -345,9 +346,7 @@ function Page({ params }) {
           }}
           onMouseLeave={() => setIsHovering(false)}
           style={{
-            backgroundImage: `url(${
-              nextProject?.mainImg || "/placeholder.jpg"
-            })`,
+            backgroundImage: `url("${nextProjectImg}")`,
             backgroundAttachment: "fixed",
             top: "0px",
             left: "0px",
@@ -364,7 +363,7 @@ function Page({ params }) {
               >
                 <Image
                   fill
-                  src={nextProject?.mainImg || "/placeholder.jpg"} // Ensure a fallback image
+                  src={nextProjectImg || "/placeholder.jpg"} // Ensure a fallback image
                   alt="Selected Item Image" // Add an alt attribute for accessibility
                   className="object-cover h-full w-full"
                 />

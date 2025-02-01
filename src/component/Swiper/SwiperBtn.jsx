@@ -288,28 +288,16 @@ export default function App() {
       </div>
 
       <div
-        className="fixed tablet:text-xl w-full px-5 justify-center largeLaptop:px-20  text-xs flex gap-5 tablet:gap-1 font-black top-24
+        className="fixed tablet:text-xl w-full px-20  text-xs flex gap-5 tablet:gap-1 font-black top-24
          tablet:top-1/4 laptop:top-24 largeLaptop:top-32
        left-[50%] translate-x-[-50%] z-50 count"
       >
-        {/* {categories.map((category) => (
-          <p
-            key={category}
-            className="cursor-pointer relative category capitalize"
-            onClick={() => setNav(category)}
-          >
-            {category}
-            {nav === category && (
-              <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-white"></span>
-            )}
-          </p>
-        ))} */}
-        <div className="flex flex-wrap justify-center gap-4 ">
+        <div className="flex flex-nowrap justify-center gap-2 w-full ">
           {menus.map((menu, index) => (
             <div key={index} className="group p-6 max-w-md">
               <ul className="text-lg font-bold text-white">
                 <li className="relative">
-                  <span className="cursor-pointer p-2 rounded-md laptop:text-base largeLaptop:text-lg">
+                  <span className="cursor-pointer p-2 rounded-md laptop:text-sm largeLaptop:text-base">
                     {menu.title}
                   </span>
                   {menu.items.map((item, idx) => (
@@ -324,12 +312,13 @@ export default function App() {
                     {menu.items.map((item, idx) => (
                       <li
                         key={idx}
-                        onClick={() =>
+                        onClick={() => {
                           setNav(
                             item.includes(" ") ? item.split(" ").join("") : item
-                          )
-                        }
-                        className={`hover:text-blue-500 laptop:text-base largeLaptop:text-lg cursor-pointer text-black ${
+                          );
+                          handleSlideTo(0);
+                        }}
+                        className={`hover:text-blue-500 laptop:text-sm largeLaptop:text-base cursor-pointer text-black ${
                           nav == item && "text-blue-500"
                         }`}
                       >
@@ -355,22 +344,24 @@ export default function App() {
       </div>
 
       <div
-        className="fixed top-1/4 left-1/2 laptop:top-2/4 laptop:left-56 tablet:top-2/4 tablet:left-14 tablet:gap-3 flex flex-col 
+        className="fixed top-1/4 left-1/2 laptop:top-2/4 laptop:left-40 tablet:top-2/4 tablet:left-14 tablet:gap-3 flex flex-col 
             transform -translate-x-1/2 -translate-y-1/2 tablet:-translate-x-0 tablet:translate-y-0 tablet:text-lg text-xs z-20 text-white"
       >
         {filteredData.map((data, dataIndex) => (
-          <div key={`${dataIndex}`} className="overflow-hidden">
+          <div key={`${dataIndex}`} className="overflow-hidden -z-10">
             <div
               className="font-bold tablet:text-4xl capitalize text-base "
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
             >
-              <p className="title">{data?.items[selected - 1]?.title}</p>
+              <p className="title tablet:max-w-sm">
+                {data?.items[selected - 1]?.title}
+              </p>
             </div>
 
             <div
-              className="font-medium tablet:text-xl text-sm capitalize"
+              className="font-medium tablet:text-xl text-sm capitalize mt-2"
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}

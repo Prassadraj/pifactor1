@@ -74,12 +74,12 @@ function About() {
   }, []);
 
   return (
-    <div className={` ${montserrat.className}`}>
+    <div className={` ${montserrat.className} container w-full h-full`}>
       {/* Banner Section */}
       <div
         className={`banner h-[150vh] relative w-full ${montserrat.className}`}
       >
-        <div className="parallax-container h-[100vh] sticky top-0 overflow-hidden">
+        <div className="parallax-container h-screen sticky top-0 overflow-hidden">
           <Image
             src={images[5]}
             alt="Dynamic Parallax Background"

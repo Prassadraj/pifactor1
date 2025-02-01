@@ -9,7 +9,7 @@ import Lenis from "@studio-freight/lenis";
 import Work4 from "@/Homepage/Works/Work4/Work4";
 import Spread from "@/component/Spread/Spread";
 import Footer from "@/component/Footer/Footer";
-import Section2 from "@/Homepage/VideoSection1/Section2";
+
 
 export default function Home() {
   const [show, setShow] = useState(false);
@@ -47,9 +47,7 @@ export default function Home() {
       <div className="">
         <Section />
       </div>
-      {/* <div className="tablet:hidden ">
-        <Section2 />
-      </div> */}
+
 
       {/* Conditionally render components after 5 seconds */}
       {show && (

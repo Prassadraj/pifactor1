@@ -231,7 +231,7 @@ function Section() {
           <div className="block"></div>
         </div>
         {!hasPlayedOnce && (
-          <div className={`header ${montserrat.className}`}>
+          <div className={`header  ${montserrat.className}`}>
             {[
               "P",
               "i",
