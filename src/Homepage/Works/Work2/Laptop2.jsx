@@ -15,27 +15,25 @@ gsap.registerPlugin(ScrollTrigger);
 function Laptop2() {
   const containerRef = useRef(null);
   const videoRefs = useRef([]); // Store references to each video element
-
+  useEffect(() => {
+    gsap.fromTo(
+      ".text p",
+      { y: 150, opacity: 0 },
+      {
+        y: 0,
+        scrollTrigger: {
+          trigger: ".text",
+        },
+        duration: 1,
+        opacity: 1,
+        ease: "power3.out",
+        delay: 0.5,
+        stagger: 0.1,
+      }
+    );
+  }, []);
   useEffect(() => {
     if (typeof window !== "undefined") {
-      gsap.fromTo(
-        ".text p",
-        { y: 150 },
-        {
-          y: 0,
-          scrollTrigger: {
-            trigger: ".text",
-            start: "top 90%",
-            end: "bottom 80%",
-            scrub: 2,
-          },
-          duration: 0.5,
-          ease: "power3.out",
-          delay: 0.2,
-          stagger: 0.1,
-        }
-      );
-
       const triggers = [
         { class: "animations1", start: "top 50%", end: "bottom 70%" },
         { class: "animations2", start: "top 50%", end: "bottom 50%" },

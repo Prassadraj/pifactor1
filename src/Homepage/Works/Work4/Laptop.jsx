@@ -59,13 +59,14 @@ export default function Laptop4() {
 
     gsap.fromTo(
       ".wedding p",
-      { y: 150 },
+      { y: 150, opacity: 0 },
       {
         y: 0,
+        opacity: 1,
         scrollTrigger: ".wedding",
-        duration: 0.5,
+        duration: 1,
         ease: "power3.out",
-        delay: 0.2,
+        delay: 0.5,
         stagger: 0.1,
       }
     );

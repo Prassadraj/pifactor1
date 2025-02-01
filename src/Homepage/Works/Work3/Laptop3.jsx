@@ -16,7 +16,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Laptop3() {
   const container = useRef(null);
-
+  useEffect(() => {
+    gsap.fromTo(
+      ".third p",
+      {
+        y: 150,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        scrollTrigger: ".third",
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.5,
+        stagger: 0.1,
+      }
+    );
+  }, []);
   useEffect(() => {
     gsap.to(".ImageWrapper", {
       x: 190,
@@ -42,22 +59,6 @@ function Laptop3() {
       },
     });
 
-    gsap.fromTo(
-      ".text1 p",
-      {
-        y: 150,
-      },
-      {
-        y: 0,
-        scrollTrigger: ".text1",
-
-        duration: 0.5,
-        ease: "power3.out",
-        delay: 0.2,
-        stagger: 0.1,
-      }
-    );
-
     // Cleanup on component unmount
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Correct way to kill all ScrollTriggers
@@ -67,7 +68,7 @@ function Laptop3() {
   return (
     <div className="fullContainer h-[200vh] tablet:py-20 " useRef={container}>
       <div
-        className="text1 laptop:px-20 tablet:px-10  flex overflow-hidden"
+        className="third laptop:px-20 tablet:px-10  flex overflow-hidden"
         style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
       >
         {" 3D Animations".split("").map((text, i) => (
@@ -92,16 +93,16 @@ function Laptop3() {
           </div>
           <div className="ImageWrapper">
             <div className="laptop:w-[35rem] tablet:w-[20rem] h-full ">
-            <Link href='/work/Animations/2'>
-              <video
-                className="h-full w-full object-cover"
-                src="/3dAnimations/videos/cell_07.mp4"
-                autoPlay
-                playsInline
-                loop
-                muted
-                preload="auto"
-              ></video>
+              <Link href="/work/Animations/2">
+                <video
+                  className="h-full w-full object-cover"
+                  src="/3dAnimations/videos/cell_07.mp4"
+                  autoPlay
+                  playsInline
+                  loop
+                  muted
+                  preload="auto"
+                ></video>
               </Link>
             </div>
           </div>
@@ -145,7 +146,7 @@ function Laptop3() {
           </div>
           <div className="ImageWrapper2">
             <div className="laptop:w-[35rem] tablet:w-[25rem] h-full ">
-              <Link href='/work/Animations/1'>
+              <Link href="/work/Animations/1">
                 <video
                   className="h-full w-full object-cover"
                   src="/3dAnimations/videos/architectural.mp4"

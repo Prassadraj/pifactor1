@@ -51,7 +51,7 @@ function Laptop() {
     gsap.to(".sentence", {
       y: 0,
       scale: 1.1,
-      duration: 0.5,
+      duration: 1,
       ease: "power3.inOut",
       scrollTrigger: {
         trigger: ".spread",
@@ -75,7 +75,7 @@ function Laptop() {
         scrollTrigger: {
           trigger: ".spreadText",
         },
-        duration: 0.5,
+        duration: 1,
         delay: 0.5,
         ease: "power3.out",
         stagger: {
@@ -96,7 +96,7 @@ function Laptop() {
         y: 0,
         scrollTrigger: ".spreadText2",
         skewY: "0deg",
-        duration: 0.5,
+        duration: 1,
         ease: "power3.out",
         delay: 0.5,
         stagger: 0.1,
