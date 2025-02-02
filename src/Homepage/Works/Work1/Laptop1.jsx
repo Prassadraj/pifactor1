@@ -30,6 +30,12 @@ function Laptop1() {
   const videoRefs = useRef({}); // Object to store refs for multiple video elements
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [view, setView] = useState("");
+  const [loading, setLoading] = useState({
+    image1: true,
+    image2: true,
+    image3: true,
+    image4: true,
+  });
   useEffect(() => {
     const mouseMove = (e) => {
       setMousePosition({
@@ -189,7 +195,7 @@ function Laptop1() {
               <p className="font-medium text-xl vfx">VFX</p>
               {/* for lap */}
               <div
-                className="tablet:w-full hidden tablet:block h-[800px]   relative image1"
+                className="tablet:w-full hidden tablet:block h-[800px] !w-[650px]  relative image1"
                 onMouseEnter={() => {
                   handleMouseEnter("image1");
                   setView("default");
@@ -198,15 +204,24 @@ function Laptop1() {
                   handleMouseLeave("image1");
                   setView("");
                 }}
-                style={{ clipPath: "polygon(0 0, 61% 0, 62% 100%, 0% 100%)" }}
+                style={{ clipPath: "polygon(0 0, 72% 0, 72% 100%, 0% 100%)" }}
               >
+                {loading.image1 && (
+                  <div className="absolute top-0 left-0 w-full h-full object-cover bg-gray-200 animate-pulse"></div>
+                )}
                 <Link href="/work/vfx/1">
                   {enter === "image1" ? (
                     <video
                       ref={(el) => (videoRefs.current["image1"] = el)}
-                      className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
+                      className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer "
                       autoPlay
                       playsInline
+                      onLoadedData={() =>
+                        setLoading((prev) => ({
+                          ...prev,
+                          image1: false,
+                        }))
+                      }
                       muted
                       loop
                       src="/vfx/videos/jesseyCut.mp4"
@@ -221,7 +236,7 @@ function Laptop1() {
                 </Link>
               </div>
 
-              <p className="text-white image1 -mt-20">JESSEY</p>
+              <p className="text-white image1 -mt-16">JESSEY</p>
             </div>
             {/* right side  */}
             <div className="tablet:w-[50%] h-full flex  flex-col justify-between">
@@ -250,12 +265,19 @@ function Laptop1() {
                   setView("");
                 }}
               >
+                {" "}
+                {loading.image2 && (
+                  <div className="absolute top-0 left-0 w-full h-full object-cover bg-gray-200 animate-pulse"></div>
+                )}
                 <Link href="/work/vfx/2">
                   {enter === "image2" ? (
                     <video
                       ref={(el) => (videoRefs.current["image2"] = el)}
                       className="absolute top-0 !right-0 w-full h-full object-cover cursor-pointer"
                       autoPlay
+                      onLoadedData={() =>
+                        setLoading((prev) => ({ ...prev, image2: false }))
+                      }
                       muted
                       preload="auto"
                       playsInline
@@ -303,6 +325,9 @@ function Laptop1() {
                   setView("");
                 }}
               >
+                {loading.image3 && (
+                  <div className="absolute top-0 left-0 w-full h-full object-cover bg-gray-200 animate-pulse"></div>
+                )}
                 <Link href="/work/vfx/3">
                   {enter === "image3" ? (
                     <video
@@ -312,6 +337,9 @@ function Laptop1() {
                       muted
                       playsInline
                       loop
+                      onLoadedData={() =>
+                        setLoading((prev) => ({ ...prev, image3: false }))
+                      }
                       preload="auto"
                       src="/vfx/videos/demonte colony.mp4"
                     ></video>
@@ -338,6 +366,9 @@ function Laptop1() {
                   setView("");
                 }}
               >
+                {loading.image4 && (
+                  <div className="absolute top-0 left-0 w-full h-full object-cover bg-gray-200 animate-pulse"></div>
+                )}
                 <Link href="/work/vfx/7">
                   {enter === "image4" ? (
                     <video
@@ -347,6 +378,9 @@ function Laptop1() {
                       muted
                       preload="auto"
                       playsInline
+                      onLoadedData={() =>
+                        setLoading((prev) => ({ ...prev, image4: false }))
+                      }
                       loop
                       src="/vfx/videos/ThangalanCut.mp4"
                     ></video>

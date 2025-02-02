@@ -39,6 +39,7 @@ function Laptop() {
       y: -40,
       scale: 1.1,
       duration: 2,
+      delay:0.5,
       ease: "power3.inOut",
       scrollTrigger: {
         trigger: ".spread",
@@ -52,6 +53,7 @@ function Laptop() {
       y: 0,
       scale: 1.1,
       duration: 1,
+      delay:0.5,
       ease: "power3.inOut",
       scrollTrigger: {
         trigger: ".spread",
