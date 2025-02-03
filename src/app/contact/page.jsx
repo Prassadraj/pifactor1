@@ -67,13 +67,6 @@ function Page() {
 
   useEffect(() => {
     gsap.fromTo(
-      ".marquee",
-      {
-        scale: 2,
-      },
-      { scale: 1, duration: 1, ease: "power3.out", skewX: "0deg" }
-    );
-    gsap.fromTo(
       ".img",
       {
         opacity: 0.1,
@@ -171,36 +164,3 @@ function Page() {
 }
 
 export default Page;
-{
-  /* <div
-className={`h-[110vh] relative flex flex-col ${montserrat.className}`}
->
-<div
-  className="absolute z-10 left-1/2 top-2/4 transform -translate-x-1/2 -translate-y-1/2 w-[300px] 
-h-[500px]"
->
-  <Image
-    src="/contactUs.jpg" // Path relative to the 'public' folder
-    alt="Contact Us Image"
-    fill
-    className="object-cover" // Ensures the image covers the container without distortion
-  />
-</div>
-<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
-  <marquee
-    behavior="scroll"
-    direction="left"
-    scrollamount="10" // Adjust this value for speed (lower value = slower)
-    className={`text-[90px] font-bold ${montserratLight.className}`}
-  >
-    Get in touch · 保持联系 · Ponerse en contacto · Neem contact op ·
-  </marquee>
-</div>
-<div className="absolute bottom-0 px-7">
-  <p className="text-2xl font-medium">
-    "All set for takeoff? Drop us a ping, send a tweet, message, or
-    poke, and we’ll be back in a flash!"
-  </p>
-</div>
-</div> */
-}

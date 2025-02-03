@@ -207,7 +207,13 @@ function Laptop1() {
                 style={{ clipPath: "polygon(0 0, 72% 0, 72% 100%, 0% 100%)" }}
               >
                 {loading.image1 && (
-                  <div className="absolute top-0 left-0 w-full h-full object-cover bg-gray-200 animate-pulse"></div>
+                  <div className="absolute top-0 left-0 w-full h-full object-cover animate-pulse">
+                    <img
+                      className=" w-full h-full object-cover"
+                      src="/vfx/pics/Jessey.webp"
+                      alt=""
+                    />
+                  </div>
                 )}
                 <Link href="/work/vfx/1">
                   {enter === "image1" ? (
@@ -267,7 +273,13 @@ function Laptop1() {
               >
                 {" "}
                 {loading.image2 && (
-                  <div className="absolute top-0 left-0 w-full h-full object-cover bg-gray-200 animate-pulse"></div>
+                  <div className="absolute top-0 left-0 w-full h-full object-cover animate-pulse">
+                    <img
+                      className="w-full h-full object-cover"
+                      src="/vfx/pics/Bloody Begger.webp"
+                      alt=""
+                    />
+                  </div>
                 )}
                 <Link href="/work/vfx/2">
                   {enter === "image2" ? (
@@ -326,7 +338,13 @@ function Laptop1() {
                 }}
               >
                 {loading.image3 && (
-                  <div className="absolute top-0 left-0 w-full h-full object-cover bg-gray-200 animate-pulse"></div>
+                  <div className="absolute top-0 left-0 w-full h-full object-cover animate-pulse">
+                    <img
+                      className=" w-full h-full object-cover"
+                      src="https://m.media-amazon.com/images/M/MV5BNGE3Yjg4MzYtM2E0Zi00ODFkLTk1YWYtMDVlZTVmMTg3ODE1XkEyXkFqcGc@._V1_.jpg"
+                      alt="Demonte"
+                    />
+                  </div>
                 )}
                 <Link href="/work/vfx/3">
                   {enter === "image3" ? (
@@ -367,7 +385,13 @@ function Laptop1() {
                 }}
               >
                 {loading.image4 && (
-                  <div className="absolute top-0 left-0 w-full h-full object-cover bg-gray-200 animate-pulse"></div>
+                  <div className="absolute top-0 left-0 w-full h-full object-cover animate-pulse">
+                    <img
+                      className=" w-full h-full object-cover"
+                      src="https://m.media-amazon.com/images/M/MV5BYWUwZmEwMmMtZGU1ZS00Njg0LWE3MWMtYmIzMjVhM2FlYjkzXkEyXkFqcGc@._V1_.jpg"
+                      alt=""
+                    />
+                  </div>
                 )}
                 <Link href="/work/vfx/7">
                   {enter === "image4" ? (

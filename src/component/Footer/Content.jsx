@@ -77,7 +77,7 @@ const Nav = () => {
           <div className="w-1/2 mt-10 tablet:mt-0 hidden tablet:block">
             <video
               ref={videoRef}
-              className="tablet:h-full tablet:w-full scale-[2.2]  tablet:scale-y-150 tablet:scale-x-150  
+              className="tablet:h-full tablet:w-full scale-[3]  tablet:scale-y-150 tablet:scale-x-150  
              opacity-85  z-0"
               autoPlay
               muted
