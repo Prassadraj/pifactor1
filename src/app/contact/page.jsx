@@ -7,6 +7,7 @@ import Footer from "@/component/Footer/Footer";
 import styles from "./styles.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { usePathname } from "next/navigation";
 const montserrat = Montserrat({
   subsets: ["latin"],
 });
@@ -25,6 +26,17 @@ function Page() {
   const slider = useRef(null);
   let xPercent = 0;
   let direction = -1;
+  const path = usePathname();
+  useEffect(() => {
+    gsap
+      .timeline({ delay: 0 })
+      .to(".block", {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        duration: 0.8,
+        stagger: { amount: 0.5, from: "random", ease: "power3.out" },
+      })
+      .to(".blocks", { zIndex: 0 });
+  }, []);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -72,6 +84,16 @@ function Page() {
   }, []);
   return (
     <>
+      {" "}
+      <div
+        className={`blocks ${styles.blocks} ${
+          path === "/contact" ? "z-50" : "z-0"
+        }`}
+      >
+        {Array.from({ length: 5 }).map((_, index) => (
+          <div key={index} className={`block ${styles.block}`}></div>
+        ))}
+      </div>
       <div className="tablet:pt-[5vh] pt-[15vh] tablet:h-screen h-fit flex flex-col ">
         <div
           className="flex justify-center items-center tablet:ml-32 px-10 z-10 h-[420px] tablet:h-[700px] 

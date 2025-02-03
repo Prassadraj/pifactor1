@@ -217,53 +217,54 @@ export default function App() {
         className="mySwiper"
       >
         {filteredData.map((data, index) =>
-          data.items.map((item, itemIndex) => (
-            <SwiperSlide key={itemIndex}>
-              <div
-                key={itemIndex}
-                className="relative h-full w-full"
-                onMouseEnter={() => setIsHovering(true)}
-              >
-                <Link
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault(); // Prevent default link behavior
-                    handleNavigation(nav, item.id); // Trigger animation and navigation
-                  }}
-                  aria-label={`View details of slide ${itemIndex + 1}`}
+          data.items.map((item, itemIndex) => {
+            const coverImg = item.mainImg;
+            return (
+              <SwiperSlide key={itemIndex}>
+                <div
+                  key={itemIndex}
+                  className="relative h-full w-full"
+                  onMouseEnter={() => setIsHovering(true)}
                 >
-                  <Image
-                    src={item.mainImg} // Use item.mainImg dynamically
-                    alt={`Slide ${itemIndex + 1}`}
-                    className="object-cover cursor-pointer transition-opacity duration-1000 images opacity-50"
-                    fill
-                    quality={50}
-                    loading={itemIndex === 0 ? "eager" : "lazy"} // Load first image eagerly
-                    priority={itemIndex === 0} // Priority load for the first image
-                  />
-                  <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
-                    <div
-                      className="relative laptop:w-[25%] w-[60%] h-[400px]
-              tablet:w-[50%] top-[2%] tablet:top-[8%] laptop:top-[12%] largeLaptop:top-[10%] tablet:h-1/2 laptop:h-[400px] overflow-hidden"
-                      style={{
-                        clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)", // Adds a visible effect
-                      }}
-                    >
-                      <Image
-                        src={item.mainImg} // Use item.mainImg dynamically here as well
-                        alt={`Slide ${itemIndex + 1} inner`}
-                        className="object-cover transition-opacity duration-1000 image"
-                        fill
-                        quality={60}
-                        loading={itemIndex === 0 ? "eager" : "lazy"}
-                        priority={itemIndex === 0}
-                      />
+                  <Link
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent default link behavior
+                      handleNavigation(nav, item.id); // Trigger animation and navigation
+                    }}
+                    aria-label={`View details of slide ${itemIndex + 1}`}
+                  >
+                    <Image
+                      src={coverImg} // Use item.mainImg dynamically
+                      alt={`Slide ${itemIndex + 1}`}
+                      className="object-cover cursor-pointer transition-opacity duration-1000 images opacity-50"
+                      fill
+                      quality={50}
+                      priority
+                    />
+                    <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
+                      <div
+                        className="relative laptop:w-[25%] w-[60%] h-[400px]
+            tablet:w-[50%] top-[2%] tablet:top-[8%] laptop:top-[12%] largeLaptop:top-[10%] tablet:h-1/2 laptop:h-[400px] overflow-hidden"
+                        style={{
+                          clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)", // Adds a visible effect
+                        }}
+                      >
+                        <Image
+                          src={coverImg} // Use item.mainImg dynamically here as well
+                          alt={`Slide ${itemIndex + 1} inner`}
+                          className="object-cover transition-opacity duration-1000 image"
+                          fill
+                          quality={60}
+                          priority
+                        />
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              </div>
-            </SwiperSlide>
-          ))
+                  </Link>
+                </div>
+              </SwiperSlide>
+            );
+          })
         )}
       </Swiper>
 

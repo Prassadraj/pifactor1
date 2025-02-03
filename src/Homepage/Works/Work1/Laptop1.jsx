@@ -224,7 +224,7 @@ function Laptop1() {
                       }
                       muted
                       loop
-                      src="/vfx/videos/jesseyCut.mp4"
+                      src="https://content.jwplatform.com/videos/fjE4aauB-ipP9F2S5.mp4"
                     ></video>
                   ) : (
                     <img
@@ -282,7 +282,7 @@ function Laptop1() {
                       preload="auto"
                       playsInline
                       loop
-                      src="/vfx/videos/bloddybeggarCut.mp4"
+                      src="https://content.jwplatform.com/videos/slKgtHps-fhvXikbL.mp4"
                     ></video>
                   ) : (
                     <img
@@ -341,7 +341,7 @@ function Laptop1() {
                         setLoading((prev) => ({ ...prev, image3: false }))
                       }
                       preload="auto"
-                      src="/vfx/videos/demonte colony.mp4"
+                      src="https://content.jwplatform.com/videos/WOeBpRnm-0mxr4nad.mp4"
                     ></video>
                   ) : (
                     <img
@@ -382,7 +382,7 @@ function Laptop1() {
                         setLoading((prev) => ({ ...prev, image4: false }))
                       }
                       loop
-                      src="/vfx/videos/ThangalanCut.mp4"
+                      src="https://content.jwplatform.com/videos/XyRl29cO-fhvXikbL.mp4"
                     ></video>
                   ) : (
                     <img

@@ -11,19 +11,19 @@ function Works() {
 
   useEffect(() => {
     gsap
-      .timeline({ delay: 0 })
+      .timeline({ delay: 0.2 })
       .to(".block", {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-        duration: 0.7,
+        duration: 1,
         stagger: { amount: 0.5, from: "random", ease: "power3.out" },
       })
-      .to(".blocks", { zIndex: 0 });
+      .fromTo(".blocks", { zIndex: 999 }, { zIndex: 0 });
   }, []);
 
   return (
     <div>
       {/* Blocks Animation Layer */}
-      <div className={`blocks ${path === "/works" ? "z-50" : "z-0"}`}>
+      <div className={`blocks `}>
         {Array.from({ length: 5 }).map((_, index) => (
           <div key={index} className="block"></div>
         ))}
