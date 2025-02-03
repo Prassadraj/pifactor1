@@ -22,15 +22,7 @@ const montserraMedium = Montserrat({
 });
 
 function About() {
-  const images = [
-    "/images/1.webp",
-    "/images/2.webp",
-    "/images/3.webp",
-    "/images/4.webp",
-    "/images/5.webp",
-    "/images/6.webp",
-    "/images/7.webp",
-  ];
+  const images = ["/images/1.webp", "/images/pic1.jpg", "/images/pic3.jpg"];
   useEffect(() => {
     gsap
       .timeline({ delay: 0 })
@@ -91,14 +83,14 @@ function About() {
           <div key={index} className={`block`}></div>
         ))}
       </div>
-      <div className={` ${montserrat.className} container w-full h-full`}>
+      <div className={` ${montserrat.className}  w-full h-full`}>
         {/* Banner Section */}
         <div
           className={`banner h-[150vh] laptop:h-[1300px] relative w-full ${montserrat.className}`}
         >
           <div className="parallax-container w-full h-screen sticky top-0 overflow-hidden">
             <Image
-              src={images[5]}
+              src={images[2]}
               alt="Dynamic Parallax Background"
               className="parallax-image object-cover w-full h-full"
               fill

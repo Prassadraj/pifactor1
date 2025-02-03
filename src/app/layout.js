@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className="container ">
+      <body className=" ">
         <MyProvider>
           <Nav />
           {children}
