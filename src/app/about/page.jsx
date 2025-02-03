@@ -279,14 +279,14 @@ function About() {
               — Emotion sparks the transformation.
             </h1>
           </div>
-          <div className="flex justify-between items-start tablet:h-[300px] w-full tablet:mt-4">
+          <div className="flex flex-col items-center tablet:h-[300px] w-full tablet:mt-4">
             <div className=" items-center gap-2 tablet:flex hidden">
               {" "}
               <Image
                 src={spark}
                 width={20}
                 height={20}
-                className="w-5 tablet:w-10 aspect-square"
+                className="w-5 tablet:w-10 laptop:w-4 aspect-square"
                 alt="Sparkle Effect"
               />
               <p className="text-base tablet:text-lg tablet:text-nowrap ">
@@ -294,7 +294,7 @@ function About() {
               </p>
             </div>
             <p
-              className={`${montserratLight.className} text-base tablet:text-xl tablet:mt-20 tablet:px-10 leading-relaxed`}
+              className={`${montserratLight.className} text-base text-center tablet:text-xl tablet:mt-20 laptop:mt-5 tablet:px-10 lapleading-relaxed`}
             >
               We believe the best results come when data-driven insights ignite
               emotional connections, fostering deeper brand loyalty, lasting
@@ -304,9 +304,9 @@ function About() {
         </div>
 
         {/* design  */}
-        <div className="h-fit px-3  py-10 mt-10 flex flex-col gap-5 tablet:h-[500px] laptop:h-[600px] laptop:px-44">
+        <div className="h-fit px-3 laptop:items-end  py-10 mt-10 flex flex-col gap-5 tablet:h-[500px] laptop:h-[600px] laptop:px-20">
           <p
-            className={`text-[23px] tablet:text-[40px] laptop:text-[50px] laptop:text-left font-bold tablet:text-right  ${montserraMedium.className}`}
+            className={`text-[23px] tablet:text-[40px] laptop:text-[50px] laptop:text-right font-bold tablet:text-right   ${montserraMedium.className}`}
           >
             Innovation and transformation{" "}
             <p className="text-gold">through design.</p>
