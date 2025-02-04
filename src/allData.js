@@ -462,7 +462,7 @@ const allData = [
     items: [
       {
         id: 1,
-        title: "Diviya & jaga wedding Invite",
+        title: "Diviya & jaga",
         subTitle: "subTitle1",
         mainImg: "/wedding/pics/jaga.webp",
         images: [images[0], images[1], images[2]],
