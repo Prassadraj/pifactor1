@@ -355,7 +355,7 @@ export default function App() {
                       fill
                       // placeholder={coverImg}
                       quality={50}
-                      priority={itemIndex < 3}
+                      priority
                     />
                     <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
                       <div
@@ -372,7 +372,7 @@ export default function App() {
                           fill
                           // placeholder={coverImg}
                           quality={60}
-                          priority={itemIndex < 3}
+                          priority
                         />
                       </div>
                     </div>
