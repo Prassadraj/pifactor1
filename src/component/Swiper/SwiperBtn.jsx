@@ -328,7 +328,7 @@ export default function App() {
         direction="vertical"
         mousewheel={true}
         modules={[Mousewheel]}
-        className="mySwiper"
+        className="mySwiper "
       >
         {filteredImages.map((data, index) =>
           data.items.map((item, itemIndex) => {
@@ -351,7 +351,7 @@ export default function App() {
                     <Image
                       src={coverImg} // Use item.mainImg dynamically
                       alt={`Slide ${itemIndex + 1}`}
-                      className="object-cover cursor-pointer transition-opacity duration-1000 images opacity-50"
+                      className="object-cover cursor-pointer h-full w-full transition-opacity duration-1000 images opacity-50"
                       fill
                       // placeholder={coverImg}
                       quality={50}
