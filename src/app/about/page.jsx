@@ -33,6 +33,24 @@ function About() {
       })
       .fromTo(".blocks", { zIndex: 999 }, { zIndex: 0, display: "none" });
   }, []);
+  useEffect(() => {
+    gsap.to(
+      ".second",
+
+      {
+        marginTop: 0,
+        duration: 0.5,
+        ease: "power3.inOut",
+        scrollTrigger: {
+          trigger: ".second",
+          start: "top 70%",
+          end: "top 50%",
+          markers: true,
+          scrub: 1,
+        },
+      }
+    );
+  }, []);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -308,8 +326,8 @@ function About() {
           <p
             className={`text-[23px] tablet:text-[40px] laptop:text-[50px] laptop:text-right font-bold tablet:text-right   ${montserraMedium.className}`}
           >
-            Innovation and transformation{" "}
-            <p className="text-gold">through design.</p>
+            Innovation and transformation <br />
+            <span className="text-gold">through design.</span>
           </p>
           <p
             className={`${montserratLight.className} text-base tablet:text-2xl laptop:text-lg laptop:max-w-xl tablet:pl-32 laptop:pl-0 tablet:mt-10`}
@@ -322,7 +340,60 @@ function About() {
             resonate with purpose and artistry.
           </p>
         </div>
+        {/* <div className="flex py-10 relative flex-col px-3 h-[500px] w-full">
+          {/* First Content Section */}
+        <div className="absolute right-20 second top-0 mt-2 flex-col flex items-end">
+          {" "}
+          <div>
+            <p
+              className={`laptop:text-[50px] text-[23px] tablet:text-[40px] ${montserraMedium.className}`}
+            >
+              Innovation and transformation
+            </p>
+
+            <p
+              className={`laptop:text-[50px] text-[23px] tablet:text-[40px] text-right text-gold mb-3 ${montserraMedium.className}`}
+            >
+              through design.
+            </p>
+          </div>
+          <div className={`max-w-xl ${montserratLight.className}`}>
+            We are a collective of visionary VFX artists and tech innovators,
+            pushing the boundaries of the digital world with relentless passion
+            and dedication. Inspired by the magic of visual storytelling,
+            captivated by cutting-edge technology, and driven by an unwavering
+            commitment to creating breathtaking digital experiences that
+            resonate with purpose and artistry.
+          </div>
+        </div>
+        <div className="absolute right-20 top-0 flex-col flex items-end">
+          {" "}
+          <div>
+            <p
+              className={`laptop:text-[50px] text-[23px] tablet:text-[40px] ${montserraMedium.className}`}
+            >
+              Innovation and transformation
+            </p>
+
+            <p
+              className={`laptop:text-[50px] text-[23px] tablet:text-[40px] text-right text-gold mb-3 ${montserraMedium.className}`}
+            >
+              through design.
+            </p>
+          </div>
+          <div className={`max-w-xl ${montserratLight.className}`}>
+            We are a collective of visionary VFX artists and tech innovators,
+            pushing the boundaries of the digital world with relentless passion
+            and dedication. Inspired by the magic of visual storytelling,
+            captivated by cutting-edge technology, and driven by an unwavering
+            commitment to creating breathtaking digital experiences that
+            resonate with purpose and artistry.
+          </div>
+        </div>
+        {/* </div>  */}
+
         <Footer />
+        {/* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0); */}
       </div>
     </>
   );
