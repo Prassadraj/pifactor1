@@ -86,7 +86,7 @@ function About() {
       <div className={` ${montserrat.className}  w-full h-full`}>
         {/* Banner Section */}
         <div
-          className={`banner h-[150vh] laptop:h-[1300px] relative w-full ${montserrat.className}`}
+          className={`banner h-[170vh] laptop:h-[1300px] relative w-full ${montserrat.className}`}
         >
           <div className="parallax-container w-full h-screen sticky top-0 overflow-hidden">
             <Image
@@ -117,7 +117,7 @@ function About() {
               ⇩
             </div>
 
-            <div className="mt-20 tablet:mt-10 laptop:gap-5 laptop:mt-20  flex w-full flex-col items-end  ">
+            <div className="mt-10 tablet:mt-10 laptop:gap-5 laptop:mt-20  flex w-full flex-col items-end  ">
               <div className="laptop:w-1/2 flex-col flex gap-4">
                 <p className="font-bold text-lg laptop:text-3xl leading-relaxed text-left">
                   Turning ideas into immersive experiences with unparalleled
@@ -138,7 +138,7 @@ function About() {
         </div>
 
         {/* How We Work Section */}
-        <div className="h-fit px-3 py-5 tablet:py-20 tablet:px-5 flex-col flex gap-14 laptop:px-20">
+        <div className="h-fit px-3 py-10 tablet:py-32 tablet:px-5 flex-col flex gap-14 laptop:px-20">
           <div className="flex flex-col gap-6">
             <div className="flex gap-1 items-center">
               <Image src={spark} width={20} height={20} alt="Sparkle Effect" />
