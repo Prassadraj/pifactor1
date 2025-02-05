@@ -79,7 +79,7 @@ export default function App() {
     );
     gsap.fromTo(
       ".images",
-      { y: 50, scale: 0 },
+      { y: 50, scale: 0.5 },
       { y: 0, scale: 1, ease: "power2.out", duration: 2 } // Adjusted duration for smoother animation
     );
     gsap.fromTo(
@@ -241,7 +241,8 @@ export default function App() {
                         className="relative laptop:w-[25%] w-[60%] h-[400px]
             tablet:w-[50%] top-[2%] tablet:top-[8%] laptop:top-[12%] largeLaptop:top-[10%] tablet:h-1/2 laptop:h-[400px] overflow-hidden"
                         style={{
-                          clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)", // Adds a visible effect
+                          clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)",
+                          transition: "clip-path 0.5s ease-in-out", // Adds a visible effect
                         }}
                       >
                         <Image
@@ -359,7 +360,7 @@ export default function App() {
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
             >
-              <p className="title tablet:max-w-sm">
+              <p className="title tablet:max-w-xs text-wrap">
                 {data?.items[selected - 1]?.title}
               </p>
             </div>
