@@ -239,7 +239,7 @@ export default function App() {
                     <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
                       <div
                         className="relative laptop:w-[25%] w-[60%] h-[400px]
-            tablet:w-[50%] top-[2%] tablet:top-[8%] laptop:top-[12%] largeLaptop:top-[10%] tablet:h-1/2 laptop:h-[400px] overflow-hidden"
+            tablet:w-[50%] top-[2%] tablet:top-[8%] laptop:top-[12%] largeLaptop:top-[10%] tablet:h-1/2 laptop:h-[400px] overflow-hidden "
                         style={{
                           clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)",
                           transition: "clip-path 0.5s ease-in-out", // Adds a visible effect

@@ -45,7 +45,7 @@ function About() {
           trigger: ".second",
           start: "top 70%",
           end: "top 50%",
-          markers: true,
+
           scrub: 1,
         },
       }
@@ -342,7 +342,7 @@ function About() {
         </div>
         {/* <div className="flex py-10 relative flex-col px-3 h-[500px] w-full">
           {/* First Content Section */}
-        <div className="absolute right-20 second top-0 mt-2 flex-col flex items-end">
+        {/* <div className="absolute right-20 second top-0 mt-2 flex-col flex items-end">
           {" "}
           <div>
             <p
@@ -389,7 +389,7 @@ function About() {
             commitment to creating breathtaking digital experiences that
             resonate with purpose and artistry.
           </div>
-        </div>
+        </div> */}
         {/* </div>  */}
 
         <Footer />
