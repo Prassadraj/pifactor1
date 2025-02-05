@@ -19,126 +19,6 @@ const montserrat = Montserrat({
 });
 export default function App() {
   // vfx
-  const vfx1 = "/vfx/pics/Jessey.webp";
-  const vfx2 = "/vfx/pics/Bloody Begger.webp";
-  const vfx3 = "/vfx/pics/demonte colony.webp";
-  const vfx4 = "/vfx/pics/Mouse.webp";
-  const vfx5 = "/vfx/pics/Ox.webp";
-  const vfx6 = "/vfx/pics/Password.webp";
-  const vfx7 = "/vfx/pics/Thangalan.webp";
-  const vfx8 = "/vfx/pics/Vettaiyan.webp";
-
-  // TitleAnimation
-  const TitleAnimation1 = "/images/1.webp";
-
-  // LyricVideos
-  const LyricVideos1 = "/LyricVideos/pics/veesi.webp";
-  const LyricVideos2 = "/LyricVideos/pics/dha.webp";
-
-  // 2D Animations Stories
-  const Stories1 = "/2dAnimations/Pics/PI&PI.webp";
-  const Stories2 = "/2dAnimations/Pics/Flash1.webp";
-  const Stories3 = "/2dAnimations/Pics/Flash1.webp";
-
-  // Explainers
-  const Explainer1 = "/images/1.webp";
-
-  // 3D Animations / Previsualization
-  const Animation1 = "/3dAnimations/pics/architectural.webp";
-  const Animation2 = "/3dAnimations/pics/cell_07.webp";
-
-  // ProductPreviz
-  const ProductPreviz1 = "/images/1.webp";
-
-  // Wedding Invites
-  const ShortInvites1 = "/wedding/pics/jaga.webp";
-  const ShortInvites2 = "/wedding/pics/anil.webp";
-  const ShortInvites3 = "/wedding/pics/aishwarya.webp";
-
-  // StoryInvites
-  const StoryInvites = "/images/1.webp";
-
-  // Ads / Corporate - Ads
-  const Ads1 = "/ads/pics/MTR.webp";
-  const Ads2 = "/ads/pics/Soft Touch.webp";
-  const Ads3 = "/ads/pics/Santhoor.webp";
-
-  // Corporate
-  const Corporate1 = "/images/1.webp";
-
-  const images = [
-    {
-      category: "vfx",
-      items: [
-        { id: 1, mainImg: vfx1 },
-        { id: 2, mainImg: vfx2 },
-        { id: 3, mainImg: vfx3 },
-        { id: 4, mainImg: vfx4 },
-        { id: 5, mainImg: vfx5 },
-        { id: 6, mainImg: vfx6 },
-        { id: 7, mainImg: vfx7 },
-        { id: 8, mainImg: vfx8 },
-      ],
-    },
-    {
-      category: "TitleAnimation",
-      items: [{ id: 1, mainImg: TitleAnimation1 }],
-    },
-    {
-      category: "LyricVideos",
-      items: [
-        { id: 1, mainImg: LyricVideos1 },
-        { id: 2, mainImg: LyricVideos2 },
-      ],
-    },
-    {
-      category: "Stories",
-      items: [
-        { id: 1, mainImg: Stories1 },
-        { id: 2, mainImg: Stories2 },
-        { id: 3, mainImg: Stories3 },
-      ],
-    },
-    {
-      category: "Explainers",
-      items: [{ id: 1, mainImg: Explainer1 }],
-    },
-    {
-      category: "Animations",
-      items: [
-        { id: 1, mainImg: Animation1 },
-        { id: 2, mainImg: Animation2 },
-      ],
-    },
-    {
-      category: "ProductPreviz",
-      items: [{ id: 1, mainImg: ProductPreviz1 }],
-    },
-    {
-      category: "ShortInvites",
-      items: [
-        { id: 1, mainImg: ShortInvites1 },
-        { id: 2, mainImg: ShortInvites2 },
-        { id: 3, mainImg: ShortInvites3 },
-      ],
-    },
-    {
-      category: "StoryInvites",
-      items: [{ id: 1, mainImg: StoryInvites }],
-    },
-    {
-      category: "Ads",
-      items: [
-        { id: 1, mainImg: Ads1 },
-        { id: 2, mainImg: Ads2 },
-        { id: 3, mainImg: Ads3 },
-      ],
-    },
-    {
-      category: "Corporate",
-      items: [{ id: 1, mainImg: Corporate1 }],
-    },
-  ];
 
   const menus = [
     {
@@ -180,7 +60,6 @@ export default function App() {
   const router = useRouter();
 
   const filteredData = data.allData.filter((data) => nav == data.category);
-  const filteredImages = images.filter((data) => data.category == nav);
 
   useEffect(() => {
     animateImage();
@@ -330,7 +209,7 @@ export default function App() {
         modules={[Mousewheel]}
         className="mySwiper "
       >
-        {filteredImages.map((data, index) =>
+        {filteredData.map((data, index) =>
           data.items.map((item, itemIndex) => {
             const coverImg = item.mainImg;
             return (
