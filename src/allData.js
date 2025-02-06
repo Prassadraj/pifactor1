@@ -149,6 +149,7 @@ const allData = [
         id: 7,
         title: "Thangalan",
         subTitle: "subTitle3",
+        portrait: "/vfx/pics/thangalanPortrait.jpg",
         mainImg: "/vfx/pics/Thangalan.webp",
         images: [images[0], images[1], images[2]],
 

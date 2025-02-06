@@ -212,6 +212,7 @@ export default function App() {
         {filteredData.map((data, index) =>
           data.items.map((item, itemIndex) => {
             const coverImg = item.mainImg;
+            const portraitImg = item.portrait;
             return (
               <SwiperSlide key={itemIndex}>
                 <div
@@ -227,10 +228,11 @@ export default function App() {
                     }}
                     aria-label={`View details of slide ${itemIndex + 1}`}
                   >
+                    <div className="absolute top-0 w-full h-full left-0 bg-black/65 z-10"></div>
                     <Image
                       src={coverImg} // Use item.mainImg dynamically
                       alt={`Slide ${itemIndex + 1}`}
-                      className="object-cover cursor-pointer h-full w-full transition-opacity duration-1000 images opacity-50"
+                      className="object-cover cursor-pointer h-full w-full transition-opacity duration-1000 images "
                       fill
                       // placeholder={coverImg}
                       quality={50}
@@ -239,16 +241,16 @@ export default function App() {
                     <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
                       <div
                         className="relative laptop:w-[25%] w-[60%] h-[400px]
-            tablet:w-[50%] top-[2%] tablet:top-[8%] laptop:top-[12%] largeLaptop:top-[10%] tablet:h-1/2 laptop:h-[400px] overflow-hidden "
+            tablet:w-[50%] top-[2%] tablet:top-[8%] laptop:top-[12%] largeLaptop:top-[10%] tablet:h-1/2 laptop:h-[400px] overflow-hidden z-20"
                         style={{
                           clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)",
                           transition: "clip-path 0.5s ease-in-out", // Adds a visible effect
                         }}
                       >
                         <Image
-                          src={coverImg} // Use item.mainImg dynamically here as well
+                          src={portraitImg || coverImg} // Use item.mainImg dynamically here as well
                           alt={`Slide ${itemIndex + 1} inner`}
-                          className="object-cover transition-opacity duration-1000 image"
+                          className="object-cover transition-opacity duration-1000 image "
                           fill
                           // placeholder={coverImg}
                           quality={60}
