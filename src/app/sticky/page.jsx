@@ -14,7 +14,7 @@ const montserrat = Montserrat({
 });
 function Page() {
   const container = useRef(null);
-  const images = ["/images/baner (2).jpg", "/images/baner (3).jpg"];
+  const images = ["/images/baner.jpg", "/images/baner.jpg"];
 
   useEffect(() => {
     // GSAP animation for text gap
@@ -39,6 +39,22 @@ function Page() {
         },
       }
     );
+    gsap.to(
+      ".zoom",
+
+      {
+        scale: 1.03,
+        ease: "power2.inOut",
+        duration: 0.2,
+        scrollTrigger: {
+          trigger: ".video",
+          scrub: 1,
+
+          start: "top 60%",
+          end: "bottom center",
+        },
+      }
+    );
   }, []);
 
   return (
@@ -48,14 +64,17 @@ function Page() {
       <div className="w-full h-[300vh] video" ref={container}>
         {/* The element to be animated on scroll */}
         <div className=" h-[100vh] sticky top-0 w-full overflow-hidden  cursor-pointer flex z-0 bg-blue-300">
-          <div className="w-1/2 h-auto ">
-            {" "}
-            <Image
-              src={images[0]}
-              width={500}
-              height={500}
-              className="object-cover w-full h-full"
-            />
+          <div
+            className="w-1/2 h-auto zoom"
+            style={{
+              backgroundImage: "url('/images/baner.jpg')",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "left",
+              backgroundSize: "auto 1000px",
+              backgroundAttachment: "fixed",
+            }}
+          >
+            <div className="absolute top-0 left-0 w-full h-full bg-black/60"></div>{" "}
           </div>
           <p className="absolute left-10 top-1/2 max-w-lg">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed soluta
@@ -64,23 +83,25 @@ function Page() {
             nulla atque iste.
           </p>
           <div
-            className="bg-red-400 w-full h-screen move z-10 absolute left-0 top-0 flex
+            className=" w-full h-screen move z-10 absolute left-0 top-0 flex
           justify-center items-center "
           >
-            <div className="w-1/2 h-auto">
-              <Image
-                src={images[0]}
-                width={500}
-                height={500}
-                className="object-cover w-full h-auto scale-105 translate-y-20"
-              />
-            </div>
-            <div className="w-1/2">
+            <div className="absolute top-0 left-0 w-full h-full "></div>{" "}
+            <div
+              className="w-1/2 h-full  zoom "
+              style={{
+                backgroundImage: "url('/images/baner.jpg')",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "right",
+                backgroundSize: "auto 1000px",
+              }}
+            ></div>
+            <div className="w-1/2 p-10 text-white">
               <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et,
-                molestiae consequuntur numquam eveniet voluptatum corrupti
-                officia hic rem dicta mollitia sit ad iste rerum qui est, dolor
-                incidunt? Explicabo, laboriosam.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                tempora ad aliquid adipisci a omnis vero? Possimus laudantium
+                vel, saepe praesentium molestiae provident nihil voluptates
+                atque sequi voluptas facere ipsam.
               </p>
             </div>
           </div>
