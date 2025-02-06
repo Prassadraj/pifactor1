@@ -228,7 +228,7 @@ export default function App() {
                     }}
                     aria-label={`View details of slide ${itemIndex + 1}`}
                   >
-                    <div className="absolute top-0 w-full h-full left-0 bg-black/65 z-10"></div>
+                    <div className="absolute top-0 w-full h-full left-0 bg-black/80 z-10"></div>
                     <Image
                       src={coverImg} // Use item.mainImg dynamically
                       alt={`Slide ${itemIndex + 1}`}
