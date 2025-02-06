@@ -61,7 +61,7 @@ function Page() {
     <div className="bg-slate-600">
       <div className="h-screen bg-black"></div>
 
-      <div className="w-full h-[300vh] video" ref={container}>
+      <div className="w-full h-[350vh] video" ref={container}>
         {/* The element to be animated on scroll */}
         <div className=" h-[100vh] sticky top-0 w-full overflow-hidden  cursor-pointer flex z-0 bg-blue-300">
           <div
@@ -86,7 +86,7 @@ function Page() {
             className=" w-full h-screen move z-10 absolute left-0 top-0 flex
           justify-center items-center "
           >
-            <div className="absolute top-0 left-0 w-full h-full "></div>{" "}
+            <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-50 -translate-x-3"></div>{" "}
             <div
               className="w-1/2 h-full  zoom "
               style={{
