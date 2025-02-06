@@ -341,8 +341,8 @@ function Page({ params }) {
         </div>
       </div>
       <div>
-        <Zoom />
-        <div className="tablet:h-screen w-full h-fit  flex items-center justify-center">
+        <Zoom video={selectedItem.video} />
+        {/* <div className="tablet:h-screen w-full h-fit  flex items-center justify-center">
           <video
             preload="auto"
             autoPlay
@@ -352,7 +352,7 @@ function Page({ params }) {
             loop
             src={`${selectedItem.video}`}
           ></video>
-        </div>
+        </div> */}
         <Slider />
         <div
           className="tablet:h-screen w-full h-full"

@@ -22,7 +22,7 @@ const montserraMedium = Montserrat({
 });
 
 function About() {
-  const images = ["/images/1.webp", "/images/pic1.jpg", "/images/pic3.jpg"];
+  const images = ["/images/baner.jpg", "/images/left.jpg"];
   useEffect(() => {
     gsap
       .timeline({ delay: 0 })
@@ -106,9 +106,9 @@ function About() {
         <div
           className={`banner h-[170vh] laptop:h-[1300px] relative w-full ${montserrat.className}`}
         >
-          <div className="parallax-container w-full h-screen sticky top-0 overflow-hidden">
+          <div className="parallax-container w-full h-screen translate-x-80 opacity-55 scale-95 sticky top-0 overflow-hidden">
             <Image
-              src={images[2]}
+              src={images[0]}
               alt="Dynamic Parallax Background"
               className="parallax-image object-cover w-full h-full"
               fill
@@ -119,7 +119,7 @@ function About() {
 
           <div className="absolute px-5 top-1/3 laptop:top-40 flex flex-col gap-10 items-start overflow-hidden laptop:px-10 w-full">
             <div className="overflow-hidden">
-              <p className="title text-[30px] tablet:text-[80px] capitalize font-bold laptop:max-w-3xl">
+              <p className="title text-[30px] tablet:text-[50px] capitalize font-bold laptop:max-w-3xl">
                 Shaping Stories, Elevating Digital Presence
               </p>
             </div>
@@ -297,7 +297,7 @@ function About() {
               — Emotion sparks the transformation.
             </h1>
           </div>
-          <div className="flex flex-col items-center tablet:h-[300px] w-full tablet:mt-4">
+          <div className="flex flex-col items-center  w-full tablet:mt-4 tablet:my-10">
             <div className=" items-center gap-2 tablet:flex hidden">
               {" "}
               <Image
@@ -322,78 +322,53 @@ function About() {
         </div>
 
         {/* design  */}
-        <div className="h-fit px-3 laptop:items-end  py-10 mt-10 flex flex-col gap-5 tablet:h-[500px] laptop:h-[600px] laptop:px-20">
-          <p
-            className={`text-[23px] tablet:text-[40px] laptop:text-[50px] laptop:text-right font-bold tablet:text-right   ${montserraMedium.className}`}
-          >
-            Innovation and transformation <br />
-            <span className="text-gold">through design.</span>
-          </p>
-          <p
-            className={`${montserratLight.className} text-base tablet:text-2xl laptop:text-lg laptop:max-w-xl tablet:pl-32 laptop:pl-0 tablet:mt-10`}
-          >
-            We are a collective of visionary VFX artists and tech innovators,
-            pushing the boundaries of the digital world with relentless passion
-            and dedication. Inspired by the magic of visual storytelling,
-            captivated by cutting-edge technology, and driven by an unwavering
-            commitment to creating breathtaking digital experiences that
-            resonate with purpose and artistry.
-          </p>
-        </div>
-        {/* <div className="flex py-10 relative flex-col px-3 h-[500px] w-full">
-          {/* First Content Section */}
-        {/* <div className="absolute right-20 second top-0 mt-2 flex-col flex items-end">
-          {" "}
-          <div>
+        <div className="flex flex-col tablet:flex-row justify-center bg-gray-500/35 items-center tablet:my-5 py-10 my-2 text-center tablet:text-left h-auto">
+          {/* Left - Image */}
+          {/* <div
+            className="w-full tablet:w-1/2 relative aspect-square hidden tablet:flex justify-center items-center"
+            style={{ clipPath: "polygon(0 0, 100% 0, 100% 75%, 0 75%)" }}
+          > */}
+          {/* <div className="absolute w-full h-full bg-black/30 z-10"></div>
+            <Image
+              src={images[1]}
+              alt="sd"
+              priority
+              width={500}
+              height={300}
+              style={{
+                WebkitMaskImage:
+                  "radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%)",
+                maskImage:
+                  "radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%)",
+              }}
+              className="object-contain h-1/2 w-full"
+            /> */}
+          {/* </div> */}
+          <div className="w-1/2"></div>
+
+          {/* Right - Text */}
+          <div className="w-full tablet:w-1/2 px-6 tablet:px-4 flex flex-col justify-center items-center tablet:items-start">
             <p
-              className={`laptop:text-[50px] text-[23px] tablet:text-[40px] ${montserraMedium.className}`}
+              className={`text-[23px] tablet:text-[35px] laptop:text-[50px] ${montserraMedium.className}`}
             >
-              Innovation and transformation
+              Innovation and transformation <br />
+              <span className="text-gold">through design.</span>
             </p>
 
             <p
-              className={`laptop:text-[50px] text-[23px] tablet:text-[40px] text-right text-gold mb-3 ${montserraMedium.className}`}
+              className={`${montserratLight.className} text-base tablet:text-lg mt-2  laptop:max-w-xl tablet:mt-5`}
             >
-              through design.
+              We are a collective of visionary VFX artists and tech innovators,
+              pushing the boundaries of the digital world with relentless
+              passion and dedication. Inspired by the magic of visual
+              storytelling, captivated by cutting-edge technology, and driven by
+              an unwavering commitment to creating breathtaking digital
+              experiences that resonate with purpose and artistry.
             </p>
-          </div>
-          <div className={`max-w-xl ${montserratLight.className}`}>
-            We are a collective of visionary VFX artists and tech innovators,
-            pushing the boundaries of the digital world with relentless passion
-            and dedication. Inspired by the magic of visual storytelling,
-            captivated by cutting-edge technology, and driven by an unwavering
-            commitment to creating breathtaking digital experiences that
-            resonate with purpose and artistry.
           </div>
         </div>
-        <div className="absolute right-20 top-0 flex-col flex items-end">
-          {" "}
-          <div>
-            <p
-              className={`laptop:text-[50px] text-[23px] tablet:text-[40px] ${montserraMedium.className}`}
-            >
-              Innovation and transformation
-            </p>
-
-            <p
-              className={`laptop:text-[50px] text-[23px] tablet:text-[40px] text-right text-gold mb-3 ${montserraMedium.className}`}
-            >
-              through design.
-            </p>
-          </div>
-          <div className={`max-w-xl ${montserratLight.className}`}>
-            We are a collective of visionary VFX artists and tech innovators,
-            pushing the boundaries of the digital world with relentless passion
-            and dedication. Inspired by the magic of visual storytelling,
-            captivated by cutting-edge technology, and driven by an unwavering
-            commitment to creating breathtaking digital experiences that
-            resonate with purpose and artistry.
-          </div>
-        </div> */}
-        {/* </div>  */}
 
         <Footer />
-        {/* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0); */}
       </div>
     </>
   );

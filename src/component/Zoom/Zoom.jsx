@@ -21,7 +21,7 @@ const montserrat = Montserrat({
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Zoom() {
+export default function Zoom({ video }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false); // Local hover state
   const container = useRef(null);
@@ -35,15 +35,19 @@ export default function Zoom() {
   const scale6 = useTransform(scrollYProgress, [0, 1], [1, 6]);
   const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
   const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
-
+  console.log(video);
   const pictures = [
-    { src: Picture1, scale: scale4 },
-    { src: Picture2, scale: scale5 },
-    { src: Picture3, scale: scale6 },
-    { src: Picture4, scale: scale5 },
-    { src: Picture5, scale: scale6 },
-    { src: Picture6, scale: scale8 },
-    { src: Picture7, scale: scale9 },
+    {
+      src: video,
+      scale: scale4,
+      isVideo: video != "" ? true : false,
+    },
+    { src: Picture2, scale: scale5, isVideo: false },
+    { src: Picture3, scale: scale6, isVideo: false },
+    { src: Picture4, scale: scale5, isVideo: false },
+    { src: Picture5, scale: scale6, isVideo: false },
+    { src: Picture6, scale: scale8, isVideo: false },
+    { src: Picture7, scale: scale9, isVideo: false },
   ];
 
   useEffect(() => {
@@ -86,7 +90,7 @@ export default function Zoom() {
         className={`${styles.container} h-fit tablet:h-[300vh]`}
       >
         <div className={`${styles.sticky} hidden tablet:block`}>
-          {pictures.map(({ src, scale }, index) => (
+          {pictures.map(({ src, scale, isVideo }, index) => (
             <motion.div
               key={index}
               style={{ scale }}
@@ -95,13 +99,30 @@ export default function Zoom() {
               onMouseLeave={() => setIsHovering(false)}
             >
               <div className={styles.imageContainer}>
-                <Image src={src} fill alt="image" placeholder="blur" />
+                {isVideo ? (
+                  <video
+                    src={src}
+                    playsInline
+                    className="z-10"
+                    autoPlay
+                    muted
+                    loop
+                  />
+                ) : (
+                  <Image
+                    src={src}
+                    fill
+                    alt="image"
+                    className="z-0"
+                    placeholder="blur"
+                  />
+                )}
               </div>
             </motion.div>
           ))}
         </div>
         <div className={`${styles.sticky} tablet:hidden`}>
-          {pictures.map(({ src, scale }, index) => (
+          {pictures.map(({ src, scale, isVideo }, index) => (
             <motion.div
               key={index}
               className={styles.el}
@@ -109,7 +130,11 @@ export default function Zoom() {
               onMouseLeave={() => setIsHovering(false)}
             >
               <div className={styles.imageContainer}>
-                <Image src={src} fill alt="image" placeholder="blur" />
+                {isVideo ? (
+                  <video src={src} playsInline autoPlay muted loop />
+                ) : (
+                  <Image src={src} fill alt="image" placeholder="blur" />
+                )}
               </div>
             </motion.div>
           ))}
