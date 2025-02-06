@@ -2,6 +2,7 @@ import Nav from "@/component/Nav/Nav";
 import "./globals.css";
 
 import { MyProvider } from "@/context/MyContext";
+import SmoothScroll from "@/component/SmoothScroll/SmoothScroll";
 
 export const metadata = {
   title: "PiFactor",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className=" ">
+        <SmoothScroll />
         <MyProvider>
           <Nav />
           {children}

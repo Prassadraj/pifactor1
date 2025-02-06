@@ -12,26 +12,6 @@ import Footer from "@/component/Footer/Footer";
 
 export default function Home() {
   const [show, setShow] = useState(false);
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2, // Adjust for smoother feel
-      easing: (t) => 1 - Math.pow(1 - t, 3), // Custom easing for smooth acceleration/deceleration
-      smoothWheel: true,
-      smoothTouch: false, // Enable if needed
-      direction: "vertical",
-    });
-
-    const raf = (time) => {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    };
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy(); // Cleanup to prevent memory leaks
-    };
-  }, []);
 
   useEffect(() => {
     // Check sessionStorage only on the client side
@@ -49,8 +29,6 @@ export default function Home() {
         clearTimeout(timer);
       };
     }
-
-    // Initialize Lenis for smooth scrolling
   }, []);
 
   return (
