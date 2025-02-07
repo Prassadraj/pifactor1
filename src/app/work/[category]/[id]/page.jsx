@@ -8,9 +8,20 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import Zoom from "@/component/Zoom/Zoom";
-import Work3 from "@/Homepage/Works/Work3/Work3";
+
 import Slider from "@/component/Slider/Slider";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+// import "swiper/css/pagination";
+import "../../style.css";
+
+// import required modules
+import { Navigation, Pagination } from "swiper/modules";
+import ReactPlayer from "react-player";
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["600"],
@@ -33,9 +44,9 @@ function Page({ params }) {
   const currentIndex = items.findIndex((data) => data.id == id);
   const nextProject = items[currentIndex + 1] || items[0];
   const nextProjectImg = nextProject?.mainImg;
-  const [motionName, setMotionName] = useState("scroll");
+  const [motionName, setMotionName] = useState("");
 
-  const [isHovering, setIsHovering] = useState(true);
+  const [isHovering, setIsHovering] = useState(false);
 
   const cursorVariants = {
     hover: { x: mousePosition.x, y: mousePosition.y },
@@ -171,177 +182,94 @@ function Page({ params }) {
               {selectedItem.description}
             </p>
           </div>
-          <div className="tablet:hidden phone mt-6 phone px-2">
-            <div className="flex gap-3 mt-6">
-              <div className="flex flex-col tablet:gap-2">
-                <p className="text-sm font-semibold">Client</p>
-                <p className="text-base">{selectedItem.client}</p>
-              </div>
-              <div className="flex flex-col tablet:gap-2">
-                <p className="text-sm font-semibold">Services</p>
-                {selectedItem.services.map((data, i) => (
-                  <p key={i} className="text-base">
-                    {data}
-                  </p>
-                ))}
-              </div>{" "}
-              <div className="flex flex-col tablet:gap-2">
-                <p className="text-sm font-semibold">Industries</p>
-                <p className="text-base">{selectedItem.industries}</p>
-              </div>
-              <div className="flex flex-col tablet:gap-2">
-                <p className="text-sm font-semibold">Date</p>
-                <p className="text-base">{selectedItem.date}</p>
+          {category == "vfx" ? (
+            ""
+          ) : (
+            <div className="tablet:hidden phone mt-6 phone px-2">
+              <div className="flex gap-3 mt-6">
+                <div className="flex flex-col tablet:gap-2">
+                  <p className="text-sm font-semibold">Client</p>
+                  <p className="text-base">{selectedItem.client}</p>
+                </div>
+                <div className="flex flex-col tablet:gap-2">
+                  <p className="text-sm font-semibold">Services</p>
+                  {selectedItem.services.map((data, i) => (
+                    <p key={i} className="text-base">
+                      {data}
+                    </p>
+                  ))}
+                </div>{" "}
+                <div className="flex flex-col tablet:gap-2">
+                  <p className="text-sm font-semibold">Industries</p>
+                  <p className="text-base">{selectedItem.industries}</p>
+                </div>
+                <div className="flex flex-col tablet:gap-2">
+                  <p className="text-sm font-semibold">Date</p>
+                  <p className="text-base">{selectedItem.date}</p>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 
       {/* laptop  */}
-
-      <div
-        className={`hidden tablet:block banner px-2 h-screen w-full tablet:px-20 tablet:py-20 ${montserrat.className}`}
-      >
-        {" "}
-        <div className="flex fixed h-full bg-black bg-opacity-30 inset-0"></div>
-        <Image
-          src={selectedItem.mainImg}
-          alt={category[id]}
-          onMouseEnter={() => {
-            setIsHovering(true);
-            setMotionName("Scroll");
-          }}
-          onMouseLeave={() => setIsHovering(false)}
-          className="object-cover transition-opacity duration-1000 images opacity-50  "
-          fill
-          quality={50}
-          priority
-        />
-        <div
-          className=" absolute tablet:bottom-1/4 tablet:left-32
-        bottom-10  flex flex-col items-start overflow-hidden"
-        >
-          <div
-            style={{
-              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-            }}
-            className="overflow-hidden"
-          >
-            <p className="title opacity-0 text-[60px] tablet:text-[80px] capitalize font-bold">
-              {selectedItem.title}
-            </p>
-          </div>
-
-          <div
-            style={{
-              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-            }}
-            className="overflow-hidden"
-          >
-            <p className="title opacity-0 text-xl tablet:text-2xl  capitalize font-normal">
-              {selectedItem.subTitle}
-            </p>
-          </div>
-          {/* fo mobile  */}
-          <div className="tablet:hidden phone mt-6 ">
-            <p className="">{selectedItem.description}</p>
-            <div className="flex gap-3 mt-6">
-              <div className="flex flex-col tablet:gap-2">
-                <p className="text-sm font-semibold">Client</p>
-                <p className="text-base">{selectedItem.client}</p>
-              </div>
-              <div className="flex flex-col tablet:gap-2">
-                <p className="text-sm font-semibold">Services</p>
-                {selectedItem.services.map((data, i) => (
-                  <p key={i} className="text-base">
-                    {data}
-                  </p>
-                ))}
-              </div>{" "}
-              <div className="flex flex-col tablet:gap-2">
-                <p className="text-sm font-semibold">Industries</p>
-                <p className="text-base">{selectedItem.industries}</p>
-              </div>
-              <div className="flex flex-col tablet:gap-2">
-                <p className="text-sm font-semibold">Date</p>
-                <p className="text-base">{selectedItem.date}</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="relative h-screen text-white bg-black">
+        <Swiper navigation={true} modules={[Navigation]} className="mySwiper ">
+          {selectedItem.video.map((data, i) => (
+            <SwiperSlide key={i} className="h-screen w-screen ">
+              <ReactPlayer
+                url={data}
+                playing
+                width="100%"
+                height="100%"
+                controls
+                playsinline
+                muted
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
       {/* laptop  */}
-      <div className=" px-5 tablet:px-20 ">
-        <div className="hidden tablet:mt-10 laptop:mt-20  laptop:h-screen tablet:h-fit tablet:flex flex-col laptop:gap-28 tablet:gap-20">
+      <div className=" px-5 tablet:px-20  tablet:py-10">
+        <div className="hidden    tablet:h-fit tablet:flex flex-col laptop:gap-4 tablet:gap-2">
+          <p className="laptop:max-w-3xl  largeLaptop:max-w-3xl tablet:max-w-xl tablet:text-2xl laptop:text-3xl largeLaptop:text-4xl">
+            {selectedItem.title}
+          </p>
           <p className="laptop:max-w-3xl  largeLaptop:max-w-3xl tablet:max-w-xl tablet:text-2xl laptop:text-3xl largeLaptop:text-4xl">
             {selectedItem.description}
           </p>
-          <div className="flex tablet:gap-16 laptop:gap-20">
-            <div className="flex flex-col tablet:gap-2">
-              <p className="text-xl font-semibold">Client</p>
-              <p className="text-base">{selectedItem.client}</p>
+          {category != "vfx" && (
+            <div className="flex tablet:gap-16 laptop:gap-20">
+              <div className="flex flex-col tablet:gap-2">
+                <p className="text-xl font-semibold">Client</p>
+                <p className="text-base">{selectedItem.client}</p>
+              </div>
+              <div className="flex flex-col tablet:gap-2">
+                <p className="text-xl font-semibold">Services</p>
+                {selectedItem.services.map((data, i) => (
+                  <p key={i} className="text-base">
+                    {data}
+                  </p>
+                ))}
+              </div>{" "}
+              <div className="flex flex-col tablet:gap-2">
+                <p className="text-xl font-semibold">Industries</p>
+                <p className="text-base">{selectedItem.industries}</p>
+              </div>
+              <div className="flex flex-col tablet:gap-2">
+                <p className="text-xl font-semibold">Date</p>
+                <p className="text-base">{selectedItem.date}</p>
+              </div>
             </div>
-            <div className="flex flex-col tablet:gap-2">
-              <p className="text-xl font-semibold">Services</p>
-              {selectedItem.services.map((data, i) => (
-                <p key={i} className="text-base">
-                  {data}
-                </p>
-              ))}
-            </div>{" "}
-            <div className="flex flex-col tablet:gap-2">
-              <p className="text-xl font-semibold">Industries</p>
-              <p className="text-base">{selectedItem.industries}</p>
-            </div>
-            <div className="flex flex-col tablet:gap-2">
-              <p className="text-xl font-semibold">Date</p>
-              <p className="text-base">{selectedItem.date}</p>
-            </div>
-          </div>
-        </div>
-        {/* objective */}
-        <div className="h-screen  hidden tablet:block laptop:h-screen trigger tablet:my-10 tablet:h-fit">
-          <div className="flex justify-center tablet:text-[30px] laptop:text-[50px] largeLaptop:text-[60px] tablet:font-medium h-1/2 ">
-            <div
-              className="overflow-hidden h-fit"
-              style={{
-                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-              }}
-            >
-              <p className="subTitle text-[80px] max-w-4xl text-wrap text-gold">
-                {" "}
-                {selectedItem.subTitle}
-              </p>
-            </div>
-          </div>
-          <div className="laptop:px-28  flex gap-20 items-center">
-            <p>Objective</p>
-            <p className="text-sm tablet:max-w-2xl laptop:max-w-md text-gray-300">
-              {selectedItem.objective}
-            </p>
-          </div>
-        </div>
-        {/* for mobile */}
-        <div className="h-fit py-20 tablet:hidden ">
-          {" "}
-          <div className=" flex flex-col gap-5">
-            <div className="">
-              {" "}
-              <p>Objective</p>
-              <p className="text-3xl font-semibold mt-1">
-                {selectedItem.subTitle}
-              </p>
-            </div>
-            <div>
-              <p> {selectedItem.description}</p>
-            </div>
-          </div>
+          )}
         </div>
       </div>
+
       <div>
-        <Zoom video={selectedItem.video} />
+        <Zoom video={selectedItem.video[0]} />
         {/* <div className="tablet:h-screen w-full h-fit  flex items-center justify-center">
           <video
             preload="auto"
@@ -355,7 +283,7 @@ function Page({ params }) {
         </div> */}
         <Slider />
         <div
-          className="tablet:h-screen w-full h-full"
+          className="tablet:h-screen   w-full h-full "
           onMouseEnter={() => {
             setMotionName("Next");
             setIsHovering(true);
@@ -366,6 +294,7 @@ function Page({ params }) {
             backgroundAttachment: "fixed",
             top: "0px",
             left: "0px",
+
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
             backgroundSize: "cover",
@@ -374,7 +303,7 @@ function Page({ params }) {
           <Link href={`/work/${category}/${nextProject.id}`}>
             <div className="h-full w-full relative">
               <div
-                className="absolute left-1/2 top-1/2 transform translate-x-[-50%] translate-y-[-50%] 
+                className="absolute  left-1/2 top-1/2 transform translate-x-[-50%] translate-y-[-50%] 
             h-[400px] w-[400px]"
               >
                 <Image
@@ -417,3 +346,79 @@ function Page({ params }) {
 }
 
 export default Page;
+
+// <div
+// className={`hidden tablet:block banner px-2 h-screen w-full tablet:px-20 tablet:py-20 ${montserrat.className}`}
+// >
+// {" "}
+// <div className="flex fixed h-full bg-black bg-opacity-30 inset-0"></div>
+// <Image
+//   src={selectedItem.mainImg}
+//   alt={category[id]}
+//   onMouseEnter={() => {
+//     setIsHovering(true);
+//     setMotionName("Scroll");
+//   }}
+//   onMouseLeave={() => setIsHovering(false)}
+//   className="object-cover transition-opacity duration-1000 images opacity-50  "
+//   fill
+//   quality={50}
+//   priority
+// />
+// <div
+//   className=" absolute tablet:bottom-1/4 tablet:left-32
+// bottom-10  flex flex-col items-start overflow-hidden"
+// >
+//   <div
+//     style={{
+//       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+//     }}
+//     className="overflow-hidden"
+//   >
+//     <p className="title opacity-0 text-[60px] tablet:text-[80px] capitalize font-bold">
+//       {selectedItem.title}
+//     </p>
+//   </div>
+
+//   <div
+//     style={{
+//       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+//     }}
+//     className="overflow-hidden"
+//   >
+//     <p className="title opacity-0 text-xl tablet:text-2xl  capitalize font-normal">
+//       {selectedItem.subTitle}
+//     </p>
+//   </div>
+//   {/* fo mobile  */}
+//   <div className="tablet:hidden phone mt-6 ">
+//     <p className="">{selectedItem.description}</p>
+//     {category == "vfx" ? (
+//       ""
+//     ) : (
+//       <div className="flex gap-3 mt-6">
+//         <div className="flex flex-col tablet:gap-2">
+//           <p className="text-sm font-semibold">Client</p>
+//           <p className="text-base">{selectedItem.client}</p>
+//         </div>
+//         <div className="flex flex-col tablet:gap-2">
+//           <p className="text-sm font-semibold">Services</p>
+//           {selectedItem.services.map((data, i) => (
+//             <p key={i} className="text-base">
+//               {data}
+//             </p>
+//           ))}
+//         </div>{" "}
+//         <div className="flex flex-col tablet:gap-2">
+//           <p className="text-sm font-semibold">Industries</p>
+//           <p className="text-base">{selectedItem.industries}</p>
+//         </div>
+//         <div className="flex flex-col tablet:gap-2">
+//           <p className="text-sm font-semibold">Date</p>
+//           <p className="text-base">{selectedItem.date}</p>
+//         </div>
+//       </div>
+//     )}
+//   </div>
+// </div>
+// </div>

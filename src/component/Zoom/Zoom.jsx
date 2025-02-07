@@ -35,7 +35,7 @@ export default function Zoom({ video }) {
   const scale6 = useTransform(scrollYProgress, [0, 1], [1, 6]);
   const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
   const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
-  console.log(video);
+ 
   const pictures = [
     {
       src: video,

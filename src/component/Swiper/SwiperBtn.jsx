@@ -22,27 +22,27 @@ export default function App() {
 
   const menus = [
     {
-      title: "Movies / Short Films / Album",
+      title: "Movies & others",
       items: ["vfx", "Title Animation", "Lyric Videos"],
       category: ["vfx", "Title", "Lyric"],
     },
     {
-      title: "Ads / Corporate",
+      title: "Digital",
       items: ["Ads", "Corporate"],
       category: ["Ads", "Corporate"],
     },
     {
-      title: "Wedding Invites",
+      title: "Wedding",
       items: ["Short Invites", "Story Invites"],
       category: ["Short", "Story"],
     },
     {
-      title: "2D Animations",
+      title: "2D",
       items: ["Stories", "Explainers"],
       category: ["Stories", "Explainers"],
     },
     {
-      title: "3D Animations / Previsualization",
+      title: "3D",
       items: ["Animations", "Product Previz"],
       category: ["Animations", "Product"],
     },
@@ -228,7 +228,7 @@ export default function App() {
                     }}
                     aria-label={`View details of slide ${itemIndex + 1}`}
                   >
-                    <div className="absolute top-0 w-full h-full left-0 bg-black/80 z-10"></div>
+                    <div className="absolute top-0 w-full h-full left-0 bg-black/50 z-10"></div>
                     <Image
                       src={coverImg} // Use item.mainImg dynamically
                       alt={`Slide ${itemIndex + 1}`}
@@ -324,7 +324,7 @@ export default function App() {
                             );
                             handleSlideTo(0);
                           }}
-                          className={`hover:text-blue-500 capitalize laptop:text-sm largeLaptop:text-base cursor-pointer text-black ${
+                          className={`hover:text-blue-500 capitalize laptop:text-sm largeLaptop:text-base cursor-pointer text-black text-nowrap ${
                             nav == formatted ? "text-blue-500" : ""
                           }`}
                         >

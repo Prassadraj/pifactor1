@@ -15,34 +15,24 @@ const montserratLight = Montserrat({
   weight: "300",
 });
 
-const images = [
-  "1.jpg",
-  "2.jpg",
-  "3.jpg",
-  "4.jpg",
-  "10.jpg",
-  "6.jpg",
-  "7.jpg",
-  "8.jpg",
-  "9.jpg",
-  "10.jpg",
-  "11.jpg",
-  "12.jpg",
-  "line.webp",
-];
-
 gsap.registerPlugin(ScrollTrigger);
 
 function Laptop() {
+  const images = [
+    "/spreadImg/img1.jpeg",
+    "/spreadImg/img2.jpeg",
+    "/spreadImg/img3.jpeg",
+    "/spreadImg/img4.jpeg",
+  ];
   useEffect(() => {
     gsap.to(".spread", {
       y: -40,
       scale: 1.1,
       duration: 2,
-      delay:0.5,
+      delay: 0.5,
       ease: "power3.inOut",
       scrollTrigger: {
-        trigger: ".spread",
+        trigger: ".spreadText",
         start: "top 100%",
         end: "bottom 70%",
         scrub: 0.5,
@@ -53,10 +43,10 @@ function Laptop() {
       y: 0,
       scale: 1.1,
       duration: 1,
-      delay:0.5,
+      delay: 0.5,
       ease: "power3.inOut",
       scrollTrigger: {
-        trigger: ".spread",
+        trigger: ".spreadText",
         start: "top 90%",
         end: "bottom 50%",
         scrub: 0.5,
@@ -268,7 +258,7 @@ function Laptop() {
               width={400}
               height={600}
               className="object-cover"
-              src={`/3dImages/${images[12]}`}
+              src={`/3dImages/line.webp`}
               alt="3D image"
               priority
             />
@@ -276,39 +266,39 @@ function Laptop() {
               <Image
                 width={100}
                 height={0}
-                className="object-cover w-[200px] h-[300px] image1"
-                src={`/3dImages/${images[0]}`}
+                className="object-cover w-[400px]  image1"
+                src={"/3dImages/img1.jpeg"}
                 alt="3D image"
                 priority
               />
             </div>
-            <div className="absolute bottom-48 -left-36 image2">
+            <div className="absolute top-10 -left-36 image2">
               <Image
                 width={100}
                 height={0}
-                className="object-cover w-[200px] h-[250px]"
-                src={`/3dImages/${images[5]}`}
+                className="object-cover w-[300px] rounded-lg h-auto"
+                src={"/3dImages/img2.jpeg"}
                 alt="3D image"
                 priority
               />
             </div>
           </div>
-          <div className="absolute laptop:bottom-20 tablet:bottom-32 tablet:left-20 laptop:left-60 image3">
+          <div className="absolute laptop:bottom-0 tablet:bottom-32 tablet:left-20 laptop:left-60 image3">
             <Image
               width={300}
               height={200}
-              className="object-cover h-[200px]"
-              src={`/3dImages/${images[11]}`}
+              className="object-cover "
+              src={"/3dImages/img3.jpeg"}
               alt="3D image"
               priority
             />
           </div>
-          <div className="absolute laptop:bottom-20 tablet:right-20 tablet:bottom-10 laptop:right-56 image4">
+          <div className="absolute laptop:bottom-10 tablet:right-20 tablet:bottom-10 laptop:right-56 image4">
             <Image
               width={400}
               height={200}
-              className="object-cover h-[200px]"
-              src={`/3dImages/${images[7]}`}
+              className="object-cover "
+              src={"/3dImages/img4.jpeg"}
               alt="3D image"
               priority
             />
@@ -342,7 +332,7 @@ function Laptop() {
                   key={i}
                   className={`${montserrat.className} tablet:text-[40px] laptop:text-[80px]`}
                 >
-                  {text}
+                  {text === " " ? <>&nbsp;</> : text}
                 </p>
               ))}
             </div>
