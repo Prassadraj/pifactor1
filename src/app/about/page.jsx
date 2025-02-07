@@ -73,6 +73,7 @@ function About() {
       { y: 450, opacity: 0, skewX: "-160deg" },
       {
         y: 0,
+        delay: 0.4,
         opacity: 1,
         skewX: "0deg",
         duration: 1,
