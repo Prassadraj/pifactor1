@@ -105,9 +105,9 @@ function About() {
       <div className={` ${montserrat.className}  w-full h-full`}>
         {/* Banner Section */}
         <div
-          className={`banner h-[170vh] laptop:h-[1300px] relative w-full ${montserrat.className}`}
+          className={`banner h-[200vh] laptop:h-[1300px] relative w-full ${montserrat.className}`}
         >
-          <div className="parallax-container w-full h-screen translate-x-80 opacity-55 scale-95 sticky top-0 overflow-hidden">
+          <div className="parallax-container w-full h-screen  laptop:translate-x-80 opacity-55 laptop:scale-95 sticky top-0 overflow-hidden">
             <Image
               src={images[0]}
               alt="Dynamic Parallax Background"
@@ -124,12 +124,14 @@ function About() {
                 Shaping Stories, Elevating Digital Presence
               </p>
             </div>
-            <div className="overflow-hidden max-w-lg">
+            <div className="overflow-hidden max-w-2xl">
               <p
-                className={`title text-xl tablet:text-3xl capitalize font-normal ${montserratLight.className}`}
+                className={`title text-xl tablet:text-2xl capitalize font-normal ${montserratLight.className}`}
               >
-                Crafting immersive visuals and seamless edits to build a
-                compelling digital presence.
+                At Pixcell Factory, my team and I aspire to bring a dynamic
+                combination of creativity, technical expertise, and a deep
+                understanding of storytelling to deliver compelling content that
+                resonates with audiences.
               </p>
             </div>
             <div className=" mt-2 rounded-full laptop:hidden  text-center text-base tablet:text-3xl font-medium">
@@ -138,18 +140,24 @@ function About() {
 
             <div className="mt-10 tablet:mt-10 laptop:gap-5 laptop:mt-20  flex w-full flex-col items-end  ">
               <div className="laptop:w-1/2 flex-col flex gap-4">
-                <p className="font-bold text-lg laptop:text-3xl leading-relaxed text-left">
+                <p className="font-bold text-lg tablet:text-3xl leading-relaxed text-left">
                   Turning ideas into immersive experiences with unparalleled
                   creativity.
                 </p>
                 <p
-                  className={`!font-light laptop:text-base  leading-relaxed ${montserratLight.className}`}
+                  className={`!font-light tablet:text-2xl laptop:text-xl  leading-relaxed ${montserratLight.className}`}
                 >
-                  At our studio, we blend the power of cutting-edge technology
-                  with the art of storytelling. Every frame is carefully crafted
-                  to evoke emotion, creating visuals that transport audiences
-                  into another world. From conceptualization to final cut, we
-                  ensure every project leaves an indelible mark.
+                  From concept development to final delivery, we navigate every
+                  stage of the process to ensure the final output is a visually
+                  stunning and engaging piece of media that perfectly reflects
+                  our clients’ visions and objectives.
+                </p>
+                <p
+                  className={`${montserratLight.className} tablet:text-2xl max-w-lg laptop:text-xl`}
+                >
+                  Our dedication to collaboration and attention to detail allows
+                  us to transform ideas into powerful visuals that captivate,
+                  inspire, and leave a lasting impression.
                 </p>
               </div>
             </div>
