@@ -149,7 +149,7 @@ function Page({ params }) {
       <div
         className={`tablet:hidden banner h-[150vh] relative w-full ${montserrat.className}`}
       >
-        <div className="parallax-container h-[100vh] sticky top-0 overflow-hidden">
+        <div className="parallax-container h-[100vh] w-full sticky top-0 overflow-hidden">
           <Image
             src={selectedItem.mainImg}
             alt="Dynamic Parallax Background"
@@ -158,6 +158,7 @@ function Page({ params }) {
             quality={50}
             priority
           />
+          <div className="absolute h-full w-full bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
         </div>
 
         <div className="absolute  bottom-20 flex flex-col gap-10 items-start overflow-hidden">
@@ -283,7 +284,7 @@ function Page({ params }) {
         </div> */}
         <Slider />
         <div
-          className="tablet:h-screen   w-full h-full "
+          className="tablet:h-screen h-screen   "
           onMouseEnter={() => {
             setMotionName("Next");
             setIsHovering(true);
@@ -302,6 +303,7 @@ function Page({ params }) {
         >
           <Link href={`/work/${category}/${nextProject.id}`}>
             <div className="h-full w-full relative">
+              <div className="tablet:hidden w-full h-full absolute bg-black/40"></div>
               <div
                 className="absolute  left-1/2 top-1/2 transform translate-x-[-50%] translate-y-[-50%] 
             h-[400px] w-[400px]"
@@ -314,12 +316,12 @@ function Page({ params }) {
                 />
               </div>
               <div
-                className="absolute top-1/4 left-1/2 laptop:top-2/4 laptop:left-32 tablet:top-2/4 tablet:left-14 tablet:gap-3 flex flex-col 
-            transform -translate-x-1/2 -translate-y-1/2 tablet:-translate-x-0 tablet:translate-y-0 tablet:text-lg text-xs z-20 text-white"
+                className="absolute bottom-28 left-10 laptop:top-2/4 laptop:left-32 tablet:top-2/4 tablet:left-14 tablet:gap-3 flex flex-col 
+              tablet:-translate-x-0 tablet:translate-y-0 tablet:text-lg text-xs z-20 text-white"
               >
                 <div className="overflow-hidden -z-10">
                   <div
-                    className="font-bold tablet:text-4xl capitalize text-base max-w-xs text-wrap"
+                    className="font-bold tablet:text-4xl capitalize text-4xl max-w-xs text-wrap"
                     style={{
                       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                     }}
@@ -328,7 +330,7 @@ function Page({ params }) {
                   </div>
 
                   <div
-                    className="font-medium tablet:text-xl text-sm capitalize mt-2 max-w-xs text-wrap"
+                    className="font-medium tablet:text-xl text-lg  capitalize mt-2 max-w-xs text-wrap"
                     style={{
                       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                     }}
