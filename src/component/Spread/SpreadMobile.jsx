@@ -3,7 +3,6 @@ import { Montserrat } from "next/font/google";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-
 import Image from "next/image";
 import React, { useEffect } from "react";
 
@@ -174,7 +173,7 @@ function SpreadMobile() {
 
   return (
     <>
-      <div className="h-fit w-full overflow-hidden relative px-5 ">
+      <div className="h-fit w-full overflow-hidden relative px-5 mt-10">
         {" "}
         {/* Add relative here */}
         <div className="h-fit relative flex items-center justify-center">
@@ -190,19 +189,29 @@ function SpreadMobile() {
             <div className="absolute top-0 -right-14">
               <Image
                 width={100}
-                height={0}
-                className="object-cover w-[200px] h-[300px] "
-                src={`/3dImages/${images[0]}`}
+                height={100}
+                className="object-cover w-[200px] h-[200px] "
+                src={"/3dImages/img1.jpeg"}
                 alt="3D image"
                 priority
               />
             </div>
-            <div className="absolute bottom-48 -left-16 ">
+            <div className="absolute top-20 -left-16 ">
               <Image
                 width={100}
                 height={440}
-                className="object-cover w-[200px] h-[250px]"
-                src={`/3dImages/${images[5]}`}
+                className="object-cover w-[200px] h-[200px]"
+                src={"/3dImages/img4.jpeg"}
+                alt="3D image"
+                priority
+              />
+            </div>
+            <div className="absolute bottom-20 -left-16 ">
+              <Image
+                width={100}
+                height={440}
+                className="object-cover w-[180px] h-[150px]"
+                src={"/3dImages/img3.jpeg"}
                 alt="3D image"
                 priority
               />
@@ -246,7 +255,7 @@ function SpreadMobile() {
             </div>
           </div>
           <div className="max-w-lg mx-auto sentenceMobile">
-            <p className={`${montserratLight.className} text-2xl text-center `}>
+            <p className={`${montserratLight.className} text-xl text-center `}>
               Find out more about our work on these leading design and
               technology platforms.
             </p>
