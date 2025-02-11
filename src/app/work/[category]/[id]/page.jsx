@@ -215,7 +215,7 @@ function Page({ params }) {
       </div>
 
       {/* laptop  */}
-      <div className="relative h-screen text-white bg-black">
+      <div className="relative tablet:h-screen h-[350px] text-white bg-black">
         <Swiper navigation={true} modules={[Navigation]} className="mySwiper ">
           {selectedItem.video.map((data, i) => (
             <SwiperSlide key={i} className="h-screen w-screen ">
