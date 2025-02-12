@@ -1,4 +1,3 @@
-// components/SmoothScroll.js
 "use client";
 import { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
@@ -6,18 +5,21 @@ import Lenis from "@studio-freight/lenis";
 const SmoothScroll = () => {
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.1, // Smoothness factor (lower is more smooth)
+      smooth: true,
+      lerp: 0.1, // Smoothness factor
+      gestureOrientation: "vertical", // Ensure scrolling works on mobile
+      wheelMultiplier: 1, // Adjust scrolling speed
+      touchMultiplier: 2, // Make touch scrolling more responsive
     });
 
-    function raf(time) {
+    const rafId = requestAnimationFrame(function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
+    });
 
     return () => {
-      cancelAnimationFrame(raf); // Cleanup
+      cancelAnimationFrame(rafId); // Cleanup animation frame
+      lenis.destroy(); // Properly clean up Lenis instance
     };
   }, []);
 
