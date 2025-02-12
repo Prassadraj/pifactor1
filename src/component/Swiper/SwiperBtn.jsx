@@ -241,7 +241,8 @@ export default function App() {
                     <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
                       <div
                         className="relative laptop:w-[25%] w-[60%] h-[400px]
-            tablet:w-[50%] top-[2%] tablet:top-[8%] laptop:top-[12%] largeLaptop:top-[10%] tablet:h-1/2 laptop:h-[400px] overflow-hidden z-20"
+            tablet:w-[50%] top-[8%] tablet:top-[8%] laptop:top-[12%] 
+            largeLaptop:top-[10%] tablet:h-1/2 laptop:h-[400px] overflow-hidden z-20"
                         style={{
                           clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)",
                           transition: "clip-path 0.5s ease-in-out", // Adds a visible effect
@@ -291,10 +292,10 @@ export default function App() {
          tablet:top-1/4 laptop:top-24 largeLaptop:top-32
        left-[50%] translate-x-[-50%] z-10 count"
       >
-        <div className="flex flex-nowrap justify-center gap-2 w-full ">
+        <div className="tablet:flex tablet:flex-nowrap tablet:justify-center tablet:gap-2 w-full hidden">
           {menus.map((menu, index) => (
             <div key={index} className="group p-6 max-w-md">
-              <ul className="text-lg font-bold text-white">
+              <ul className="tablet:text-lg font-bold text-white">
                 <li className="relative">
                   <span className="cursor-pointer capitalize p-2 rounded-md laptop:text-sm largeLaptop:text-base">
                     {menu.title}
@@ -362,13 +363,13 @@ export default function App() {
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
             >
-              <p className="title tablet:max-w-xs text-wrap">
+              <p className="title tablet:max-w-xs text-wrap text-center tablet:text-left">
                 {data?.items[selected - 1]?.title}
               </p>
             </div>
 
             <div
-              className="font-medium tablet:text-xl text-sm capitalize mt-2"
+              className="font-medium tablet:text-xl text-sm capitalize mt-2  text-center tablet:text-left"
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
