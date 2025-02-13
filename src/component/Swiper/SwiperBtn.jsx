@@ -241,7 +241,7 @@ export default function App() {
                     <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
                       <div
                         className="relative laptop:w-[25%] w-[60%] h-[400px]
-            tablet:w-[50%] top-[8%] tablet:top-[8%] laptop:top-[12%] 
+            tablet:w-[50%] top-[5%] tablet:top-[8%] laptop:top-[12%] 
             largeLaptop:top-[10%] tablet:h-1/2 laptop:h-[400px] overflow-hidden z-20"
                         style={{
                           clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)",
@@ -251,7 +251,7 @@ export default function App() {
                         <Image
                           src={portraitImg || coverImg} // Use item.mainImg dynamically here as well
                           alt={`Slide ${itemIndex + 1} inner`}
-                          className="object-cover transition-opacity duration-1000 image "
+                          className="object-cover transition-opacity w-full h-full duration-1000 image "
                           fill
                           // placeholder={coverImg}
                           quality={60}
@@ -289,7 +289,7 @@ export default function App() {
 
       <div
         className="fixed tablet:text-xl w-full px-20  text-xs flex gap-5 tablet:gap-1 font-black top-24
-         tablet:top-1/4 laptop:top-24 largeLaptop:top-32
+         tablet:top-[22%] laptop:top-[17%]
        left-[50%] translate-x-[-50%] z-10 count"
       >
         <div className="tablet:flex tablet:flex-nowrap tablet:justify-center tablet:gap-2 w-full hidden">
@@ -297,7 +297,7 @@ export default function App() {
             <div key={index} className="group p-6 max-w-md">
               <ul className="tablet:text-lg font-bold text-white">
                 <li className="relative">
-                  <span className="cursor-pointer capitalize p-2 rounded-md laptop:text-sm largeLaptop:text-base">
+                  <span className="cursor-pointer tablet:text-nowrap capitalize p-2 rounded-md laptop:text-sm largeLaptop:text-base">
                     {menu.title}
                   </span>
                   {menu.items.map((item, idx) => (
@@ -363,7 +363,7 @@ export default function App() {
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
             >
-              <p className="title tablet:max-w-xs text-wrap text-center tablet:text-left">
+              <p className="title tablet:w-32 laptop:max-w-xs text-wrap text-center tablet:text-left">
                 {data?.items[selected - 1]?.title}
               </p>
             </div>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./style.module.scss";
 import { motion } from "framer-motion";
 import { menuSlide } from "../anim";
@@ -10,10 +10,19 @@ import Footer from "./Footer";
 import { usePathname } from "next/navigation";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
+import MyContext from "@/context/MyContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faSquareInstagram,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["300"],
+  weight: ["300", "100"],
 });
+
 const navItems = [
   {
     title: "Home",
@@ -63,9 +72,9 @@ const menus = [
 export default function NavBtn() {
   // Renamed from "index" to "NavBtn"
   const pathname = usePathname();
+  const { setNav, isActive, setIsActive } = useContext(MyContext);
   const [selectedIndicator, setSelectedIndicator] = useState(pathname);
-  const [isWorkOpen, setIsWorkOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(true);
+  // const [menuOpen, setMenuOpen] = useState(true);
   return (
     <>
       <motion.div
@@ -84,7 +93,7 @@ export default function NavBtn() {
             alt="Logo"
           />
         </div>
-        <div className={`${styles.body} ${montserrat.style}}`}>
+        <div className={`${styles.body} ${montserrat.style} }`}>
           <div
             onMouseLeave={() => {
               setSelectedIndicator(pathname);
@@ -92,7 +101,7 @@ export default function NavBtn() {
             className={styles.nav}
           >
             <div className={`${styles.header} text-red-400`}>
-              <p className="laptop:text-xs text-gray-400">Navigation</p>
+              <p className={`laptop:text-xs text-gray-400 `}>Navigation</p>
             </div>
             {navItems.map((data, index) => {
               return (
@@ -115,9 +124,9 @@ export default function NavBtn() {
         initial="initial"
         animate="enter"
         exit="exit"
-        className="w-screen h-screen bg-black inset-0 tablet:hidden px-5 py-10"
+        className={`${montserrat.style}  w-screen h-screen bg-black inset-0 tablet:hidden px-5 py-10 justify-evenly flex flex-col`}
       >
-        <div className=" ">
+        <div className=" absolute top-10">
           <Image
             width={200}
             height={100}
@@ -126,39 +135,86 @@ export default function NavBtn() {
             alt="Logo"
           />
         </div>
-        <div className="mt-16 text-white px-4">
-          <ul className="w-64 space-y-4 text-4xl">
-            <li>Home</li>
-            <li>
-              <div
-                onClick={() => setMenuOpen((prev) => !prev)}
-                className=" flex gap-4 items-center"
-              >
-                Work <span className="text-2xl">{isWorkOpen ? "▲" : "▼"}</span>
-              </div>
-              {menuOpen && (
-                <ul className="h-60 overflow-y-scroll  p-2 ">
-                  {menus.map((data, i) => (
-                    <li key={i} className=" ">
-                      <p className="text-2xl font-bold mt-4 text-gold">
-                        {data.title}
-                      </p>
-                      <ul className="mt-2 space-y-2">
-                        {data.items.map((val, i) => (
-                          <li key={i} className=" text-xl">
-                            • {val}
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  ))}
-                </ul>
-              )}
+
+        <div className="mt-12 tablet:mt-16 text-white px-8">
+          <ul className="w-64 space-y-4 text-4xl ">
+            <li className={`text-xl ${montserrat.style} font-extralight `}>
+              Navigation
+              <li className="w-full h-[2px] bg-gold"></li>
             </li>
-            <li>About</li>
-            <li>Contact Us</li>
+
+            <li className="flex gap-2  items-center ">
+              <Link
+                data={navItems[0]}
+                isActive={selectedIndicator === "/"}
+                setSelectedIndicator={setSelectedIndicator}
+              />
+            </li>
+            <li>
+              <div className=" flex gap-2 items-center ">
+                <Link
+                  data={navItems[1]}
+                  isActive={selectedIndicator === "/works"}
+                  setSelectedIndicator={setSelectedIndicator}
+                ></Link>
+              </div>
+
+              <ul className="h-60 overflow-y-scroll  p-2 px-4">
+                {menus.map((data, i) => (
+                  <li key={i} className=" ">
+                    <p className="text-2xl font-bold mt-4 text-gold">
+                      {data.title}
+                    </p>
+                    <ul className="mt-2 space-y-2">
+                      {data.items.map((val, i) => (
+                        <li
+                          key={i}
+                          onClick={() => {
+                            setNav(
+                              val.includes(" ") ? val.split(" ").join("") : val
+                            );
+                            setIsActive(false);
+                          }}
+                          className=" text-xl"
+                        >
+                          <Link
+                            data={{ title: val, href: "/works", i }}
+                            setSelectedIndicator={setSelectedIndicator}
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+            </li>
+            <li>
+              <Link
+                data={navItems[2]}
+                isActive={selectedIndicator === navItems[2].href}
+                setSelectedIndicator={setSelectedIndicator}
+              ></Link>
+            </li>
+            <li>
+              <Link
+                data={navItems[3]}
+                isActive={selectedIndicator === navItems[3].href}
+                setSelectedIndicator={setSelectedIndicator}
+              ></Link>
+            </li>
           </ul>
         </div>
+        <ul className="flex justify-evenly mt-6 text-2xl">
+          <li>
+            <FontAwesomeIcon icon={faSquareInstagram} />
+          </li>
+          <li>
+            <FontAwesomeIcon icon={faFacebook} />
+          </li>
+          <li>
+            <FontAwesomeIcon icon={faYoutube} />
+          </li>
+        </ul>
       </motion.div>
     </>
   );

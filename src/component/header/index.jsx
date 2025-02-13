@@ -1,12 +1,14 @@
 "use client";
 import styles from "./style.module.scss";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Nav from "./NavBtn";
 import { AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
+import MyContext from "@/context/MyContext";
 
 export default function Home() {
-  const [isActive, setIsActive] = useState(false);
+  // const [isActive, setIsActive] = useState(false);
+  const { isActive, setIsActive } = useContext(MyContext);
   const pathname = usePathname();
 
   useEffect(() => {
