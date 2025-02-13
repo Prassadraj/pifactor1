@@ -134,7 +134,7 @@ export default function NavBtn() {
               </div>
               <ul className="h-60 overflow-y-scroll  p-2 ">
                 {menus.map((data, i) => (
-                  <li className=" ">
+                  <li key={i} className=" ">
                     <p className="text-2xl font-bold mt-4 text-gold">
                       {data.title}
                     </p>
