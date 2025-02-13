@@ -65,6 +65,7 @@ export default function NavBtn() {
   const pathname = usePathname();
   const [selectedIndicator, setSelectedIndicator] = useState(pathname);
   const [isWorkOpen, setIsWorkOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(true);
   return (
     <>
       <motion.div
@@ -129,23 +130,30 @@ export default function NavBtn() {
           <ul className="w-64 space-y-4 text-4xl">
             <li>Home</li>
             <li>
-              <div className=" flex gap-4 items-center">
+              <div
+                onClick={() => setMenuOpen((prev) => !prev)}
+                className=" flex gap-4 items-center"
+              >
                 Work <span className="text-2xl">{isWorkOpen ? "▲" : "▼"}</span>
               </div>
-              <ul className="h-60 overflow-y-scroll  p-2 ">
-                {menus.map((data, i) => (
-                  <li key={i} className=" ">
-                    <p className="text-2xl font-bold mt-4 text-gold">
-                      {data.title}
-                    </p>
-                    <ul className="mt-2 space-y-2">
-                      {data.items.map((val, i) => (
-                        <li className=" text-xl">• {val}</li>
-                      ))}
-                    </ul>
-                  </li>
-                ))}
-              </ul>
+              {menuOpen && (
+                <ul className="h-60 overflow-y-scroll  p-2 ">
+                  {menus.map((data, i) => (
+                    <li key={i} className=" ">
+                      <p className="text-2xl font-bold mt-4 text-gold">
+                        {data.title}
+                      </p>
+                      <ul className="mt-2 space-y-2">
+                        {data.items.map((val, i) => (
+                          <li key={i} className=" text-xl">
+                            • {val}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
             <li>About</li>
             <li>Contact Us</li>
