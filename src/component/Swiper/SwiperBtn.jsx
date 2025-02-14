@@ -388,7 +388,7 @@ export default function App() {
         {filteredData.map((data, dataIndex) => (
           <div key={`${dataIndex}`} className="overflow-hidden -z-10 ">
             <div
-              className="font-bold tablet:text-4xl capitalize text-base tablet:max-w-52 text-wrap"
+              className="font-bold tablet:text-4xl capitalize text-base tablet:max-w-52 laptop:max-w-72 text-wrap"
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
