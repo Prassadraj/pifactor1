@@ -302,7 +302,7 @@ export default function App() {
       </div> */}
 
       {/* left and right btn  */}
-      <div className="fixed count tablet:bottom-10 bottom-14  right-5 tablet:right-10 z-30 flex gap-6 tablet:gap-4 text-white tablet:text-4xl text-2xl">
+      <div className="fixed count tablet:bottom-10 bottom-5  right-5 tablet:right-10 z-30 flex gap-6 tablet:gap-4 text-white tablet:text-4xl text-2xl">
         <div
           className="hover:text-gold cursor-pointer"
           onClick={() => swiperRef.current?.slidePrev()}
