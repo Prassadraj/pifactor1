@@ -5,6 +5,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/mousewheel";
 import "./swipe.css";
+import { SlArrowLeft } from "react-icons/sl";
+import { SlArrowRight } from "react-icons/sl";
+
 import { Mousewheel } from "swiper/modules";
 import Image from "next/image";
 import gsap from "gsap";
@@ -22,7 +25,7 @@ export default function App() {
 
   const menus = [
     {
-      title: "Movies & others",
+      title: "Movies",
       items: ["vfx", "Title Animation", "Lyric Videos"],
       category: ["vfx", "Title", "Lyric"],
     },
@@ -56,6 +59,16 @@ export default function App() {
 
   const [isHovering, setIsHovering] = useState(true);
   const categories = data?.allData.map((item) => item.category);
+  // 6sec
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (swiperRef.current) {
+        swiperRef.current.slideNext();
+        animateImage();
+      }
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
 
   const router = useRouter();
 
@@ -251,7 +264,7 @@ export default function App() {
                         <Image
                           src={portraitImg || coverImg} // Use item.mainImg dynamically here as well
                           alt={`Slide ${itemIndex + 1} inner`}
-                          className="object-cover transition-opacity w-full h-full duration-1000 image "
+                          className="object-contain transition-opacity w-full h-full duration-1000 image "
                           fill
                           // placeholder={coverImg}
                           quality={60}
@@ -267,7 +280,8 @@ export default function App() {
         )}
       </Swiper>
 
-      <div className="countBtn custom-navigation right-5 z-30 tablet:right-10 gap-2 tablet:gap-3">
+      {/* siide count  */}
+      {/* <div className="countBtn custom-navigation right-5 z-30 tablet:right-10 gap-2 tablet:gap-3">
         {filteredData.map((data, dataIndex) =>
           data.items.map((_, index) => (
             <button
@@ -285,8 +299,23 @@ export default function App() {
             </button>
           ))
         )}
-      </div>
+      </div> */}
 
+      {/* btn  */}
+      <div className="fixed tablet:bottom-10 bottom-14  right-5 tablet:right-10 z-30 flex gap-6 tablet:gap-4 text-white tablet:text-4xl text-2xl">
+        <div
+          className="hover:text-gold"
+          onClick={() => swiperRef.current?.slidePrev()}
+        >
+          <SlArrowLeft />
+        </div>
+        <div
+          className="hover:text-slate-400"
+          onClick={() => swiperRef.current?.slideNext()}
+        >
+          <SlArrowRight />
+        </div>
+      </div>
       <div
         className="fixed tablet:text-xl w-full px-20  text-xs flex gap-5 tablet:gap-1 font-black top-24
          tablet:top-[22%] laptop:top-[17%]
@@ -340,6 +369,7 @@ export default function App() {
           ))}
         </div>
       </div>
+      {/* count  */}
       <div
         className="count fixed tablet:bottom-10 bottom-5 tablet:text-lg text-xs
        left-5 tablet:left-14 z-20 text-white "
@@ -350,26 +380,26 @@ export default function App() {
           </div>
         ))}
       </div>
-
+      {/* title  */}
       <div
-        className="fixed top-1/4 left-1/2 laptop:top-2/4 laptop:left-40 tablet:top-2/4 tablet:left-14 tablet:gap-3 flex flex-col 
+        className="fixed top-1/4 left-1/2 laptop:top-2/4 laptop:left-40 tablet:top-2/4 tablet:left-10 tablet:gap-3 flex flex-col 
             transform -translate-x-1/2 -translate-y-1/2 tablet:-translate-x-0 tablet:translate-y-0 tablet:text-lg text-xs z-20 text-white"
       >
         {filteredData.map((data, dataIndex) => (
-          <div key={`${dataIndex}`} className="overflow-hidden -z-10">
+          <div key={`${dataIndex}`} className="overflow-hidden -z-10 ">
             <div
-              className="font-bold tablet:text-4xl capitalize text-base "
+              className="font-bold tablet:text-4xl capitalize text-base tablet:max-w-44 text-wrap"
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
             >
-              <p className="title tablet:w-32 laptop:max-w-xs text-wrap text-center tablet:text-left">
+              <p className="title  tablet:max-w-xs text-wrap text-center tablet:text-left">
                 {data?.items[selected - 1]?.title}
               </p>
             </div>
 
             <div
-              className="font-medium tablet:text-xl text-sm capitalize mt-2  text-center tablet:text-left"
+              className="font-medium tablet:text-xl text-sm tablet:max-w-44 text-wrap capitalize mt-2  text-center tablet:text-left"
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
@@ -379,13 +409,13 @@ export default function App() {
           </div>
         ))}
       </div>
-
+      {/* 
       <div
         className="count fixed tablet:bottom-10 bottom-5 tablet:text-base text-xs
        right-5 tablet:right-14 z-20 text-white "
       >
         <p>click to explore</p>
-      </div>
+      </div> */}
     </>
   );
 }

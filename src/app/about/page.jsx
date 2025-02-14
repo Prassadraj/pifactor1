@@ -331,7 +331,7 @@ function About() {
         </div>
 
         {/* design  */}
-        <div className="flex flex-col tablet:flex-row justify-center bg-gray-500/35 items-center tablet:my-5 py-10 my-2 text-center tablet:text-left h-auto">
+        <div className="flex flex-col tablet:flex-row justify-center  items-center tablet:my-5 py-10 my-2 text-center tablet:text-left h-auto">
           {/* Left - Image */}
           {/* <div
             className="w-full tablet:w-1/2 relative aspect-square hidden tablet:flex justify-center items-center"
