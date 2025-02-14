@@ -88,12 +88,12 @@ export default function App() {
     gsap.fromTo(
       ".image",
       { y: 900, scale: 0.5 },
-      { y: 0, x: 0, scale: 1, ease: "power2.out", duration: 1.5 } // Adjusted duration for smoother animation
+      { y: 0, x: 0, scale: 1, ease: "power2.out", duration: 1.3 } // Adjusted duration for smoother animation
     );
     gsap.fromTo(
       ".images",
       { y: 50, scale: 0.5 },
-      { y: 0, scale: 1, ease: "power2.out", duration: 2 } // Adjusted duration for smoother animation
+      { y: 0, scale: 1, ease: "power2.out", duration: 1 } // Adjusted duration for smoother animation
     );
     gsap.fromTo(
       ".title",
@@ -301,16 +301,16 @@ export default function App() {
         )}
       </div> */}
 
-      {/* btn  */}
-      <div className="fixed tablet:bottom-10 bottom-14  right-5 tablet:right-10 z-30 flex gap-6 tablet:gap-4 text-white tablet:text-4xl text-2xl">
+      {/* left and right btn  */}
+      <div className="fixed count tablet:bottom-10 bottom-14  right-5 tablet:right-10 z-30 flex gap-6 tablet:gap-4 text-white tablet:text-4xl text-2xl">
         <div
-          className="hover:text-gold"
+          className="hover:text-gold cursor-pointer"
           onClick={() => swiperRef.current?.slidePrev()}
         >
           <SlArrowLeft />
         </div>
         <div
-          className="hover:text-slate-400"
+          className="hover:text-slate-400 cursor-pointer"
           onClick={() => swiperRef.current?.slideNext()}
         >
           <SlArrowRight />
@@ -388,7 +388,7 @@ export default function App() {
         {filteredData.map((data, dataIndex) => (
           <div key={`${dataIndex}`} className="overflow-hidden -z-10 ">
             <div
-              className="font-bold tablet:text-4xl capitalize text-base tablet:max-w-44 text-wrap"
+              className="font-bold tablet:text-4xl capitalize text-base tablet:max-w-52 text-wrap"
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
