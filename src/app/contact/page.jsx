@@ -27,7 +27,9 @@ function Page() {
   let xPercent = 0;
   let direction = -1;
   const path = usePathname();
+
   useEffect(() => {
+    window.scrollTo(0, 0);
     gsap
       .timeline({ delay: 0 })
       .to(".block", {

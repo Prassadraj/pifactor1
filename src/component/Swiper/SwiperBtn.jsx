@@ -393,9 +393,9 @@ export default function App() {
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
             >
-              <p className="title  tablet:max-w-xs text-wrap text-center tablet:text-left">
+              <h1 className="title  tablet:max-w-xs text-wrap text-center tablet:text-left">
                 {data?.items[selected - 1]?.title}
-              </p>
+              </h1>
             </div>
 
             <div
@@ -404,7 +404,7 @@ export default function App() {
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
             >
-              <p className="title">{data?.items[selected - 1]?.subTitle}</p>
+              <h2 className="title">{data?.items[selected - 1]?.subTitle}</h2>
             </div>
           </div>
         ))}
