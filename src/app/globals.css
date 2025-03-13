@@ -13,7 +13,12 @@
 body {
   width: 100%;
   color: white;
-  background-color: black;
+  background: linear-gradient(
+    150deg,
+    #000000,
+    rgb(12, 11, 16),
+    rgb(29, 32, 53)
+  );
   overflow: auto;
   height: auto;
 
