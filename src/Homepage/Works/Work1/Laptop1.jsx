@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 const montserrat = Montserrat({
   subsets: ["latin"],
+  weight: "400",
 });
 const latoLight = Lato({
   subsets: ["latin"],

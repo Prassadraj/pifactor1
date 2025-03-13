@@ -9,6 +9,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 const montserrat = Montserrat({
   subsets: ["latin"],
+  weight: "400",
 });
 gsap.registerPlugin(ScrollTrigger);
 

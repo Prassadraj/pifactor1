@@ -17,7 +17,7 @@ import Link from "next/link";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: "300",
+  weight: "400",
 });
 
 gsap.registerPlugin(ScrollTrigger);

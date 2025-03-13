@@ -10,7 +10,7 @@ const montserratLight = Montserrat({
 });
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["900", "100"],
+  weight: ["900"],
 });
 
 function Section() {

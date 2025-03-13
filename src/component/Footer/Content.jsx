@@ -60,10 +60,7 @@ const Nav = () => {
                 playsInline
                 title="Descriptive title of the video"
               >
-                <source
-                  src="https://content.jwplatform.com/videos/bXcLvosl-sED7UjOr.mp4"
-                  type="video/mp4"
-                />
+                <source src="/footer/earth2.mp4" type="video/mp4" />
               </video>
             </div>
             <p
@@ -84,10 +81,7 @@ const Nav = () => {
               loop
               playsInline
             >
-              <source
-                src="https://content.jwplatform.com/videos/bXcLvosl-sED7UjOr.mp4"
-                type="video/mp4"
-              />
+              <source src="/footer/earth2.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
