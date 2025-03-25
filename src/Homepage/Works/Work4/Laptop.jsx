@@ -1,6 +1,6 @@
 "use client";
 import styles from "./styles.module.scss";
-import Picture1 from "../../../../public/wedding/pics/thumbnail7.webp";
+import Picture1 from "../../../../public/wedding/pics/wedding.webp";
 import Picture2 from "../../../../public/wedding/pics/anil.webp";
 import Picture3 from "../../../../public/wedding/pics/aishwarya.webp";
 import Picture4 from "../../../../public/wedding/pics/thumbnail1.webp";

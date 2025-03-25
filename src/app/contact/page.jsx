@@ -74,7 +74,7 @@ function Page() {
         opacity: 0.1,
         skewX: "-10deg",
       },
-      { duration: 1.5, ease: "power3.out", skewX: "0deg", opacity: 1 }
+      { duration: 1, ease: "power3.inOut", skewX: "0deg", opacity: 1 }
     );
   }, []);
   return (
@@ -92,14 +92,16 @@ function Page() {
       <div className="tablet:pt-[5vh] pt-[15vh] tablet:h-screen h-fit flex flex-col ">
         <div
           className="flex justify-center items-center tablet:ml-32 px-10 z-10 h-[420px] tablet:h-[700px] 
-        laptop:h-3/4 tablet:py-5"
+        laptop:h-3/4 tablet:py-5 overflow-hidden"
+          style={{ clipPath: "polygon(30% 0%, 70% 0%, 70% 100%, 30% 100%)" }}
         >
           <Image
-            src="/contact4.png" // Path relative to the 'public' folder
+            src="/Contact/contact5.png" // Path relative to the 'public' folder
             alt="Contact Us Image"
             width={380} // This will act as the default width (tablet and above)
             height={400}
             quality={90}
+            priority
             className="img object-cover  scale-125 h-full laptop:h-full w-[200px] tablet:w-[380px]" // Responsive widths
           />
         </div>

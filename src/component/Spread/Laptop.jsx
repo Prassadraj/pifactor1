@@ -28,28 +28,28 @@ function Laptop() {
     gsap.to(".spread", {
       y: -40,
       scale: 1.1,
-      duration: 2,
-      delay: 0.5,
+      duration: 2.5,
+      delay: 1,
       ease: "power3.inOut",
       scrollTrigger: {
         trigger: ".spreadText",
         start: "top 100%",
         end: "bottom 70%",
-        scrub: 0.5,
+        scrub: 1,
       },
     });
 
     gsap.to(".sentence", {
       y: 0,
       scale: 1.1,
-      duration: 1,
-      delay: 0.5,
+      duration: 1.5,
+      delay: 1.5,
       ease: "power3.inOut",
       scrollTrigger: {
         trigger: ".spreadText",
         start: "top 90%",
         end: "bottom 50%",
-        scrub: 0.5,
+        scrub: 1,
       },
     });
 
@@ -101,7 +101,7 @@ function Laptop() {
     // Animation for larger screens
     mm.add("(min-width: 1025px)", () => {
       gsap.fromTo(
-        ".image1",
+        ".imageOne",
         { x: 0 },
         {
           x: 150,
@@ -111,7 +111,7 @@ function Laptop() {
             trigger: ".imageContainer",
             start: "top 90%",
             end: "bottom 50%",
-            scrub: 0.5,
+            scrub: 1,
           },
         }
       );
@@ -120,7 +120,7 @@ function Laptop() {
     // Animation for tablet screens
     mm.add("(min-width: 768px) and (max-width: 1024px)", () => {
       gsap.fromTo(
-        ".image1",
+        ".imageOne",
         { x: 0 },
         {
           x: 20,
@@ -130,7 +130,7 @@ function Laptop() {
             trigger: ".imageContainer",
             start: "top 90%",
             end: "bottom 50%",
-            scrub: 0.5,
+            scrub: 1,
           },
         }
       );
@@ -138,7 +138,7 @@ function Laptop() {
 
     gsap.matchMedia().add("(min-width: 768px) and (max-width: 1024px)", () => {
       gsap.fromTo(
-        ".image2",
+        ".imageTwo",
         { x: 0 },
         {
           x: -20,
@@ -148,14 +148,14 @@ function Laptop() {
             trigger: ".imageContainer",
             start: "top 90%",
             end: "bottom 50%",
-            scrub: 0.5,
+            scrub: 1,
           },
         }
       );
     });
     gsap.matchMedia().add("(min-width: 1025px)", () => {
       gsap.fromTo(
-        ".image2",
+        ".imageTwo",
         { x: 0 },
         {
           x: -150,
@@ -165,7 +165,7 @@ function Laptop() {
             trigger: ".imageContainer",
             start: "top 90%",
             end: "bottom 50%",
-            scrub: 0.5,
+            scrub: 1,
           },
         }
       );
@@ -183,7 +183,7 @@ function Laptop() {
             trigger: ".imageContainer",
             start: "top 60%",
             end: "bottom 20%",
-            scrub: 0.5,
+            scrub: 1,
           },
         }
       );
@@ -202,7 +202,7 @@ function Laptop() {
             trigger: ".imageContainer",
             start: "top 60%",
             end: "bottom 20%",
-            scrub: 0.5,
+            scrub: 1,
           },
         }
       );
@@ -221,7 +221,7 @@ function Laptop() {
             trigger: ".imageContainer",
             start: "top 60%",
             end: "bottom 20%",
-            scrub: 0.5,
+            scrub: 1,
           },
         }
       );
@@ -240,7 +240,7 @@ function Laptop() {
             trigger: ".imageContainer",
             start: "top 60%",
             end: "bottom 20%",
-            scrub: 0.5,
+            scrub: 1,
           },
         }
       );
@@ -258,26 +258,26 @@ function Laptop() {
               width={400}
               height={600}
               className="object-cover"
-              src={`/3dImages/line.webp`}
+              src={`/Spread/SpreadCenter.webp`}
               alt="3D image"
               priority
             />
             <div className="absolute top-10 -right-24">
               <Image
-                width={100}
-                height={0}
-                className="object-cover w-[400px]  image1"
-                src={"/3dImages/img1.jpeg"}
+                width={900}
+                height={900}
+                className="object-cover w-[200px] h-[300px]  imageOne"
+                src={"/Spread/spread1.webp"}
                 alt="3D image"
                 priority
               />
             </div>
-            <div className="absolute top-10 -left-36 image2">
+            <div className="absolute top-10 -left-36 imageTwo">
               <Image
                 width={100}
                 height={0}
-                className="object-cover w-[300px] rounded-lg h-auto"
-                src={"/3dImages/img2.jpeg"}
+                className="object-cover w-[200px] h-[300px] rounded-lg "
+                src={"/Spread/Spread2.webp"}
                 alt="3D image"
                 priority
               />
@@ -285,20 +285,20 @@ function Laptop() {
           </div>
           <div className="absolute laptop:bottom-0 tablet:bottom-32 tablet:left-20 laptop:left-60 image3">
             <Image
-              width={300}
-              height={200}
-              className="object-cover "
-              src={"/3dImages/img3.jpeg"}
+              width={900}
+              height={900}
+              className="object-cover w-[200px] h-[300px] rounded-lg "
+              src={"/Spread/Spread3.webp"}
               alt="3D image"
               priority
             />
           </div>
           <div className="absolute laptop:bottom-10 tablet:right-20 tablet:bottom-10 laptop:right-56 image4">
             <Image
-              width={400}
-              height={200}
-              className="object-cover "
-              src={"/3dImages/img4.jpeg"}
+              width={900}
+              height={900}
+              className="object-cover w-[200px] h-[300px] rounded-lg "
+              src={"/Spread/Spread4.webp"}
               alt="3D image"
               priority
             />
