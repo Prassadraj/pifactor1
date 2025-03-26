@@ -1,9 +1,19 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import Tilt from "react-parallax-tilt";
 import { Montserrat } from "next/font/google";
+import { MdArrowOutward } from "react-icons/md";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "./style.css";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+
+// import required modules
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import Footer from "@/component/Footer/Footer";
 const mont = Montserrat({ subsets: ["latin"], weight: ["800"] });
 const montLight = Montserrat({ subsets: ["latin"], weight: ["200"] });
@@ -13,45 +23,159 @@ const SkeletonLoader = () => (
 
 const Main = () => {
   const [open, setOpen] = useState(false);
+  const [option, setOption] = useState(true);
   const [videoUrl, setVideoUrl] = useState("");
+  const swiperRef = useRef(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0); // Track active slide
+  const data = [
+    "/Event/images/Conference Room.jpeg",
+    "/Event/images/Conference_room_F.jpg",
+    "/Event/images/Drinktech.jpg",
+    "/Event/images/Entrance-EP.jpg",
+    "/Event/images/Expo_Hall.jpg",
+    "/Event/images/ILE.jpg",
+    "/Event/images/MMI Stalls.png",
+    "/Event/images/MMI_ExpoVile.png",
+    "/Event/images/Product Launch 3 5-10-2020.png",
+    "/Event/images/Registration.jpg",
+    "/Event/images/Standard_Standard_Sample.jpg",
+  ];
+  useEffect(() => {
+    return () => {
+      if (thumbsSwiper && !thumbsSwiper.destroyed) {
+        thumbsSwiper.destroy(true, true);
+      }
+    };
+  }, [thumbsSwiper]);
 
   return (
-    <>
-      <Others1 setVideoUrl={setVideoUrl} setOpen={setOpen} />
-      <Others2 setVideoUrl={setVideoUrl} setOpen={setOpen} />
-      <Section5 setVideoUrl={setVideoUrl} setOpen={setOpen} />
-      <Footer />
-      {open && (
+    <div>
+      <div
+        className={` justify-center  items-center flex  gap-3 mt-32 ${montLight.className}`}
+      >
+        {/* <p className="text-center text-sm font-medium">Men</p> */}
         <div
-          className="fixed w-full h-full bg-black/40 top-0 left-0 px-4 z-50
-      "
+          className={` group flex flex-col items-center `}
+          onClick={() => setOption(true)}
         >
-          <div
-            className="relative tablet:w-4/6 h-2/6 tablet:h-4/6 bg-black
-            top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          >
+          <p className="tablet:text-base text-xs text-white name cursor-pointer">Videos</p>
+          <p className="h-[1px] laptop:block hidden bg-white  group-hover:w-full transition-all duration-300"></p>
+        </div>
+        <span>/</span>
+        <div
+          className={` group flex flex-col items-center `}
+          onClick={() => setOption(0)}
+        >
+          <p className="tablet:text-base text-xs text-white name cursor-pointer">
+            Images
+          </p>
+          <p className="h-[1px] laptop:block hidden bg-white w-0 group-hover:w-full transition-all duration-300"></p>
+        </div>
+      </div>
+
+      {option ? (
+        <div>
+          <Others1 setVideoUrl={setVideoUrl} setOpen={setOpen} />
+          <Others2 setVideoUrl={setVideoUrl} setOpen={setOpen} />
+          <Section5 setVideoUrl={setVideoUrl} setOpen={setOpen} />
+          <Footer />
+          {open && (
             <div
-              className="absolute tablet:!-top-5 tablet:!-right-5 top-2 right-2 text-2xl cursor-pointer"
-              style={{ zIndex: 999 }}
-              onClick={() => setOpen(false)}
+              className="fixed w-full h-full bg-black/40 top-0 left-0 px-4 z-50
+      "
             >
-              X
+              <div
+                className="relative tablet:w-4/6 h-2/6 tablet:h-4/6 bg-black
+            top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              >
+                <div
+                  className="absolute tablet:!-top-5 tablet:!-right-5 top-2 right-2 text-2xl cursor-pointer"
+                  style={{ zIndex: 999 }}
+                  onClick={() => setOpen(false)}
+                >
+                  X
+                </div>
+                <div className="h-full w-full">
+                  <video
+                    src={videoUrl}
+                    autoPlay
+                    muted
+                    loop
+                    controls
+                    playsInline
+                    className="w-full h-full"
+                  ></video>
+                </div>
+              </div>
             </div>
-            <div className="h-full w-full">
-              <video
-                src={videoUrl}
-                autoPlay
-                muted
-                loop
-                controls
-                playsInline
-                className="w-full h-full"
-              ></video>
-            </div>
-          </div>
+          )}
+        </div>
+      ) : (
+        <div className="flex flex-col items-center justify-center w-full tablet:mt-16 mt-4">
+          {/* Main Swiper */}
+          <Swiper
+            style={{
+              "--swiper-navigation-color": "#fff",
+              "--swiper-pagination-color": "#fff",
+            }}
+            loop={true}
+            spaceBetween={10}
+            onSwiper={(swiper) => {
+              if (swiper && !swiper.destroyed) {
+                setThumbsSwiper(swiper);
+              }
+            }}
+            navigation={true}
+            thumbs={{ swiper: thumbsSwiper }}
+            modules={[FreeMode, Navigation, Thumbs]}
+            className="w-full max-w-5xl rounded-lg shadow-lg"
+            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Track active slide
+          >
+            {data?.map((val, i) => (
+              <SwiperSlide key={i} className="flex items-center justify-center">
+                <img
+                  src={val}
+                  alt={`Slide ${i + 1}`}
+                  className="w-full h-[400px] object-contain rounded-lg"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Thumbnail Swiper */}
+          <Swiper
+            onSwiper={(swiper) => {
+              if (swiper && !swiper.destroyed) {
+                setThumbsSwiper(swiper);
+              }
+            }}
+            loop={true}
+            spaceBetween={10}
+            slidesPerView={7}
+            freeMode={true}
+            watchSlidesProgress={true}
+            modules={[FreeMode, Navigation, Thumbs]}
+            className="w-full max-w-5xl mt-4"
+          >
+            {data?.map((val, i) => (
+              <SwiperSlide key={i} className="cursor-pointer">
+                <img
+                  src={val}
+                  alt={`Thumbnail ${i + 1}`}
+                  className={`w-full h-[100px] object-cover rounded-md border-2 border-transparent
+                  hover:border-white transition duration-300 ${
+                    activeIndex === i
+                      ? "border-white scale-105"
+                      : "border-transparent"
+                  }`}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
@@ -67,22 +191,6 @@ function Others1({ setVideoUrl, setOpen }) {
 
   return (
     <div className="relative h-full w-full">
-      <div
-        className={` justify-center  items-center flex  gap-3 mt-32 ${montLight.className}`}
-      >
-        {/* <p className="text-center text-sm font-medium">Men</p> */}
-        <div className={` group flex flex-col items-center `}>
-          <p className="tablet:text-base text-xs text-white name">Videos</p>
-          <p className="h-[1px] laptop:block hidden bg-white w-full group-hover:w-full transition-all duration-300"></p>
-        </div>
-        <span>/</span>
-        <div className={` group flex flex-col items-center `}>
-          <p className="tablet:text-base text-xs text-white name cursor-pointer">
-            Images
-          </p>
-          <p className="h-[1px] laptop:block hidden bg-white w-0 group-hover:w-full transition-all duration-300"></p>
-        </div>
-      </div>
       <div className="relative h-[200vh]" ref={container}>
         <Section1
           setVideoUrl={setVideoUrl}
@@ -131,12 +239,12 @@ function Section1({ scrollYProgress, setVideoUrl, setOpen }) {
   const data = [
     {
       src: "/Event/thumbnail/AIR CARGO INDIA.png",
-      title: "Concrete_INK",
+      title: "AIR CARGO INDIA",
       video: "/Event/videos/AIR CARGO INDIA.mp4",
     },
     {
       src: "/Event/thumbnail/analytica.png",
-      title: "Concrete_INK",
+      title: "analytica",
       video: "/Event/videos/analytica (1).mp4",
     },
     {
@@ -150,6 +258,7 @@ function Section1({ scrollYProgress, setVideoUrl, setOpen }) {
       video: "/Event/videos/Concrete_INK.mp4",
     },
   ];
+
   return (
     <motion.div
       style={{ scale, rotate }}
@@ -159,7 +268,7 @@ function Section1({ scrollYProgress, setVideoUrl, setOpen }) {
         {data.map((val, i) => (
           <div
             key={i}
-            className="w-full bg-blue-300 cursor-pointer relative h-[200px] overflow-hidden tablet:h-full"
+            className="w-full bg-blue-300 cursor-pointer relative h-[200px] overflow-hidden tablet:h-full group"
           >
             <Image
               className="object-cover w-full h-full"
@@ -172,8 +281,9 @@ function Section1({ scrollYProgress, setVideoUrl, setOpen }) {
               alt="img1"
               src={val.src}
             />
-            <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex items-center">
-              <p className="p-1 font-semibold">{val.title}</p>
+            <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex items-center px-2 justify-between">
+              <p className="p-1 font-semibold capitalize">{val.title}</p>
+              <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
             </div>
           </div>
         ))}
@@ -188,25 +298,26 @@ function Section2({ scrollYProgress, setVideoUrl, setOpen }) {
   const data = [
     {
       src: "/Event/thumbnail/CPHI LOGO 2.png",
-      title: "Concrete_INK",
+      title: "CPHI LOGO 2",
       video: "/Event/videos/CPHI LOGO 2.mp4",
     },
     {
       src: "/Event/thumbnail/DrinkTech.png",
-      title: "Concrete_INK",
+      title: "DrinkTech",
       video: "/Event/videos/DrinkTech.mp4",
     },
     {
       src: "/Event/thumbnail/E waste.png",
-      title: "Bauma_Truck",
+      title: "E waste",
       video: "/Event/videos/E waste.mp4",
     },
     {
       src: "/Event/thumbnail/glasspro INDIA 2019.png",
-      title: "Concrete_INK",
+      title: "glasspro INDIA 2019",
       video: "/Event/videos/glasspro INDIA 2019.mp4",
     },
   ];
+
   return (
     <motion.div style={{ scale, rotate }} className="relative h-screen">
       <div
@@ -216,7 +327,7 @@ function Section2({ scrollYProgress, setVideoUrl, setOpen }) {
         {data.map((val, i) => (
           <div
             key={i}
-            className="w-full bg-blue-300 cursor-pointer relative h-[200px] overflow-hidden tablet:h-full"
+            className="w-full bg-blue-300 cursor-pointer group relative h-[200px] overflow-hidden tablet:h-full"
           >
             <Image
               className="object-cover w-full h-full"
@@ -229,8 +340,9 @@ function Section2({ scrollYProgress, setVideoUrl, setOpen }) {
               alt="img1"
               src={val.src}
             />
-            <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex items-center">
-              <p className="p-1 font-semibold">{val.title}</p>
+            <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex items-center px-2 justify-between">
+              <p className="p-1 font-semibold capitalize">{val.title}</p>
+              <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
             </div>
           </div>
         ))}
@@ -245,25 +357,26 @@ function Section3({ scrollYProgress, setVideoUrl, setOpen }) {
   const data = [
     {
       src: "/Event/thumbnail/Goa_Event_Video.png",
-      title: "Concrete_INK",
+      title: "Goa Event Video",
       video: "/Event/videos/Goa_Event_Video.mp4",
     },
     {
       src: "/Event/thumbnail/Ifat.png",
-      title: "Concrete_INK",
+      title: "Ifat",
       video: "/Event/videos/Ifat.mp4",
     },
     {
       src: "/Event/thumbnail/JCB_Engl.png",
-      title: "Bauma_Truck",
+      title: "JCB Engl",
       video: "/Event/videos/JCB_Engl.mp4",
     },
     {
       src: "/Event/thumbnail/Juror Awards.png",
-      title: "Concrete_INK",
+      title: "Juror Awards",
       video: "/Event/videos/Juror Awards.mp4",
     },
   ];
+
   return (
     <motion.div
       style={{ scale, rotate }}
@@ -273,7 +386,7 @@ function Section3({ scrollYProgress, setVideoUrl, setOpen }) {
         {data.map((val, i) => (
           <div
             key={i}
-            className="w-full bg-blue-300 cursor-pointer relative h-[200px] overflow-hidden tablet:h-full"
+            className="w-full bg-blue-300 group cursor-pointer relative h-[200px] overflow-hidden tablet:h-full"
           >
             <Image
               className="object-cover w-full h-full"
@@ -286,8 +399,12 @@ function Section3({ scrollYProgress, setVideoUrl, setOpen }) {
               alt="img1"
               src={val.src}
             />
-            <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex items-center">
-              <p className="p-1 font-semibold">{val.title}</p>
+            <div
+              className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex items-center
+            justify-between px-2"
+            >
+              <p className="p-1 font-semibold capitalize">{val.title}</p>
+              <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
             </div>
           </div>
         ))}
@@ -302,25 +419,26 @@ function Section4({ scrollYProgress, setVideoUrl, setOpen }) {
   const data = [
     {
       src: "/Event/thumbnail/Medical_Fair_2019_Promo.png",
-      title: "Concrete_INK",
-      video: "/Event/videos/Medical_Fair_2019_Promo.png",
+      title: "Medical Fair 2019 Promo",
+      video: "/Event/videos/Medical_Fair_2019_Promo.mp4", // Fixed incorrect file extension
     },
     {
       src: "/Event/thumbnail/Netizo_For_Ref.png",
-      title: "Concrete_INK",
+      title: "Netizo For Ref",
       video: "/Event/videos/Netizo_For_Ref.mp4",
     },
     {
       src: "/Event/thumbnail/Smarter E.png",
-      title: "Bauma_Truck",
+      title: "Smarter E",
       video: "/Event/videos/Smarter E.mp4",
     },
     {
       src: "/Event/thumbnail/TAFE_FINAL.png",
-      title: "Concrete_INK",
+      title: "TAFE FINAL",
       video: "/Event/videos/TAFE_FINAL.mp4",
     },
   ];
+
   return (
     <motion.div
       style={{ scale, rotate }}
@@ -330,7 +448,7 @@ function Section4({ scrollYProgress, setVideoUrl, setOpen }) {
         {data.map((val, i) => (
           <div
             key={i}
-            className="w-full bg-blue-300 cursor-pointer relative h-[200px] overflow-hidden tablet:h-full"
+            className="w-full bg-blue-300 group cursor-pointer relative h-[200px] overflow-hidden tablet:h-full"
           >
             <Image
               className="object-cover w-full h-full"
@@ -343,8 +461,9 @@ function Section4({ scrollYProgress, setVideoUrl, setOpen }) {
               alt="img1"
               src={val.src}
             />
-            <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex items-center">
-              <p className="p-1 font-semibold">{val.title}</p>
+            <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex items-center px-2 justify-between">
+              <p className="p-1 font-semibold capitalize">{val.title}</p>
+              <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
             </div>
           </div>
         ))}
@@ -356,36 +475,41 @@ function Section4({ scrollYProgress, setVideoUrl, setOpen }) {
 function Section5({ setVideoUrl, setOpen }) {
   return (
     <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet: py-10 bg-black">
-      <div className="w-full bg-blue-300 cursor-pointer relative">
+      <div
+        className="w-full bg-blue-300 cursor-pointer relative
+      h-[200px] overflow-hidden tablet:h-[400px] group"
+      >
         <Image
-          className="object-cover w-full h-full"
+          className="object-cover w-full h-full "
           onClick={() => {
-            setVideoUrl("/Event/videos/Netizo_For_Ref.png");
+            setVideoUrl("/Event/videos/Textile waste_1.mp4");
             setOpen(true);
           }}
           width={900}
           height={900}
           alt="img1"
-          src="/Event/thumbnail/Medical_Fair_2019_Promo.png"
+          src="/Event/thumbnail/Textile waste_1.png"
         />
-        <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex items-center">
-          <p className="p-1 font-semibold"> Concrete_INK</p>
+        <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex justify-between items-center px-2">
+          <p className="p-1 font-semibold"> IFAT INDIA</p>
+          <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
         </div>
       </div>
-      <div className="w-full bg-blue-300 cursor-pointer relative">
+      <div className="w-full bg-blue-300 cursor-pointer relative group   h-[200px] overflow-hidden tablet:h-[400px]">
         <Image
           className="object-cover w-full h-full"
           onClick={() => {
-            setVideoUrl("/Event/videos/Netizo_For_Ref.png");
+            setVideoUrl("/Event/videos/Water_Waste (1).mp4");
             setOpen(true);
           }}
           width={900}
           height={900}
           alt="img1"
-          src="/Event/thumbnail/Netizo_For_Ref.png"
+          src="/Event/thumbnail/Water_Waste (1).png"
         />
-        <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex items-center">
-          <p className="p-1 font-semibold"> Bauma_Truck</p>
+        <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex justify-between px-2 items-center">
+          <p className="p-1 font-semibold"> Water_Waste</p>
+          <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
         </div>
       </div>
     </div>
