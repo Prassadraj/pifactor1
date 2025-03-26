@@ -23,6 +23,7 @@ function Nav() {
     { name: "Works", href: "/works" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
+    { name: "Others", href: "/others" },
   ];
 
   // Handle nav visibility on scroll

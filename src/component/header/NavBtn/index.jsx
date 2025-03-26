@@ -40,6 +40,10 @@ const navItems = [
     title: "Contact",
     href: "/contact",
   },
+  {
+    title: "Others",
+    href: "/others",
+  },
 ];
 
 const menus = [
