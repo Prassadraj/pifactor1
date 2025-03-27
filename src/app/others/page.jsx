@@ -298,10 +298,12 @@ function Section1({ scrollYProgress, setVideoUrl, setOpen }) {
       style={{ scale, rotate }}
       className={`sticky tablet:top-2 h-screen  ${montLight.className}`}
     >
-      <div className=" grid  grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet: py-10">
+      <div
+        data-aos="fade-up"
+        className=" grid  grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet: py-10"
+      >
         {data.map((val, i) => (
           <div
-            data-aos={i !== 0 ? "fade-up" : undefined}
             key={i}
             className=" w-full bg-gray-300 cursor-pointer relative h-[200px] overflow-hidden tablet:h-full group"
           >
