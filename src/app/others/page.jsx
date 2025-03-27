@@ -1,17 +1,17 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { easeInOut, motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import { MdArrowOutward } from "react-icons/md";
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./styles.module.css";
+import Aos from "aos";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-
 // import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import Footer from "@/component/Footer/Footer";
@@ -58,6 +58,9 @@ const Main = () => {
       .fromTo(".blocks", { zIndex: 999 }, { zIndex: 0, display: "none" });
   }, []);
   useEffect(() => {
+    Aos.init({ duration: 700, delay: 500, once: true });
+  }, []);
+  useEffect(() => {
     return () => {
       if (swiperInstance) {
         swiperInstance.destroy(true, true);
@@ -88,7 +91,10 @@ const Main = () => {
           <p className="tablet:text-base text-xs text-white name cursor-pointer">
             Videos
           </p>
-          <p className="h-[1px] laptop:block hidden bg-white  group-hover:w-full transition-all duration-300"></p>
+          <p
+            className={`h-[1px] laptop:block hidden bg-white  group-hover:w-full transition-all duration-300
+              ${option ? "w-full" : "w-0"}`}
+          ></p>
         </div>
         <span>/</span>
         <div
@@ -98,7 +104,10 @@ const Main = () => {
           <p className="tablet:text-base text-xs text-white name cursor-pointer">
             Images
           </p>
-          <p className="h-[1px] laptop:block hidden bg-white w-0 group-hover:w-full transition-all duration-300"></p>
+          <p
+            className={`h-[1px] laptop:block hidden bg-white  group-hover:w-full transition-all duration-300
+              ${!option ? "w-full" : "w-0"}`}
+          ></p>{" "}
         </div>
       </div>
 
@@ -264,6 +273,7 @@ function Section1({ scrollYProgress, setVideoUrl, setOpen }) {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 5]);
   const [isLoading, setIsLoading] = useState(true);
+
   const data = [
     {
       src: "/Event/thumbnail/AIR CARGO INDIA.png",
@@ -292,11 +302,12 @@ function Section1({ scrollYProgress, setVideoUrl, setOpen }) {
       style={{ scale, rotate }}
       className={`sticky tablet:top-2 h-screen  ${montLight.className}`}
     >
-      <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet: py-10">
+      <div className=" grid  grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet: py-10">
         {data.map((val, i) => (
           <div
+            data-aos={i !== 0 ? "fade-up" : undefined}
             key={i}
-            className="w-full bg-gray-300 cursor-pointer relative h-[200px] overflow-hidden tablet:h-full group"
+            className=" w-full bg-gray-300 cursor-pointer relative h-[200px] overflow-hidden tablet:h-full group"
           >
             <Image
               className="object-cover  w-full h-full"
@@ -356,6 +367,7 @@ function Section2({ scrollYProgress, setVideoUrl, setOpen }) {
         {data.map((val, i) => (
           <div
             key={i}
+            data-aos={i !== 0 ? "fade-up" : undefined}
             className="w-full bg-gray-300 cursor-pointer group relative h-[200px] overflow-hidden tablet:h-full"
           >
             <Image
@@ -415,6 +427,7 @@ function Section3({ scrollYProgress, setVideoUrl, setOpen }) {
       <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet:py-10">
         {data.map((val, i) => (
           <div
+            data-aos={i !== 0 ? "fade-up" : undefined}
             key={i}
             className="w-full bg-gray-300 group cursor-pointer relative h-[200px] overflow-hidden tablet:h-full"
           >
@@ -478,6 +491,7 @@ function Section4({ scrollYProgress, setVideoUrl, setOpen }) {
       <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet: py-10 bg-black">
         {data.map((val, i) => (
           <div
+            data-aos={i !== 0 ? "fade-up" : undefined}
             key={i}
             className="w-full bg-gray-300 group cursor-pointer relative h-[200px] overflow-hidden tablet:h-full"
           >
@@ -528,7 +542,10 @@ function Section5({ setVideoUrl, setOpen }) {
           <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
         </div>
       </div>
-      <div className="w-full bg-gray-300 cursor-pointer relative group   h-[200px] overflow-hidden tablet:h-[400px]">
+      <div
+        data-aos="fade-up"
+        className="w-full bg-gray-300 cursor-pointer relative group   h-[200px] overflow-hidden tablet:h-[400px]"
+      >
         <Image
           className="object-cover w-full h-full"
           onClick={() => {

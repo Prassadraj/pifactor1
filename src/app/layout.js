@@ -1,6 +1,6 @@
 import Nav from "@/component/Nav/Nav";
 import "./globals.css";
-
+import "aos/dist/aos.css";
 import { MyProvider } from "@/context/MyContext";
 import SmoothScroll from "@/component/SmoothScroll/SmoothScroll";
 
