@@ -22,6 +22,7 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "100"],
 });
+const montLight = Montserrat({ subsets: ["latin"], weight: ["200"] });
 
 const navItems = [
   {
@@ -163,13 +164,13 @@ export default function NavBtn() {
                 ></Link>
               </div>
 
-              <ul className="h-60 overflow-y-scroll  p-2 px-4">
+              <ul className="h-52 overflow-y-scroll  p-2 px-4">
                 {menus.map((data, i) => (
                   <li key={i} className=" ">
                     <p className="text-2xl font-bold mt-4 text-gold">
                       {data.title}
                     </p>
-                    <ul className="mt-2 space-y-2">
+                    <ul className={`mt-2 space-y-2 ${montLight.className}`}>
                       {data.items.map((val, i) => (
                         <li
                           key={i}
@@ -203,6 +204,13 @@ export default function NavBtn() {
               <Link
                 data={navItems[3]}
                 isActive={selectedIndicator === navItems[3].href}
+                setSelectedIndicator={setSelectedIndicator}
+              ></Link>
+            </li>
+            <li>
+              <Link
+                data={navItems[4]}
+                isActive={selectedIndicator === navItems[4].href}
                 setSelectedIndicator={setSelectedIndicator}
               ></Link>
             </li>
