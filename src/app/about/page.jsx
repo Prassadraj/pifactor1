@@ -7,7 +7,10 @@ import React, { useEffect, useRef } from "react";
 import spark from "../images/sparkle.png";
 import Footer from "@/component/Footer/Footer";
 import "./about.css";
+import styles from "./styles.module.css";
+
 import Marquee from "react-fast-marquee";
+import { usePathname } from "next/navigation";
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["600"],
@@ -23,6 +26,7 @@ const montserraMedium = Montserrat({
 
 function About() {
   const images = ["/images/baner.jpg", "/images/left.jpg"];
+  const path = usePathname();
   useEffect(() => {
     gsap
       .timeline({ delay: 0 })
@@ -97,9 +101,13 @@ function About() {
 
   return (
     <>
-      <div className={`blocks `}>
+      <div
+        className={`blocks ${styles.blocks} ${
+          path === "/contact" ? "z-50" : "z-0"
+        }`}
+      >
         {Array.from({ length: 5 }).map((_, index) => (
-          <div key={index} className={`block`}></div>
+          <div key={index} className={`block ${styles.block}`}></div>
         ))}
       </div>
       <div className={` ${montserrat.className}  w-full h-full`}>
