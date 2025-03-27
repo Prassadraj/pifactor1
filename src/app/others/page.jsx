@@ -71,11 +71,7 @@ const Main = () => {
   }, [option]);
   return (
     <div>
-      <div
-        className={`blocks ${styles.blocks} ${
-          path === "/others" ? "z-50" : "z-0"
-        }`}
-      >
+      <div className={`blocks ${styles.blocks} `}>
         {Array.from({ length: 5 }).map((_, index) => (
           <div key={index} className={`block ${styles.block}`}></div>
         ))}
@@ -119,7 +115,7 @@ const Main = () => {
           <Footer />
           {open && (
             <div
-              className="fixed w-full h-full bg-black/40 top-0 left-0 px-4 z-40
+              className="fixed w-full h-full bg-black/40 top-0 left-0 px-4 z-50
       "
             >
               <div
@@ -128,7 +124,7 @@ const Main = () => {
               >
                 <div
                   className="absolute tablet:!-top-5 tablet:!-right-5 top-2 right-2 text-2xl cursor-pointer"
-                  style={{ zIndex: 999 }}
+                  style={{ zIndex: 9999 }}
                   onClick={() => setOpen(false)}
                 >
                   X
