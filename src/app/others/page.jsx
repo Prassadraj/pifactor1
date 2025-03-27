@@ -289,7 +289,7 @@ function Section1({ scrollYProgress, setVideoUrl, setOpen }) {
     {
       src: "/Event/thumbnail/Concrete_INK.mov.png",
       title: "Concrete_INK",
-      video: "/Event/videos/Concrete_INK.mp4",
+      video: "/Event/videos/Concrete_INK.mov.mp4",
     },
   ];
 
