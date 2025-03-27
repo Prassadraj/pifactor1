@@ -115,7 +115,8 @@ const Main = () => {
           <Footer />
           {open && (
             <div
-              className="fixed w-full h-full bg-black/40 top-0 left-0 px-4 z-50
+              onClick={() => setOpen(false)}
+              className="fixed w-full h-full bg-black/40 top-0 left-0 px-4 z-50 cursor-pointer
       "
             >
               <div
