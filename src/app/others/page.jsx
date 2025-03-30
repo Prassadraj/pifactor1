@@ -59,7 +59,9 @@ const Main = () => {
           className={` group flex flex-col items-center `}
           onClick={() => setOption(true)}
         >
-          <p className="tablet:text-base text-xs text-white name cursor-pointer">Videos</p>
+          <p className="tablet:text-base text-xs text-white name cursor-pointer">
+            Videos
+          </p>
           <p className="h-[1px] laptop:block hidden bg-white  group-hover:w-full transition-all duration-300"></p>
         </div>
         <span>/</span>
@@ -74,7 +76,7 @@ const Main = () => {
         </div>
       </div>
 
-      {option ? (
+      {option == true ? (
         <div>
           <Others1 setVideoUrl={setVideoUrl} setOpen={setOpen} />
           <Others2 setVideoUrl={setVideoUrl} setOpen={setOpen} />
