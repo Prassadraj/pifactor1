@@ -36,6 +36,7 @@ const Main = () => {
   const data = [
     "/Event/images/Conference Room.jpeg",
     "/Event/images/Conference_room_F.jpg",
+    "/Event/images/Base_Plan_.webp",
     "/Event/images/Drinktech.jpg",
     "/Event/images/Entrance-EP.jpg",
     "/Event/images/Expo_Hall.jpg",
@@ -278,9 +279,9 @@ function Section1({ scrollYProgress, setVideoUrl, setOpen }) {
       video: "/Event/videos/AIR CARGO INDIA.mp4",
     },
     {
-      src: "/Event/thumbnail/analytica.png",
+      src: "/Event/thumbnail/Info_Hub.png",
       title: "analytica",
-      video: "/Event/videos/analytica (1).mp4",
+      video: "/Event/videos/Info_Hub.mp4",
     },
     {
       src: "/Event/thumbnail/Bauma_Truck Intro.png",
@@ -519,10 +520,10 @@ function Section4({ scrollYProgress, setVideoUrl, setOpen }) {
 
 function Section5({ setVideoUrl, setOpen }) {
   return (
-    <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet: py-10 bg-black">
+    <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-screen px-4 tablet:px-20 tablet: py-10 bg-black ">
       <div
         className="w-full bg-gray-300 cursor-pointer relative
-      h-[200px] overflow-hidden tablet:h-[400px] group"
+      h-[200px] overflow-hidden tablet:h-full group"
       >
         <Image
           className="object-cover w-full h-full "
@@ -543,7 +544,7 @@ function Section5({ setVideoUrl, setOpen }) {
       </div>
       <div
         data-aos="fade-up"
-        className="w-full bg-gray-300 cursor-pointer relative group   h-[200px] overflow-hidden tablet:h-[400px]"
+        className="w-full bg-gray-300 cursor-pointer relative group   h-[200px] overflow-hidden tablet:h-full"
       >
         <Image
           className="object-cover w-full h-full"
@@ -559,6 +560,27 @@ function Section5({ setVideoUrl, setOpen }) {
         />
         <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex justify-between px-2 items-center">
           <p className="p-1 font-semibold"> Water_Waste</p>
+          <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
+        </div>
+      </div>
+      <div
+        data-aos="fade-up"
+        className="w-full bg-gray-300 cursor-pointer relative group   h-[200px] overflow-hidden tablet:h-full"
+      >
+        <Image
+          className="object-cover w-full h-full"
+          onClick={() => {
+            setVideoUrl("/Event/videos/analytica (1).mp4");
+            setOpen(true);
+          }}
+          width={900}
+          loading="lazy"
+          height={900}
+          alt="img1"
+          src="/Event/thumbnail/analytica.png"
+        />
+        <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex justify-between px-2 items-center">
+          <p className="p-1 font-semibold"> Analytica</p>
           <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
         </div>
       </div>
