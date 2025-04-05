@@ -519,6 +519,23 @@ function Section4({ scrollYProgress, setVideoUrl, setOpen }) {
 }
 
 function Section5({ setVideoUrl, setOpen }) {
+  const data = [
+    {
+      src: "/Event/thumbnail/Medical_Fair_2019_Promo.png",
+      title: "Medical Fair 2019 Promo",
+      video: "/Event/videos/Medical_Fair_2019_Promo.mp4", // Fixed incorrect file extension
+    },
+    {
+      src: "/Event/thumbnail/Netizo_For_Ref.png",
+      title: "Netizo For Ref",
+      video: "/Event/videos/Netizo_For_Ref.mp4",
+    },
+    {
+      src: "/Event/thumbnail/Smarter E.png",
+      title: "Smarter E",
+      video: "/Event/videos/Smarter E.mp4",
+    },
+  ];
   return (
     <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-screen px-4 tablet:px-20 tablet: py-10 bg-black ">
       <div
