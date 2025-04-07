@@ -399,7 +399,7 @@ export default function App() {
             </div>
 
             <div
-              className="font-medium tablet:text-xl text-sm tablet:max-w-44 text-wrap capitalize mt-2  text-center tablet:text-left"
+              className="font-medium tablet:!text-xl text-sm tablet:max-w-44 text-wrap capitalize mt-2  text-center tablet:text-left"
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}

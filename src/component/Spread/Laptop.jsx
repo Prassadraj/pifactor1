@@ -32,10 +32,10 @@ function Laptop() {
       delay: 1,
       ease: "power3.inOut",
       scrollTrigger: {
-        trigger: ".spreadText",
-        start: "top 100%",
+        trigger: ".sentence",
+        start: "top 90%",
         end: "bottom 70%",
-        scrub: 1,
+        scrub: 2,
       },
     });
 
@@ -65,7 +65,7 @@ function Laptop() {
         opacity: 1,
         skewY: "0deg",
         scrollTrigger: {
-          trigger: ".spreadText",
+          trigger: ".sentence",
         },
         duration: 1,
         delay: 0.5,
@@ -86,8 +86,23 @@ function Laptop() {
       },
       {
         y: 0,
-        scrollTrigger: ".spreadText2",
+        scrollTrigger: ".sentence",
         skewY: "0deg",
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.5,
+        stagger: 0.1,
+      }
+    );
+    gsap.fromTo(
+      ".sentence",
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        scrollTrigger: ".sentence",
+
         duration: 1,
         ease: "power3.out",
         delay: 0.5,

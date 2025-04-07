@@ -72,9 +72,17 @@ function Page() {
       ".img",
       {
         opacity: 0.1,
-        skewX: "-10deg",
+        skewX: "-40deg",
+        scale: 5,
       },
-      { duration: 1, ease: "power3.inOut", skewX: "0deg", opacity: 1 }
+      {
+        duration: 1.3,
+        delay: 0.5,
+        ease: "power3.inOut",
+        skewX: "0deg",
+        opacity: 1,
+        scale: 1,
+      }
     );
   }, []);
   return (
@@ -96,7 +104,7 @@ function Page() {
           style={{ clipPath: "polygon(30% 0%, 70% 0%, 70% 100%, 30% 100%)" }}
         >
           <Image
-            src="/Contact/contact5.png" // Path relative to the 'public' folder
+            src="/Contact/contact5.webp" // Path relative to the 'public' folder
             alt="Contact Us Image"
             width={380} // This will act as the default width (tablet and above)
             height={400}

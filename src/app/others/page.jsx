@@ -1,20 +1,22 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { easeInOut, motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import { MdArrowOutward } from "react-icons/md";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "./style.css";
+import styles from "./styles.module.css";
+import Aos from "aos";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-
 // import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import Footer from "@/component/Footer/Footer";
+import gsap from "gsap";
+import { usePathname } from "next/navigation";
 const mont = Montserrat({ subsets: ["latin"], weight: ["800"] });
 const montLight = Montserrat({ subsets: ["latin"], weight: ["200"] });
 const SkeletonLoader = () => (
@@ -26,8 +28,11 @@ const Main = () => {
   const [option, setOption] = useState(true);
   const [videoUrl, setVideoUrl] = useState("");
   const swiperRef = useRef(null);
+  const [swiperInstance, setSwiperInstance] = useState(null);
+  const path = usePathname();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0); // Track active slide
+
   const data = [
     "/Event/images/Conference Room.jpeg",
     "/Event/images/Conference_room_F.jpg",
@@ -35,22 +40,42 @@ const Main = () => {
     "/Event/images/Entrance-EP.jpg",
     "/Event/images/Expo_Hall.jpg",
     "/Event/images/ILE.jpg",
-    "/Event/images/MMI Stalls.png",
+    "/Event/images/MMI.png",
     "/Event/images/MMI_ExpoVile.png",
     "/Event/images/Product Launch 3 5-10-2020.png",
     "/Event/images/Registration.jpg",
     "/Event/images/Standard_Standard_Sample.jpg",
   ];
+  // intro
+  useEffect(() => {
+    gsap
+      .timeline({ delay: 0 })
+      .to(".block", {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        duration: 0.7,
+        stagger: { amount: 0.5, from: "random", ease: "power3.out" },
+      })
+      .fromTo(".blocks", { zIndex: 999 }, { zIndex: 0, display: "none" });
+  }, []);
+  useEffect(() => {
+    Aos.init({ duration: 700, delay: 500, once: true });
+  }, []);
   useEffect(() => {
     return () => {
-      if (thumbsSwiper && !thumbsSwiper.destroyed) {
-        thumbsSwiper.destroy(true, true);
+      if (swiperInstance) {
+        swiperInstance.destroy(true, true);
       }
+      setSwiperInstance(null); // Reset instance
+      setThumbsSwiper(null);
     };
-  }, [thumbsSwiper]);
-
+  }, [option]);
   return (
     <div>
+      <div className={`blocks ${styles.blocks} `}>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <div key={index} className={`block ${styles.block}`}></div>
+        ))}
+      </div>
       <div
         className={` justify-center  items-center flex  gap-3 mt-32 ${montLight.className}`}
       >
@@ -62,7 +87,10 @@ const Main = () => {
           <p className="tablet:text-base text-xs text-white name cursor-pointer">
             Videos
           </p>
-          <p className="h-[1px] laptop:block hidden bg-white  group-hover:w-full transition-all duration-300"></p>
+          <p
+            className={`h-[1px] laptop:block hidden bg-white  group-hover:w-full transition-all duration-300
+              ${option ? "w-full" : "w-0"}`}
+          ></p>
         </div>
         <span>/</span>
         <div
@@ -72,7 +100,10 @@ const Main = () => {
           <p className="tablet:text-base text-xs text-white name cursor-pointer">
             Images
           </p>
-          <p className="h-[1px] laptop:block hidden bg-white w-0 group-hover:w-full transition-all duration-300"></p>
+          <p
+            className={`h-[1px] laptop:block hidden bg-white  group-hover:w-full transition-all duration-300
+              ${!option ? "w-full" : "w-0"}`}
+          ></p>{" "}
         </div>
       </div>
 
@@ -84,7 +115,8 @@ const Main = () => {
           <Footer />
           {open && (
             <div
-              className="fixed w-full h-full bg-black/40 top-0 left-0 px-4 z-50
+              onClick={() => setOpen(false)}
+              className="fixed w-full h-full bg-black/40 top-0 left-0 px-4 z-50 cursor-pointer
       "
             >
               <div
@@ -93,7 +125,7 @@ const Main = () => {
               >
                 <div
                   className="absolute tablet:!-top-5 tablet:!-right-5 top-2 right-2 text-2xl cursor-pointer"
-                  style={{ zIndex: 999 }}
+                  style={{ zIndex: 9999 }}
                   onClick={() => setOpen(false)}
                 >
                   X
@@ -114,7 +146,9 @@ const Main = () => {
           )}
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center w-full tablet:mt-16 mt-4">
+        <div
+          className={` flex flex-col items-center justify-center w-full tablet:mt-10 mt-4 mb-10`}
+        >
           {/* Main Swiper */}
           <Swiper
             style={{
@@ -123,11 +157,7 @@ const Main = () => {
             }}
             loop={true}
             spaceBetween={10}
-            onSwiper={(swiper) => {
-              if (swiper && !swiper.destroyed) {
-                setThumbsSwiper(swiper);
-              }
-            }}
+            onSwiper={(swiper) => setSwiperInstance(swiper)}
             navigation={true}
             thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Navigation, Thumbs]}
@@ -136,25 +166,23 @@ const Main = () => {
           >
             {data?.map((val, i) => (
               <SwiperSlide key={i} className="flex items-center justify-center">
-                <img
+                <Image
+                  width={900}
+                  height={900}
+                  priority
                   src={val}
                   alt={`Slide ${i + 1}`}
-                  className="w-full h-[400px] object-contain rounded-lg"
+                  className="w-full h-[400px] object-contain rounded-lg bg-gray-800"
                 />
               </SwiperSlide>
             ))}
           </Swiper>
-
           {/* Thumbnail Swiper */}
           <Swiper
-            onSwiper={(swiper) => {
-              if (swiper && !swiper.destroyed) {
-                setThumbsSwiper(swiper);
-              }
-            }}
             loop={true}
+            onSwiper={setThumbsSwiper}
             spaceBetween={10}
-            slidesPerView={7}
+            slidesPerView={6}
             freeMode={true}
             watchSlidesProgress={true}
             modules={[FreeMode, Navigation, Thumbs]}
@@ -162,11 +190,15 @@ const Main = () => {
           >
             {data?.map((val, i) => (
               <SwiperSlide key={i} className="cursor-pointer">
-                <img
+                <Image
+                  width={900}
+                  height={900}
+                  priority
+                  onClick={() => thumbsSwiper?.slideTo(i)}
                   src={val}
                   alt={`Thumbnail ${i + 1}`}
-                  className={`w-full h-[100px] object-cover rounded-md border-2 border-transparent
-                  hover:border-white transition duration-300 ${
+                  className={`w-full h-[50px] object-cover rounded-md border-2 border-transparent
+                  hover:border-white transition duration-300 bg-gray-800 ${
                     activeIndex === i
                       ? "border-white scale-105"
                       : "border-transparent"
@@ -238,6 +270,7 @@ function Section1({ scrollYProgress, setVideoUrl, setOpen }) {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 5]);
   const [isLoading, setIsLoading] = useState(true);
+
   const data = [
     {
       src: "/Event/thumbnail/AIR CARGO INDIA.png",
@@ -257,7 +290,7 @@ function Section1({ scrollYProgress, setVideoUrl, setOpen }) {
     {
       src: "/Event/thumbnail/Concrete_INK.mov.png",
       title: "Concrete_INK",
-      video: "/Event/videos/Concrete_INK.mp4",
+      video: "/Event/videos/Concrete_INK.mov.mp4",
     },
   ];
 
@@ -266,19 +299,23 @@ function Section1({ scrollYProgress, setVideoUrl, setOpen }) {
       style={{ scale, rotate }}
       className={`sticky tablet:top-2 h-screen  ${montLight.className}`}
     >
-      <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet: py-10">
+      <div
+        data-aos="fade-up"
+        className=" grid  grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet: py-10"
+      >
         {data.map((val, i) => (
           <div
             key={i}
-            className="w-full bg-blue-300 cursor-pointer relative h-[200px] overflow-hidden tablet:h-full group"
+            className=" w-full bg-gray-300 cursor-pointer relative h-[200px] overflow-hidden tablet:h-full group"
           >
             <Image
-              className="object-cover w-full h-full"
+              className="object-cover  w-full h-full"
               onClick={() => {
                 setVideoUrl(val.video);
                 setOpen(true);
               }}
               width={900}
+              priority={i === 0}
               height={900}
               alt="img1"
               src={val.src}
@@ -329,10 +366,12 @@ function Section2({ scrollYProgress, setVideoUrl, setOpen }) {
         {data.map((val, i) => (
           <div
             key={i}
-            className="w-full bg-blue-300 cursor-pointer group relative h-[200px] overflow-hidden tablet:h-full"
+            data-aos={i !== 0 ? "fade-up" : undefined}
+            className="w-full bg-gray-300 cursor-pointer group relative h-[200px] overflow-hidden tablet:h-full"
           >
             <Image
               className="object-cover w-full h-full"
+              priority={i === 0}
               onClick={() => {
                 setVideoUrl(val.video);
                 setOpen(true);
@@ -387,11 +426,13 @@ function Section3({ scrollYProgress, setVideoUrl, setOpen }) {
       <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet:py-10">
         {data.map((val, i) => (
           <div
+            data-aos={i !== 0 ? "fade-up" : undefined}
             key={i}
-            className="w-full bg-blue-300 group cursor-pointer relative h-[200px] overflow-hidden tablet:h-full"
+            className="w-full bg-gray-300 group cursor-pointer relative h-[200px] overflow-hidden tablet:h-full"
           >
             <Image
               className="object-cover w-full h-full"
+              priority={i === 0}
               onClick={() => {
                 setVideoUrl(val.video);
                 setOpen(true);
@@ -449,11 +490,13 @@ function Section4({ scrollYProgress, setVideoUrl, setOpen }) {
       <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet: py-10 bg-black">
         {data.map((val, i) => (
           <div
+            data-aos={i !== 0 ? "fade-up" : undefined}
             key={i}
-            className="w-full bg-blue-300 group cursor-pointer relative h-[200px] overflow-hidden tablet:h-full"
+            className="w-full bg-gray-300 group cursor-pointer relative h-[200px] overflow-hidden tablet:h-full"
           >
             <Image
               className="object-cover w-full h-full"
+              priority={i === 0}
               onClick={() => {
                 setVideoUrl(val.video);
                 setOpen(true);
@@ -478,7 +521,7 @@ function Section5({ setVideoUrl, setOpen }) {
   return (
     <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet: py-10 bg-black">
       <div
-        className="w-full bg-blue-300 cursor-pointer relative
+        className="w-full bg-gray-300 cursor-pointer relative
       h-[200px] overflow-hidden tablet:h-[400px] group"
       >
         <Image
@@ -488,6 +531,7 @@ function Section5({ setVideoUrl, setOpen }) {
             setOpen(true);
           }}
           width={900}
+          loading="lazy"
           height={900}
           alt="img1"
           src="/Event/thumbnail/Textile waste_1.png"
@@ -497,7 +541,10 @@ function Section5({ setVideoUrl, setOpen }) {
           <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
         </div>
       </div>
-      <div className="w-full bg-blue-300 cursor-pointer relative group   h-[200px] overflow-hidden tablet:h-[400px]">
+      <div
+        data-aos="fade-up"
+        className="w-full bg-gray-300 cursor-pointer relative group   h-[200px] overflow-hidden tablet:h-[400px]"
+      >
         <Image
           className="object-cover w-full h-full"
           onClick={() => {
@@ -505,6 +552,7 @@ function Section5({ setVideoUrl, setOpen }) {
             setOpen(true);
           }}
           width={900}
+          loading="lazy"
           height={900}
           alt="img1"
           src="/Event/thumbnail/Water_Waste (1).png"
