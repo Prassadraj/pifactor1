@@ -4,13 +4,15 @@ import React, { useEffect, useRef, useState } from "react";
 import sparkle from "../../../app/images/sparkle.png";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Newsreader } from "next/font/google";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: "400",
 });
+const news = Newsreader({ subsets: ["latin"], weight: ["800"] });
+
 const mont = Montserrat({ subsets: ["latin"], weight: ["800"] });
 const montLight = Montserrat({ subsets: ["latin"], weight: ["200"] });
 gsap.registerPlugin(ScrollTrigger);
@@ -96,13 +98,13 @@ function First() {
         </motion.div>
       )}
       {/* work title description  */}
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         {" "}
         <div className="flex flex-col gap-4">
           <div className="flex letters ">
             {"Work".split("").map((work, i) => (
               <p
-                className={`${montserrat.className} font-normal text-[20vw] tablet:text-[100px]`}
+                className={`${montserrat.className} bg-grey-gradient text-transparent bg-clip-text font-normal text-[20vw] tablet:text-[100px]`}
                 montserrat
                 key={i}
               >
@@ -110,14 +112,20 @@ function First() {
               </p>
             ))}
           </div>
-          <h3 className="text-2xl ml-4">Vfx</h3>
+          <h3
+            className={`text-2xl ml-4 ${news.className} bg-blue-gradient text-transparent bg-clip-text`}
+          >
+            Vfx
+          </h3>
         </div>
         <div className="flex flex-col gap-2">
           <div className="flex gap-1">
             <Image alt="img" src={sparkle} className="w-4" />
             <p className={`text-base`}>Featured Projects</p>
           </div>
-          <p className={`text-xl max-w-[400px] font-medium `}>
+          <p
+            className={`text-xl max-w-[400px] font-medium bg-grey-gradient text-transparent bg-clip-text  ${montLight.className}`}
+          >
             Highlights of cases that we passionately built with forward-thinking
             clients and friends over the years.
           </p>
@@ -177,7 +185,9 @@ function First() {
               </Link>
             </div>
           </div>
-          <p className="relative z-10 text-white mt-4">Vettaiyan</p>
+          <p className="relative z-10 mt-2 bg-grey-gradient text-transparent bg-clip-text tablet:text-2xl ">
+            Vettaiyan
+          </p>
         </div>
 
         {/* img2  */}
@@ -231,7 +241,9 @@ function First() {
               </Link>
             </div>
           </div>
-          <p className="relative z-10 text-white mt-4">Thangalaan</p>
+          <p className="relative z-10 bg-grey-gradient text-transparent bg-clip-text tablet:text-2xl mt-2">
+            Thangalaan
+          </p>
         </div>
       </div>
       {/* 2div  */}
@@ -288,7 +300,9 @@ function First() {
               </Link>
             </div>
           </div>
-          <p className="relative z-10 text-white mt-4">Jersey</p>
+          <p className="relative z-10 bg-grey-gradient text-transparent bg-clip-text tablet:text-2xl mt-2">
+            Jersey
+          </p>
         </div>
         {/* img4  */}
         <div
@@ -341,7 +355,9 @@ function First() {
               </Link>
             </div>
           </div>
-          <p className="relative z-10 text-white mt-4">Demonte colony</p>
+          <p className="relative z-10 bg-grey-gradient text-transparent bg-clip-text tablet:text-2xl mt-2">
+            Demonte colony
+          </p>
         </div>
       </div>
     </div>

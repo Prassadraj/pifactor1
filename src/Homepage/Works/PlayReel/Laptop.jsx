@@ -167,8 +167,16 @@ function Laptop() {
               <div
                 className={`text-center gap-96 play flex text-[50px] tablet:text-[10rem] text-white ${montserrat.className}`}
               >
-                <p className={`font-medium`}>Play</p>
-                <p className={` font-medium`}>Reel</p>
+                <p
+                  className={`font-medium bg-grey-gradient text-transparent bg-clip-text`}
+                >
+                  Play
+                </p>
+                <p
+                  className={` font-medium bg-grey-gradient text-transparent bg-clip-text`}
+                >
+                  Reel
+                </p>
               </div>
               {/* Image to be scaled */}
               <div className="absolute top-0 left-0 w-full h-full">
