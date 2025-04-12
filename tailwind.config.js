@@ -11,6 +11,9 @@ module.exports = {
         poppins: ["Poppins", "sans-serif"],
         lato: ["Lato", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
+        mageline: ["Mageline", "sans-serif"],
+        bevorden: ["Bevorden", "sans-serif"],
+        wisteriano: ["Wisteriano", "sans-serif"],
       },
       fontWeight: {
         thin: "100",

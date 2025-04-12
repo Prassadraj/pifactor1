@@ -32,20 +32,21 @@ const Main = () => {
   const path = usePathname();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0); // Track active slide
-
   const data = [
-    "/Event/images/Conference Room.jpeg",
-    "/Event/images/Conference_room_F.jpg",
     "/Event/images/Base_Plan_.webp",
-    "/Event/images/Drinktech.jpg",
-    "/Event/images/Entrance-EP.jpg",
-    "/Event/images/Expo_Hall.jpg",
-    "/Event/images/ILE.jpg",
-    "/Event/images/MMI.png",
     "/Event/images/MMI_ExpoVile.png",
+    "/Event/images/Entrance-EP.jpg",
     "/Event/images/Product Launch 3 5-10-2020.png",
     "/Event/images/Registration.jpg",
-    "/Event/images/Standard_Standard_Sample.jpg",
+    "/Event/images/Drinktech.jpg",
+    "/Event/images/MMI.png",
+    "/Event/images/premium stall_6a.jpg",
+    "/Event/images/premium stall_7b.jpg",
+    "/Event/images/premium stall_8.jpg",
+    "/Event/images/Conference Room.jpeg",
+    "/Event/images/Conference_room_F.jpg",
+    "/Event/images/Entrance-EP.jpg",
+    "/Event/images/ILE.jpg",
   ];
   // intro
   useEffect(() => {
@@ -77,9 +78,7 @@ const Main = () => {
           <div key={index} className={`block ${styles.block}`}></div>
         ))}
       </div>
-      <div
-        className={` justify-center  items-center flex  gap-3 mt-32 ${montLight.className}`}
-      >
+      <div className={` justify-center  items-center flex  gap-3 mt-32 `}>
         {/* <p className="text-center text-sm font-medium">Men</p> */}
         <div
           className={` group flex flex-col items-center `}
@@ -98,7 +97,7 @@ const Main = () => {
           className={` group flex flex-col items-center `}
           onClick={() => setOption(0)}
         >
-          <p className="tablet:text-base text-xs text-white name cursor-pointer">
+          <p className="tablet:text-base text-xs text-white name cursor-pointer ">
             Images
           </p>
           <p
@@ -109,7 +108,7 @@ const Main = () => {
       </div>
 
       {option == true ? (
-        <div>
+        <div className={` ${mont.className}`}>
           <Others1 setVideoUrl={setVideoUrl} setOpen={setOpen} />
           <Others2 setVideoUrl={setVideoUrl} setOpen={setOpen} />
           <Section5 setVideoUrl={setVideoUrl} setOpen={setOpen} />
@@ -173,7 +172,7 @@ const Main = () => {
                   priority
                   src={val}
                   alt={`Slide ${i + 1}`}
-                  className="w-full h-[400px] object-contain rounded-lg bg-gray-800"
+                  className="w-full h-[400px] object-contain rounded-lg bg-gray-950"
                 />
               </SwiperSlide>
             ))}
@@ -199,7 +198,7 @@ const Main = () => {
                   src={val}
                   alt={`Thumbnail ${i + 1}`}
                   className={`w-full h-[50px] object-cover rounded-md border-2 border-transparent
-                  hover:border-white transition duration-300 bg-gray-800 ${
+                  hover:border-white transition duration-300 bg-gray-900 ${
                     activeIndex === i
                       ? "border-white scale-105"
                       : "border-transparent"
@@ -274,31 +273,31 @@ function Section1({ scrollYProgress, setVideoUrl, setOpen }) {
 
   const data = [
     {
-      src: "/Event/thumbnail/AIR CARGO INDIA.png",
-      title: "AIR CARGO INDIA",
-      video: "/Event/videos/AIR CARGO INDIA.mp4",
-    },
-    {
       src: "/Event/thumbnail/Info_Hub.png",
-      title: "analytica",
+      title: "Event Application Walkthrough",
       video: "/Event/videos/Info_Hub.mp4",
     },
     {
-      src: "/Event/thumbnail/Bauma_Truck Intro.png",
-      title: "Bauma_Truck",
-      video: "/Event/videos/Bauma_Truck Intro.mp4",
+      src: "/Event/thumbnail/DrinkTech.png",
+      title: "DrinkTech Rebranding",
+      video: "/Event/videos/DrinkTech.mp4",
     },
     {
-      src: "/Event/thumbnail/Concrete_INK.mov.png",
-      title: "Concrete_INK",
-      video: "/Event/videos/Concrete_INK.mov.mp4",
+      src: "/Event/thumbnail/JCB_Engl.png",
+      title: "Bauma Conexpo 2024 Promo",
+      video: "/Event/videos/JCB_Engl.mp4",
+    },
+    {
+      src: "/Event/thumbnail/Netizo_For_Ref.png",
+      title: "Brand Promo",
+      video: "/Event/videos/Netizo_For_Ref.mp4",
     },
   ];
 
   return (
     <motion.div
       style={{ scale, rotate }}
-      className={`sticky tablet:top-2 h-screen  ${montLight.className}`}
+      className={`sticky tablet:top-2 h-screen `}
     >
       <div
         data-aos="fade-up"
@@ -316,13 +315,14 @@ function Section1({ scrollYProgress, setVideoUrl, setOpen }) {
                 setOpen(true);
               }}
               width={900}
+              l
               priority={i === 0}
               height={900}
               alt="img1"
               src={val.src}
             />
             <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex items-center px-2 justify-between">
-              <p className="p-1 font-semibold capitalize">{val.title}</p>
+              <p className="p-1 font-semibold  capitalize">{val.title}</p>
               <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
             </div>
           </div>
@@ -337,24 +337,24 @@ function Section2({ scrollYProgress, setVideoUrl, setOpen }) {
   const rotate = useTransform(scrollYProgress, [0, 0.8], [-5, 0]);
   const data = [
     {
-      src: "/Event/thumbnail/CPHI LOGO 2.png",
-      title: "CPHI LOGO 2",
-      video: "/Event/videos/CPHI LOGO 2.mp4",
+      src: "/Event/thumbnail/AIR CARGO INDIA.png",
+      title: "AIR CARGO INDIA - Festival Wishes",
+      video: "/Event/videos/AIR CARGO INDIA.mp4",
     },
     {
-      src: "/Event/thumbnail/DrinkTech.png",
-      title: "DrinkTech",
-      video: "/Event/videos/DrinkTech.mp4",
+      src: "/Event/thumbnail/Concrete_INK.mov.png",
+      title: "UBM - Train Concrete Show Promo",
+      video: "/Event/videos/Concrete_INK.mov.mp4",
     },
     {
-      src: "/Event/thumbnail/E waste.png",
-      title: "E waste",
-      video: "/Event/videos/E waste.mp4",
+      src: "/Event/thumbnail/Bauma_Truck Intro.png",
+      title: "Bauma Conexpo India 2023",
+      video: "/Event/videos/Bauma_Truck Intro.mp4",
     },
     {
-      src: "/Event/thumbnail/glasspro INDIA 2019.png",
-      title: "glasspro INDIA 2019",
-      video: "/Event/videos/glasspro INDIA 2019.mp4",
+      src: "/Event/thumbnail/TAFE_FINAL.png",
+      title: "TAFE 3D Visualization",
+      video: "/Event/videos/TAFE_FINAL.mp4",
     },
   ];
 
@@ -398,31 +398,31 @@ function Section3({ scrollYProgress, setVideoUrl, setOpen }) {
   const [isLoading, setIsLoading] = useState(true);
   const data = [
     {
-      src: "/Event/thumbnail/Goa_Event_Video.png",
-      title: "Goa Event Video",
-      video: "/Event/videos/Goa_Event_Video.mp4",
-    },
-    {
       src: "/Event/thumbnail/Ifat.png",
-      title: "Ifat",
+      title: "IFAT INDIA - Event day Promo",
       video: "/Event/videos/Ifat.mp4",
     },
     {
-      src: "/Event/thumbnail/JCB_Engl.png",
-      title: "JCB Engl",
-      video: "/Event/videos/JCB_Engl.mp4",
+      title: "Textile Waste - IFAT INDIA Promo",
+      src: "/Event/thumbnail/Textile waste_1.png",
+      video: "/Event/videos/Textile waste_1.mp4",
     },
     {
-      src: "/Event/thumbnail/Juror Awards.png",
-      title: "Juror Awards",
-      video: "/Event/videos/Juror Awards.mp4",
+      title: "Water Waste - IFAT INDIA",
+      src: "/Event/thumbnail/Water_Waste (1).png",
+      video: "/Event/videos/Water_Waste (1).mp4",
+    },
+    {
+      src: "/Event/thumbnail/E waste.png",
+      title: "E Waste - IFAT INDIA",
+      video: "/Event/videos/E waste.mp4",
     },
   ];
 
   return (
     <motion.div
       style={{ scale, rotate }}
-      className={`sticky tablet:top-2 top-2 mt-32 h-screen  ${montLight.className}`}
+      className={`sticky tablet:top-2 top-2 mt-32 h-screen  `}
     >
       <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet:py-10">
         {data.map((val, i) => (
@@ -462,31 +462,31 @@ function Section4({ scrollYProgress, setVideoUrl, setOpen }) {
   const [isLoading, setIsLoading] = useState(true);
   const data = [
     {
+      src: "/Event/thumbnail/Juror Awards.png",
+      title: "Medgate Today Awards",
+      video: "/Event/videos/Juror Awards.mp4",
+    },
+    {
+      src: "/Event/thumbnail/Goa_Event_Video.png",
+      title: "Vibrant MDI Event",
+      video: "/Event/videos/Goa_Event_Video.mp4",
+    },
+    {
       src: "/Event/thumbnail/Medical_Fair_2019_Promo.png",
-      title: "Medical Fair 2019 Promo",
+      title: "Medical Fair Promo",
       video: "/Event/videos/Medical_Fair_2019_Promo.mp4", // Fixed incorrect file extension
     },
     {
-      src: "/Event/thumbnail/Netizo_For_Ref.png",
-      title: "Netizo For Ref",
-      video: "/Event/videos/Netizo_For_Ref.mp4",
-    },
-    {
-      src: "/Event/thumbnail/Smarter E.png",
-      title: "Smarter E",
-      video: "/Event/videos/Smarter E.mp4",
-    },
-    {
-      src: "/Event/thumbnail/TAFE_FINAL.png",
-      title: "TAFE FINAL",
-      video: "/Event/videos/TAFE_FINAL.mp4",
+      src: "/Event/thumbnail/glasspro INDIA 2019.png",
+      title: "Glasspro INDIA Promo",
+      video: "/Event/videos/glasspro INDIA 2019.mp4",
     },
   ];
 
   return (
     <motion.div
       style={{ scale, rotate }}
-      className={`sticky tablet:top-2 h-screen  ${montLight.className}`}
+      className={`sticky tablet:top-2 h-screen  `}
     >
       <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet: py-10 bg-black">
         {data.map((val, i) => (
@@ -521,86 +521,48 @@ function Section4({ scrollYProgress, setVideoUrl, setOpen }) {
 function Section5({ setVideoUrl, setOpen }) {
   const data = [
     {
-      src: "/Event/thumbnail/Medical_Fair_2019_Promo.png",
-      title: "Medical Fair 2019 Promo",
-      video: "/Event/videos/Medical_Fair_2019_Promo.mp4", // Fixed incorrect file extension
-    },
-    {
-      src: "/Event/thumbnail/Netizo_For_Ref.png",
-      title: "Netizo For Ref",
-      video: "/Event/videos/Netizo_For_Ref.mp4",
-    },
-    {
       src: "/Event/thumbnail/Smarter E.png",
-      title: "Smarter E",
+      title: "Smarter E Promo",
       video: "/Event/videos/Smarter E.mp4",
     },
+    {
+      title: "Analytica Lab India",
+      src: "/Event/thumbnail/analytica.png",
+      video: "/Event/videos/analytica (1).mp4",
+    },
+    {
+      src: "/Event/thumbnail/CPHI LOGO 2.png",
+      title: "CPhI India Promo",
+      video: "/Event/videos/CPHI LOGO 2.mp4",
+    },
   ];
+
   return (
-    <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-screen px-4 tablet:px-20 tablet: py-10 bg-black ">
-      <div
-        className="w-full bg-gray-300 cursor-pointer relative
-      h-[200px] overflow-hidden tablet:h-full group"
-      >
-        <Image
-          className="object-cover w-full h-full "
-          onClick={() => {
-            setVideoUrl("/Event/videos/Textile waste_1.mp4");
-            setOpen(true);
-          }}
-          width={900}
-          loading="lazy"
-          height={900}
-          alt="img1"
-          src="/Event/thumbnail/Textile waste_1.png"
-        />
-        <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex justify-between items-center px-2">
-          <p className="p-1 font-semibold"> IFAT INDIA</p>
-          <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
+    <div className="grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-screen px-4 tablet:px-20 tablet:py-10 bg-black">
+      {data.map((item, index) => (
+        <div
+          key={index}
+          data-aos="fade-up"
+          className="w-full bg-gray-300 cursor-pointer relative group h-[200px] overflow-hidden tablet:h-full"
+        >
+          <Image
+            className="object-cover w-full h-full"
+            onClick={() => {
+              setVideoUrl(item.video);
+              setOpen(true);
+            }}
+            width={900}
+            height={900}
+            loading="lazy"
+            alt={item.title}
+            src={item.src}
+          />
+          <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex justify-between items-center px-2">
+            <p className="p-1 font-semibold">{item.title}</p>
+            <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
+          </div>
         </div>
-      </div>
-      <div
-        data-aos="fade-up"
-        className="w-full bg-gray-300 cursor-pointer relative group   h-[200px] overflow-hidden tablet:h-full"
-      >
-        <Image
-          className="object-cover w-full h-full"
-          onClick={() => {
-            setVideoUrl("/Event/videos/Water_Waste (1).mp4");
-            setOpen(true);
-          }}
-          width={900}
-          loading="lazy"
-          height={900}
-          alt="img1"
-          src="/Event/thumbnail/Water_Waste (1).png"
-        />
-        <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex justify-between px-2 items-center">
-          <p className="p-1 font-semibold"> Water_Waste</p>
-          <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
-        </div>
-      </div>
-      <div
-        data-aos="fade-up"
-        className="w-full bg-gray-300 cursor-pointer relative group   h-[200px] overflow-hidden tablet:h-full"
-      >
-        <Image
-          className="object-cover w-full h-full"
-          onClick={() => {
-            setVideoUrl("/Event/videos/analytica (1).mp4");
-            setOpen(true);
-          }}
-          width={900}
-          loading="lazy"
-          height={900}
-          alt="img1"
-          src="/Event/thumbnail/analytica.png"
-        />
-        <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex justify-between px-2 items-center">
-          <p className="p-1 font-semibold"> Analytica</p>
-          <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
-        </div>
-      </div>
+      ))}
     </div>
   );
 }

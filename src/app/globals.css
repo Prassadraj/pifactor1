@@ -9,6 +9,24 @@
   padding: 0;
   box-sizing: border-box;
 }
+@font-face {
+  font-family: "Mageline";
+  src: url("/fonts/Mageline.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Bevorden";
+  src: url("/fonts/Bevorden-Oblique.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Wisteriano";
+  src: url("/fonts/Wisteriano.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
   width: 100%;

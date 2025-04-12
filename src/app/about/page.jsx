@@ -177,7 +177,8 @@ function About() {
           <div className="flex flex-col gap-6">
             <div className="flex gap-1 items-center">
               <Image src={spark} width={20} height={20} alt="Sparkle Effect" />
-              <h2 className="text-lg font-bold tracking-wide tablet:text-3xl laptop:text-xl">
+              <h2 
+               className="text-lg  font-bold tracking-wide tablet:text-3xl laptop:text-xl">
                 How we work
               </h2>
             </div>
