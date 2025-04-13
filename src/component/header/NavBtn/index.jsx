@@ -42,8 +42,8 @@ const navItems = [
     href: "/contact",
   },
   {
-    title: "Others",
-    href: "/others",
+    title: "Events",
+    href: "/event",
   },
 ];
 

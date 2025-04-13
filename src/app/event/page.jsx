@@ -33,21 +33,63 @@ const Main = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0); // Track active slide
   const data = [
-    "/Event/images/Base_Plan_.webp",
-    "/Event/images/MMI_ExpoVile.png",
-    "/Event/images/Entrance-EP.jpg",
-    "/Event/images/Product Launch 3 5-10-2020.png",
-    "/Event/images/Registration.jpg",
-    "/Event/images/Drinktech.jpg",
-    "/Event/images/MMI.png",
-    "/Event/images/premium stall_6a.jpg",
-    "/Event/images/premium stall_7b.jpg",
-    "/Event/images/premium stall_8.jpg",
-    "/Event/images/Conference Room.jpeg",
-    "/Event/images/Conference_room_F.jpg",
-    "/Event/images/Entrance-EP.jpg",
-    "/Event/images/ILE.jpg",
+    {
+      src: "/Event/images/Base_Plan_.webp",
+      title: "Show Venue 3D Overview",
+    },
+    {
+      src: "/Event/images/MMI_ExpoVile.png",
+      title: "Trade Fair center messe munchen",
+    },
+    {
+      src: "/Event/images/Entrance-EP.jpg",
+      title: "Online event - Exhibition hall entrance",
+    },
+    {
+      src: "/Event/images/Product Launch 3 5-10-2020.png",
+      title: "Online show - bosch",
+    },
+    {
+      src: "/Event/images/Registration.jpg",
+      title: "Online event - registration hall",
+    },
+    {
+      src: "/Event/images/Drinktech.jpg",
+      title: "Online event - Exhibition hall",
+    },
+    {
+      src: "/Event/images/MMI.png",
+      title: "online event - mini Exhibition hall",
+    },
+    {
+      src: "/Event/images/Conference Room.jpeg",
+      title: "Online event - Conference Room",
+    },
+
+    {
+      src: "/Event/images/premium stall_6a.jpg",
+      title: "",
+    },
+    {
+      src: "/Event/images/premium stall_7b.jpg",
+      title: "",
+    },
+    {
+      src: "/Event/images/premium stall_8.jpg",
+      title: "",
+    },
+
+    {
+      src: "/Event/images/Conference_room_F.jpg",
+      title: "",
+    },
+
+    {
+      src: "/Event/images/ILE.jpg",
+      title: "",
+    },
   ];
+
   // intro
   useEffect(() => {
     gsap
@@ -161,20 +203,33 @@ const Main = () => {
             navigation={true}
             thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Navigation, Thumbs]}
-            className="w-full max-w-5xl rounded-lg shadow-lg"
+            className="w-full max-w-5xl rounded-lg shadow-lg relative"
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Track active slide
           >
             {data?.map((val, i) => (
-              <SwiperSlide key={i} className="flex items-center justify-center">
-                <Image
-                  width={900}
-                  height={900}
-                  priority
-                  src={val}
-                  alt={`Slide ${i + 1}`}
-                  className="w-full h-[400px] object-contain rounded-lg bg-gray-950"
-                />
-              </SwiperSlide>
+              <>
+                <SwiperSlide
+                  key={i}
+                  className="flex items-center justify-center"
+                >
+                  <Image
+                    width={900}
+                    height={900}
+                    priority
+                    src={val.src}
+                    alt={`Slide ${i + 1}`}
+                    className="w-full h-[400px] object-contain rounded-lg bg-gray-950"
+                  />
+                  <div className="absolute bg-black h-10  w-full bottom-0 left-0 justify-center items-center">
+                    <p
+                      className={`text-center tablet:text-xl  capitalize p-1
+                      bg-grey-gradient text-transparent bg-clip-text ${mont.className}`}
+                    >
+                      {val.title || ""}
+                    </p>
+                  </div>
+                </SwiperSlide>
+              </>
             ))}
           </Swiper>
           {/* Thumbnail Swiper */}
@@ -195,7 +250,7 @@ const Main = () => {
                   height={900}
                   priority
                   onClick={() => thumbsSwiper?.slideTo(i)}
-                  src={val}
+                  src={val.src}
                   alt={`Thumbnail ${i + 1}`}
                   className={`w-full h-[50px] object-cover rounded-md border-2 border-transparent
                   hover:border-white transition duration-300 bg-gray-900 ${
