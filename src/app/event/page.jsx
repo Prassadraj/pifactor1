@@ -89,6 +89,103 @@ const Main = () => {
       title: "",
     },
   ];
+  const dataMobile = [
+    {
+      src: "/Event/thumbnail/Info_Hub.png",
+      title: "Event Application Walkthrough",
+      video: "/Event/videos/Info_Hub.mp4",
+    },
+    {
+      src: "/Event/thumbnail/DrinkTech.png",
+      title: "DrinkTech Rebranding",
+      video: "/Event/videos/DrinkTech.mp4",
+    },
+    {
+      src: "/Event/thumbnail/JCB_Engl.png",
+      title: "Bauma Conexpo 2024 Promo",
+      video: "/Event/videos/JCB_Engl.mp4",
+    },
+    {
+      src: "/Event/thumbnail/Netizo_For_Ref.png",
+      title: "Brand Promo",
+      video: "/Event/videos/Netizo_For_Ref.mp4",
+    },
+    {
+      src: "/Event/thumbnail/AIR CARGO INDIA.png",
+      title: "AIR CARGO INDIA - Festival Wishes",
+      video: "/Event/videos/AIR CARGO INDIA.mp4",
+    },
+    {
+      src: "/Event/thumbnail/Concrete_INK.mov.png",
+      title: "UBM - Train Concrete Show Promo",
+      video: "/Event/videos/Concrete_INK.mov.mp4",
+    },
+    {
+      src: "/Event/thumbnail/Bauma_Truck Intro.png",
+      title: "Bauma Conexpo India 2023",
+      video: "/Event/videos/Bauma_Truck Intro.mp4",
+    },
+    {
+      src: "/Event/thumbnail/TAFE_FINAL.png",
+      title: "TAFE 3D Visualization",
+      video: "/Event/videos/TAFE_FINAL.mp4",
+    },
+    {
+      src: "/Event/thumbnail/Ifat.png",
+      title: "IFAT INDIA - Event day Promo",
+      video: "/Event/videos/Ifat.mp4",
+    },
+    {
+      src: "/Event/thumbnail/Textile waste_1.png",
+      title: "Textile Waste - IFAT INDIA Promo",
+      video: "/Event/videos/Textile waste_1.mp4",
+    },
+    {
+      src: "/Event/thumbnail/Water_Waste (1).png",
+      title: "Water Waste - IFAT INDIA",
+      video: "/Event/videos/Water_Waste (1).mp4",
+    },
+    {
+      src: "/Event/thumbnail/E waste.png",
+      title: "E Waste - IFAT INDIA",
+      video: "/Event/videos/E waste.mp4",
+    },
+    {
+      src: "/Event/thumbnail/Juror Awards.png",
+      title: "Medgate Today Awards",
+      video: "/Event/videos/Juror Awards.mp4",
+    },
+    {
+      src: "/Event/thumbnail/Goa_Event_Video.png",
+      title: "Vibrant MDI Event",
+      video: "/Event/videos/Goa_Event_Video.mp4",
+    },
+    {
+      src: "/Event/thumbnail/Medical_Fair_2019_Promo.png",
+      title: "Medical Fair Promo",
+      video: "/Event/videos/Medical_Fair_2019_Promo.mp4",
+    },
+    {
+      src: "/Event/thumbnail/glasspro INDIA 2019.png",
+      title: "Glasspro INDIA Promo",
+      video: "/Event/videos/glasspro INDIA 2019.mp4",
+    },
+    {
+      src: "/Event/thumbnail/Smarter E.png",
+      title: "Smarter E Promo",
+      video: "/Event/videos/Smarter E.mp4",
+    },
+    {
+      src: "/Event/thumbnail/analytica.png",
+      title: "Analytica Lab India",
+      video: "/Event/videos/analytica (1).mp4",
+    },
+    {
+      src: "/Event/thumbnail/CPHI LOGO 2.png",
+      title: "CPhI India Promo",
+      video: "/Event/videos/CPHI LOGO 2.mp4",
+    },
+  ];
 
   // intro
   useEffect(() => {
@@ -148,13 +245,47 @@ const Main = () => {
           ></p>{" "}
         </div>
       </div>
-
+      {/* videos  */}
       {option == true ? (
-        <div className={` ${mont.className}`}>
-          <Others1 setVideoUrl={setVideoUrl} setOpen={setOpen} />
-          <Others2 setVideoUrl={setVideoUrl} setOpen={setOpen} />
-          <Section5 setVideoUrl={setVideoUrl} setOpen={setOpen} />
-          <Footer />
+        <>
+          {/* tab  */}
+          <div className={` ${mont.className} hidden tablet:block`}>
+            <Others1 setVideoUrl={setVideoUrl} setOpen={setOpen} />
+            <Others2 setVideoUrl={setVideoUrl} setOpen={setOpen} />
+            <Section5 setVideoUrl={setVideoUrl} setOpen={setOpen} />
+
+            {/* popup info about video  */}
+          </div>
+          {/* mobile  */}
+          <motion.div className={` tablet:hidden mt-5`}>
+            <div className=" grid  grid-cols-1  gap-5 h-full px-4 tablet:px-20 tablet:py-10">
+              {dataMobile.map((val, i) => (
+                <div
+                  data-aos="fade-up"
+                  key={i}
+                  className=" w-full bg-gray-300 cursor-pointer relative h-[200px] overflow-hidden tablet:h-full group"
+                >
+                  <Image
+                    className="object-cover  w-full h-full"
+                    onClick={() => {
+                      setVideoUrl(val.video);
+                      setOpen(true);
+                    }}
+                    width={900}
+                    l
+                    priority={i === 0}
+                    height={900}
+                    alt="img1"
+                    src={val.src}
+                  />
+                  <div className="bg-black/40 absolute bottom-0 left-0 w-full h-10 flex items-center px-2 justify-between">
+                    <p className="p-1 font-semibold  capitalize">{val.title}</p>
+                    <MdArrowOutward className="text-3xl group-hover:opacity-100 opacity-0 transition-opacity duration-700" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
           {open && (
             <div
               onClick={() => setOpen(false)}
@@ -186,16 +317,18 @@ const Main = () => {
               </div>
             </div>
           )}
-        </div>
+          <Footer />
+        </>
       ) : (
+        // images
         <div
           className={` flex flex-col items-center justify-center w-full tablet:mt-10 mt-4 mb-10`}
         >
           {/* Main Swiper */}
           <Swiper
             style={{
-              "--swiper-navigation-color": "#fff",
-              "--swiper-pagination-color": "#fff",
+              "--swiper-navigation-color": "grey",
+              "--swiper-pagination-color": "grey",
             }}
             loop={true}
             spaceBetween={10}
@@ -356,7 +489,7 @@ function Section1({ scrollYProgress, setVideoUrl, setOpen }) {
     >
       <div
         data-aos="fade-up"
-        className=" grid  grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet: py-10"
+        className=" grid  grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet:py-10"
       >
         {data.map((val, i) => (
           <div
@@ -417,7 +550,7 @@ function Section2({ scrollYProgress, setVideoUrl, setOpen }) {
     <motion.div style={{ scale, rotate }} className="relative h-screen">
       <div
         className="bg-black  grid tablet:grid-cols-2 tablet:grid-rows-2 gap-10
-       px-4 h-full tablet:px-20 tablet: py-10"
+       px-4 h-full tablet:px-20 tablet:py-10"
       >
         {data.map((val, i) => (
           <div
@@ -543,7 +676,7 @@ function Section4({ scrollYProgress, setVideoUrl, setOpen }) {
       style={{ scale, rotate }}
       className={`sticky tablet:top-2 h-screen  `}
     >
-      <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet: py-10 bg-black">
+      <div className=" grid grid-cols-1 tablet:grid-cols-2 tablet:grid-rows-2 gap-5 h-full px-4 tablet:px-20 tablet:py-10 bg-black">
         {data.map((val, i) => (
           <div
             data-aos={i !== 0 ? "fade-up" : undefined}

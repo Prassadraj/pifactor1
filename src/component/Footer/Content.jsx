@@ -66,15 +66,16 @@ const Nav = () => {
             <p
               className={`${montserratLight.className} text-gold tablet:text-2xl hidden z-10 tablet:block tablet:max-w-md laptop:max-w-lg font-light`}
             >
-              PiFactor merges creativity and curiosity, making each project a
-              journey in visual discovery.
+              Pixceil Factory merges creativity and curiosity, making each
+              project a journey in visual discovery.
             </p>
           </div>
           {/* right */}
           <div className="w-1/2 mt-10 tablet:mt-0 hidden tablet:block">
             <video
               ref={videoRef}
-              className="tablet:h-full tablet:w-full scale-[3]  tablet:scale-y-150 tablet:scale-x-150  
+              className="tablet:h-full tablet:w-full scale-[3]  tablet:scale-y-[3] tablet:scale-x-[3]
+              laptop:scale-x-150 laptop:scale-y-150  
              opacity-85  z-0"
               autoPlay
               muted
@@ -89,7 +90,7 @@ const Nav = () => {
         <p
           className={`text-3xl z-20 tablet:hidden text-[#e0ccbb] tablet:max-w-md laptop:max-w-lg font-light ${montserratLight.className}`}
         >
-          PiFactor merges creativity and curiosity, making each project a
+          Pixceil Factory merges creativity and curiosity, making each project a
           journey in visual discovery.
         </p>
       </div>
