@@ -540,9 +540,9 @@ function Section2({ scrollYProgress, setVideoUrl, setOpen }) {
       video: "/Event/videos/Bauma_Truck Intro.mp4",
     },
     {
-      src: "/Event/thumbnail/TAFE_FINAL.png",
-      title: "TAFE 3D Visualization",
-      video: "/Event/videos/TAFE_FINAL.mp4",
+      src: "/Event/thumbnail/airCargo.png",
+      title: "Air Cargo Promo",
+      video: "/Event/videos/airCargo.mp4",
     },
   ];
 
@@ -722,6 +722,11 @@ function Section5({ setVideoUrl, setOpen }) {
       src: "/Event/thumbnail/CPHI LOGO 2.png",
       title: "CPhI India Promo",
       video: "/Event/videos/CPHI LOGO 2.mp4",
+    },
+    {
+      src: "/Event/thumbnail/TAFE_FINAL.png",
+      title: "TAFE 3D Visualization",
+      video: "/Event/videos/TAFE_FINAL.mp4",
     },
   ];
 
