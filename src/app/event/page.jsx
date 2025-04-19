@@ -171,6 +171,11 @@ const Main = () => {
       video: "/Event/videos/glasspro INDIA 2019.mp4",
     },
     {
+      src: "/Event/thumbnail/airCargo.png",
+      title: "Air Cargo Promo",
+      video: "/Event/videos/airCargo.mp4",
+    },
+    {
       src: "/Event/thumbnail/Smarter E.png",
       title: "Smarter E Promo",
       video: "/Event/videos/Smarter E.mp4",
