@@ -303,7 +303,7 @@ function Page({ params }) {
         >
           <Link href={`/work/${category}/${nextProject.id}`}>
             <div className="h-full w-full relative">
-              <div className="tablet:hidden w-full h-full absolute bg-black/40"></div>
+              <div className="inset-0 absolute bg-black/40"></div>
               <div
                 className="absolute  left-1/2 top-1/2 transform translate-x-[-50%] translate-y-[-50%] 
             h-[400px] w-[400px]"

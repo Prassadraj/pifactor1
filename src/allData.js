@@ -587,7 +587,7 @@ const allData = [
       },
       {
         id: 2,
-        title: "MTR",
+        title: "Soft Touch",
         subTitle: "Soft Touch",
         mainImg: "/ads/pics/Soft Touch.webp",
         images: [images[0], images[1], images[2]],

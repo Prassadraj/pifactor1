@@ -386,26 +386,26 @@ export default function App() {
             transform -translate-x-1/2 -translate-y-1/2 tablet:-translate-x-0 tablet:translate-y-0 tablet:text-lg text-xs z-20 text-white"
       >
         {filteredData.map((data, dataIndex) => (
-          <div key={`${dataIndex}`} className="overflow-hidden -z-10 ">
+          <div key={`${dataIndex}`} className=" -z-10 ">
             <div
-              className="font-bold tablet:text-4xl capitalize text-base tablet:max-w-52 laptop:max-w-72 text-wrap"
+              className="font-bold capitalize  p-4 text-wrap"
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
             >
-              <h1 className="title  tablet:max-w-xs text-wrap text-center tablet:text-left">
+              <h1 className="title tablet:text-4xl font-wisteriano  text-base tablet:max-w-xs text-wrap text-center tablet:text-left">
                 {data?.items[selected - 1]?.title}
               </h1>
             </div>
 
-            <div
+            {/* <div
               className="font-medium tablet:!text-xl text-sm tablet:max-w-44 text-wrap capitalize mt-2  text-center tablet:text-left"
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
             >
               <h2 className="title">{data?.items[selected - 1]?.subTitle}</h2>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
