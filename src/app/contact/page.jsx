@@ -8,6 +8,8 @@ import styles from "./styles.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { usePathname } from "next/navigation";
+import { CiLocationOn } from "react-icons/ci";
+
 const montserrat = Montserrat({
   subsets: ["latin"],
 });
@@ -139,36 +141,40 @@ function Page() {
           and we’ll be back in no time!
         </p>
         <div
-          className="flex items-center gap-2 tablet:absolute tablet:bottom-20 tablet:max-w-md
-            tablet:text-base tablet:font-light"
+          className="flex group items-center gap-2 tablet:absolute tablet:bottom-20 tablet:max-w-md
+            tablet:text-base tablet:font-light  hover:cursor-pointer"
         >
           <Image src={spark} width={20} height={20} alt="Sparkle Effect" />
-          <p className="text-xl tablet:text-base underline">
-            pifactor@gmail.com
-          </p>
+          <a
+            href="mailto:pixceilfactory@gmail.com"
+            className="text-xl tablet:text-base group-hover:text-gold  transition-all"
+          >
+            pixceilfactory@gmail.com
+          </a>
         </div>
-        <div
+        {/* <div
           className="flex items-center gap-2 tablet:absolute tablet:bottom-12 tablet:max-w-md
             tablet:text-sm tablet:font-light"
         >
           <Image src={spark} width={20} height={20} alt="Sparkle Effect" />
           <p className="text-xl tablet:text-base underline">+91 123456789</p>
-        </div>
+        </div> */}
         <div
           className="pl-2 tablet:absolute tablet:bottom-20 tablet:max-w-sm
-            tablet:text-base tablet:font-light tablet:right-20"
+            tablet:text-base tablet:font-light tablet:right-20 flex gap-2 items-center"
         >
-          <p className="text-xl tablet:text-sm capitalize">{`TTK Road, chennai,
-       `}</p>
-          <p className="text-xl tablet:text-sm"> TamilNadu</p>
+          {/* <p className="text-xl tablet:text-sm capitalize">{`TTK Road, chennai,
+       `}</p> */}
+          <CiLocationOn />
+          <p className="text-xl tablet:text-sm">Chennai, TamilNadu</p>
         </div>
-        <div
+        {/* <div
           className="flex items-center gap-2 tablet:absolute tablet:bottom-10 tablet:max-w-sm
             tablet:text-base tablet:font-light tablet:right-20"
         >
           <Image src={spark} width={20} height={20} alt="Sparkle Effect" />
           <p className="text-xl tablet:text-sm underline">View on Maps</p>
-        </div>
+        </div> */}
       </div>
       <Footer />
     </>
