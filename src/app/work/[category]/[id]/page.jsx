@@ -224,7 +224,8 @@ function Page({ params }) {
                 playing
                 width="100%"
                 height="100%"
-                controls
+                controls 
+                loop
                 playsinline
                 muted
               />
@@ -236,13 +237,15 @@ function Page({ params }) {
       {/* laptop  */}
       <div className=" px-5 tablet:px-20  tablet:py-10">
         <div className="hidden    tablet:h-fit tablet:flex flex-col laptop:gap-4 tablet:gap-2">
-          <p className="laptop:max-w-3xl  largeLaptop:max-w-3xl tablet:max-w-xl tablet:text-2xl laptop:text-3xl largeLaptop:text-4xl">
+          <p className="laptop:max-w-3xl font-mageline  largeLaptop:max-w-3xl tablet:max-w-xl tablet:text-2xl laptop:text-5xl largeLaptop:text-6xl">
             {selectedItem.title}
           </p>
-          <p className="laptop:max-w-3xl  largeLaptop:max-w-3xl tablet:max-w-xl tablet:text-2xl laptop:text-3xl largeLaptop:text-4xl">
+          {/* description */}
+          {/* <p className="laptop:max-w-3xl  largeLaptop:max-w-3xl tablet:max-w-xl tablet:text-2xl laptop:text-3xl largeLaptop:text-4xl">
             {selectedItem.description}
-          </p>
-          {category != "vfx" && (
+          </p> */}
+          {/* category */}
+          {/* {category != "vfx" && (
             <div className="flex tablet:gap-16 laptop:gap-20">
               <div className="flex flex-col tablet:gap-2">
                 <p className="text-xl font-semibold">Client</p>
@@ -265,12 +268,12 @@ function Page({ params }) {
                 <p className="text-base">{selectedItem.date}</p>
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
 
       <div>
-        <Zoom video={selectedItem.video[0]} />
+        {/* <Zoom video={selectedItem.video[0]} /> */}
         {/* <div className="tablet:h-screen w-full h-fit  flex items-center justify-center">
           <video
             preload="auto"
@@ -321,22 +324,24 @@ function Page({ params }) {
               >
                 <div className="overflow-hidden -z-10">
                   <div
-                    className="font-bold tablet:text-4xl capitalize text-4xl max-w-xs text-wrap"
+                    className="font-bold tablet:text-4xl p-4 capitalize text-4xl max-w-xs text-wrap"
                     style={{
                       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                     }}
                   >
-                    <p className="nextTitle ">{nextProject?.title}</p>
+                    <p className="nextTitle font-wisteriano">
+                      {nextProject?.title}
+                    </p>
                   </div>
-
-                  <div
+                  {/* subtile  */}
+                  {/* <div
                     className="font-medium tablet:text-xl text-lg  capitalize mt-2 max-w-xs text-wrap"
                     style={{
                       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                     }}
                   >
                     <p className="nextTitle ">{nextProject?.subTitle}</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

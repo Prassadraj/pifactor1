@@ -397,6 +397,48 @@ const allData = [
     items: [
       {
         id: 1,
+        title: "Rolex",
+        subTitle: "subTitle1",
+        mainImg: "/3dAnimations/pics/Rolex.png",
+        images: [images[0], images[1], images[2]],
+        video: ["/3dAnimations/videos/Rolex.mp4", "/intro.mp4"],
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+      {
+        id: 2,
+        title: "Interior",
+        subTitle: "subTitle1",
+        mainImg: "/3dAnimations/pics/Interior.png",
+        images: [images[0], images[1], images[2]],
+        video: ["/3dAnimations/videos/Interior.mp4"],
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+      {
+        id: 3,
         title: "Exterior",
         subTitle: "subTitle1",
         mainImg: "/3dAnimations/pics/architectural.webp",
@@ -417,7 +459,7 @@ const allData = [
         solution: "solution content",
       },
       {
-        id: 2,
+        id: 4,
         title: "Cell Apparatus",
         subTitle: "subTitle1",
         mainImg: "/3dAnimations/pics/cell_07.webp",
