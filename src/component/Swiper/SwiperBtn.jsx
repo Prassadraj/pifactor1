@@ -66,7 +66,7 @@ export default function App() {
         swiperRef.current.slideNext();
         animateImage();
       }
-    }, 8000);
+    }, 9000);
     return () => clearInterval(interval);
   }, []);
 
@@ -98,21 +98,23 @@ export default function App() {
     gsap.fromTo(
       ".title",
       {
-        y: 150,
-        skewX: "-160deg",
+        y: 100,
+        skewX: "-30deg",
+        opacity: 0,
       },
       {
         y: 0,
         skewX: "0deg",
-        duration: 1.2,
-        ease: "power3.out",
+        opacity: 1,
+        duration: 1.5,
+        ease: "power4.out",
         delay: 0.2,
-        stagger: 0.1,
+        stagger: 0.15,
       }
     );
   };
   const handleNavigation = (nav, itemId) => {
-    const animationDuration = 0.8; // Adjust duration for mobile (<=768px)
+    const animationDuration = 1; // Adjust duration for mobile (<=768px)
 
     // Animate `.image`
     gsap.fromTo(
@@ -253,7 +255,7 @@ export default function App() {
                     />
                     <div className="flex items-center justify-center h-full bg-black bg-opacity-30">
                       <div
-                        className="relative laptop:w-[25%] w-[60%] h-[400px]
+                        className="relative  laptop:w-[25%] w-[60%] h-[400px]
             tablet:w-[50%] top-[5%] tablet:top-[8%] laptop:top-[12%] 
             largeLaptop:top-[10%] tablet:h-1/2 laptop:h-[400px] overflow-hidden z-20"
                         style={{
@@ -264,7 +266,7 @@ export default function App() {
                         <Image
                           src={portraitImg || coverImg} // Use item.mainImg dynamically here as well
                           alt={`Slide ${itemIndex + 1} inner`}
-                          className="object-contain transition-opacity w-full h-full duration-1000 image "
+                          className="object-contain rounded-3xl transition-opacity w-full h-full duration-1000 image "
                           fill
                           // placeholder={coverImg}
                           quality={60}
@@ -393,8 +395,8 @@ export default function App() {
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
               }}
             >
-              <h1 className="title tablet:text-4xl font-wisteriano  text-base tablet:max-w-xs text-wrap text-center tablet:text-left">
-                {data?.items[selected - 1]?.title}
+              <h1 className="title tablet:text-4xl laptop:text-5xl font-wisteriano  text-base tablet:max-w-xs text-wrap text-center tablet:text-left">
+                {data?.items[selected - 1]?.title || ""}
               </h1>
             </div>
 

@@ -63,7 +63,7 @@ const allData = [
       },
       {
         id: 3,
-        title: "JESSEY",
+        title: "JERSEY",
         subTitle: "Tracking and Patch work",
         mainImg: "/vfx/pics/jersey.webp",
         portrait: "/vfx/pics/jerseyPotrait.jpg",
@@ -135,6 +135,52 @@ const allData = [
       },
       {
         id: 6,
+        title: "Rudhran",
+        subTitle: "subTitle3",
+        mainImg: "/vfx/pics/Rudhran.png",
+        portrait: "/vfx/pics/Rudhran.png",
+        images: [images[0], images[1], images[2]],
+
+        video: ["/vfx/videos/Rudhran.mp4"],
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+      {
+        id: 7,
+        title: "Seetimaar",
+        subTitle: "subTitle3",
+        mainImg: "/vfx/pics/Seetimaar.png",
+        portrait: "/vfx/pics/Seetimaar.png",
+        images: [images[0], images[1], images[2]],
+
+        video: ["/vfx/videos/Seetimaar.mp4"],
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+      {
+        id: 8,
         title: "Password",
         subTitle: "subTitle3",
         mainImg: "/vfx/pics/password.jpg",
@@ -157,7 +203,7 @@ const allData = [
         solution: "solution content",
       },
       {
-        id: 7,
+        id: 9,
         title: "Ox",
         subTitle: "subTitle3",
         mainImg: "/vfx/pics/Ox.webp",
@@ -179,12 +225,34 @@ const allData = [
         solution: "solution content",
       },
       {
-        id: 8,
+        id: 10,
         title: "Mouse",
         subTitle: "subTitle3",
         mainImg: "/vfx/pics/Mouse.webp",
         images: [images[0], images[1], images[2]],
         video: ["/vfx/videos/Mouse.mp4", "/vfx/videos/Mouse.mp4"],
+
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+      {
+        id: 11,
+        title: "",
+        subTitle: "",
+        mainImg: "/vfx/pics/1.png",
+        images: [images[0], images[1], images[2]],
+        video: ["/vfx/videos/1.mp4"],
 
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
@@ -207,11 +275,12 @@ const allData = [
     items: [
       {
         id: 1,
-        title: "title1",
-        subTitle: "subTitle1",
-        mainImg: images[1],
+        title: "Your Backers Production",
+        subTitle: "",
+        mainImg: "/title/pics/temple.png",
         images: [images[0], images[1], images[2]],
-        video: "/intro.mp4",
+        
+        video:[ "/title/videos/Your Backers Production.mp4"],
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
@@ -228,11 +297,53 @@ const allData = [
       },
       {
         id: 2,
-        title: "title2",
-        subTitle: "subTitle2",
-        mainImg: images[4],
+        title: "Vetrumai Pahagu",
+        subTitle: "",
+        mainImg: "/title/pics/Vetrumai.png",
         images: [images[0], images[1], images[2]],
-        video: "/intro.mp4",
+        video: ["/title/videos/Vetrumai_Pahagu.mp4"],
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+      {
+        id: 3,
+        title: "Karshanam",
+        subTitle: "",
+        mainImg: "/title/pics/Karshanam.png",
+        images: [images[0], images[1], images[2]],
+        video: ["/title/videos/Karshanam.mp4"],
+        description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        client: "clientName",
+        services: ["services1", "services2", "services3", "services4"],
+        industries: "cine",
+        date: "1/6/2001",
+        objective: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
+            maxime alias illum placeat eveniet quos magni repudiandae sed atque?
+            Velit impedit nihil temporibus tempore fuga? Quae quod in corporis
+            aperiam.`,
+        solution: "solution content",
+      },
+      {
+        id: 4,
+        title: "Loser's Creation",
+        subTitle: "",
+        mainImg: "/title/pics/Loser.png",
+        images: [images[0], images[1], images[2]],
+        video: ["/title/videos/Loser Production.mp4"],
         description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
             maxime alias illum placeat eveniet quos magni repudiandae sed atque?
             Velit impedit nihil temporibus tempore fuga? Quae quod in corporis

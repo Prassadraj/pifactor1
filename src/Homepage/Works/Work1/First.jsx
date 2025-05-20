@@ -104,7 +104,7 @@ function First() {
           <div className="flex letters ">
             {"Work".split("").map((work, i) => (
               <p
-                className={`${montserrat.className} bg-grey-gradient text-transparent bg-clip-text font-normal text-[20vw] tablet:text-[100px]`}
+                className={`font-mageline bg-grey-gradient text-transparent bg-clip-text font-normal text-[20vw] tablet:text-[150px]`}
                 montserrat
                 key={i}
               >
@@ -113,7 +113,7 @@ function First() {
             ))}
           </div>
           <h3
-            className={`text-2xl ml-4 ${news.className} bg-blue-gradient text-transparent bg-clip-text`}
+            className={`text-3xl laptop:text-5xl ml-4  bg-grey-gradient font-wisteriano text-transparent bg-clip-text`}
           >
             Vfx
           </h3>
@@ -121,7 +121,7 @@ function First() {
         <div className="flex flex-col gap-2">
           <div className="flex gap-1">
             <Image alt="img" src={sparkle} className="w-4" />
-            <p className={`text-base`}>Featured Projects</p>
+            <p className={`text-base font-kicap`}>Featured Projects</p>
           </div>
           <p
             className={`text-xl max-w-[400px] font-medium bg-grey-gradient text-transparent bg-clip-text  ${montLight.className}`}
@@ -185,7 +185,7 @@ function First() {
               </Link>
             </div>
           </div>
-          <p className="relative z-10 mt-2 bg-grey-gradient text-transparent bg-clip-text tablet:text-2xl ">
+          <p className="relative  z-10 mt-2 bg-grey-gradient text-transparent bg-clip-text tablet:text-2xl ">
             Vettaiyan
           </p>
         </div>

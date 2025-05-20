@@ -14,6 +14,8 @@ module.exports = {
         mageline: ["Mageline", "sans-serif"],
         bevorden: ["Bevorden", "sans-serif"],
         wisteriano: ["Wisteriano", "sans-serif"],
+        kicap: ["Kicap", "sans-serif"],
+        ragellan: ["Ragellan", "sans-serif"],
       },
       fontWeight: {
         thin: "100",
